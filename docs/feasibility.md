@@ -1,5 +1,8 @@
 # Fezabilitate cu costuri zero — Travel Buddy
 
+## Actualizare de statut — 2026-10-23
+Cele patru compromisuri discutate în raportul istoric sunt deja aprobate în `product.md`: oprire la cote fără plată automată, lipsa fotografiei indicată după căutare, transport public neconfirmat marcat cu sursă și plan offline cu hartă online. Nu se rediscută. Recomandarea tehnică actuală este în [architecture.md](architecture.md); ofertele rămân condiționate de probele planificate și de cotele conturilor la activare. Textul de mai jos păstrează cercetarea inițială, inclusiv stările istorice de aprobare.
+
 Evaluare documentară la **22 octombrie 2026**, pentru două persoane. Coordonatorul a integrat trei cercetări delimitate efectuate de agenți `gpt-6-luna` și a reverificat sursele decisive. Nu au fost create conturi, chei, servicii sau aplicații. O ofertă publică nu dovedește încă funcționarea integrată; cotele și condițiile trebuie reverificate înainte de activare.
 
 ## Concluzie

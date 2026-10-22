@@ -1,14 +1,17 @@
 # Memorie de proiect
 
-## Stare curentă — pregătirea etapei următoare
-Utilizatorul întreabă dacă materialele vizuale sunt suficiente și reamintește folosirea agenților mai ieftini, cu principalul coordonator. Evaluarea a fost delegată către doi agenți `gpt-6-luna`, separat pentru acoperirea vizuală și pregătirea tehnică, apoi verificată de coordonator față de brief și deciziile deja aprobate.
+## Stare curentă — pregătirea implementării, 2026-10-23
+Cererea actuală încheie explorarea vizuală și autorizează actualizarea documentației în GitHub și subagenții. Nu autorizează implementarea aplicației, activarea serviciilor sau publicarea site-ului. Brief-ul și cele patru compromisuri acceptate nu se rediscută. Istoricul de mai jos conține stări depășite; această predare și secțiunile recente au prioritate.
 
-Recomandare: există suficiente repere pentru a opri seria de machete statice și a pregăti implementarea. Brief-ul și compromisurile deja acceptate nu se redeschid. Următorul livrabil recomandat este planul de execuție: reguli vizuale și componente reutilizabile, inventarul imaginilor/fontului, alegerea tehnică justificată în limite gratuite, probele necesare și sarcini delimitate pentru agenți. După cererea de implementare urmează o primă versiune navigabilă în browser și verificarea integrată.
+Livrabilele sunt legate din [plan.md](plan.md): [planul de execuție](plans/2026-10-23-implementation.md), [design-system.md](design-system.md), [architecture.md](architecture.md) și [probele tehnice](plans/2026-10-23-technical-probes.md). Recomandarea este React/TypeScript/Vite PWA + Cloudflare Pages/Worker/D1 + Firebase Auth Spark, cu Tavily/Groq/Geoapify în cote gratuite; nu este o combinație activată sau demonstrată integral. Detaliile de cost și probele sunt în documentele dedicate.
 
-Categoriile rămase de preferințe pot reutiliza modelul carnetelor. Introducerea publică, conectarea/asocierea celor două conturi, detaliile alergiilor, adaptarea pe desktop și stările interactive trebuie acoperite în plan și în browser; nu sunt declarate finalizate. Fontul real Bricolage Grotesque, interacțiunile, animațiile și comportamentele AI/sincronizare/offline nu sunt verificate de imaginile statice. Nicio tehnologie nu a fost aleasă și nu au fost activate servicii. Întrebarea de față nu este tratată ca cerere de implementare.
+Paleta verde pădure/ivoriu/auriu, Bricolage Grotesque, Buddy leneș maro/crem cu rucsac verde, jurnalul/biletele/pașaportul/ștampilele și imaginile specifice destinațiilor sunt repere aprobate. Carnetele aprobate se reutilizează pentru preferințele rămase. Nu cerem machete suplimentare fără problemă concretă. Prima scenă a creării și mișcările nu au aprobare vizuală separată; se evaluează în browser. Cele două referințe fotografice Lisabona pentru introducere rămân nerecuperate; nu se inventează.
 
-Coordonatorul stabilește contractele, ia deciziile, integrează și verifică. `gpt-6-luna` execută sarcini delimitate și remedieri, maximum trei simultan, cu responsabilități distincte. Review independent mai puternic numai când complexitatea îl justifică.
+În această sesiune copia locală inițială era veche; cele zece documente au fost recuperate de pe GitHub prin conexiunea disponibilă, deoarece accesul Git prin proxy nu funcționa. PNG-urile nu sunt în copia locală; aprobările au fost citite în galerie, fără a pretinde inspecția imaginilor. Nu se suprascrie arborele remote cu copia locală inițială.
 
+Patru agenți gpt-6-luna au redactat documente independente și au corectat constatările; un gpt-6.1-sol a reverificat riscurile/coerența. IR-01–IR-08 sunt închise documentar, fără defecte blocante rămase în cele patru livrabile. Coordonatorul a verificat integrarea, legăturile și ID-urile; dovezile sunt în verification.md. Limita istorică de trei subagenți este înlocuită de capacitatea sesiunii, cu număr justificat de sarcini și fișiere distincte. Procesul: delegare → review → remediere delegată → reverificare → integrare → verificare finală a coordonatorului.
+
+Următorul pas după predarea documentelor: evaluarea planului de către utilizator și o cerere explicită pentru execuție. Toate probele API, browser și telefon sunt neexecutate. Nu s-au activat servicii.
 
 ## Fapte confirmate
 - Numele proiectului este **Travel Buddy**.

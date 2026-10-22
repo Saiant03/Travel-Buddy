@@ -6,16 +6,25 @@
 - Trei agenți gpt-6-luna au cercetat domenii separate, fără editări comune. Coordonatorul a integrat și verificat rezultatul, inclusiv corectarea limitelor ORS vechi și a eligibilității Gemini.
 - Nu s-au implementat site-ul, ales definitiv tehnologii, creat conturi sau activat servicii.
 
-## Stare curentă — pregătirea etapei următoare
-Utilizatorul întreabă dacă materialele vizuale sunt suficiente și reamintește folosirea agenților mai ieftini, cu principalul coordonator. Evaluarea a fost delegată către doi agenți `gpt-6-luna`, separat pentru acoperirea vizuală și pregătirea tehnică, apoi verificată de coordonator față de brief și deciziile deja aprobate.
+## Stare curentă — pregătirea implementării, 2026-10-23
+Explorarea vizuală este încheiată. Cererea curentă autorizează documentarea și planificarea, nu implementarea, activarea serviciilor sau publicarea site-ului. Notele istorice de mai jos păstrează parcursul proiectului; această secțiune stabilește următorul pas.
 
-Recomandare: există suficiente repere pentru a opri seria de machete statice și a pregăti implementarea. Brief-ul și compromisurile deja acceptate nu se redeschid. Următorul livrabil recomandat este planul de execuție: reguli vizuale și componente reutilizabile, inventarul imaginilor/fontului, alegerea tehnică justificată în limite gratuite, probele necesare și sarcini delimitate pentru agenți. După cererea de implementare urmează o primă versiune navigabilă în browser și verificarea integrată.
+**Plan de execuție:** [Etape, contracte pentru agenți și criterii de acceptare](plans/2026-10-23-implementation.md).
 
-Categoriile rămase de preferințe pot reutiliza modelul carnetelor. Introducerea publică, conectarea/asocierea celor două conturi, detaliile alergiilor, adaptarea pe desktop și stările interactive trebuie acoperite în plan și în browser; nu sunt declarate finalizate. Fontul real Bricolage Grotesque, interacțiunile, animațiile și comportamentele AI/sincronizare/offline nu sunt verificate de imaginile statice. Nicio tehnologie nu a fost aleasă și nu au fost activate servicii. Întrebarea de față nu este tratată ca cerere de implementare.
+Livrabile complementare:
+- [Reguli vizuale, componente reutilizabile și inventarul imaginilor](design-system.md).
+- [Recomandarea tehnică, alternativele și condițiile costului zero](architecture.md).
+- [Probele timpurii: acces, sincronizare, conflicte, Buddy, hartă, surse, cote și telefon offline](plans/2026-10-23-technical-probes.md).
 
-Coordonatorul stabilește contractele, ia deciziile, integrează și verifică. `gpt-6-luna` execută sarcini delimitate și remedieri, maximum trei simultan, cu responsabilități distincte. Review independent mai puternic numai când complexitatea îl justifică.
+Ordine recomandată: autorizarea viitoare a execuției → contracte/fundație și probe locale → autorizarea separată a activării strict gratuite, când sunt necesare probe reale → dovezi pentru acces/conflicte/offline și furnizori → fluxuri complete → review, corectare delegată, reverificare și verificare finală pe telefon/calculator. Nu este o autorizare implicită de publicare.
 
-## Etape viitoare
+Tehnic, recomandarea coordonatorului este React/TypeScript/Vite ca aplicație web instalabilă, Cloudflare Pages + Worker + D1 pentru interfață/API/date și Firebase Auth Spark pentru cele două conturi; Tavily/Groq/Geoapify rămân furnizori verificați documentar, condiționați de probe. Nu se activează facturare sau upgrade automat. Detaliile și pragurile sunt în arhitectură și în planul probelor.
+
+Preferințele rămase reutilizează carnetele aprobate. Nu mai producem serii de machete fără o problemă concretă. Fontul real, adaptarea și interacțiunile se verifică în browser în etapa autorizată. Referințele exacte ale celor două fotografii Lisabona pentru introducere trebuie recuperate; această lipsă blochează acceptarea acelei secțiuni, nu pregătirea aplicației private.
+
+Patru agenți gpt-6-luna au finalizat documentele independente (vizual, arhitectură, probe, execuție) și corectările. Un agent gpt-6.1-sol a reverificat IR-01–IR-08; toate sunt închise documentar. Coordonatorul a verificat integrarea finală, fără a declara probele tehnice executate. Capacitatea disponibilă înlocuiește limita istorică de trei subagenți, conform cererii actuale.
+
+## Istoric — etape planificate anterior
 1. Design: structură, fluxuri, preferințe detaliate, aspectul Buddy și tratarea informațiilor lipsă.
 2. Plan detaliat: responsabilități, contracte, probe de fezabilitate și criterii pentru MVP. Probele reale de API/telefon rămân neexecutate; vor preceda promisiunea funcționării integrate.
 3. Implementare: numai după cerere explicită. Coordonatorul planifică și deleagă lucrări delimitate către gpt-6-luna, cu fișiere distincte.

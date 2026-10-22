@@ -10,8 +10,8 @@ Conform cererii utilizatorului, coordonatorul planifică și verifică; agenții
 Impeccable și Taste sunt instalate în `.agents/skills/` la commituri fixe. Două skill-uri proprii acoperă regulile tehnice și reviewul. Actualizările externe sunt deliberate, urmate de inspecție; nu se suprascriu automat versiunile.
 Taste conduce explorarea vizuală; Impeccable susține auditul și finisarea. Cerințele utilizatorului și accesibilitatea au prioritate.
 
-## Încă nedecis
-Cerințele funcționale, accesul online de oriunde, două conturi și consultarea planului offline sunt confirmate în product.md. Rămân deschise stackul, mecanismele de stocare/autentificare, designul concret, harta offline și compromisurile din feasibility.md. Nicio tehnologie de aplicație nu a fost aleasă prin evaluare.
+## Statut actual al alegerilor — 2026-10-23
+Direcția vizuală și compromisurile sunt aprobate în `product.md` și `mockups.md`. Recomandarea tehnică pentru execuție este în [architecture.md](architecture.md), condiționată de probele timpurii. Nu reprezintă activare, acceptare funcțională sau autorizare de implementare. Fotografiile exacte Lisabona rămân de recuperat; verificările în browser și pe telefoane rămân neexecutate.
 
 ## D004 — Extinderea skill-urilor solicitată de utilizator (2026-10-22)
 Adăugăm sursele oficiale Anthropic Frontend Design, UI/UX Pro Max, Vercel Web Design Guidelines și cele opt module GSAP, cu resursele lor și commituri fixe. Impeccable rămâne instalarea existentă.
@@ -25,3 +25,13 @@ Folosim versiunea istorică autonomă a celor trei skill-uri Matt Pocock pentru 
 
 ## D006 — Brief consolidat și evaluare fără implementare (2026-10-22)
 La cererea utilizatorului, definirea inițială este considerată încheiată; product.md rămâne sursa cerințelor și include criterii observabile. feasibility.md documentează opțiunile gratuite și limitele lor. Cercetarea nu autorizează implementarea, activarea serviciilor cu plată sau reducerea cerințelor. Opțiunile tehnice și compromisurile sunt propuneri, nu decizii aprobate. Delegarea către gpt-6-luna și verificarea finală de către coordonator au fost păstrate.
+
+
+## D007 — Pregătirea execuției după încheierea explorării (2026-10-23)
+Cererea actuală autorizează reguli vizuale/componente/inventar imagini, recomandare tehnică justificată, plan pe etape și planul probelor timpurii. Se reutilizează modelele aprobate; nu se mai produc serii de machete fără problemă concretă. Nu se redeschid brief-ul și compromisurile. Fără implementare, activarea serviciilor sau publicarea site-ului în această etapă.
+
+## D008 — Delegare potrivit capacității și cu fișiere distincte (2026-10-23)
+Instrucțiunea utilizatorului înlocuiește limita istorică de trei subagenți. Folosim gpt-6-luna pentru lucrări delimitate și corectări, gpt-6.1-sol pentru review independent dificil; coordonatorul răspunde de integrare și verificarea finală. Patru documente independente justifică patru autori în acest val; reviewul urmează existenței livrabilelor. Contractele și remedierea/reverificarea rămân obligatorii.
+
+## D009 — Recomandare tehnică de pregătire, fără servicii activate (2026-10-23)
+Coordonatorul recomandă React/TypeScript/Vite PWA, Cloudflare Pages/Worker/D1 și Firebase Auth Spark pentru identitate gestionată, cu exact două UID-uri autorizate. Tavily, Groq și Geoapify sunt furnizori propuși în cote gratuite. Costul zero se protejează prin planuri fără plată activată, limite interne și oprire la epuizare; nu prin presupunerea că o alertă de consum oprește facturarea. Arhitectura descrie accesul privat, versiunile/confirmarea atomică și copia offline manuală. Benchmarkul, concurența reală și telefoanele condiționează continuarea; o recomandare nu este dovadă de funcționare sau alegere aprobată de utilizator.

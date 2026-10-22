@@ -1,5 +1,8 @@
 # Brief de produs — Travel Buddy
 
+## Prioritate curentă — 2026-10-23
+Explorarea vizuală este încheiată la cererea utilizatorului. Secțiunile recente despre compromisurile acceptate și machetele aprobate înlocuiesc întrebările istorice de mai jos; nu reluăm brief-ul. Pregătim componentele, inventarul imaginilor, recomandarea tehnică și planul de execuție, cu legătură din [plan](plan.md). Nu sunt autorizate încă implementarea aplicației, activarea serviciilor sau publicarea site-ului. Valorile exacte de stil și tehnologiile recomandate sunt alegeri de pregătire, fără probe funcționale trecute. Preferințele rămase reutilizează carnetele aprobate.
+
 Consolidat la 2026-10-22 din cerințele confirmate. Definirea inițială este încheiată. Acest document este sursa unică pentru cerințele produsului; evaluarea opțiunilor tehnice este în `feasibility.md`. Consolidarea nu reprezintă aprobarea unei tehnologii sau autorizarea implementării.
 
 ## Scop și utilizatori
@@ -381,4 +384,4 @@ Trei vederi sunt propuse:
 3. **Alegi:** pentru „Artă modernă”, opțiunile „Îmi place mult”, „Aș încerca”, „Nu mă interesează, dar pot participa” și „Nu vreau deloc”. Exemplul selectează participarea fără interes propriu și permite o precizare opțională.
 Interfața explică regula existentă: participarea fără interes propriu poate permite activitatea comună pentru celălalt; refuzul explicit o exclude din planul comun. Se păstrează activitățile împreună și alternarea priorităților.
 Selecțiile și nota „Prefer expoziții mai mici” sunt doar exemple, nu preferințe reale declarate. Fiecare își editează propriul profil. Gramatica vizuală preia carnetul de gusturi, cu etichete adecvate activităților, distincte de răspunsurile alimentare.
-Macheta culturii este propunere vizuală pentru evaluare, încă neaprobată. Nu există formular sau motor de recomandări implementate. Claritatea și comportamentul se verifică în site-ul funcțional; scenariile sunt planificate în `docs/verification.md`, neexecutate.
+Macheta culturii a primit feedback vizual pozitiv („super”), conform galeriei și ultimei note din memorie. Nu există formular sau motor de recomandări implementate. Claritatea și comportamentul se verifică în site-ul funcțional; scenariile sunt planificate în `docs/verification.md`, neexecutate.

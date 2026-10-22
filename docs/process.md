@@ -48,3 +48,18 @@ Schimbarea instrucțiunilor de proces aparține coordonatorului; implementatorii
 Principalul rămâne modelul selectat în aplicație. `gpt-6-luna` este alegerea pentru sarcini mici; `gpt-6.1-sol` poate face review dificil.
 Rolurile din `.codex/agents/` și instrucțiunile din `AGENTS.md` exprimă această împărțire. Nu garantează disponibilitatea unui model și nu schimbă permisiunile sesiunii.
 În această sesiune, coordonatorul poate indica explicit modelul la delegare. Pentru sesiunile noi, dacă rolurile nu apar, redeschide proiectul și verifică descoperirea lor.
+
+
+## Ajustări pentru pregătirea implementării — 2026-10-23
+- Verificăm actualitatea copiei locale înainte de delegare. În această sesiune copia inițială era veche și îi lipsea galeria; cele zece documente au fost recuperate prin conexiunea GitHub. Nu tratăm un fișier lipsă local ca lipsă în repository.
+- Cererea actuală și notele recente primează; istoricul cu întrebări/limite închise nu reactivează un interviu sau seria de machete. Documentele lungi primesc o stare curentă la început.
+- Capacitatea sesiunii este șapte agenți în total. Patru lucrări independente de redactare justifică patru agenți gpt-6-luna: vizual/imagini, arhitectură, probe, execuție. Reviewul independent dificil folosește gpt-6.1-sol și începe după existența livrabilelor. Nu ocupăm sloturi fără sarcină independentă.
+- Contractele includ scop, context de citit, skill-uri de aplicat, fișiere permise, interfețe, dependențe, rezultat și verificări. Agentul raportează ce a verificat efectiv. Configurațiile, fișierele de contracte comune și memoria au un singur proprietar la un moment dat.
+- Înghețăm contractele de date și alegerea tehnică înainte de implementarea în paralel. Agenții care planifică își transmit dependențele; coordonatorul rezolvă nepotrivirile.
+- Reviewul produce observații cu ID; autorul repară, reviewerul recitește remedierea, coordonatorul verifică integrarea. Nu marcăm un test tehnic trecut pentru că scenariul este bine documentat.
+- Salvarea documentației în GitHub este autorizată în această etapă. Folosim un commit cu numai documentele schimbate, pe baza ultimului arbore, cu verificarea versiunii anterioare la actualizare. Nu creăm automat issues/PR-uri și nu activăm publicarea site-ului.
+- Separăm proba locală simulată de proba reală cu furnizor/telefon. Activarea serviciilor și implementarea sunt în afara mandatului curent.
+
+- La reviewul acestei etape au apărut ID-uri de probe inventate în matrice și o dependență circulară între probele de telefon și fundație. Păstrăm un singur inventar canonic de ID-uri, verificăm legăturile dintre planuri după redactare și separăm gate-ul minim timpuriu de probele de integrare care cer funcționalități deja construite.
+- După orice corecție a contractului (de exemplu nonce CAS, ownership offline sau stările joburilor), autorul notifică explicit documentele consumatoare; coordonatorul verifică aceleași denumiri, nu doar faptul că autorii au acceptat observația.
+- Pentru reducerea rundelor inutile, autorul declară un snapshot „gata pentru review” înaintea verdictului integrat. Observațiile timpurii pot ghida redactarea, dar închiderea lor cere recitirea snapshotului final. După corectarea unei decizii repetate în mai multe secțiuni, căutăm întregul document pentru formulări vechi, nu doar paragraful indicat.

@@ -114,3 +114,32 @@ Rezultatele și dovezile se adaugă după executare; nu există încă o impleme
 5. Precizarea opțională se păstrează la elementul corect, fiecare cont își editează propriile preferințe, iar profilul și ajustările pentru vacanță rămân distincte.
 6. „Nu am preferințe speciale aici” și stările necompletate nu sunt confundate cu refuzuri explicite; condiția parcurgerii celor cinci categorii rămâne cea aprobată.
 7. Se verifică pe telefon lizibilitatea etichetelor lungi, selectarea prin atingere/controale accesibile și înțelegerea diferenței dintre interes, participare și refuz.
+
+## Pregătirea implementării — 2026-10-23
+
+### Verificări documentare efectuate
+- Coordonatorul a citit cele zece documente cerute și inventarul skill-urilor. Copia inițială din workspace era mai veche; cele zece fișiere au fost recuperate prin conexiunea GitHub și hash-urile lor au fost comparate cu arborele `10eee6b80325ec7867796bca49b267ee59396131`: toate corespund aceleiași versiuni remote.
+- Arborele GitHub conține cele 16 PNG-uri din galeria machetelor. Ele nu sunt prezente în copia locală; nu s-a pretins inspecție vizuală a PNG-urilor și nu au fost produse machete suplimentare.
+- Au fost folosiți efectiv patru agenți `gpt-6-luna` pentru design/componente/imagini, arhitectură, probe și planul execuției, pe fișiere distincte. Reviewul independent dificil este realizat de un agent `gpt-6.1-sol`; remedierea aparține autorilor. Coordonatorul păstrează verificarea integrată finală.
+- Skill-uri aplicate prin citire și execuția instrucțiunilor relevante: `writing-plans` (structură, interfețe, pași, self-review), `travel-buddy-engineering` (granițe/date/persistență), `travel-buddy-review` și `code-review-and-quality` (coerență, defecte, reverificare), `design-taste-frontend`, `frontend-design` și `impeccable` (reguli/componente/accesibilitate), `webapp-testing` numai pentru proiectarea verificărilor viitoare. Skill-ul cloud runtime a fost aplicat pentru politica rețelei și acces; nu a fost rulat un browser.
+- Metadatele și licența Bricolage Grotesque au fost verificate în repository-ul oficial Google Fonts: SIL OFL 1.1 și Latin/Latin-ext. Nu s-a distribuit fontul și nu s-au verificat încă fișierul WOFF2, caracterele după subsetare sau randarea în browser.
+- Condițiile tehnice decisive au fost recitite în documentația oficială: identitate Firebase/JWT, Worker CPU și cote, D1 batch și limitele pe bază/cont, stocare care cere facturare. R2 și Firebase Storage cu Blaze au fost excluse din recomandarea strict gratuită. URL-urile surselor sunt în `architecture.md` și `design-system.md`.
+
+### Verificări neexecutate și limite
+Toate probele P-01–P-12 sunt planificate, neexecutate. Nu există aplicație, build de produs, teste de API cu chei, benchmark CPU, verificare SQL concurentă pe D1 real, browser/telefon sau rezultat offline demonstrat. Nu au fost create conturi/chei, activate servicii sau publicat site-ul. Gratuitatea practică și calitatea informațiilor/AI sunt condiționate de probe. Referințele exacte ale celor două fotografii Lisabona pentru introducere rămân nerecuperate; nu se inventează și nu blochează celelalte module.
+
+### Review independent, corectări și reverificare finală
+Toate observațiile **IR-01–IR-08 sunt închise documentar**, după remediere delegată către autorii gpt-6-luna și recitire de către reviewerul gpt-6.1-sol. Nu au rămas defecte blocante în cele patru livrabile revizuite; acest verdict nu înseamnă că probele tehnice au trecut.
+
+| ID | Corecție reverificată |
+|---|---|
+| IR-01 | Logout/purge local separat de valabilitatea tokenului Firebase deja emis; UID dezactivat este respins online. |
+| IR-02 | Gate CPU P-09 real, minimum 100 cereri cold și 100 warm, p95 ≤7 ms, zero terminări CPU, request maxim 256 KiB. |
+| IR-03 | Matricea folosește ID-urile canonice ale probelor, fără confuzia surse/rutare/offline. |
+| IR-04 | Harness și comenzi înaintea testelor contractelor, fără importuri din fișiere viitoare sau opțiuni CLI inventate. |
+| IR-05 | IntroPage are un singur proprietar, Task 9. |
+| IR-06 | Propunere Buddy imuabilă, patch server-side, versiune/preferințe validate și receipt atomic unic. |
+| IR-07 | Token de claim/lease verificat la fiecare scriere; rezultat întârziat respins, apel extern duplicat contabilizat conservator. |
+| IR-08 | Spike Task 1b înaintea fundației, P-12-A timpuriu pe telefon și P-12-B după implementarea offline, fără dependența circulară. |
+
+Coordonatorul a recitit integrarea și a verificat cele 12 documente noi/actualizate: legături documentare locale existente, blocuri de cod închise, toate trimiterile la probe definite și 14 sarcini viitoare cu contracte. `git diff --check` a trecut. Nu există directoare/fișiere de aplicație create (`src`, `tests`, `migrations`, `public`, `probes`, `package.json`). P-12 este împărțită în P-12-A (mini-spike, fără verdict MVP) și P-12-B (conținutul offline complet); ambele rămân neexecutate.
