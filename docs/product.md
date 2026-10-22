@@ -271,4 +271,9 @@ Direcția vizuală este aprobată. Prima machetă statică pentru telefon a ecra
 
 ## Prima machetă pentru telefon — 2026-10-22
 A fost generată o machetă statică a ecranului de generare: [previzualizare și note](mockups.md), imagine în `docs/mockups/generation-mobile-v1.png`.
-Direcția vizuală este aprobată, dar această randare și desenul propus al lui Buddy sunt de evaluat de utilizator. Lisabona / 5 zile este un exemplu de ecran, nu o vacanță declarată. Nu există site sau animație implementată. Tipografia exactă, dimensiunile responsive, contrastul și comportamentul din browser se verifică la implementare.
+Baza vizuală și comportamentul sunt aprobate; prima randare și desenul propus al lui Buddy nu au fost acceptate de utilizator. Cele cinci alternative mai jucăușe sunt documentate mai jos. Lisabona / 5 zile este un exemplu de ecran, nu o vacanță declarată. Nu există site sau animație implementată. Tipografia exactă, dimensiunile responsive, contrastul și comportamentul din browser se verifică la implementare.
+
+## Iterații vizuale mai jucăușe — 2026-10-22
+Utilizatorul nu a acceptat prima machetă și a cerut cinci iterații mai jucăușe, păstrând baza. Fontul aprobat rămâne **Bricolage Grotesque**. În prima randare, tipografia nu a redat fidel fontul; imaginile generate sunt explorări vizuale, iar fontul exact se verifică ulterior în browser.
+Au fost create cinci alternative pentru ecranul de generare, numerotate în [galeria de machete](mockups.md): 1 — Traseu cu opriri; 2 — Pașaport cu ștampile; 3 — Atelierul lui Buddy; 4 — Hartă de buzunar; 5 — Bagaj de vacanță.
+Se păstrează paleta verde pădure/alb cald/auriu, Buddy maro-crem cu rucsac verde și etapele clare de progres. Compoziția, stilul ilustrației și reprezentarea progresului sunt explorate separat. Toate cele cinci randări și variantele mascotei sunt încă neaprobate. Originalul este păstrat ca istoric, nu ca design acceptat. Nu există site sau animație implementată.

@@ -1,6 +1,40 @@
 # Machete Travel Buddy
 
-## Generarea itinerariului — telefon, varianta 1
+## Cinci iterații mai jucăușe — pentru evaluare
+2026-10-22. Prima machetă nu a fost acceptată. Utilizatorul a cerut cinci alternative, păstrând baza produsului și explorând o direcție mai jucăușă.
+
+Fontul stabilit rămâne **Bricolage Grotesque**. Imaginile sunt concepte generate: nu constituie dovada folosirii fișierului real al fontului. Fidelitatea tipografiei se verifică în browser. Baza păstrată: verde pădure, alb cald, auriu, Buddy maro/crem cu rucsac verde, trei stări de progres ușor de înțeles. „Lisabona · 5 zile” este doar exemplul ilustrat.
+
+Toate cele cinci variante de mai jos sunt propuneri neaprobate. Sunt machete statice, fără site ori animație implementată.
+
+### 1 — Traseu cu opriri
+Traseu punctat cu opriri, cartonașe și Buddy în mișcare; progresul urmărește vizual o mică călătorie.
+
+![1 — Traseu cu opriri](mockups/generation-mobile-playful-01.png)
+
+### 2 — Pașaport cu ștampile
+Bilete, ștampile și foi de pașaport; Buddy pregătește documentele călătoriei.
+
+![2 — Pașaport cu ștampile](mockups/generation-mobile-playful-02.png)
+
+### 3 — Atelierul lui Buddy
+Buddy organizează cartonașele zilelor într-un mic atelier; etapele sunt grupate într-un panou clar.
+
+![3 — Atelierul lui Buddy](mockups/generation-mobile-playful-03.png)
+
+### 4 — Hartă de buzunar
+Fundal verde pădure, hartă pliată și zonă alb cald pentru progres; contrast mai pronunțat.
+
+![4 — Hartă de buzunar](mockups/generation-mobile-playful-04.png)
+
+### 5 — Bagaj de vacanță
+Buddy pregătește un bagaj cu elementele planului; progresul rămâne într-o listă verticală.
+
+![5 — Bagaj de vacanță](mockups/generation-mobile-playful-05.png)
+
+---
+
+## Istoric — prima machetă, neacceptată
 2026-10-22. Machetă statică generată pentru evaluare vizuală; nu este un ecran funcțional.
 
 ![Machetă pentru telefon: Buddy organizează itinerariul, cu o etapă terminată, una activă și una în așteptare](mockups/generation-mobile-v1.png)
@@ -13,4 +47,4 @@
 - Mesaje în română și o ilustrare statică a indicatorului de activitate.
 
 ### Stare
-Direcția vizuală și comportamentul sunt aprobate. Randarea, compoziția și această variantă a mascotei sunt propuneri pentru evaluare. Animația nu a fost produsă; caracterele și fontul exact, contrastul, adaptarea la dimensiuni reale de telefon și accesibilitatea se verifică ulterior în browser. Imaginea nu înlocuiește cele două fotografii Lisabona aprobate pentru introducere, ale căror referințe exacte rămân de recuperat.
+Direcția vizuală și comportamentul sunt aprobate. Această randare, compoziția și varianta mascotei nu au fost acceptate de utilizator, care a cerut cinci iterații mai jucăușe păstrând baza. Animația nu a fost produsă; caracterele și fontul exact, contrastul, adaptarea la dimensiuni reale de telefon și accesibilitatea se verifică ulterior în browser. Imaginea nu înlocuiește cele două fotografii Lisabona aprobate pentru introducere, ale căror referințe exacte rămân de recuperat.
