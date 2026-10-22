@@ -1,6 +1,22 @@
 # Machete Travel Buddy
 
 
+## Conversația cu Buddy — propunere și reconfirmare, pentru evaluare
+2026-10-22. Machetă statică în direcția vizuală aprobată, prezentând două stări alternative ale aceluiași ecran mobil.
+
+![Conversația cu Buddy: rezumat înainte de confirmare și propunere actualizată când planul comun s-a schimbat](mockups/buddy-chat-confirmation-mobile-v1.png)
+
+### Ce arată
+- **Stânga:** cererea de eliminare a castelului, rezumatul a ceea ce se elimină și se păstrează, ordinea propusă și „Confirmă și aplică”.
+- **Dreapta:** „Planul a fost modificat între timp”, cererea păstrată, un loc nou păstrat în propunerea adaptată și „Reconfirmă și aplică”.
+- Planul actual rămâne salvat până la confirmare. O singură persoană poate confirma; nu există o cerință de aprobare dublă.
+- „Mai ajustează”, scrierea unui mesaj și revenirea la itinerariu.
+- Buddy discret, rezumat pe bilet de călătorie, ștampile de stare și paleta aprobată.
+
+**Stare:** propunere neaprobată, de evaluat. Mesajele și locurile sunt exemple de design, nu o conversație sau modificări reale. Schimbarea comună ilustrată constă în adăugarea Sé de Lisboa; aceasta rămâne în propunerea actualizată, în timp ce numai castelul este eliminat. După confirmare trebuie reverificată actualitatea propunerii conform cerinței existente.
+
+Fontul real, lizibilitatea la dimensiuni de telefon, accesibilitatea, păstrarea cererii și gestionarea schimbărilor simultane se verifică la implementare. Imaginea nu este un chat funcțional și nu demonstrează sincronizarea.
+
 ## Detaliile unui loc pe telefon — machetă aprobată
 2026-10-22. Panou cu detaliile unei opriri, deschis peste itinerariu, în direcția vizuală aprobată.
 

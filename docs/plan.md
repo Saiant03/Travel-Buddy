@@ -62,4 +62,12 @@ A fost creată următoarea machetă statică: detaliile unei opriri într-un pan
 - Controale pentru înlocuire, eliminare și revenire la plan; închiderea păstrează poziția din itinerariu, conform cerinței existente.
 Direcția vizuală rămâne cea aprobată (pașaport, bilete, ștampile; verde pădure/alb cald/auriu; Bricolage Grotesque). Macheta detaliilor este aprobată de utilizator: „da, arată bine și este în temă”. Sunt acceptate organizarea panoului, păstrarea contextului itinerariului, informațiile de verificat și acțiunile prezentate. Imaginea și motivul de potrivire sunt exemple de design, nu fotografie verificată sau preferințe personale completate. Nicio interacțiune nu este implementată.
 
-Următorul pas de design: macheta conversației cu Buddy, cu rezumatul modificărilor și confirmarea înainte de aplicare. Se păstrează regulile aprobate: o persoană poate confirma, iar o propunere bazată pe o versiune veche se adaptează și se reconfirmă. Continuăm cu machete statice, fără implementarea site-ului sau activarea serviciilor.
+Macheta conversației cu Buddy a fost realizată, cu rezumatul modificărilor, confirmare înainte de aplicare și reconfirmare după schimbarea planului comun. Randarea este propunere pentru evaluare; urmează feedbackul utilizatorului. Se păstrează regulile aprobate: o persoană poate confirma, iar o propunere bazată pe o versiune veche se adaptează și se reconfirmă. Continuăm cu machete statice, fără implementarea site-ului sau activarea serviciilor.
+
+## Machetă conversație Buddy și confirmare — 2026-10-22
+La cererea utilizatorului a fost creată macheta statică a conversației cu Buddy, în direcția vizuală aprobată. [Imagine și note](mockups.md), fișier `docs/mockups/buddy-chat-confirmation-mobile-v1.png`.
+Două stări ale aceluiași ecran pe telefon sunt prezentate alăturat:
+- Propunerea normală: cererea „Scoate castelul și păstrează restul”, rezumat cu eliminarea Castelo de São Jorge, păstrarea Miradouro da Graça și Alfama, ordinea rezultată și „Confirmă și aplică”.
+- Plan comun modificat între timp: cererea este păstrată; Sé de Lisboa, adăugată între timp, rămâne în noua propunere. Buddy afișează rezumatul actualizat și „Reconfirmă și aplică”.
+În ambele stări planul actual rămâne salvat, iar schimbările așteaptă confirmarea unei singure persoane, conform regulii existente. Există acțiunea „Mai ajustează”, câmpul de mesaj și revenirea la itinerariu.
+Macheta este propunere pentru evaluare, încă neaprobată. Locurile și mesajele sunt exemple, nu modificări reale ale unei vacanțe. Nu există chat sau sincronizare implementate. Fontul rămâne Bricolage Grotesque; redarea exactă și interacțiunile se verifică la implementare. Urmează feedbackul pe această machetă.
