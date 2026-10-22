@@ -228,11 +228,29 @@ Precizări opționale aprobate:
 Un interes pentru piețe alimentare poate exista și fără intenție de cumpărături. Buddy poate integra o piață pentru experiența locală, păstrând interesele distincte. Se păstrează activitățile comune și respectarea refuzurilor ambilor; nu se introduce implicit timp separat.
 
 
-## Adăugarea locurilor prin nume sau link — propunere de flux, neaprobată
-Cerința de bază (adăugare prin nume/link și integrare în zi/traseu) este deja confirmată. Detaliile următoare sunt propuse:
+## Adăugarea locurilor prin nume sau link — flux aprobat la 2026-10-22
+Cerința de bază și următorul flux de identificare și integrare sunt aprobate:
 1. Utilizatorul introduce numele sau linkul unui loc în vacanța curentă.
 2. Buddy încearcă identificarea în contextul destinației și arată numele, localitatea/adresa și fotografia, dacă există.
 3. Dacă există mai multe potriviri, arată variantele și utilizatorul alege; nu selectează automat un loc ambiguu.
 4. Dacă linkul nu poate fi citit sau locul nu poate fi identificat suficient de clar, cere numele și localitatea/adresa ori un alt link. Nu inventează amplasarea sau datele lipsă.
 5. După identificare, Buddy propune ziua și poziția în traseu, respectând o zi indicată de utilizator dacă acesta o precizează. Prezintă rezumatul modificării pentru confirmare înainte de aplicare.
-Se păstrează celelalte locuri alese, iar prețul/programul neconfirmat rămân marcate conform regulilor existente. Nu se promite suport universal pentru orice link; sursele și accesul efectiv trebuie evaluate tehnic. Tratarea unui loc incompatibil cu limitele unuia dintre participanți rămâne de discutat separat.
+Se păstrează celelalte locuri alese, iar prețul/programul neconfirmat rămân marcate conform regulilor existente. Nu se promite suport universal pentru orice link; sursele și accesul efectiv trebuie evaluate tehnic. Adăugările manuale respectă și regulile deja aprobate despre refuzurile explicite, limitele ambilor și restricțiile alimentare; prezentarea mesajelor aferente se stabilește la design.
+
+
+## Generarea itinerariului și întreruperile — propunere de comportament, neaprobată
+În timpul generării se afișează etapa reală, cu mesaje simple:
+1. „Caut locuri potrivite pentru voi.”
+2. „Organizez locurile pe zile.”
+3. „Verific ordinea opririlor și informațiile disponibile.”
+Etapele trebuie să reflecte operațiile efectiv executate. Verificarea folosește datele disponibile și păstrează marcajele de preț/program sau alte informații neconfirmate.
+
+Dacă procesul se întrerupe:
+- Ultimul itinerariu confirmat rămâne disponibil și neschimbat.
+- Rezultatul parțial recuperabil se păstrează separat și poate fi consultat cu marcajul „Propunere incompletă”, fără să fie prezentat ca plan final sau să înlocuiască planul confirmat.
+- La prima generare, dacă nu există încă un itinerariu confirmat, interfața indică explicit acest lucru și arată separat propunerea incompletă disponibilă.
+- Se explică motivul cunoscut: conexiune întreruptă, serviciu indisponibil, cotă gratuită epuizată ori cauză încă neclară. Se arată ce lipsește când poate fi determinat.
+- Utilizatorul poate apăsa „Reîncearcă” când problema permite. Pentru cotă epuizată, disponibilitatea sau momentul reîncercării se afișează numai dacă sunt cunoscute; se păstrează regula aprobată fără plată automată.
+- O propunere incompletă nu înlocuiește copia offline completă existentă. O propunere de modificare recuperată respectă în continuare rezumatul, confirmarea și regulile pentru un plan comun modificat între timp.
+
+Acest comportament este o propunere de produs, nu o capacitate implementată sau probată cu furnizori.
