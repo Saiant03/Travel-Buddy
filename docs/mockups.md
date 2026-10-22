@@ -1,7 +1,22 @@
 # Machete Travel Buddy
 
 
-## Copia offline pe telefon — trei stări, pentru evaluare vizuală
+## „Vacanțele noastre” pe telefon — pentru evaluare vizuală
+2026-10-22. Pagina privată de după conectare, cu două stări alternative ale aceluiași ecran mobil.
+
+![Vacanțele noastre: listă cu vacanțe existente și pagina înainte de prima vacanță](mockups/trips-home-mobile-v1.png)
+
+### Ce arată
+- **Vacanțe existente:** carduri cu destinație, imagine ilustrativă, număr de zile, transport și „Deschide itinerariul”; buton „Vacanță nouă”.
+- **Prima vacanță:** mesaj introductiv și „Planifică prima vacanță”, cu Buddy mai vizibil.
+- „Preferințele mele” în ambele stări, pentru contul conectat.
+- Bilete, ștampile și paleta aprobată; Buddy discret lângă lista de vacanțe.
+
+**Stare:** propunere vizuală neaprobată. Lisabona / 5 zile / pe jos și Madeira / 7 zile / mașină sunt exemple pentru design, nu date personale sau călătorii reale salvate. Cele două stări nu apar simultan în produs. Miniaturile sunt ilustrative, nu fotografii confirmate din surse.
+Fontul real, dimensiunile pe telefon și comportamentul paginii se verifică la implementare. Nu există pagină funcțională sau autentificare implementată.
+Fluxul de creare în trei pași, deja cerut, va fi reprezentat separat.
+
+## Copia offline pe telefon — trei stări, aprobate vizual
 2026-10-22. Machetă statică în direcția vizuală aprobată, cu trei stări ale aceluiași ecran mobil.
 
 ![Copia offline: plan salvat, actualizare disponibilă și actualizare nereușită cu ultima copie completă păstrată](mockups/offline-copy-mobile-states-v1.png)
@@ -12,7 +27,7 @@
 - **Actualizare nereușită:** explicația întreruperii conexiunii, păstrarea ultimei copii complete cu aceeași dată și acces la plan; reîncercarea este dezactivată până la reconectare.
 - Harta și mesajele către Buddy necesită internet. Fiecare telefon își salvează separat copia.
 
-**Stare:** propunere vizuală neaprobată. Claritatea și comportamentul real se verifică în site-ul funcțional, potrivit cererii utilizatorului; scenariile sunt în `verification.md`, încă neexecutate.
+**Stare:** machetă aprobată vizual de utilizator („foarte bine, mai departe”). Claritatea și comportamentul real se verifică în site-ul funcțional, potrivit cererii utilizatorului; scenariile sunt în `verification.md`, încă neexecutate.
 Datele sunt ilustrative: Lisabona, 5 zile, română, 22 octombrie 2026 · 18:40 (Europe/Bucharest). Nu există salvare reală și această imagine nu dovedește persistența sau funcționarea offline. Rândurile despre conținut sunt o sinteză și nu înlocuiesc lista aprobată din `product.md`.
 Fontul real și accesibilitatea se verifică la implementare.
 

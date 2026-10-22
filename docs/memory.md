@@ -160,7 +160,7 @@ Două stări ale aceluiași ecran pe telefon sunt prezentate alăturat:
 În ambele stări planul actual rămâne salvat, iar schimbările așteaptă confirmarea unei singure persoane, conform regulii existente. Există acțiunea „Mai ajustează”, câmpul de mesaj și revenirea la itinerariu.
 Macheta este aprobată vizual de utilizator: „arată bine”. Claritatea conversației, a rezumatului și a confirmării nu este încă validată; utilizatorul dorește această evaluare când site-ul este funcțional, în etapa de verificare. Locurile și mesajele sunt exemple, nu modificări reale ale unei vacanțe. Nu există chat sau sincronizare implementate. Fontul rămâne Bricolage Grotesque; redarea exactă și interacțiunile se verifică la implementare. Aspectul este acceptat pentru continuarea designului. Scenariile de verificare sunt consemnate în `docs/verification.md`; rămân neexecutate. În etapa actuală evaluăm machetele vizual, fără a cere un verdict de funcționare pe baza imaginilor statice.
 
-Macheta salvării offline a fost realizată cu trei stări: copie salvată, actualizare disponibilă și actualizare nereușită cu ultima copie completă păstrată. Aspectul este de evaluat; verificarea clarității și a comportamentului se face ulterior în site-ul funcțional.
+Macheta salvării offline a fost realizată cu trei stări: copie salvată, actualizare disponibilă și actualizare nereușită cu ultima copie completă păstrată. Aspectul machetei offline este aprobat vizual; verificarea clarității și a comportamentului se face ulterior în site-ul funcțional.
 
 ## Machetă salvare offline pe telefon — 2026-10-22
 A fost creată macheta statică a copiei offline, în direcția vizuală aprobată. [Imagine și note](mockups.md), fișier `docs/mockups/offline-copy-mobile-states-v1.png`.
@@ -170,4 +170,13 @@ Trei stări alternative sunt prezentate alăturat:
 3. Actualizare nereușită după întreruperea conexiunii; ultima copie completă și data ei se păstrează. Planul salvat se poate deschide; reîncercarea așteaptă reconectarea.
 „Lisabona · 5 zile”, româna și data 22 octombrie 2026 · 18:40 sunt exemple pentru machetă (ora locală Europe/Bucharest), nu o salvare reală.
 Harta și mesajele noi către Buddy necesită internet. Salvarea este separată pe fiecare telefon; cardul cu trei rânduri despre conținut este o sinteză vizuală, fără a reduce conținutul offline deja aprobat. Bricolage Grotesque rămâne fontul stabilit.
-Macheta este propunere vizuală pentru evaluare, încă neaprobată. Verificările funcționale sunt planificate în `docs/verification.md`, neexecutate. Nu există salvare offline implementată.
+Macheta offline este aprobată vizual de utilizator: „foarte bine, mai departe”. Verificările funcționale sunt planificate în `docs/verification.md`, neexecutate. Nu există salvare offline implementată.
+
+## Machetă „Vacanțele noastre” — 2026-10-22
+Utilizatorul a aprobat vizual macheta offline („foarte bine, mai departe”). Verificările funcționale și de claritate rămân planificate pentru site-ul funcțional, neexecutate.
+A fost creată macheta statică a paginii private de după conectare, în direcția vizuală aprobată. [Imagine și note](mockups.md), fișier `docs/mockups/trips-home-mobile-v1.png`.
+Două stări ale aceleiași pagini mobile sunt prezentate alăturat:
+- Cu vacanțe existente: carduri ilustrative, destinație, număr de zile, transport și acces la itinerariu; acțiunea „Vacanță nouă”.
+- Înainte de prima vacanță: mesaj introductiv, Buddy cu un bilet și acțiunea „Planifică prima vacanță”.
+În ambele stări se poate accesa „Preferințele mele”. Cardurile Lisabona / 5 zile / pe jos și Madeira / 7 zile / mașină sunt exemple, nu vacanțe declarate sau date salvate ale utilizatorilor. Imaginile sunt ilustrative.
+Macheta paginii este propunere vizuală pentru evaluare, încă neaprobată. Nu s-au implementat conectarea, gestionarea vacanțelor sau preferințele. Urmează feedbackul vizual asupra acestei pagini; fluxul de creare în trei pași rămâne de reprezentat.
