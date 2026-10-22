@@ -1,6 +1,22 @@
 # Machete Travel Buddy
 
 
+## Preferințe alimentare — carnet de gusturi, pentru evaluare vizuală
+2026-10-23. Trei vederi succesive ale propriului profil, cu selecții concrete și precizări opționale.
+
+![Preferințe alimentare: explorarea grupelor, alegerea unui răspuns pentru Ceapă și precizarea crudă/gătită](mockups/food-preferences-mobile-tasting-notebook-v1.png)
+
+### Ce arată
+- Filele **Alimente / Preparate / Băuturi**, căutarea directă și grupele ilustrate; inventarul este extensibil.
+- Alegerea exclusivă a unuia dintre cele patru răspunsuri aprobate pentru un element exact.
+- Exemplul „Ceapă”: „Mănânc”, cu excepția „Crudă — Nu mănânc” și acceptul „Gătită — Mănânc”.
+- Precizare proprie opțională, alimente necompletate tratate ca necunoscute și alergii/intoleranțe separate.
+- Opțiunea „Nu am preferințe speciale aici”, fără obligarea parcurgerii fiecărui aliment.
+
+**Stare:** propunere vizuală neaprobată. Selecțiile și nota sunt exemple, nu date reale ale celor doi. Ingredientele și preparatele sunt tratate distinct; alegerea unui ingredient nu aprobă automat toate rețetele care îl includ.
+Băuturile folosesc același mecanism pe elemente exacte; imaginea arată fila de acces, nu inventarul complet de băuturi. Cerința celor cinci categorii parcurse de fiecare persoană rămâne valabilă, fără obligația completării fiecărui aliment.
+Bricolage Grotesque rămâne fontul stabilit. Interacțiunile, persistența, accesibilitatea și claritatea se verifică ulterior în site-ul funcțional; macheta nu este un formular implementat.
+
 ## Crearea vacanței — „Bilet, bagaj, pașaport”, propunere nouă
 2026-10-23. Alternativă cerută de utilizator după respingerea meniurilor generice din prima machetă. Schimbă compoziția și propune interacțiuni pe obiecte de călătorie, păstrând datele și opțiunile necesare.
 

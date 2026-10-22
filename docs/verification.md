@@ -93,3 +93,14 @@ Rezultatele și dovezile se adaugă după executare; nu există încă o impleme
 - Elementele decorative și mișcarea nu împiedică citirea rezumatului, completarea opționalelor sau revenirea la alegeri.
 - Varianta cu mișcare redusă păstrează toate acțiunile și stările. Nicio animație nu pornește generarea înainte de acțiunea explicită finală.
 - Pentru etapa transport/cazare se verifică înțelegerea titlului „Cum explorăm și unde stăm?” și a jetoanelor; experiența nu trebuie confundată cu o listă de bagaje, observație ridicată de utilizator pe prima formulare.
+
+## Preferințe alimentare — verificări ulterioare (2026-10-23)
+**Stare: neexecutate; machetă vizuală neaprobată.**
+1. Căutarea și grupele permit alegerea alimentelor, preparatelor și băuturilor exacte; inventarul poate fi extins fără confundarea unui ingredient cu toate preparatele sale.
+2. Fiecare element are cel mult unul dintre cele patru răspunsuri aprobate. Trecerea între răspunsuri și salvarea/reîncărcarea păstrează alegerea corectă.
+3. Un element necompletat rămâne necunoscut; nu este transformat automat în preferință sau refuz. Completarea poate fi graduală.
+4. Precizările crud/gătit și textul propriu rămân asociate alimentului corect. Excepțiile explicite sunt respectate când există informații despre preparat; informațiile lipsă se marchează de verificat.
+5. Gusturile, alimentele refuzate și alergiile/intoleranțele sunt distincte; răspunsul „Nu mănânc” nu creează o alergie.
+6. Fiecare cont își editează propriile preferințe. Ajustarea pentru o vacanță este distinctă de profilul obișnuit, conform regulii aprobate.
+7. „Nu am preferințe speciale aici” este o alegere explicită pentru categoria curentă; nu declară toate alimentele acceptate. Condiția inițială de parcurgere a celor cinci categorii nu cere evaluarea fiecărui aliment.
+8. Se verifică pe telefon lizibilitatea ștampilelor, atingerea și navigarea accesibilă; informația nu depinde numai de culoare, gesturi speciale sau simboluri.
