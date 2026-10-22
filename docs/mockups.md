@@ -1,7 +1,7 @@
 # Machete Travel Buddy
 
 
-## Propunere combinată 2 + 3 — pentru evaluare
+## Direcție aprobată — combinația 2 + 3
 2026-10-22. Utilizatorul preferă variantele 2 („Pașaport cu ștampile”) și 3 („Atelierul lui Buddy”). Pornind de la ele, această explorare combină:
 - Atmosfera de pașaport, bilete, perforații și ștampile din 2.
 - Buddy organizând cartonașele zilelor pe masa verde din 3.
@@ -9,7 +9,7 @@
 
 ![Propunere combinată între variantele 2 și 3: atelier cu cartonașe pe zile și progres pe pașaport](mockups/generation-mobile-hybrid-02-03.png)
 
-**Stare:** propunere neaprobată, de evaluat. Preferința pentru 2 și 3 nu aprobă automat această combinație. Bricolage Grotesque rămâne fontul stabilit; redarea exactă necesită folosirea fontului real în browser. Imagine statică, exemplu Lisabona / 5 zile; animația și site-ul nu sunt implementate.
+**Stare:** direcție vizuală aprobată explicit de utilizator: „arată grozav, exact direcția dorită”. Această machetă este referința vizuală pentru generare și pentru continuarea designului. Sunt aprobate atmosfera de pașaport, biletele/ștampilele, Buddy organizând cartonașele și prezentarea clară a progresului. Bricolage Grotesque rămâne fontul stabilit; redarea exactă necesită folosirea fontului real în browser. Imagine statică, exemplu Lisabona / 5 zile; animația și site-ul nu sunt implementate.
 
 ## Cinci iterații mai jucăușe — pentru evaluare
 2026-10-22. Prima machetă nu a fost acceptată. Utilizatorul a cerut cinci alternative, păstrând baza produsului și explorând o direcție mai jucăușă.
