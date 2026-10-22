@@ -101,7 +101,7 @@ Utilizatorul a aprobat următorul conținut pentru planul salvat manual pe fieca
 Harta și conversațiile noi cu Buddy necesită internet. Pe fiecare telefon, copia offline se salvează în limba aleasă în cont. Cele două persoane pot avea copii în limbi diferite. Schimbarea limbii salvate necesită internet și actualizarea copiei; nu se salvează implicit toate cele trei limbi. Această variantă a fost aprobată la 2026-10-22. Aceasta este o cerință aprobată, nu o funcționalitate implementată sau testată.
 
 ## Preferințe detaliate — cerință confirmată la 2026-10-22
-Utilizatorul cere categorii mai complexe, pentru a înțelege concret ce dorește fiecare în vacanță. La mâncare și băuturi trebuie să poată selecta exact alimentele și preparatele consumate; selectarea unei bucătării naționale sau a unei categorii generale nu este suficientă. Aceasta este o cerință despre produs, nu completarea profilurilor personale. Cele patru răspunsuri alimentare sunt aprobate: „Îmi place mult”, „Mănânc”, „Aș încerca”, „Nu mănânc”. Inventarul alimentar rămâne propunere de lucru. Structurile detaliate „Atracții și cultură” și „Activități și natură”, inclusiv filtrele opționale ale activităților, sunt aprobate în secțiunile de mai jos. Inventarele „Relaxare” și „Shopping” rămân propuneri.
+Utilizatorul cere categorii mai complexe, pentru a înțelege concret ce dorește fiecare în vacanță. La mâncare și băuturi trebuie să poată selecta exact alimentele și preparatele consumate; selectarea unei bucătării naționale sau a unei categorii generale nu este suficientă. Aceasta este o cerință despre produs, nu completarea profilurilor personale. Cele patru răspunsuri alimentare sunt aprobate: „Îmi place mult”, „Mănânc”, „Aș încerca”, „Nu mănânc”. Inventarul alimentar rămâne propunere de lucru. Structurile detaliate „Atracții și cultură” și „Activități și natură”, inclusiv filtrele opționale ale activităților, sunt aprobate în secțiunile de mai jos. Structura „Relaxare”, inclusiv precizările opționale, este de asemenea aprobată. Inventarul „Shopping” rămâne propunere.
 
 ### Propunere de lucru: mâncare și băuturi
 Categorii → subcategorii → elemente individuale, cu căutare și posibilitatea adăugării unui element lipsă. Exemplele descriu opțiuni pentru viitoarea aplicație, nu preferințele utilizatorilor.
@@ -130,13 +130,13 @@ Răspunsuri aprobate la 2026-10-22 pentru un aliment/preparat: „Îmi place mul
 - Restaurantele trebuie în continuare să aibă opțiuni pentru ambii; disponibilitatea unui preparat neverificat nu se promite.
 Acestea sunt reguli ale produsului, nu declarații de alergii sau intoleranțe ale utilizatorilor.
 
-### Propunere de lucru: celelalte patru categorii
+### Celelalte patru categorii — sinteză; statutul este precizat în secțiunile detaliate
 - Atracții și cultură: istorie antică/medievală/modernă; muzee de artă, istorie, știință și tehnică; galerii; arhitectură; castele/palate; lăcașuri religioase; situri arheologice; cartiere istorice; tradiții locale; spectacole și concerte; locuri de fotografie și panorame.
 - Activități și natură: plimbări urbane; trasee ușoare/drumeții solicitante; munte/păduri/lacuri/cascade/peșteri; grădini botanice; bicicletă; caiac; snorkeling; scufundări; plimbări cu barca; sporturi și aventură; ateliere de gătit/artizanat; tururi ghidate; observarea animalelor.
 - Relaxare: plajă cu nisip/pietriș, amenajată/sălbatică; înot; piscine; spa/saună/masaj; băi termale; parcuri și grădini; picnic; cafenele liniștite; plimbări la apus; odihnă la cazare.
 - Shopping: piețe alimentare; produse locale; artizanat; suveniruri; modă; încălțăminte; vintage/second-hand; anticariate; cărți; design/decor; cosmetice/parfumuri; outleturi; malluri.
 
-Pentru activități se păstrează diferența confirmată între lipsa interesului cu acceptul participării și refuzul explicit. Inventarul detaliat și filtrele despre efort, apă, înălțimi, experiență, format și limite sunt aprobate în secțiunea „Activități și natură”. Ritmul și aglomerația sunt propuse separat în „Relaxare”. Aprobarea câmpurilor nu completează profilurile personale.
+Pentru activități se păstrează diferența confirmată între lipsa interesului cu acceptul participării și refuzul explicit. Inventarul detaliat și filtrele despre efort, apă, înălțimi, experiență, format și limite sunt aprobate în secțiunea „Activități și natură”. Ritmul și aglomerația sunt aprobate separat în „Relaxare”. Aprobarea câmpurilor nu completează profilurile personale.
 
 
 ### Detaliere „Atracții și cultură” — structură aprobată la 2026-10-22
@@ -180,7 +180,7 @@ Filtre opționale aprobate, separate de interesul pentru activitate:
 Se păstrează distincția confirmată între interes, acceptul de a participa pentru celălalt și refuzul explicit. Limitele explicite ale oricăruia se respectă în planul comun; un filtru necompletat nu dovedește aptitudinea sau calificarea pentru o activitate. Structura și precizările opționale din această secțiune sunt aprobate; nu sunt funcționalități implementate sau profiluri personale completate.
 
 
-### Detaliere „Relaxare” — propunere de lucru, neaprobată
+### Detaliere „Relaxare” — structură și precizări aprobate la 2026-10-22
 Selectarea individuală a opțiunilor, cu posibilitatea unor precizări proprii:
 | Grupă | Opțiuni propuse |
 |---|---|
@@ -192,11 +192,37 @@ Selectarea individuală a opțiunilor, cu posibilitatea unor precizări proprii:
 | Pauze în oraș | Cafenele liniștite, terase cu vedere, plimbări lente pe faleză, locuri pentru citit |
 | Odihnă și stare de bine | Timp la cazare, dormit mai mult, citit, yoga/stretching, meditație, plimbări la apus |
 
-Precizări opționale propuse:
+Precizări opționale aprobate:
 - Atmosferă: liniște, atmosferă animată, muzică acceptată; toleranță la aglomerație.
 - Cadru: natural/retras sau amenajat, cu servicii.
 - Confort: umbră, șezlonguri, toalete, dușuri, vestiare, mâncare/băuturi în apropiere.
 - Acces: acces ușor, evitarea scărilor sau altă limită proprie, corelată cu limitele deja aprobate.
 - Locul relaxării în plan: pauze scurte pe parcurs, perioade mai lungi, alternarea zilelor active cu zile mai lejere; dimineți lente sau seri liniștite.
 
-Propunerea nu impune program pe ore și nu introduce implicit timp separat. Buddy păstrează loc pentru odihna dorită și respectă limitele ambilor. Opțiunile sunt pentru viitorul produs, nu preferințe personale deja declarate.
+Structura aprobată nu impune program pe ore și nu introduce implicit timp separat. Buddy păstrează loc pentru odihna dorită și respectă limitele ambilor. Opțiunile sunt pentru viitorul produs, nu preferințe personale deja declarate.
+
+
+### Detaliere „Shopping” — propunere de lucru, neaprobată
+Selecții individuale pentru produsele căutate și pentru tipurile de locuri; acestea sunt opțiuni ale produsului, nu preferințe personale declarate.
+| Grupă | Opțiuni propuse |
+|---|---|
+| Produse locale și artizanat | Ceramică, textile, bijuterii lucrate manual, obiecte din lemn/piele, lucrări ale artiștilor locali |
+| Suveniruri | Magneți, cărți poștale, obiecte reprezentative, cadouri, obiecte de colecție |
+| Produse alimentare de luat acasă | Dulciuri, ciocolată, condimente, ceai, cafea, uleiuri, produse regionale, vinuri/băuturi locale |
+| Haine și încălțăminte | Branduri locale, designeri independenți, magazine internaționale, sport/outdoor, vintage, second-hand |
+| Accesorii | Genți, portofele, curele, pălării, ochelari, ceasuri, bijuterii |
+| Cosmetice și parfumuri | Parfumuri, îngrijire personală, cosmetice locale, produse naturale |
+| Casă și decor | Obiecte de design, veselă, decorațiuni, mobilier mic, antichități |
+| Cărți, muzică și hobby-uri | Librării, anticariate, benzi desenate/manga, viniluri, jocuri, fotografie, materiale creative |
+| Tehnologie | Electronice, gadgeturi, accesorii pentru telefon/calculator |
+
+Tipuri de locuri propuse, selectate separat: piețe tradiționale, târguri de artizanat, talciocuri, buticuri independente, ateliere/magazine ale producătorilor, străzi comerciale, magazine universale, malluri, outleturi.
+
+Precizări opționale propuse:
+- Intenție: plimbare și descoperire sau cumpărături efective.
+- Frecvență: doar dacă este în apropiere, opriri ocazionale sau o perioadă dedicată.
+- Produse: local/autentic, branduri cunoscute, vintage/second-hand, exclusivist.
+- Nivel de preț preferat: accesibil, mediu, premium; opțional, fără buget numeric obligatoriu.
+- Practic: obiecte mici/ușoare pentru bagaj, cadouri sau căutarea unui produs concret.
+
+Un interes pentru piețe alimentare poate exista și fără intenție de cumpărături. Buddy poate integra o piață pentru experiența locală, păstrând interesele distincte. Se păstrează activitățile comune și respectarea refuzurilor ambilor; nu se introduce implicit timp separat.
