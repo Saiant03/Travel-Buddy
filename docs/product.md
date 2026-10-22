@@ -101,7 +101,7 @@ Utilizatorul a aprobat următorul conținut pentru planul salvat manual pe fieca
 Harta și conversațiile noi cu Buddy necesită internet. Pe fiecare telefon, copia offline se salvează în limba aleasă în cont. Cele două persoane pot avea copii în limbi diferite. Schimbarea limbii salvate necesită internet și actualizarea copiei; nu se salvează implicit toate cele trei limbi. Această variantă a fost aprobată la 2026-10-22. Aceasta este o cerință aprobată, nu o funcționalitate implementată sau testată.
 
 ## Preferințe detaliate — cerință confirmată la 2026-10-22
-Utilizatorul cere categorii mai complexe, pentru a înțelege concret ce dorește fiecare în vacanță. La mâncare și băuturi trebuie să poată selecta exact alimentele și preparatele consumate; selectarea unei bucătării naționale sau a unei categorii generale nu este suficientă. Aceasta este o cerință despre produs, nu completarea profilurilor personale. Inventarul de mai jos și noile opțiuni de răspuns sunt propuneri de lucru, încă neaprobate.
+Utilizatorul cere categorii mai complexe, pentru a înțelege concret ce dorește fiecare în vacanță. La mâncare și băuturi trebuie să poată selecta exact alimentele și preparatele consumate; selectarea unei bucătării naționale sau a unei categorii generale nu este suficientă. Aceasta este o cerință despre produs, nu completarea profilurilor personale. Cele patru răspunsuri alimentare sunt aprobate: „Îmi place mult”, „Mănânc”, „Aș încerca”, „Nu mănânc”. Inventarul detaliat rămâne propunere de lucru.
 
 ### Propunere de lucru: mâncare și băuturi
 Categorii → subcategorii → elemente individuale, cu căutare și posibilitatea adăugării unui element lipsă. Exemplele descriu opțiuni pentru viitoarea aplicație, nu preferințele utilizatorilor.
@@ -121,7 +121,7 @@ Categorii → subcategorii → elemente individuale, cu căutare și posibilitat
 Ingrediente și preparate sunt informații distincte: consumul unui ingredient nu înseamnă acceptarea tuturor preparatelor care îl conțin. Când contează, se pot adăuga precizări despre preparare (crud, prăjit, la grătar, fiert), gust (picant, dulce-sărat, foarte condimentat) și ingrediente ascunse în sosuri sau supe. Inventarul exact rămâne extensibil și de rafinat.
 Bucătăriile (locală, italiană, franceză, grecească, japoneză, indiană, mexicană etc.) și experiențele (street food, tradițional, brunch, cafenele, degustări, fine dining) sunt filtre suplimentare.
 
-Propunere de răspuns pentru un aliment/preparat: „Îmi place mult”, „Mănânc”, „Aș încerca”, „Nu mănânc”. „Nu mănânc” exprimă o evitare alimentară explicită, distinctă de lipsa interesului și de alergie/intoleranță. Această completare a opțiunilor nu este încă aprobată. Propunere pentru elemente necompletate: preferință necunoscută, fără excludere automată; cere clarificări când alegerea depinde de acea informație.
+Răspunsuri aprobate la 2026-10-22 pentru un aliment/preparat: „Îmi place mult”, „Mănânc”, „Aș încerca”, „Nu mănânc”. „Nu mănânc” exprimă o evitare alimentară explicită, distinctă de lipsa interesului și de alergie/intoleranță. Propunere pentru elemente necompletate: preferință necunoscută, fără excludere automată; cere clarificări când alegerea depinde de acea informație.
 Alergiile și intoleranțele rămân separate; regulile lor se stabilesc distinct. Nu se deduc din gusturi sau din alegerile necompletate. Restaurantele trebuie să aibă opțiuni pentru ambii; meniurile incomplete se marchează neconfirmate, fără a promite disponibilitatea unui preparat neverificat.
 
 ### Propunere de lucru: celelalte patru categorii
