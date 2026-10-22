@@ -98,5 +98,15 @@ Această predare completează documentele istorice de mai sus și înlocuiește 
 - Itinerariul afișează o zi pe rând; listă și hartă alăturate pe calculator, comutare pe telefon. Detaliile apar la cerere, cu revenire la aceeași poziție. Harta vizualizează traseul zilnic și ordinea coerentă a opririlor; fără navigare pe străzi, distanțe sau durate.
 - Buddy arată rezumatul înainte de aplicarea modificărilor; o persoană confirmă. Dacă planul comun s-a schimbat între timp, propunerea veche nu suprascrie schimbările celuilalt. Se păstrează planul confirmat și cererea neaplicată, se afișează „Planul a fost modificat între timp”, Buddy adaptează propunerea și arată noul rezumat pentru reconfirmare.
 - Salvarea offline este manuală pe fiecare telefon, cu stare și dată. La eșec se păstrează ultima copie completă. Când sunt detectate schimbări online, actualizarea se face prin buton.
-- Următorul subiect: conținutul exact al copiei offline, inclusiv limbi și fotografii. Apoi inventarul preferințelor, alergiile/intoleranțele, locurile adăugate prin nume/link și ambiguitățile, stările generării, machetele și tehnologiile.
+- Conținutul copiei offline, inclusiv fotografiile, este aprobat în secțiunea de mai jos. Următorul subiect: limbile disponibile în copia offline. Apoi inventarul preferințelor, alergiile/intoleranțele, locurile adăugate prin nume/link și ambiguitățile, stările generării, machetele și tehnologiile.
 - Cost zero; tehnologii neaprobate. Fără implementarea site-ului, activarea serviciilor sau publicare. Cercetarea fezabilității a fost documentară, fără probe API/telefon. Discutăm în română simplă, o întrebare pe rând, fără reluarea deciziilor aprobate.
+
+## Conținutul copiei offline — aprobat la 2026-10-22
+Utilizatorul a aprobat următorul conținut pentru planul salvat manual pe fiecare telefon:
+- Toate zilele vacanței, cu locurile în ordinea vizitării.
+- Detaliile locurilor: descriere, adresă, preț și program cunoscut, mențiuni despre rezervări și informații neconfirmate.
+- Fotografiile disponibile, în dimensiuni potrivite pentru telefon.
+- Cazările introduse și sugestiile de restaurante sau cafenele păstrate în plan.
+- Linkurile către surse, care pot fi deschise când există internet.
+
+Harta și conversațiile noi cu Buddy necesită internet. Limbile incluse în copia offline rămân de stabilit; nu presupunem salvarea tuturor celor trei limbi. Aceasta este o cerință aprobată, nu o funcționalitate implementată sau testată.
