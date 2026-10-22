@@ -1,5 +1,15 @@
 # Memorie de proiect
 
+## Stare curentă — pregătirea etapei următoare
+Utilizatorul întreabă dacă materialele vizuale sunt suficiente și reamintește folosirea agenților mai ieftini, cu principalul coordonator. Evaluarea a fost delegată către doi agenți `gpt-6-luna`, separat pentru acoperirea vizuală și pregătirea tehnică, apoi verificată de coordonator față de brief și deciziile deja aprobate.
+
+Recomandare: există suficiente repere pentru a opri seria de machete statice și a pregăti implementarea. Brief-ul și compromisurile deja acceptate nu se redeschid. Următorul livrabil recomandat este planul de execuție: reguli vizuale și componente reutilizabile, inventarul imaginilor/fontului, alegerea tehnică justificată în limite gratuite, probele necesare și sarcini delimitate pentru agenți. După cererea de implementare urmează o primă versiune navigabilă în browser și verificarea integrată.
+
+Categoriile rămase de preferințe pot reutiliza modelul carnetelor. Introducerea publică, conectarea/asocierea celor două conturi, detaliile alergiilor, adaptarea pe desktop și stările interactive trebuie acoperite în plan și în browser; nu sunt declarate finalizate. Fontul real Bricolage Grotesque, interacțiunile, animațiile și comportamentele AI/sincronizare/offline nu sunt verificate de imaginile statice. Nicio tehnologie nu a fost aleasă și nu au fost activate servicii. Întrebarea de față nu este tratată ca cerere de implementare.
+
+Coordonatorul stabilește contractele, ia deciziile, integrează și verifică. `gpt-6-luna` execută sarcini delimitate și remedieri, maximum trei simultan, cu responsabilități distincte. Review independent mai puternic numai când complexitatea îl justifică.
+
+
 ## Fapte confirmate
 - Numele proiectului este **Travel Buddy**.
 - Utilizatorul preferă costuri zero. Evaluarea documentară a ofertelor gratuite este în feasibility.md (2026-10-22); fezabilitatea integrată nu este încă testată. Nu sunt autorizate servicii cu plată.
@@ -229,4 +239,4 @@ Trei vederi sunt propuse:
 3. **Alegi:** pentru „Artă modernă”, opțiunile „Îmi place mult”, „Aș încerca”, „Nu mă interesează, dar pot participa” și „Nu vreau deloc”. Exemplul selectează participarea fără interes propriu și permite o precizare opțională.
 Interfața explică regula existentă: participarea fără interes propriu poate permite activitatea comună pentru celălalt; refuzul explicit o exclude din planul comun. Se păstrează activitățile împreună și alternarea priorităților.
 Selecțiile și nota „Prefer expoziții mai mici” sunt doar exemple, nu preferințe reale declarate. Fiecare își editează propriul profil. Gramatica vizuală preia carnetul de gusturi, cu etichete adecvate activităților, distincte de răspunsurile alimentare.
-Macheta culturii este propunere vizuală pentru evaluare, încă neaprobată. Nu există formular sau motor de recomandări implementate. Claritatea și comportamentul se verifică în site-ul funcțional; scenariile sunt planificate în `docs/verification.md`, neexecutate.
+Macheta culturii a primit feedback vizual pozitiv de la utilizator („super”). Aprecierea privește direcția și aspectul, fără validare funcțională. Nu există formular sau motor de recomandări implementate. Claritatea și comportamentul se verifică în site-ul funcțional; scenariile sunt planificate în `docs/verification.md`, neexecutate.

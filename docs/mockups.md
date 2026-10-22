@@ -1,7 +1,7 @@
 # Machete Travel Buddy
 
 
-## Atracții și cultură — carnet de explorator, pentru evaluare vizuală
+## Atracții și cultură — carnet de explorator, feedback vizual pozitiv
 2026-10-23. Trei vederi succesive ale propriilor preferințe, în stilul carnetului de gusturi aprobat.
 
 ![Atracții și cultură: grupe de explorat, tipuri de muzee și alegerea interesului sau disponibilității de participare](mockups/culture-preferences-mobile-explorer-notebook-v1.png)
@@ -12,7 +12,7 @@
 - Patru răspunsuri pentru o activitate exactă, cu distincția dintre participarea fără interes propriu și refuzul explicit.
 - Nota opțională a persoanei și salvarea alegerii în propriul profil.
 
-**Stare:** propunere vizuală neaprobată. Exemplul „Artă modernă — Nu mă interesează, dar pot participa” și nota sunt ilustrative. Nu sunt declarații despre utilizatori sau preferințe efectiv salvate.
+**Stare:** feedback vizual pozitiv de la utilizator („super”); aspectul poate fi folosit ca reper pentru continuare. Exemplul „Artă modernă — Nu mă interesează, dar pot participa” și nota sunt ilustrative. Nu sunt declarații despre utilizatori sau preferințe efectiv salvate.
 Regula rămâne cea aprobată: refuzul explicit al oricăruia exclude activitatea comună; disponibilitatea de participare permite echilibrarea intereselor celor doi. Nu se introduce implicit timp separat.
 Fontul real, accesibilitatea, persistența și claritatea se verifică ulterior în site-ul funcțional. Nu există formular sau recomandări implementate.
 
