@@ -52,3 +52,15 @@
 - Au fost sincronizate planul, memoria și deciziile. Ultima predare de la finalul memory.md o înlocuiește pe cea istorică.
 - Neexecutate: crearea de conturi/chei, apeluri API autentificate, teste de calitate/consum, site, browser/telefon, verificare de securitate a unei aplicații. Nu există implementare testată și nu s-au activat servicii.
 - Probleme/decizii rămase: cotele efective pe conturi, calitatea surselor și traducerilor, fotografii lipsă, rute de transport public în destinațiile reale, eventualele hărți offline și acceptarea compromisurilor. Nu sunt blocaje pentru predarea cercetării; împiedică promisiunea funcționării complete.
+
+## Buddy — verificări planificate în site-ul funcțional (2026-10-22)
+**Stare: neexecutate.** Utilizatorul a aprobat aspectul machetei conversației și a cerut evaluarea clarității în etapa de verificare, când site-ul este funcțional. Aprobarea vizuală nu este dovadă de funcționare sau utilizabilitate.
+
+Scenarii de urmărit în browser, inclusiv pe telefon și cu cele două conturi:
+1. La o cerere de eliminare/înlocuire, utilizatorul poate identifica din rezumat ce se schimbă, ce se păstrează și ordinea propusă. Planul confirmat rămâne neschimbat până la confirmare.
+2. Confirmarea unei singure persoane aplică numai modificările din rezumat, păstrând celelalte locuri alese. Continuarea conversației pentru ajustări nu aplică implicit propunerea.
+3. Dacă celălalt cont modifică planul înainte de aplicare, propunerea veche nu suprascrie planul actual. Se păstrează cererea neaplicată, se afișează „Planul a fost modificat între timp” și se prezintă rezumatul adaptat pentru reconfirmare.
+4. Modificarea făcută de celălalt rămâne în propunerea adaptată; reconfirmarea aplică cererea pe planul actual. Actualitatea se verifică și la aplicare, conform regulii existente.
+5. În evaluarea cu utilizatorul, se verifică dacă diferența dintre „propus”, „necesită reconfirmare” și „aplicat” este înțeleasă, iar mesajele și butoanele se ajustează după observații.
+
+Rezultatele și dovezile se consemnează după executare. Nu s-a implementat sau publicat site-ul prin această actualizare.

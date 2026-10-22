@@ -1,7 +1,7 @@
 # Machete Travel Buddy
 
 
-## Conversația cu Buddy — propunere și reconfirmare, pentru evaluare
+## Conversația cu Buddy — machetă aprobată vizual
 2026-10-22. Machetă statică în direcția vizuală aprobată, prezentând două stări alternative ale aceluiași ecran mobil.
 
 ![Conversația cu Buddy: rezumat înainte de confirmare și propunere actualizată când planul comun s-a schimbat](mockups/buddy-chat-confirmation-mobile-v1.png)
@@ -13,7 +13,7 @@
 - „Mai ajustează”, scrierea unui mesaj și revenirea la itinerariu.
 - Buddy discret, rezumat pe bilet de călătorie, ștampile de stare și paleta aprobată.
 
-**Stare:** propunere neaprobată, de evaluat. Mesajele și locurile sunt exemple de design, nu o conversație sau modificări reale. Schimbarea comună ilustrată constă în adăugarea Sé de Lisboa; aceasta rămâne în propunerea actualizată, în timp ce numai castelul este eliminat. După confirmare trebuie reverificată actualitatea propunerii conform cerinței existente.
+**Stare:** aspect aprobat vizual de utilizator. Claritatea fluxului va fi evaluată în etapa de verificare, când site-ul este funcțional; nu este validată prin această imagine. Scenariile sunt în `verification.md`, neexecutate. Mesajele și locurile sunt exemple de design, nu o conversație sau modificări reale. Schimbarea comună ilustrată constă în adăugarea Sé de Lisboa; aceasta rămâne în propunerea actualizată, în timp ce numai castelul este eliminat. După confirmare trebuie reverificată actualitatea propunerii conform cerinței existente.
 
 Fontul real, lizibilitatea la dimensiuni de telefon, accesibilitatea, păstrarea cererii și gestionarea schimbărilor simultane se verifică la implementare. Imaginea nu este un chat funcțional și nu demonstrează sincronizarea.
 
