@@ -238,7 +238,7 @@ Cerința de bază și următorul flux de identificare și integrare sunt aprobat
 Se păstrează celelalte locuri alese, iar prețul/programul neconfirmat rămân marcate conform regulilor existente. Nu se promite suport universal pentru orice link; sursele și accesul efectiv trebuie evaluate tehnic. Adăugările manuale respectă și regulile deja aprobate despre refuzurile explicite, limitele ambilor și restricțiile alimentare; prezentarea mesajelor aferente se stabilește la design.
 
 
-## Generarea itinerariului și întreruperile — propunere de comportament, neaprobată
+## Generarea itinerariului și întreruperile — comportament aprobat la 2026-10-22
 În timpul generării se afișează etapa reală, cu mesaje simple:
 1. „Caut locuri potrivite pentru voi.”
 2. „Organizez locurile pe zile.”
@@ -253,4 +253,17 @@ Dacă procesul se întrerupe:
 - Utilizatorul poate apăsa „Reîncearcă” când problema permite. Pentru cotă epuizată, disponibilitatea sau momentul reîncercării se afișează numai dacă sunt cunoscute; se păstrează regula aprobată fără plată automată.
 - O propunere incompletă nu înlocuiește copia offline completă existentă. O propunere de modificare recuperată respectă în continuare rezumatul, confirmarea și regulile pentru un plan comun modificat între timp.
 
-Acest comportament este o propunere de produs, nu o capacitate implementată sau probată cu furnizori.
+Comportamentul este aprobat ca cerință de produs; implementarea și probele cu furnizori rămân de făcut.
+
+
+### Feedback vizibil în timpul generării — cerință confirmată la 2026-10-22
+Utilizatorul cere să fie clar că se întâmplă ceva în timpul generării, pentru a evita confuzia. Pe tot parcursul așteptării se arată starea procesului, etapa curentă și un semn vizibil de activitate. Progresul afișat trebuie să corespundă lucrului efectiv executat; întreruperile și erorile au mesaje distincte.
+
+Direcție de prezentare propusă pentru machetă:
+- Buddy cu o animație calmă, discretă, de pregătire a călătoriei (de exemplu aranjarea unor cartonașe cu locuri).
+- Cele trei etape vizibile, cu etapa activă evidențiată și etapele încheiate bifate.
+- Mesaje concrete adaptate destinației și operației curente, de exemplu „Caut locuri în Lisabona potrivite pentru voi”.
+- Detalii suplimentare numai când există rezultate reale, de exemplu numărul de locuri găsite sau zile organizate; aceste valori nu indică automat validarea finală.
+- Indicatorii de progres reflectă date măsurabile. Duratele estimate se folosesc doar dacă pot fi susținute de date.
+- La o întrerupere, starea de așteptare este înlocuită cu explicația și acțiunile disponibile, potrivit regulilor aprobate.
+Aceasta este o direcție pentru machetă; nu există încă ecran implementat, animație produsă sau randare aprobată.
