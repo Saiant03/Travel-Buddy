@@ -122,7 +122,13 @@ Ingrediente și preparate sunt informații distincte: consumul unui ingredient n
 Bucătăriile (locală, italiană, franceză, grecească, japoneză, indiană, mexicană etc.) și experiențele (street food, tradițional, brunch, cafenele, degustări, fine dining) sunt filtre suplimentare.
 
 Răspunsuri aprobate la 2026-10-22 pentru un aliment/preparat: „Îmi place mult”, „Mănânc”, „Aș încerca”, „Nu mănânc”. „Nu mănânc” exprimă o evitare alimentară explicită, distinctă de lipsa interesului și de alergie/intoleranță. Regulă aprobată la 2026-10-22 pentru alimentele necompletate: preferință necunoscută, fără a presupune că alimentul este plăcut sau refuzat. Buddy prioritizează preparatele acceptate și respectă alegerile „Nu mănânc”. Cere clarificări dacă informația lipsă este esențială pentru alegerea unui restaurant. Profilul poate fi completat treptat; nu se cere răspuns pentru fiecare aliment de la început.
-Alergiile și intoleranțele rămân separate; regulile lor se stabilesc distinct. Nu se deduc din gusturi sau din alegerile necompletate. Restaurantele trebuie să aibă opțiuni pentru ambii; meniurile incomplete se marchează neconfirmate, fără a promite disponibilitatea unui preparat neverificat.
+### Alergii și intoleranțe — reguli aprobate la 2026-10-22
+- Fiecare persoană le poate completa opțional într-o secțiune separată, indicând alimentul sau substanța de evitat. Nu se deduc din gusturi sau din opțiunile necompletate.
+- Buddy exclude preparatele despre care există informații că includ ingredientul respectiv.
+- Când meniul sau informațiile despre preparare sunt incomplete, localul rămâne vizibil separat cu „Necesită confirmare cu localul”, inclusiv pentru posibila contaminare încrucișată.
+- Buddy nu prezintă un restaurant drept sigur pentru o alergie doar pe baza meniului online.
+- Restaurantele trebuie în continuare să aibă opțiuni pentru ambii; disponibilitatea unui preparat neverificat nu se promite.
+Acestea sunt reguli ale produsului, nu declarații de alergii sau intoleranțe ale utilizatorilor.
 
 ### Propunere de lucru: celelalte patru categorii
 - Atracții și cultură: istorie antică/medievală/modernă; muzee de artă, istorie, știință și tehnică; galerii; arhitectură; castele/palate; lăcașuri religioase; situri arheologice; cartiere istorice; tradiții locale; spectacole și concerte; locuri de fotografie și panorame.
@@ -131,3 +137,18 @@ Alergiile și intoleranțele rămân separate; regulile lor se stabilesc distinc
 - Shopping: piețe alimentare; produse locale; artizanat; suveniruri; modă; încălțăminte; vintage/second-hand; anticariate; cărți; design/decor; cosmetice/parfumuri; outleturi; malluri.
 
 Pentru activități se păstrează diferența confirmată între lipsa interesului cu acceptul participării și refuzul explicit. Subiecte suplimentare de propus separat: ritm, aglomerație, efort, înălțimi/apă și accesibilitate. Nu sunt încă preferințe confirmate sau un chestionar aprobat.
+
+
+### Detaliere „Atracții și cultură” — propunere de lucru, neaprobată
+Fiecare element se poate selecta separat; aprecierea unei grupe nu implică automat aprecierea tuturor elementelor.
+| Grupă | Opțiuni propuse |
+|---|---|
+| Istorie și patrimoniu | Ruine antice, situri arheologice, castele, cetăți, palate, locuri legate de evenimente istorice; interese pentru Antichitate, Evul Mediu, epoca modernă sau contemporană |
+| Muzee | Istorie, arheologie, artă clasică, artă modernă/contemporană, știință, istorie naturală, tehnică, transport, muzee tematice |
+| Artă | Pictură, sculptură, fotografie, galerii, street art, expoziții temporare |
+| Arhitectură și oraș | Clădiri istorice, arhitectură modernă, poduri, piețe, străduțe, cartiere vechi, interioare și clădiri care pot fi vizitate |
+| Patrimoniu religios | Biserici, catedrale, mănăstiri, moschei, sinagogi, temple, cimitire istorice |
+| Viață locală și tradiții | Cartiere rezidențiale, sate tradiționale, piețe locale, festivaluri, obiceiuri și ateliere de meșteșugari |
+| Spectacole | Muzică live, concerte clasice, operă, teatru, dans, spectacole tradiționale |
+| Panorame și fotografie | Puncte de belvedere, turnuri/terase, locuri fotogenice, răsărituri și apusuri |
+Se păstrează regulile aprobate despre activități împreună și distincția dintre lipsa interesului cu acceptul participării și refuzul explicit. Opțiunile sunt exemple pentru produs, nu profiluri personale.
