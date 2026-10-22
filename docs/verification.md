@@ -95,7 +95,7 @@ Rezultatele și dovezile se adaugă după executare; nu există încă o impleme
 - Pentru etapa transport/cazare se verifică înțelegerea titlului „Cum explorăm și unde stăm?” și a jetoanelor; experiența nu trebuie confundată cu o listă de bagaje, observație ridicată de utilizator pe prima formulare.
 
 ## Preferințe alimentare — verificări ulterioare (2026-10-23)
-**Stare: neexecutate; machetă vizuală neaprobată.**
+**Stare: neexecutate; carnetul de gusturi aprobat vizual.**
 1. Căutarea și grupele permit alegerea alimentelor, preparatelor și băuturilor exacte; inventarul poate fi extins fără confundarea unui ingredient cu toate preparatele sale.
 2. Fiecare element are cel mult unul dintre cele patru răspunsuri aprobate. Trecerea între răspunsuri și salvarea/reîncărcarea păstrează alegerea corectă.
 3. Un element necompletat rămâne necunoscut; nu este transformat automat în preferință sau refuz. Completarea poate fi graduală.
@@ -104,3 +104,13 @@ Rezultatele și dovezile se adaugă după executare; nu există încă o impleme
 6. Fiecare cont își editează propriile preferințe. Ajustarea pentru o vacanță este distinctă de profilul obișnuit, conform regulii aprobate.
 7. „Nu am preferințe speciale aici” este o alegere explicită pentru categoria curentă; nu declară toate alimentele acceptate. Condiția inițială de parcurgere a celor cinci categorii nu cere evaluarea fiecărui aliment.
 8. Se verifică pe telefon lizibilitatea ștampilelor, atingerea și navigarea accesibilă; informația nu depinde numai de culoare, gesturi speciale sau simboluri.
+
+## Preferințe „Atracții și cultură” — verificări ulterioare (2026-10-23)
+**Stare: neexecutate; machetă vizuală neaprobată.**
+1. Grupele, căutarea și subtipurile permit alegeri individuale; aprecierea unui tip de muzeu nu marchează automat toate muzeele ca preferate.
+2. Cele patru răspunsuri sunt exclusive pentru elementul ales și se păstrează la salvare/reîncărcare. Disponibilitatea fără interes propriu rămâne distinctă de refuz.
+3. „Nu vreau deloc” declarat de oricare persoană exclude activitatea din planul comun, inclusiv când celălalt o preferă. Nu se propune implicit timp separat.
+4. Participarea fără interes permite recomandarea pentru interesul celuilalt, respectând alternarea priorităților și celelalte limite aprobate.
+5. Precizarea opțională se păstrează la elementul corect, fiecare cont își editează propriile preferințe, iar profilul și ajustările pentru vacanță rămân distincte.
+6. „Nu am preferințe speciale aici” și stările necompletate nu sunt confundate cu refuzuri explicite; condiția parcurgerii celor cinci categorii rămâne cea aprobată.
+7. Se verifică pe telefon lizibilitatea etichetelor lungi, selectarea prin atingere/controale accesibile și înțelegerea diferenței dintre interes, participare și refuz.

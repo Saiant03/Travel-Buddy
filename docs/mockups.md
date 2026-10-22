@@ -1,7 +1,22 @@
 # Machete Travel Buddy
 
 
-## Preferințe alimentare — carnet de gusturi, pentru evaluare vizuală
+## Atracții și cultură — carnet de explorator, pentru evaluare vizuală
+2026-10-23. Trei vederi succesive ale propriilor preferințe, în stilul carnetului de gusturi aprobat.
+
+![Atracții și cultură: grupe de explorat, tipuri de muzee și alegerea interesului sau disponibilității de participare](mockups/culture-preferences-mobile-explorer-notebook-v1.png)
+
+### Ce arată
+- Grupele culturale deja aprobate, cu căutare și adăugarea unei preferințe.
+- Tipuri concrete de muzee, selectate separat: artă clasică, artă modernă, istorie, știință, tehnică și transport.
+- Patru răspunsuri pentru o activitate exactă, cu distincția dintre participarea fără interes propriu și refuzul explicit.
+- Nota opțională a persoanei și salvarea alegerii în propriul profil.
+
+**Stare:** propunere vizuală neaprobată. Exemplul „Artă modernă — Nu mă interesează, dar pot participa” și nota sunt ilustrative. Nu sunt declarații despre utilizatori sau preferințe efectiv salvate.
+Regula rămâne cea aprobată: refuzul explicit al oricăruia exclude activitatea comună; disponibilitatea de participare permite echilibrarea intereselor celor doi. Nu se introduce implicit timp separat.
+Fontul real, accesibilitatea, persistența și claritatea se verifică ulterior în site-ul funcțional. Nu există formular sau recomandări implementate.
+
+## Preferințe alimentare — carnet de gusturi, aprobat vizual
 2026-10-23. Trei vederi succesive ale propriului profil, cu selecții concrete și precizări opționale.
 
 ![Preferințe alimentare: explorarea grupelor, alegerea unui răspuns pentru Ceapă și precizarea crudă/gătită](mockups/food-preferences-mobile-tasting-notebook-v1.png)
@@ -13,7 +28,7 @@
 - Precizare proprie opțională, alimente necompletate tratate ca necunoscute și alergii/intoleranțe separate.
 - Opțiunea „Nu am preferințe speciale aici”, fără obligarea parcurgerii fiecărui aliment.
 
-**Stare:** propunere vizuală neaprobată. Selecțiile și nota sunt exemple, nu date reale ale celor doi. Ingredientele și preparatele sunt tratate distinct; alegerea unui ingredient nu aprobă automat toate rețetele care îl includ.
+**Stare:** machetă aprobată vizual de utilizator („da, îmi place, e fun”). Selecțiile și nota sunt exemple, nu date reale ale celor doi. Ingredientele și preparatele sunt tratate distinct; alegerea unui ingredient nu aprobă automat toate rețetele care îl includ.
 Băuturile folosesc același mecanism pe elemente exacte; imaginea arată fila de acces, nu inventarul complet de băuturi. Cerința celor cinci categorii parcurse de fiecare persoană rămâne valabilă, fără obligația completării fiecărui aliment.
 Bricolage Grotesque rămâne fontul stabilit. Interacțiunile, persistența, accesibilitatea și claritatea se verifică ulterior în site-ul funcțional; macheta nu este un formular implementat.
 
