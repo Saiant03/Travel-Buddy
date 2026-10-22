@@ -259,11 +259,11 @@ Comportamentul este aprobat ca cerință de produs; implementarea și probele cu
 ### Feedback vizibil în timpul generării — cerință confirmată la 2026-10-22
 Utilizatorul cere să fie clar că se întâmplă ceva în timpul generării, pentru a evita confuzia. Pe tot parcursul așteptării se arată starea procesului, etapa curentă și un semn vizibil de activitate. Progresul afișat trebuie să corespundă lucrului efectiv executat; întreruperile și erorile au mesaje distincte.
 
-Direcție de prezentare propusă pentru machetă:
+Direcție de prezentare aprobată la 2026-10-22 pentru machetă:
 - Buddy cu o animație calmă, discretă, de pregătire a călătoriei (de exemplu aranjarea unor cartonașe cu locuri).
 - Cele trei etape vizibile, cu etapa activă evidențiată și etapele încheiate bifate.
 - Mesaje concrete adaptate destinației și operației curente, de exemplu „Caut locuri în Lisabona potrivite pentru voi”.
 - Detalii suplimentare numai când există rezultate reale, de exemplu numărul de locuri găsite sau zile organizate; aceste valori nu indică automat validarea finală.
 - Indicatorii de progres reflectă date măsurabile. Duratele estimate se folosesc doar dacă pot fi susținute de date.
 - La o întrerupere, starea de așteptare este înlocuită cu explicația și acțiunile disponibile, potrivit regulilor aprobate.
-Aceasta este o direcție pentru machetă; nu există încă ecran implementat, animație produsă sau randare aprobată.
+Direcția vizuală este aprobată. Urmează prima machetă statică pentru telefon a ecranului de generare. Aprobarea direcției nu înseamnă aprobarea unei randări, a desenului final al mascotei sau implementarea ecranului/animației.
