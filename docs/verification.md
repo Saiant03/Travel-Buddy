@@ -87,7 +87,7 @@ Rezultatele și dovezile se adaugă după executare; nu există încă o impleme
 7. Generarea pornește din butonul final și trece în ecranul de progres aprobat; parcursul și mesajele sunt evaluate cu utilizatorul în site-ul funcțional.
 
 ## Conceptul „Bilet, bagaj, pașaport” — verificări ulterioare (2026-10-23)
-**Stare: neexecutate; concept aprobat vizual doar pentru scena a treia.** Scenariile de creare deja planificate rămân valabile.
+**Stare: neexecutate; scenele a doua și a treia aprobate vizual; noul titlu al scenei a doua aprobat explicit.** Scenariile de creare deja planificate rămân valabile.
 - Se verifică dacă orașul/datele editabile și selecția jetoanelor sunt descoperite și înțelese pe telefon.
 - Selectarea și deselectarea fiecărui mod de transport funcționează prin atingere și prin controale accesibile, cu stare perceptibilă și fără tragere obligatorie.
 - Elementele decorative și mișcarea nu împiedică citirea rezumatului, completarea opționalelor sau revenirea la alegeri.
