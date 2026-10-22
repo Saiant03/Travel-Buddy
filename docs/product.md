@@ -73,3 +73,19 @@ Nu reluăm întrebările deja închise despre scop, conturi, limbi, acces de ori
 - Prezentarea activităților cu oră fixă, asocierea bazelor cu zilele și detaliile fluxurilor de editare comună.
 - Eventuala hartă offline, comportamentul la salvare incompletă și limita informațiilor păstrate pe telefon.
 - Tehnologiile, serviciile, stocarea și mecanismul de autentificare, după evaluare; apoi designul concret și planul de implementare.
+
+
+## Completări aprobate — 2026-10-22
+Această predare completează documentele istorice de mai sus și înlocuiește stările lor depășite. Deciziile au fost recuperate din conversațiile „Travel Buddy — continuare în cloud”, „Propune pagina introductivă” și „Configurează preluarea automată dină”. Nu reprezintă implementare sau probe tehnice.
+
+- Utilizatorul a cerut continuarea prin GitHub, deoarece va fi plecat de la calculatorul principal. Depozitul Saiant03/Travel-Buddy este locul principal pentru documente și modificări. Automatizarea locală de preluare a fost eliminată în conversația locală; nu presupunem sincronizare automată cu calculatorul de acasă.
+- Cele patru compromisuri sunt aprobate: recomandările afectate se pot opri la epuizarea cotelor gratuite fără trecere automată la plată; un loc fără fotografie poate fi recomandat ca rezervă după căutarea unei imagini utilizabile, cu lipsa indicată și link de verificare; conexiunile de transport public neconfirmate sunt marcate și au link relevant; planul salvat este consultabil offline, harta necesită internet.
+- Pagina introductivă prezintă povestea în șase momente: introducere, preferințele celor doi, destinația transformată în itinerariu, modificări prin conversație și confirmare, plan salvat offline, conectare. Este aprobată compoziția cu demonstrația evolutivă și traseul care leagă secțiunile la derulare. Funcționalitățile sunt centrale; Buddy apare discret.
+- Direcția aprobată: verde pădure, alb cald, auriu; Bricolage Grotesque; cele două fotografii Lisabona discutate anterior; ton cald și concret; animații calme care explică transformarea destinației în itinerariu. Referințele exacte ale fotografiilor trebuie recuperate înainte de utilizare, fără a le inventa.
+- Buddy: leneș maro/crem cu rucsac verde discret. Nu există desen final, machetă randată sau site.
+- Aplicația privată apare după login: „Vacanțele noastre”, creare în trei pași, cinci categorii de preferințe. În faza incipientă, ambii parcurg cele cinci categorii, alegând o preferință în fiecare sau „Nu am preferințe speciale aici”. Alergiile și intoleranțele sunt opționale. Inventarul detaliat rămâne de definit.
+- Itinerariul afișează o zi pe rând; listă și hartă alăturate pe calculator, comutare pe telefon. Detaliile apar la cerere, cu revenire la aceeași poziție. Harta vizualizează traseul zilnic și ordinea coerentă a opririlor; fără navigare pe străzi, distanțe sau durate.
+- Buddy arată rezumatul înainte de aplicarea modificărilor; o persoană confirmă. Dacă planul comun s-a schimbat între timp, propunerea veche nu suprascrie schimbările celuilalt. Se păstrează planul confirmat și cererea neaplicată, se afișează „Planul a fost modificat între timp”, Buddy adaptează propunerea și arată noul rezumat pentru reconfirmare.
+- Salvarea offline este manuală pe fiecare telefon, cu stare și dată. La eșec se păstrează ultima copie completă. Când sunt detectate schimbări online, actualizarea se face prin buton.
+- Următorul subiect: conținutul exact al copiei offline, inclusiv limbi și fotografii. Apoi inventarul preferințelor, alergiile/intoleranțele, locurile adăugate prin nume/link și ambiguitățile, stările generării, machetele și tehnologiile.
+- Cost zero; tehnologii neaprobate. Fără implementarea site-ului, activarea serviciilor sau publicare. Cercetarea fezabilității a fost documentară, fără probe API/telefon. Discutăm în română simplă, o întrebare pe rând, fără reluarea deciziilor aprobate.
