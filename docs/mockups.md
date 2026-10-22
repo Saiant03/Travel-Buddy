@@ -1,6 +1,23 @@
 # Machete Travel Buddy
 
 
+## Itinerariul unei zile pe telefon — Listă și Hartă, pentru evaluare
+2026-10-22. Machetă statică realizată la cererea utilizatorului, folosind direcția vizuală aprobată a combinației 2 + 3.
+
+![Itinerariu mobil pentru Ziua 2 în Lisabona: două stări alternative, listă ordonată și hartă cu aceleași opriri](mockups/itinerary-day-mobile-list-map-v1.png)
+
+### Ce arată
+- O singură zi selectată, cu comutare între Listă și Hartă pe telefon. Cele două stări sunt alăturate doar în această planșă de design.
+- Aceleași trei opriri în ambele stări, în ordinea Miradouro da Graça → Castelo de São Jorge → Alfama.
+- Traseul schematic pornește și revine la Centru, punctul implicit fără cazare. Au fost verificate vizual legăturile și sensul Centru → 1 → 2 → 3 → Centru.
+- Prețuri marcate neconfirmate, acces la detalii, cafenele opționale separate de opriri.
+- Adăugarea unui loc, salvarea planului offline și acces la Buddy. Harta este online; butonul de salvare se referă la planul consultabil offline.
+- Buddy discret și accente de bilete/ștampile, în paleta aprobată.
+
+**Stare:** propunere de evaluat, încă neaprobată. „Lisabona · 5 zile · Pe jos”, ziua și opririle sunt exemple. Miniaturile și harta sunt ilustrative; nu sunt fotografii licențiate ori date cartografice verificate. Nu se prezintă prețuri reale inventate, ore, distanțe sau durate. Numărul de trei opriri este doar exemplul desenat, nu o limită a produsului.
+
+Fontul stabilit rămâne Bricolage Grotesque. Tipografia exactă, contrastul, dimensiunile reale, adaptarea și comportamentul interactiv se verifică în browser la implementare. Nu există ecran funcțional, hartă integrată sau salvare offline implementată.
+
 ## Direcție aprobată — combinația 2 + 3
 2026-10-22. Utilizatorul preferă variantele 2 („Pașaport cu ștampile”) și 3 („Atelierul lui Buddy”). Pornind de la ele, această explorare combină:
 - Atmosfera de pașaport, bilete, perforații și ștampile din 2.
