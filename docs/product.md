@@ -101,7 +101,7 @@ Utilizatorul a aprobat următorul conținut pentru planul salvat manual pe fieca
 Harta și conversațiile noi cu Buddy necesită internet. Pe fiecare telefon, copia offline se salvează în limba aleasă în cont. Cele două persoane pot avea copii în limbi diferite. Schimbarea limbii salvate necesită internet și actualizarea copiei; nu se salvează implicit toate cele trei limbi. Această variantă a fost aprobată la 2026-10-22. Aceasta este o cerință aprobată, nu o funcționalitate implementată sau testată.
 
 ## Preferințe detaliate — cerință confirmată la 2026-10-22
-Utilizatorul cere categorii mai complexe, pentru a înțelege concret ce dorește fiecare în vacanță. La mâncare și băuturi trebuie să poată selecta exact alimentele și preparatele consumate; selectarea unei bucătării naționale sau a unei categorii generale nu este suficientă. Aceasta este o cerință despre produs, nu completarea profilurilor personale. Cele patru răspunsuri alimentare sunt aprobate: „Îmi place mult”, „Mănânc”, „Aș încerca”, „Nu mănânc”. Inventarul alimentar rămâne propunere de lucru. Structura detaliată „Atracții și cultură” este aprobată în secțiunea de mai jos; celelalte inventare rămân propuneri.
+Utilizatorul cere categorii mai complexe, pentru a înțelege concret ce dorește fiecare în vacanță. La mâncare și băuturi trebuie să poată selecta exact alimentele și preparatele consumate; selectarea unei bucătării naționale sau a unei categorii generale nu este suficientă. Aceasta este o cerință despre produs, nu completarea profilurilor personale. Cele patru răspunsuri alimentare sunt aprobate: „Îmi place mult”, „Mănânc”, „Aș încerca”, „Nu mănânc”. Inventarul alimentar rămâne propunere de lucru. Structurile detaliate „Atracții și cultură” și „Activități și natură”, inclusiv filtrele opționale ale activităților, sunt aprobate în secțiunile de mai jos. Inventarele „Relaxare” și „Shopping” rămân propuneri.
 
 ### Propunere de lucru: mâncare și băuturi
 Categorii → subcategorii → elemente individuale, cu căutare și posibilitatea adăugării unui element lipsă. Exemplele descriu opțiuni pentru viitoarea aplicație, nu preferințele utilizatorilor.
@@ -136,7 +136,7 @@ Acestea sunt reguli ale produsului, nu declarații de alergii sau intoleranțe a
 - Relaxare: plajă cu nisip/pietriș, amenajată/sălbatică; înot; piscine; spa/saună/masaj; băi termale; parcuri și grădini; picnic; cafenele liniștite; plimbări la apus; odihnă la cazare.
 - Shopping: piețe alimentare; produse locale; artizanat; suveniruri; modă; încălțăminte; vintage/second-hand; anticariate; cărți; design/decor; cosmetice/parfumuri; outleturi; malluri.
 
-Pentru activități se păstrează diferența confirmată între lipsa interesului cu acceptul participării și refuzul explicit. Subiecte suplimentare de propus separat: ritm, aglomerație, efort, înălțimi/apă și accesibilitate. Nu sunt încă preferințe confirmate sau un chestionar aprobat.
+Pentru activități se păstrează diferența confirmată între lipsa interesului cu acceptul participării și refuzul explicit. Inventarul detaliat și filtrele despre efort, apă, înălțimi, experiență, format și limite sunt aprobate în secțiunea „Activități și natură”. Ritmul și aglomerația sunt propuse separat în „Relaxare”. Aprobarea câmpurilor nu completează profilurile personale.
 
 
 ### Detaliere „Atracții și cultură” — structură aprobată la 2026-10-22
@@ -154,7 +154,7 @@ Fiecare element se poate selecta separat; aprecierea unei grupe nu implică auto
 Se păstrează regulile aprobate despre activități împreună și distincția dintre lipsa interesului cu acceptul participării și refuzul explicit. Opțiunile sunt exemple pentru produs, nu profiluri personale.
 
 
-### Detaliere „Activități și natură” — propunere de lucru, neaprobată
+### Detaliere „Activități și natură” — structură și precizări aprobate la 2026-10-22
 Opțiunile se aleg individual. Exemple pentru inventarul produsului, nu preferințe personale declarate:
 | Grupă | Opțiuni propuse |
 |---|---|
@@ -169,7 +169,7 @@ Opțiunile se aleg individual. Exemple pentru inventarul produsului, nu preferin
 | Ateliere și experiențe locale | Gătit, ceramică, pictură, meșteșuguri, vizite la producători locali |
 | Distracție și jocuri | Parcuri de distracții, parcuri acvatice, escape rooms, experiențe interactive |
 
-Propunere de filtre opționale separate de interesul pentru activitate:
+Filtre opționale aprobate, separate de interesul pentru activitate:
 - Efort fizic acceptat: redus, moderat, ridicat.
 - Confort în apă: ape puțin adânci, ape adânci, mare deschisă; posibilitatea de a declara că nu știe să înoate.
 - Confort cu înălțimile: belvederi protejate, telecabine, expunere la înălțime, activități aeriene.
@@ -177,4 +177,26 @@ Propunere de filtre opționale separate de interesul pentru activitate:
 - Format preferat: pe cont propriu, tur privat, grup mic, grup mare.
 - Limite și nevoi: evitarea scărilor, pantelor abrupte, spațiilor înguste sau alte precizări proprii.
 
-Se păstrează distincția confirmată între interes, acceptul de a participa pentru celălalt și refuzul explicit. Limitele explicite ale oricăruia se respectă în planul comun; un filtru necompletat nu dovedește aptitudinea sau calificarea pentru o activitate. Filtrele și inventarul din această secțiune sunt încă propuneri, nu decizii aprobate.
+Se păstrează distincția confirmată între interes, acceptul de a participa pentru celălalt și refuzul explicit. Limitele explicite ale oricăruia se respectă în planul comun; un filtru necompletat nu dovedește aptitudinea sau calificarea pentru o activitate. Structura și precizările opționale din această secțiune sunt aprobate; nu sunt funcționalități implementate sau profiluri personale completate.
+
+
+### Detaliere „Relaxare” — propunere de lucru, neaprobată
+Selectarea individuală a opțiunilor, cu posibilitatea unor precizări proprii:
+| Grupă | Opțiuni propuse |
+|---|---|
+| Plajă | Nisip, pietriș, stânci; plaje amenajate, golfuri retrase, plaje sălbatice |
+| Apă și piscine | Băi în mare, lacuri amenajate pentru înot, piscine în aer liber/interioare, piscine cu vedere |
+| Spa și wellness | Masaj, saună, hammam, jacuzzi, tratamente spa |
+| Ape termale | Băi termale în natură, centre termale, băi tradiționale |
+| Verdeață și liniște | Parcuri, grădini botanice, picnic, odihnă lângă lac/râu, locuri umbrite |
+| Pauze în oraș | Cafenele liniștite, terase cu vedere, plimbări lente pe faleză, locuri pentru citit |
+| Odihnă și stare de bine | Timp la cazare, dormit mai mult, citit, yoga/stretching, meditație, plimbări la apus |
+
+Precizări opționale propuse:
+- Atmosferă: liniște, atmosferă animată, muzică acceptată; toleranță la aglomerație.
+- Cadru: natural/retras sau amenajat, cu servicii.
+- Confort: umbră, șezlonguri, toalete, dușuri, vestiare, mâncare/băuturi în apropiere.
+- Acces: acces ușor, evitarea scărilor sau altă limită proprie, corelată cu limitele deja aprobate.
+- Locul relaxării în plan: pauze scurte pe parcurs, perioade mai lungi, alternarea zilelor active cu zile mai lejere; dimineți lente sau seri liniștite.
+
+Propunerea nu impune program pe ore și nu introduce implicit timp separat. Buddy păstrează loc pentru odihna dorită și respectă limitele ambilor. Opțiunile sunt pentru viitorul produs, nu preferințe personale deja declarate.
