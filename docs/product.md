@@ -99,3 +99,35 @@ Utilizatorul a aprobat următorul conținut pentru planul salvat manual pe fieca
 - Linkurile către surse, care pot fi deschise când există internet.
 
 Harta și conversațiile noi cu Buddy necesită internet. Pe fiecare telefon, copia offline se salvează în limba aleasă în cont. Cele două persoane pot avea copii în limbi diferite. Schimbarea limbii salvate necesită internet și actualizarea copiei; nu se salvează implicit toate cele trei limbi. Această variantă a fost aprobată la 2026-10-22. Aceasta este o cerință aprobată, nu o funcționalitate implementată sau testată.
+
+## Preferințe detaliate — cerință confirmată la 2026-10-22
+Utilizatorul cere categorii mai complexe, pentru a înțelege concret ce dorește fiecare în vacanță. La mâncare și băuturi trebuie să poată selecta exact alimentele și preparatele consumate; selectarea unei bucătării naționale sau a unei categorii generale nu este suficientă. Aceasta este o cerință despre produs, nu completarea profilurilor personale. Inventarul de mai jos și noile opțiuni de răspuns sunt propuneri de lucru, încă neaprobate.
+
+### Propunere de lucru: mâncare și băuturi
+Categorii → subcategorii → elemente individuale, cu căutare și posibilitatea adăugării unui element lipsă. Exemplele descriu opțiuni pentru viitoarea aplicație, nu preferințele utilizatorilor.
+- Carne: pui, curcan, rață, porc, vită, miel, iepure; organe separat.
+- Pește: somon, ton, păstrăv, cod, sardine, doradă, macrou.
+- Fructe de mare: creveți, midii, scoici, stridii, calamari, caracatiță, crab, homar.
+- Legume: roșii, castraveți, ardei, vinete, dovlecei, broccoli, conopidă, spanac, ceapă, usturoi, ciuperci.
+- Leguminoase și alternative vegetale: fasole, năut, linte, mazăre, tofu, tempeh.
+- Ouă și lactate: ouă, lapte, iaurt, smântână, unt; brânzeturi proaspete, maturate, albastre și de capră ca elemente distincte.
+- Cereale și garnituri: pâine, orez, paste, cartofi, couscous, quinoa.
+- Fructe, nuci și semințe: mere, citrice, fructe de pădure, banane, mango, avocado, măsline, alune, nuci, migdale, fistic, susan.
+- Preparate: pizza, burgeri, paste, risotto, supe/ciorbe, salate, grătar, tocănițe, sandvișuri, kebab, tacos, curry, ramen, sushi, tartar.
+- Deserturi: prăjituri, ciocolată, înghețată, clătite, patiserie, deserturi cu fructe.
+- Băuturi fără alcool: apă plată/minerală, sucuri, limonadă, smoothie, ceai, ciocolată caldă; espresso, cafea cu lapte, cappuccino și cafea rece separat.
+- Băuturi cu alcool: bere, cidru, vin alb/roșu/rosé, spumant, cocktailuri și băuturi spirtoase.
+
+Ingrediente și preparate sunt informații distincte: consumul unui ingredient nu înseamnă acceptarea tuturor preparatelor care îl conțin. Când contează, se pot adăuga precizări despre preparare (crud, prăjit, la grătar, fiert), gust (picant, dulce-sărat, foarte condimentat) și ingrediente ascunse în sosuri sau supe. Inventarul exact rămâne extensibil și de rafinat.
+Bucătăriile (locală, italiană, franceză, grecească, japoneză, indiană, mexicană etc.) și experiențele (street food, tradițional, brunch, cafenele, degustări, fine dining) sunt filtre suplimentare.
+
+Propunere de răspuns pentru un aliment/preparat: „Îmi place mult”, „Mănânc”, „Aș încerca”, „Nu mănânc”. „Nu mănânc” exprimă o evitare alimentară explicită, distinctă de lipsa interesului și de alergie/intoleranță. Această completare a opțiunilor nu este încă aprobată. Propunere pentru elemente necompletate: preferință necunoscută, fără excludere automată; cere clarificări când alegerea depinde de acea informație.
+Alergiile și intoleranțele rămân separate; regulile lor se stabilesc distinct. Nu se deduc din gusturi sau din alegerile necompletate. Restaurantele trebuie să aibă opțiuni pentru ambii; meniurile incomplete se marchează neconfirmate, fără a promite disponibilitatea unui preparat neverificat.
+
+### Propunere de lucru: celelalte patru categorii
+- Atracții și cultură: istorie antică/medievală/modernă; muzee de artă, istorie, știință și tehnică; galerii; arhitectură; castele/palate; lăcașuri religioase; situri arheologice; cartiere istorice; tradiții locale; spectacole și concerte; locuri de fotografie și panorame.
+- Activități și natură: plimbări urbane; trasee ușoare/drumeții solicitante; munte/păduri/lacuri/cascade/peșteri; grădini botanice; bicicletă; caiac; snorkeling; scufundări; plimbări cu barca; sporturi și aventură; ateliere de gătit/artizanat; tururi ghidate; observarea animalelor.
+- Relaxare: plajă cu nisip/pietriș, amenajată/sălbatică; înot; piscine; spa/saună/masaj; băi termale; parcuri și grădini; picnic; cafenele liniștite; plimbări la apus; odihnă la cazare.
+- Shopping: piețe alimentare; produse locale; artizanat; suveniruri; modă; încălțăminte; vintage/second-hand; anticariate; cărți; design/decor; cosmetice/parfumuri; outleturi; malluri.
+
+Pentru activități se păstrează diferența confirmată între lipsa interesului cu acceptul participării și refuzul explicit. Subiecte suplimentare de propus separat: ritm, aglomerație, efort, înălțimi/apă și accesibilitate. Nu sunt încă preferințe confirmate sau un chestionar aprobat.
