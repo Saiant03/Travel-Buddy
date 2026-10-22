@@ -1,0 +1,535 @@
+{
+  "schema_version": 1,
+  "created": "2026-10-22",
+  "updated": "2026-10-22",
+  "hash_algorithm": "sha256",
+  "skills": [
+    {
+      "name": "caveman",
+      "origin": {
+        "repo": "https://github.com/JuliusBrussee/caveman",
+        "ref": "bad48a0e1df55e05e3f52249afa35ecc1909ee76",
+        "path": "skills/caveman",
+        "local_adaptations": [
+          "Preserve SKILL.upstream.md; limit compression to internal agent handoffs, never human-facing conversation or persistent user voice; include LICENSE, LICENSE-MIT and NOTICE; do not install proxy, hooks or services."
+        ]
+      },
+      "files": {
+        "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "LICENSE-MIT": "5eb826cd03151bcc7cce3f80d40e87733237fedfc6c36d6908aca5fd650a0bdb",
+        "NOTICE": "20112dc6e62e91da4f03c29fd10cfa41743a9c526389fdf1396c3649c18216fc",
+        "README.md": "e8b22f37ccb204bd00cdf98c723c0df37aeda1f5863e9ad1d634f5c839d99e5d",
+        "SKILL.md": "e89f97f76f8f48b8d8e69836215a377e6f8e221cd99e49d38421adde7bfc1d62",
+        "SKILL.upstream.md": "c97aae407736e11be492b0f6e7e12b28fb13131e642751a00d27dfca71aa51eb"
+      }
+    },
+    {
+      "name": "code-review-and-quality",
+      "origin": {
+        "repo": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/code-review-and-quality",
+        "local_adaptations": [
+          "Preserve SKILL.upstream.md; add Travel Buddy integration; bundle root references/security-checklist.md and references/performance-checklist.md under this skill and update their paths; include repository LICENSE."
+        ]
+      },
+      "files": {
+        "LICENSE": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+        "references/performance-checklist.md": "fffc38b8f3b328a973aab8b1a2efdd72b65710d8f4b57f28f8374ddae7f8a88b",
+        "references/security-checklist.md": "37774056502fe8970dcd2fd27dca5fa31f2a55232649fc3056c89c3af7d62755",
+        "SKILL.md": "548802c05feef95ae58b16169871fc09d095a85f1f08bb9976fe19b0e7167512",
+        "SKILL.upstream.md": "a5cc358c919f7d7e889da88b46edfb80e322e1dd3d570e2489db59c57faf5f8c"
+      }
+    },
+    {
+      "name": "design-taste-frontend",
+      "origin": {
+        "repo": "https://github.com/Leonxlnx/taste-skill",
+        "ref": "6010f91a9935f1c167dfc500fb1a475681892e6b",
+        "path": "skills/taste-skill"
+      },
+      "files": {
+        "assets/app.css": "16518c3a999fb81b2698137f1f743128c189272e8b1d411c4b02598c6755b67f",
+        "assets/base.css": "aa6ea21613c79e06e06dea3d33200c78590c89b0346bb976ec07947bb45ceafa",
+        "assets/base.js": "8d50416125596b84c0083d5d5ffba09add57db4b06cbf0eedac2d4999b7653bc",
+        "assets/charts.js": "89071120bd09eb276d9e568bab433ed035ea8b3a1b72750a1fa204a63e3d4ab4",
+        "assets/scenes/stage.css": "b5c587dac45ac6fcc34ae7cb4aa2b3e43797b2ef5d71fd32b48483bda3fca3e0",
+        "assets/scenes/stage.js": "3012ade75e01a9c0c81b5835a60e9ade965ed310cd58d85a7ad10e4ed4a1ad16",
+        "evals/evals.json": "df0ee2a248cd5445c0e1600eb095dc0d43dd312f5b4bb4316a78471ae0d22a74",
+        "library/app.json": "3678ccbe1e8d05feff6d4f07fa16a0d610aefeea5e697e842a876713ba763cf5",
+        "library/directions.json": "d71e3824af33a92d9e1ca543e17f80baa5b7a30c815df5125cfe3300a14892c1",
+        "library/heroes.json": "98d5e01104412a5fb27936f9c686f3bc0a5f76ce0793186d3de46b982c65b172",
+        "library/motions.json": "51815dd09a823c829897f99ed9ea7dc5c35bd305ac989b8a0632ea6d42a3f08b",
+        "library/palettes.json": "a14be9f45baba848c53436f4aa44eb4f1925ad3e232c5d1dcddf4f565661a525",
+        "library/photos.json": "8fc3b76bca90f44675bd99d99bb4ce95b0756c6c5d4141b7e917d11d90e61520",
+        "library/sections.json": "7c2c8a470a22501176948661f803434db8c542a511281752c717252de80c1ad8",
+        "library/sites.json": "a2bc4d0cff8ebff481f0dfd4879c106d5e1e16cb3122f9ab3702184a5e1f3502",
+        "library/type.json": "01a36c53c4398f48ff945b0f31a256281c1c0c1075729747c11bec70867b6232",
+        "LICENSE": "4575a543ab88dad12ccea7d97e563d0bce5b448b06072e65d3264497dad326df",
+        "README.md": "5e33fd716b3e1ffaca9340f645d44c193f9b446107fa67f0cce498d33025672c",
+        "references/app-screens.md": "55e937ec30de605b53a11310b446f328a3ce7403de24fff008920a00be1a5ed4",
+        "references/colour.md": "6556bcc7eed48b7bc2d0d281c28bf57c1b75e94d7ca0bde49f5d9df8c6a09351",
+        "references/copy.md": "676edbe75d5f3cfd8a793010ea9f730525ae074b231a674c2426264d3398262e",
+        "references/critique.md": "9c2f4392674530b3f02ac529fba53d82ab37b85f401c4c1989fbe98d6217f0b4",
+        "references/imagery.md": "518def6b2c643b295e13e66b09b66f2e3fc1421d3cf6c7dbb1dc749097ad2ad9",
+        "references/layout.md": "40080640719b07737afb94a8868afef87767a1ab4892814d9b6882e2d283453b",
+        "references/motion.md": "79f94d8469898d2bf6186c198ad86ddf691a67c6536eaec36a4ec101285d9a37",
+        "references/research.md": "83433646a352cae588591e05bc0a75fe1deadff55ede8851bc8dd5dd483adfc5",
+        "references/scenes.md": "733ac7258a1a28f2f6ae8205bc36ba66c563594ad0a2e2f829c5eaaba3199a61",
+        "references/tells.md": "8e6de4411c43d3108f832b3f33bb1a2a838148a72b92a176df893b67d99a0da9",
+        "references/type.md": "6353ff1d0ce2f9913628c88fbcb7dad3cc3877e61196848bce99e33a17d20611",
+        "scripts/assets.mjs": "b4b4b99b5634735f5a0b4213169cda5240ee6bbed8ed8042ad1bcf2b6607c1fa",
+        "scripts/draw.mjs": "6c2047d207d2400d3b099956dfe2ac306203b614246e66bc8760212a7f797dbf",
+        "scripts/inspect.mjs": "9482c546288d4d5c738a915905959e99394551ec27bc202ed443af12a02bd1f7",
+        "scripts/lib/app-draw.mjs": "aa0802d341d19b53ec14ec21746e428be49a8ec3ed7b30253194105fc18a8df6",
+        "scripts/lib/cdp.mjs": "320fb75c6454a97b88458e5c33559a1188042aa0041bd5eff53455900236c88a",
+        "scripts/lib/probe.mjs": "c14fd0bed7727855a1f3fcf5ade945fba97f314562fd7430354168b2da25433b",
+        "scripts/lib/rules.mjs": "5de058543b3bd6f3dd2f85ff1c1e5e1f91918ba9f4454e7ee0b8934c607982f9",
+        "scripts/lint.mjs": "05f2fae2f56fc051b539cdbacb43a6f78fbbfb9644bb74aa11be472ff12dcaf5",
+        "scripts/scenes.mjs": "234ec582e2b841457c33033feeeba8535f9ac285495a74d08dc533a1566c90d5",
+        "SKILL.md": "d955dae4ba8ab2d994f4bb06b4bf412a1d9875433a8597939c391f4bae91dd7a"
+      }
+    },
+    {
+      "name": "frontend-design",
+      "origin": {
+        "repo": "https://github.com/anthropics/skills",
+        "ref": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+        "path": "skills/frontend-design"
+      },
+      "files": {
+        "LICENSE.txt": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+        "SKILL.md": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3"
+      }
+    },
+    {
+      "name": "grill-me",
+      "origin": {
+        "repo": "https://github.com/mattpocock/skills",
+        "ref": "a77fa6e7a6726f687aa36455b27ed8b7d09afdff",
+        "path": "grill-me",
+        "local_adaptations": [
+          "Pinned historical standalone skill version; preserve SKILL.upstream.md; add Travel Buddy integration; plain Romanian interview and explanations; local documents instead of GitHub publication; available collaboration tools; include repository LICENSE."
+        ]
+      },
+      "files": {
+        "LICENSE": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+        "SKILL.md": "3167b57aac03d9579af497ab9b8767808fc098e04b16e09557e0c778bdad4673",
+        "SKILL.upstream.md": "c9df326c4ab635765ea884471d21f4e21d5b0ec85aec43a06c238307841eb4bc"
+      }
+    },
+    {
+      "name": "gsap-core",
+      "origin": {
+        "repo": "https://github.com/greensock/gsap-skills",
+        "ref": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+        "path": "skills/gsap-core",
+        "local_adaptations": [
+          "Include repository LICENSE."
+        ]
+      },
+      "files": {
+        "LICENSE": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+        "SKILL.md": "3887b47e050ab5afbe2a9a820f23d39fa02ab785e06a343be44c6f91d84d12b3"
+      }
+    },
+    {
+      "name": "gsap-frameworks",
+      "origin": {
+        "repo": "https://github.com/greensock/gsap-skills",
+        "ref": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+        "path": "skills/gsap-frameworks",
+        "local_adaptations": [
+          "Include repository LICENSE."
+        ]
+      },
+      "files": {
+        "LICENSE": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+        "SKILL.md": "842d9d3659ec3ddc8abbdc524708f8facf81f468ac25d0577f48c759c4fa31e6"
+      }
+    },
+    {
+      "name": "gsap-performance",
+      "origin": {
+        "repo": "https://github.com/greensock/gsap-skills",
+        "ref": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+        "path": "skills/gsap-performance",
+        "local_adaptations": [
+          "Include repository LICENSE."
+        ]
+      },
+      "files": {
+        "LICENSE": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+        "SKILL.md": "cb5408d6fba707aabcbfe3320317a14c1f8fca6070074e5261047930f50d441e"
+      }
+    },
+    {
+      "name": "gsap-plugins",
+      "origin": {
+        "repo": "https://github.com/greensock/gsap-skills",
+        "ref": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+        "path": "skills/gsap-plugins",
+        "local_adaptations": [
+          "Include repository LICENSE."
+        ]
+      },
+      "files": {
+        "LICENSE": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+        "SKILL.md": "5838b856c74c07fbc9fa99b6dfd1eee34ea554c3e530c30e0d58014b707d70a4"
+      }
+    },
+    {
+      "name": "gsap-react",
+      "origin": {
+        "repo": "https://github.com/greensock/gsap-skills",
+        "ref": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+        "path": "skills/gsap-react",
+        "local_adaptations": [
+          "Include repository LICENSE."
+        ]
+      },
+      "files": {
+        "LICENSE": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+        "SKILL.md": "88e2a5312b45e8cc7b3c496637ff5bc9af2ae9c925b555c8b235b34cbc989d74"
+      }
+    },
+    {
+      "name": "gsap-scrolltrigger",
+      "origin": {
+        "repo": "https://github.com/greensock/gsap-skills",
+        "ref": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+        "path": "skills/gsap-scrolltrigger",
+        "local_adaptations": [
+          "Include repository LICENSE."
+        ]
+      },
+      "files": {
+        "LICENSE": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+        "SKILL.md": "9351b6666a4749c0740406ea363aaccb99a087ff45cc5e8b99a0f367facf3ef4"
+      }
+    },
+    {
+      "name": "gsap-timeline",
+      "origin": {
+        "repo": "https://github.com/greensock/gsap-skills",
+        "ref": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+        "path": "skills/gsap-timeline",
+        "local_adaptations": [
+          "Include repository LICENSE."
+        ]
+      },
+      "files": {
+        "LICENSE": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+        "SKILL.md": "1a8b0f39cc4be3ed3d834b89672e4ae2f151b901dc3450bebf10bbc45379fe02"
+      }
+    },
+    {
+      "name": "gsap-utils",
+      "origin": {
+        "repo": "https://github.com/greensock/gsap-skills",
+        "ref": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+        "path": "skills/gsap-utils",
+        "local_adaptations": [
+          "Include repository LICENSE."
+        ]
+      },
+      "files": {
+        "LICENSE": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+        "SKILL.md": "1927bcc4ea95b38203404ad5ea1d060b15c4a886c65ae53e885ff1793aabe0ba"
+      }
+    },
+    {
+      "name": "impeccable",
+      "origin": {
+        "repo": "https://github.com/pbakaus/impeccable",
+        "ref": "8644175285360c166e57b1e35ecadfbc85ff5209",
+        "path": ".agents/skills/impeccable"
+      },
+      "files": {
+        "agents/impeccable_asset_producer.toml": "4dbdb0cfdc2466961da6b22d200f3ec7bf8bb47c27448a2e6e3c03cdbf589831",
+        "agents/impeccable_documenter.toml": "2feb3768125ba6469c92a50d516727e6d42f44579165ddfd33409948e2a3803d",
+        "agents/impeccable_finish_reviewer.toml": "1b80232e22d52b06a7278b9ca1f24f871a181c62cd91f4b18728807e7cf49dbd",
+        "agents/impeccable_manual_edit_applier.toml": "6c9ce3e27ec4520ead001da3aad2a2ebba481c4e5cd22873db8890259ee579fe",
+        "agents/openai.yaml": "ce9967ad70f99cf04456f3347c266723c2fbbb600267d10a822b7cd20562c321",
+        "LICENSE": "02bb8c3b4e70190e3986c0404ad2fd8d639b4f534252d82379cc1b502b6d1812",
+        "NOTICE.md": "c60a093c2845fd9fb82f9c6f742ece31f379f8190b535309d32d66c45ccffdcb",
+        "reference/adapt.md": "9807cdc112b8bcbdeff9cd2516cda4d07129f1d47f29df4d57645344f34950c1",
+        "reference/adapt.native.md": "2455a2613e1fa29b986521c73cbad9424ccda70ef6cbe505779dbca5e16272a2",
+        "reference/android.md": "058f81f256134841875fd3183e06b37a023de0c877fd2b9eecd97011640791fe",
+        "reference/animate.md": "d658c48ffbe0031e8e3b318996cad6ceafe29e40aa50d5bb25e4bf1d6839dc7c",
+        "reference/audit.md": "4b726d8f13ca1dbb82ca8179cbfefca8c53c13766fef4d7b8870f5d4324da2d6",
+        "reference/audit.native.md": "2898eff507738f9102107809e671df3e69f889dee30073030fe96fb2483d8ea3",
+        "reference/bolder.md": "05b78fb0595e4d5afbf5f17470c84e89cf82f205fea3a6e9b6d8d779b7c4aab1",
+        "reference/clarify.md": "173dd66abe65633910dcb04a51f40d6ff2a793f87088f022a02fc4cad24dd133",
+        "reference/colorize.md": "bc5f71f1129d0f2c310d913d07c8dc609a1d25644121bd78c308f42d52a0b9e9",
+        "reference/component-review.md": "10489e5265e49a4ef2737cd0e674c149ed41e1f703efe922e53ea3c91e833427",
+        "reference/craft-floor.md": "52b523e92b76daff71be2ec8c732c374c670f8d03e1296388738e581479ec1bb",
+        "reference/craft.md": "9205e222bc6565b37fb504ceec93233c2d2a456802b69d16e6b1c44723907c4c",
+        "reference/critique.md": "c210c9506877c6c8d88880a337fddd95d4315daf70ed6bc631ee6520481f1a0c",
+        "reference/degraded/asset-producer.md": "877d274f41500c780bad25b2bca7fa95eff1a32a7b95397dd388c72848e86a6c",
+        "reference/degraded/documenter.md": "bcc05ea92faebb5c74037a9d4263a5ce9a56f5ab07c8ab3c59ee704d8cade745",
+        "reference/degraded/finish-reviewer.md": "c33c4cfa7f0ce0bedde80d4fc3b595e747d0e9b43a77f06cacb8e899802f709d",
+        "reference/degraded/manual-edit-applier.md": "5fae7f8a2fc3ddd49ad0a413446dc44daedef5b6b7de5eb935bd2fbfad646d58",
+        "reference/delight.md": "098a891028ce59c212b747d3c70468dd750aff7053a703d1336045ed31e0da7c",
+        "reference/distill.md": "56ca75d680eb8b61ca3a298d18e895cd4a0dcc520c31d7938a4807ff8dcf18ea",
+        "reference/doctor.md": "3dbef3fe606de4de0f1b5cab5f19902799e05cf566eb8223e9aa1632eeb04698",
+        "reference/document.md": "531d2b6c8c9affc7b794de7904905ff9b73962b986968fd1e90273eb26930b6e",
+        "reference/extract.md": "5477ae97189e5c1236cee71a25a5ae50014429a5a2e6da28355c8021a6cdeddd",
+        "reference/generate.md": "11385badfb532196cec249e73bac2b7f58ada033ed8c4b02b9f0d64ddb46f0dc",
+        "reference/harden.md": "4167eb7fc456cdfe09ff0ac2dbcb5e59cee57e590137aab6cc8ec08aafb6d775",
+        "reference/hooks.md": "3c623f602043dcbdad8c043491e57ece96f699106f8378cc8a720e6b39c0ddcd",
+        "reference/init.md": "51349b3a32c7f907102dd680d8e2df9da27082caf46ee15c673be7ce14a5363b",
+        "reference/ios.md": "40c87038b5f75147a5952a96237acf312a327bf70c1bcd8e0a5f064625ae9668",
+        "reference/layout.md": "0bc7d7971b3edf2acd0580e847458dc6d84129d90715b452799ace3bed815c7c",
+        "reference/live-setup.md": "2b5b2fbf5f658f34ea1997fb1aeebe01604d05187f75c6a4f1f55a5bc78520a4",
+        "reference/live.md": "7caeecefe54d68bc915a7f2978cba5e88eda69a239cb09dcce78c6d94e93df84",
+        "reference/mode-operate.md": "7a52dd7a94ee75f6ae89542c86a1b6e1d306812b16e0d9dbf12d4acad44d148b",
+        "reference/mode-persuade.md": "21e78c8a77badb3f83290cd4577ed3b24bd4dd3b57136d7da75733d4f3ee9ac0",
+        "reference/mode-read.md": "a569989e6a3d6453b4c45e9474e162a15cc54e11732ac6baa7990a6e7cccc0b5",
+        "reference/new-work.md": "c2eb99db2f30598ef0d2e2f7163bb8a62ca2e5524de42a784b0d1f7117b1800f",
+        "reference/onboard.md": "a2b8fd01ea12139b39b3285393f805bb8c326e11b2234dbff4c26c17b4e9c280",
+        "reference/operate.md": "a9d2203acd45ca33a13d5c68b02b23ed512425ac15f0e8438318ed124b43729d",
+        "reference/optimize.md": "89d679ec08e55fe7661d54addc950c2ff77cf574aa97e593ec6da089fd1efedf",
+        "reference/overdrive.md": "0a0d4ae6eea720c6d6e1c073fc77192d7c2100f78a44d9a8d262ddf22270cf4d",
+        "reference/polish.md": "81666fc7f783b4e3514db6554e713dc0479bd9cdedb06e93d15f8b579aae869a",
+        "reference/quieter.md": "9e03b55c6bbdd4acba28cfa9c3b74ba1a4448cdbd35a7200990ab460c6eecaa0",
+        "reference/region-map.md": "778cedc9199b407d3e23fa1041e38d548b00b1101a33517aa2a2eb299f9d0edc",
+        "reference/routing.md": "77ae09542fbc10aa4e8b119d6fd19359908a47c13c30068d6a150bfdb50e3e10",
+        "reference/shape.md": "a55f016c046cb6a27c55bd7f346375aeb506a755c4fbca19a5f92dbd42309c23",
+        "reference/typeset.md": "c26c5b4524f3ccb650ed0680c10c25fd18083f8ebfd00a54c4d983c4747aab70",
+        "reference/visualize.md": "1c81a831f9dd28b908306fa06e2f2944ca4595ff3df6570750c10bf806465f00",
+        "scripts/command-metadata.json": "e8720f3aa41135211cc58cc299a39eeda86c75651f4279cc1ede8db10dcc0584",
+        "scripts/data/font-index-failures.json": "835f19a0a3812f3652dd6979a2ce5597f654fd01f26e1b420b92d5f42b997ce4",
+        "scripts/data/font-index.json": "47edbdfaf27073c47033d1ac7dfee881be49e2dcbda7671d1157300481dde6da",
+        "scripts/impeccable": "f5d9fcd37559ed6af782306f71b7688ad1ec5e1a4f8ae1ef4d3168f42523b1b1",
+        "scripts/impeccable.cmd": "e0dcc4cd739c8a6ac9e8ce637c216cf8bd4ddae36a8bac458345bdb5a5d7e252",
+        "scripts/live-browser-dom.js": "4b379aff87ce0f485008a2b6a0dc711d00a869f5cf0ec2459279d6364fbf0c9e",
+        "scripts/live-browser-ignores.js": "c1cb6877ca99a0c1b38ba0c7d59f32702d3022f6821d8045f7133f7c40b6362f",
+        "scripts/live-browser-session.js": "2b45c12bef4e25d40b673044c9f124d1da6dfa72ef3f0c09ff30fdb419048e5d",
+        "scripts/live-browser.js": "8f26a309ae1af52d2413a39a886908721e78c55b468025054e06e8faffe90cf0",
+        "scripts/modern-screenshot.umd.js": "bb36665889124a0b6e15f16045265737449c3bdcf2712cdb08af3cfa01563e2b",
+        "scripts/VERSION": "7470694a0b5af87394b523c1a640e2ad099efbe0e6d9e6d2f7a70703e4d04457",
+        "SKILL.md": "88e9a46a91b6ddd1059f03f578bd0f9bbe6d212d6a395124379b9bb5c97c5cf2"
+      }
+    },
+    {
+      "name": "improve-codebase-architecture",
+      "origin": {
+        "repo": "https://github.com/mattpocock/skills",
+        "ref": "a77fa6e7a6726f687aa36455b27ed8b7d09afdff",
+        "path": "improve-codebase-architecture",
+        "local_adaptations": [
+          "Pinned historical standalone skill version; preserve SKILL.upstream.md; add Travel Buddy integration; plain Romanian interview and explanations; local documents instead of GitHub publication; available collaboration tools; include repository LICENSE."
+        ]
+      },
+      "files": {
+        "LICENSE": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+        "REFERENCE.md": "dd47bb0359f8e09db95d393c6b9f8c77430af37826d939557edc2abef59cddbb",
+        "SKILL.md": "6e7839ff80fd29373692b46130ee224ff1c21473576e46d9c7421fdf555b82f0",
+        "SKILL.upstream.md": "0fed8753d0641238fdac5769a0175478cb35401578674992b4d2c24077b232d5"
+      }
+    },
+    {
+      "name": "test-driven-development",
+      "origin": {
+        "repo": "https://github.com/obra/superpowers",
+        "ref": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+        "path": "skills/test-driven-development",
+        "local_adaptations": [
+          "Preserve SKILL.upstream.md; add Travel Buddy integration; local planning and delegated execution instead of missing Superpowers execution skills; proportional testing and session permission rules; include repository LICENSE."
+        ]
+      },
+      "files": {
+        "LICENSE": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+        "SKILL.md": "4f51b3188c44341aefa0c0ea1a3fdcac9d401513bf8b4112a63d2a35f9bf11a7",
+        "SKILL.upstream.md": "90fa0021a53360948fd1eb67799821d549ebef036ffad0ad5ceb7d8585abf159",
+        "writing-good-tests.md": "51471c853306ff92ca8bb41dcaea05f31c0e46b03651f8f3c99754b7172f4ae1"
+      }
+    },
+    {
+      "name": "travel-buddy-engineering",
+      "origin": {
+        "type": "project-authored"
+      },
+      "files": {
+        "SKILL.md": "2ab8f76bac78e89c037290f893cf1866ac9b9636d2ed0e49a0ef0cd427ffd135"
+      }
+    },
+    {
+      "name": "travel-buddy-review",
+      "origin": {
+        "type": "project-authored"
+      },
+      "files": {
+        "SKILL.md": "486412141342da296e5a9df9be0d24105f6a2b41f373f8b854c21f1c5608703f"
+      }
+    },
+    {
+      "name": "ui-ux-pro-max",
+      "origin": {
+        "repo": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+        "ref": "623a9a9037d006ea727f8213f084d02a6b6f11b5",
+        "path": ".claude/skills/ui-ux-pro-max",
+        "local_adaptations": [
+          "Resolve Claude plugin command paths to the absolute Travel Buddy skill script path; preserve original SKILL.upstream.md; include repository LICENSE."
+        ]
+      },
+      "files": {
+        "data/app-interface.csv": "331e7cf2c0b222d80c566c5f255c63cb339f65bfd02e471a720f28e4864a9f08",
+        "data/catalog-summary.json": "6638da97231c07fb5cef3cd9d3ce483ca7b2f9748980f8c27490eb03968d8894",
+        "data/charts.csv": "4115cf1120680f2cedef0676cb648f30c7ef4699e2a947535d4113e71ed3b12a",
+        "data/colors.csv": "8162429222bce22df62b564085946a30d07cc9722c58d0a3a494bd0d1d00841c",
+        "data/data-provenance.json": "e82fb33ed49375a300e93d9c11ccd1c1493c999e84ee7ee295e527634786e2e0",
+        "data/google-font-licenses.json": "35688523f2955795caa1a47c53b83099e60c1708461476f9cc3a050cf3b0148a",
+        "data/google-fonts.csv": "1c8c3b2ea1faf6a1012da463756def8b3889db33f2226f0343bb4daa80307d03",
+        "data/icons.csv": "50816c6012030178195a16ee481ebf58b47bd985d70e8ec58886cc83f6eddafc",
+        "data/landing.csv": "9a2edd3bb676c2a58f00ade7a062e285222d4297bfd847c8d5b056f0dbbf52d0",
+        "data/motion.csv": "381affe8df8ea1f66fbbda2598827f9f54299107bbe6a1b4e9b68f6b62091ceb",
+        "data/phosphor-icons-upstream.json": "2399325233b277b5c97a80e6a5e8941154f5d057beee4e7613db87c87d700236",
+        "data/products.csv": "42473f75e8dde5987bdf89ce55d8c168091b80a356cae691dd60247d80720b70",
+        "data/react-performance.csv": "3d925802539abac5afeb63ae8aa1960b7229ad271b3a47caed40ab2d97ad0734",
+        "data/stacks/angular.csv": "704be83f2bad30c7e6de01afb113ffa01e0c458762f48b7102f31ba2367b5553",
+        "data/stacks/astro.csv": "2c2f55fadaafc05e04cc321c8194a1a28b656e6757fe2ba316f41b16428299c6",
+        "data/stacks/avalonia.csv": "442fca14675a020683473e7e49f08abb27b9df0765c80efe54aef61f1a4ac258",
+        "data/stacks/flutter.csv": "64dba0ac17349f28bce517a0f5f48c54d9ed2e487ec0c0258303463b382f41a0",
+        "data/stacks/html-tailwind.csv": "d05a581d20af57b8ca0104a6d31d90a07c437d500662a96c3029fc2f9a4678ee",
+        "data/stacks/javafx.csv": "2e819b8d5abdd23ad4dae0991650fdb57af497aabd68b37463aa9c442944c869",
+        "data/stacks/jetpack-compose.csv": "699de218b286948eaec7d15767b6e1350ee299167e49bf476d82e3ff58724e0a",
+        "data/stacks/laravel.csv": "854ea4daa5fc61292d22235ad33b49ba3fe22423c3de8d3cb03758ffed3b59f9",
+        "data/stacks/nextjs.csv": "ecd2c27b2ea0127d203ae726060efcdd7335b5e83f96b99e4f3befbbfeebd5a4",
+        "data/stacks/nuxt-ui.csv": "fce682a338cfcdbf35d318d20e5befbe7b5d81b05abc37f87677a6d9cde84dc6",
+        "data/stacks/nuxtjs.csv": "3d9b54ed2d151bd9c86e9e5609b8a6f88a00c4c52fa601a30af96c49b2c4d176",
+        "data/stacks/react-native.csv": "ba31dd9c0c04da6bc02a74448bf121f9c0728ae5ba3b4d47b487778b0a1135b5",
+        "data/stacks/react.csv": "4dd176a9787e5c6306b5df94158d75955adcdc6edab41ce5286641a5842303c1",
+        "data/stacks/shadcn.csv": "e56cfde5b74907836ac3582a4779d5b7f3d206a702ab81b8669a1b668c3eeb51",
+        "data/stacks/svelte.csv": "f6e379ba802941ba26b01d4ffbe3cd39120f2587659a1d93851c707f66bc13db",
+        "data/stacks/swiftui.csv": "bdd9231ff3ad658f4e7c063e1eb49df2fd09ac8d90631a86df899b39833b9623",
+        "data/stacks/threejs.csv": "155d583b9c64da0df4b6c6cb060c02eab222505e0734d6353da02c9e2b5d982b",
+        "data/stacks/uno.csv": "a0474363e4225b5367214d5675fd3e075f137026f9500f0d04357882ef4f6d48",
+        "data/stacks/uwp.csv": "c409f08c1fbba1f1029f1acaa554e7b4471cc85517a5751c9f2e62465badcd5c",
+        "data/stacks/vue.csv": "b655f1ebb9dff2652d15981f31b1784c8a6d4759efd2815a14f3088257569f95",
+        "data/stacks/winui.csv": "e676dc1c13ee6c205c40b0746f1335150a346c7a49a0616d2545bc3d2c930c85",
+        "data/stacks/wpf.csv": "9781a9950b20333637b30a02e498b7efca21b618a3eeb8665836f3ac6e974da7",
+        "data/styles.csv": "a93a4d9d7025856575d7b7583bda020be9043013432c5af7c58af9dbdfb206b7",
+        "data/typography.csv": "321fc446e89024488ebae96dda93efc4d2307bd8bddb240857ad51364f6782c8",
+        "data/ui-reasoning.csv": "f0774dd741cecdad5eec842034bd6d5e9ea50e9f220a1910069748daa0bb8e9a",
+        "data/ux-guidelines.csv": "ff81ec613f70ba9fc3fcce52dbe4ae35d44b2079dbe6dc066d2d6e38c28facd5",
+        "LICENSE": "738f69dfa83db5c347c678fb9d90e560877059f0de93a327c39001bff92dc014",
+        "references/pro-rules.md": "d28442d61c310b49c054a4ea736f89fb3008beebdbbc38c4b3a540b8f7fadf23",
+        "references/quick-reference.md": "0609bc7c89dacb40472465d8fc14257b56b2c43439660fc8d6fa3b8c022e1876",
+        "scripts/core.py": "c3be4b23e7150e6b45095213158cfa3c8ad96502f01dde3f6ffff9de64a4f481",
+        "scripts/design_system.py": "e7d1c94c4b2eada17c5551157668362659ccf9626d34dbd58e68142410f90103",
+        "scripts/reasoning_contract.py": "b8bac1af82aa280d3e06f00aabaeac4337e632996b07fed874e2b6ee6e9c5913",
+        "scripts/search.py": "d54e648fe0ec2932cac66684220cc17be4bd4b4eba1d23d3195d509d398db374",
+        "scripts/tests/fixtures/catalogs/google-api.json": "22d8dc81a7d6827b7e8b64b53e7d184210fb9759e8e294e0d5133c81cc460176",
+        "scripts/tests/fixtures/catalogs/google-catalog.json": "c608ad5c4084ebc50a4bbbfb69ea2456c01fd5519c457e18410fffd250ae948f",
+        "scripts/tests/fixtures/catalogs/google-existing.csv": "4e0761b839dc6b2187a370e82eddc0aed8a7ff10c09e28dd814bb3656dac595b",
+        "scripts/tests/fixtures/catalogs/google-metadata.json": "30bffc29ae348416a2de2f9c6c418e768e4578f136b0f4bac5d2f70124f2e9ba",
+        "scripts/tests/fixtures/catalogs/google-overrides.json": "6243a48a4619986768c4628e2d0c98ff195beba71ba9be5df8f0c52fc6d90c0b",
+        "scripts/tests/fixtures/catalogs/icons-curated.csv": "68362c9a700c13b96f000784a0198c1c7e117a7088a01c85744e44233038fe9d",
+        "scripts/tests/fixtures/catalogs/phosphor-core.json": "ae4d0bb076240824e1b643c2270d1f8cc0952a69502ec1e622b7dedd85b930bb",
+        "scripts/tests/fixtures/catalogs/phosphor-package.json": "500588c757d6de03e3d7e69b27a8b8b1f88ccf6bb0333e4c1e9b0d6a4f112475",
+        "scripts/tests/fixtures/catalogs/phosphor-react-exports.json": "d79f2ee0afdbc2f87776733e145df3538a16a25d7c2fba0056bb48295dad0ded",
+        "scripts/tests/fixtures/catalogs/phosphor-react-package.json": "1c57a1d76bcc0cdd3632d4c18b9c0e79576b4591df39831c9607e5d0eb4f2cec",
+        "scripts/tests/fixtures/relevance-baseline.json": "0df200fc54c1cb97a52d6775e7f501509163cea8f8b73fd7268429bc1f835afe",
+        "scripts/tests/fixtures/relevance-cases.json": "e77d36eebbf6ddc2860946a02cdb659351da6c09f2688f1ed30939a418099646",
+        "scripts/tests/fixtures/relevance-thresholds.json": "1fbe8623fe3e49c8d828139bca9df69043746e488e8bf09d93dfb9cbc31f5cef",
+        "scripts/tests/test_catalog_refresh.py": "3e2ca5d12702318f641ae62d0c14f22a3bcc84d84e79b863c0e947d475604adb",
+        "scripts/tests/test_catalog_summary_line_endings.py": "fa6ff09f0ec2c99013588c77397f5082dddebe8f467e94c5f8378ec9595f4989",
+        "scripts/tests/test_core.py": "3527fe2f4b852f69f07c17ddc0d615d9a6e025c924e45a33985579a94a8d2118",
+        "scripts/tests/test_core_data_quality.py": "3ffc6b4905c9ea26d7ac4527ab154d153584231aee71b2ae4bd017977fa09cc5",
+        "scripts/tests/test_data_contracts.py": "0360d6e10080c0bca214f2b0bbad582ba50702a542ce21013351aca54938df3a",
+        "scripts/tests/test_design_system_mode.py": "95ad2c154349f7021f55a558f8dcdd71df1a24fcf531a4364a8e49526a0865ef",
+        "scripts/tests/test_design_system_stack.py": "83d09ffe8cfbf7b265f362129f061dfe8e5e167ce5db43adaead197cabc9ca38",
+        "scripts/tests/test_native_desktop_stack_freshness.py": "3942845712b9a829323cd3568511483135f2a8c7cd79ccf61679da4b0f624dbb",
+        "scripts/tests/test_relevance_evaluator.py": "2fe56a4d6fe5fff15ff592274b0eeaba925146cefea6c0fa29d8f1b77c9aca1f",
+        "scripts/tests/test_skill_script_paths.py": "7cec24b94be771bc60bc84f8993e614bb16d4047930e1dd3d3bed91628311d44",
+        "scripts/tests/test_style_taxonomy.py": "cd14d0092e8a454d213aa104b53e4e70ba698491fa00fde9fdec5ca8a3d70011",
+        "scripts/tests/test_text_layout_resilience.py": "b51d32ee8a15505b87cb81957fb2d1b385e041e8beb4463c311d236bfd29ebd4",
+        "scripts/tests/test_web_stack_freshness.py": "74897571398585f27e2c35d09d81b0a531c8c774f4a2967e5e1b1d1b05a483d9",
+        "scripts/validate_data.py": "a599aa256049cf30954d1f164721b99e453eb7e4cb8241bcab2d5573e6cf58b8",
+        "SKILL.md": "c6af84c8890ed51088962da8e9463b7263404ff8647090846fbf73d7e5762093",
+        "SKILL.upstream.md": "ea087c341bfb5b23195c7302027268ede86da802554c18a5c4896a6017b439f9"
+      }
+    },
+    {
+      "name": "using-git-worktrees",
+      "origin": {
+        "repo": "https://github.com/obra/superpowers",
+        "ref": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+        "path": "skills/using-git-worktrees",
+        "local_adaptations": [
+          "Preserve SKILL.upstream.md; add Travel Buddy integration; local planning and delegated execution instead of missing Superpowers execution skills; proportional testing and session permission rules; include repository LICENSE."
+        ]
+      },
+      "files": {
+        "LICENSE": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+        "SKILL.md": "0c93db5af6b33772caf8212d324ce2e16f611f507324af10bd0821cf0e0187dd",
+        "SKILL.upstream.md": "49ac647dd5a65e0e79f87d346005dde8ce27c6886bccf966164917ee8bb4df80"
+      }
+    },
+    {
+      "name": "web-design-guidelines",
+      "origin": {
+        "repo": "https://github.com/vercel-labs/agent-skills",
+        "ref": "063bee94c3f4df8453406c830b0a7df0f2860278",
+        "path": "skills/web-design-guidelines"
+      },
+      "files": {
+        "SKILL.md": "f4647ca866a3accf763777f83e7682954f0187cd6bea7eea0399796652414e8f"
+      }
+    },
+    {
+      "name": "webapp-testing",
+      "origin": {
+        "repo": "https://github.com/anthropics/skills",
+        "ref": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+        "path": "skills/webapp-testing",
+        "local_adaptations": [
+          "Preserve SKILL.upstream.md; add Travel Buddy integration for runtime discovery, permitted browser tools and bounded readiness checks."
+        ]
+      },
+      "files": {
+        "examples/console_logging.py": "ea46877289acb82da7e7ce59d0bc37c8977cd57e2a006d0c88d7a1c625bf95da",
+        "examples/element_discovery.py": "d63c89604a22f8845d724e95dda45db49b1bf57c25ce0a83afbb7b8da3d402f0",
+        "examples/static_html_automation.py": "9d533aafb875ee3ab8b8ebf8f5b9003ac8d999da3d09b285cce252e623140064",
+        "LICENSE.txt": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+        "scripts/with_server.py": "b0dcf4918935b795f4eda9821579b9902119235ff4447f687a30286e7d0925fd",
+        "SKILL.md": "d3c156312008e1b622f0dc4f8185a933271a9bb108abfb966bd4d5461f8b0aa9",
+        "SKILL.upstream.md": "8bc27790f6e6dfc2bfa6692326d4518baacf6a31dcc646d963c729adad2f7e34"
+      }
+    },
+    {
+      "name": "write-a-prd",
+      "origin": {
+        "repo": "https://github.com/mattpocock/skills",
+        "ref": "a77fa6e7a6726f687aa36455b27ed8b7d09afdff",
+        "path": "write-a-prd",
+        "local_adaptations": [
+          "Pinned historical standalone skill version; preserve SKILL.upstream.md; add Travel Buddy integration; plain Romanian interview and explanations; local documents instead of GitHub publication; available collaboration tools; include repository LICENSE."
+        ]
+      },
+      "files": {
+        "LICENSE": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+        "SKILL.md": "462610a9aba5f9a5537eb41700bfef754bd11a3d27762d276af1368caf95693e",
+        "SKILL.upstream.md": "ff0b3d303e62ddb49c63ce2e0dbb73b8b40e28089071d22ef4f606131d3dee95"
+      }
+    },
+    {
+      "name": "writing-plans",
+      "origin": {
+        "repo": "https://github.com/obra/superpowers",
+        "ref": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+        "path": "skills/writing-plans",
+        "local_adaptations": [
+          "Preserve SKILL.upstream.md; add Travel Buddy integration; local planning and delegated execution instead of missing Superpowers execution skills; proportional testing and session permission rules; include repository LICENSE."
+        ]
+      },
+      "files": {
+        "LICENSE": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+        "SKILL.md": "fda60dd00c31534d790661c0ed71152c2caa037cfef881922e76a3000f7c8710",
+        "SKILL.upstream.md": "0fdb0f2af96e7d8e879bbffc65413983915411c63daf85e0757034e38630445d"
+      }
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+# Raport de verificare a fundației
+
+**Data:** 2026-10-22
+
+## Dovezi pentru fundația inițială (4 skill-uri)
+
+- Skill-ul Impeccable instalat la commit `8644175285360c166e57b1e35ecadfbc85ff5209`; inventarul conține 64 de fișiere, inclusiv `LICENSE` și `NOTICE.md`.
+- Skill-ul Taste instalat la commit `6010f91a9935f1c167dfc500fb1a475681892e6b`; inventarul conține 39 de fișiere, inclusiv `LICENSE`.
+- Au fost instalate două skill-uri proprii, câte un fișier fiecare.
+- `skills-lock.json` a fost generat. Hash-urile SHA256 au fost recalculate pentru toate cele 105 fișiere din inventarul celor patru skill-uri (103 upstream și 2 proprii).
+- Profilele `.codex/agents/tb-implementer.toml` (`gpt-6-luna`, efort `medium`) și `.codex/agents/tb-reviewer.toml` (`gpt-6.1-sol`, efort `high`) au fost parsate cu Python `tomllib`; câmpurile obligatorii au fost verificate.
+- Frontmatter-ul celor patru skill-uri a fost verificat pentru delimitatori, `name`, `description` și codare UTF-8. Nu s-a folosit un parser YAML complet.
+
+## Validator și review
+
+- Validatorul oficial `quick_validate.py` a fost încercat, dar nu a rulat cu succes: `ModuleNotFoundError: yaml` (PyYAML lipsește). Verificările alternative din biblioteca standard nu sunt echivalente cu validarea YAML completă.
+- Un review independent a raportat la un snapshot intermediar R1: lipsea `skills-lock.json`, și R2: lipsea `docs/verification.md`.
+- R1 a fost remediat de coordonator; manifestul există și a fost verificat. Acest raport remediază R2.
+- Reverificarea independentă confirmă că R1 și R2 sunt rezolvate; inventarul și toate cele 105 hashuri au fost verificate și prin PowerShell `Get-FileHash`, fără nepotriviri. Nu au rămas constatări acționabile în documentele reverificate.
+- Coordonatorul a recitit documentele și rolurile și a verificat final existența celor 10 documente/manifest, cele patru skill-uri, inventarul complet, toate hashurile și parsarea celor două profiluri TOML. Verificările structurale au trecut; acceptarea utilizatorului rămâne deschisă.
+
+## Limite cunoscute
+
+- Nu s-au rulat build-ul aplicației sau teste în browser; aplicația încă nu există.
+- Utilitarele upstream și hook-urile nu au rulat.
+- Descoperirea rolurilor într-o sesiune nouă nu a fost verificată.
+- Nu s-a efectuat audit de securitate pentru proiectele upstream.
+- Profilele de agent sunt salvate local; acest lucru nu confirmă o configurare globală și nu schimbă modelul principal.
+
+## Extinderile solicitate — inventarul curent (2026-10-22)
+
+- **24 de skill-uri, 237 de fișiere** în `.agents/skills/`, inventariate în `skills-lock.json`. Toate hashurile SHA256 și inventarul complet au fost recalculate și verificate după instalare și adaptare.
+- Cele 105 fișiere ale celor patru skill-uri inițiale au fost comparate cu manifestul anterior: niciunul nu a fost schimbat. Impeccable nu a fost duplicat sau actualizat.
+- Au fost instalate Anthropic Frontend Design, UI/UX Pro Max, Vercel Web Design Guidelines, toate cele opt module GSAP, Grill Me, Writing PRD, Improve Codebase Architecture, Writing Plans, TDD, Webapp Testing, Code Review and Quality și Using Git Worktrees, plus Caveman.
+- Pentru toate cele 24 de manifeste au fost verificate delimitarea frontmatter-ului, câmpurile `name`/`description`, identitatea numelui și citirea UTF-8. Verificările nu constituie o validare YAML completă; limita PyYAML de mai sus rămâne valabilă.
+- Pentru cele zece manifeste adaptate este păstrat `SKILL.upstream.md`. Sursele, commiturile fixe și adaptările sunt înregistrate în manifest. Licențele disponibile au fost păstrate; Vercel nu avea fișier separat de licență în directoarele verificate.
+- Checklisturile de securitate și performanță folosite de review au fost incluse din același commit upstream, iar legăturile locale au fost adaptate.
+- UI/UX Pro Max: căutarea locală `keyboard focus --domain ux --json` a trecut și a returnat trei rezultate. Generarea `travel planning --design-system --json` a trecut; rezultatul nu a fost salvat și nu reprezintă o direcție de design aprobată.
+- Webapp Testing: comanda `with_server.py --help` a trecut. Pythonul verificat nu are modulul Playwright. Nu s-au instalat Playwright sau browsere și nu s-au rulat teste de browser; aplicația încă nu există. Instalarea runtime-ului rămâne pentru etapa în care este necesară testarea site-ului.
+- Cele două profiluri de agenți au fost parsate din nou cu `tomllib`.
+- Preferința explicită pentru explicații simple în română este salvată în `AGENTS.md`, `docs/memory.md` și `docs/process.md`. Caveman este limitat local la comunicarea tehnică dintre agenți.
+- Nu au fost pornite hooks, proxy-uri, servicii sau worktrees și nu au fost publicate issues ori PR-uri prin această instalare. Nu s-a inițializat Git.
+- Reviewul independent al extinderilor a confirmat 24 de directoare/skill-uri și 237 de fișiere, fără fișiere lipsă/suplimentare și fără hashuri nepotrivite. Nu a identificat constatări acționabile în instrucțiunile și documentele revizuite. Verificarea a acoperit explicit Caveman, documentele locale, delegarea și verificările proporționale; nu reprezintă audit complet upstream sau testarea unei aplicații.
+- Coordonatorul a verificat și cele 16 căi explicite către skill-uri din `AGENTS.md`, linkurile locale necesare reviewului/arhitecturii, eliminarea comenzilor de publicare din manifestele adaptate și înlocuirea dependențelor Superpowers de execuție cu procesul local. Toate aceste verificări au trecut.
+
+## Brief și fezabilitate — 2026-10-22
+- Coordonatorul a citit AGENTS.md, memory.md inclusiv predările, product.md, plan.md, process.md și decisions.md. A aplicat write-a-prd doar pentru consolidare, fără reluarea interviului.
+- Trei agenți gpt-6-luna au cercetat separat hosting/date, căutare/generare și hărți/offline. Fișierele au fost editate numai de coordonator.
+- product.md a fost verificat față de lista inițială: păstrează cele două conturi, trei limbi, personalizarea detaliată, refuzul explicit, regulile alimentare, bazele multiple, orele opționale, itinerariul flexibil, confirmarea schimbărilor, harta cu traseu, offline și limitele primei versiuni. Întrebările depășite au fost înlocuite cu deciziile realmente deschise.
+- feasibility.md documentează surse oficiale actuale și separă oferte, concluzii și propuneri. Coordonatorul a reverificat direct condițiile decisive Tavily, Groq, Cloudflare, Firebase, Supabase, Gemini, Geoapify, OSM, HeiGIT, MDN și WebKit.
+- Corecții în urma verificării: cifrele vechi ORS nu sunt prezentate ca actuale; termenii Gemini pentru utilizatorii SEE sunt incluși; transportul public rămâne candidat fezabil prin Geoapify, cu acoperire neuniformă. Aceste corecții au fost retrimise agenților și reverificate înainte de integrare.
+- Au fost sincronizate planul, memoria și deciziile. Ultima predare de la finalul memory.md o înlocuiește pe cea istorică.
+- Neexecutate: crearea de conturi/chei, apeluri API autentificate, teste de calitate/consum, site, browser/telefon, verificare de securitate a unei aplicații. Nu există implementare testată și nu s-au activat servicii.
+- Probleme/decizii rămase: cotele efective pe conturi, calitatea surselor și traducerilor, fotografii lipsă, rute de transport public în destinațiile reale, eventualele hărți offline și acceptarea compromisurilor. Nu sunt blocaje pentru predarea cercetării; împiedică promisiunea funcționării complete.
