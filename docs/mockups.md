@@ -1,6 +1,21 @@
 # Machete Travel Buddy
 
 
+## Crearea unei vacanțe — trei pași pe telefon, pentru evaluare vizuală
+2026-10-23. Propunere de grupare a formularului cerut în trei ecrane succesive.
+
+![Crearea unei vacanțe: destinație și perioadă, transport și cazare, rezumat și preferințe](mockups/trip-creation-mobile-three-steps-v1.png)
+
+### Ce arată
+1. **Destinație:** destinația, opțiunea perioadă/număr de zile și ilustrația personalizată.
+2. **Detalii:** transport combinabil, cazare opțională și ore aproximative opționale de sosire/plecare.
+3. **Rezumat:** datele alese, pregătirea preferințelor amândurora, ajustarea preferințelor proprii și pornirea generării.
+
+**Stare:** propunere vizuală neaprobată. Cerința unui flux în trei pași este deja aprobată, iar această organizare concretă este de evaluat. În produs ecranele sunt succesive, nu trei coloane simultane.
+Lisabona, 12–16 mai 2027 (cinci zile inclusiv), transportul combinat și profilurile pregătite sunt exemple. Nu există date personale completate. Cazarea și orele sunt lăsate necompletate; bugetul nu este cerut. Ilustrația este de design, iar fidelitatea fontului Bricolage Grotesque se verifică în browser.
+Cele cinci categorii de preferințe trebuie parcurse de fiecare persoană conform regulii existente; ecranul trei arată doar exemplul ambelor profiluri pregătite. Cazările/bazele multiple rămân în cerințe, chiar dacă macheta arată doar intrarea „Adaugă o cazare”.
+Nu există formular funcțional. Scenariile de verificare sunt în `verification.md`, încă neexecutate.
+
 ## „Vacanțele noastre” pe telefon — aprobată vizual
 2026-10-22. Pagina privată de după conectare, cu două stări alternative ale aceluiași ecran mobil.
 
@@ -14,7 +29,7 @@
 
 **Stare:** cele două stări sunt aprobate vizual la 2026-10-23. Utilizatorul apreciază explicit imaginile specifice fiecărei destinații; această direcție se păstrează pe cardurile vacanțelor, în același stil ilustrat. Lisabona / 5 zile / pe jos și Madeira / 7 zile / mașină sunt exemple pentru design, nu date personale sau călătorii reale salvate. Cele două stări nu apar simultan în produs. Miniaturile sunt ilustrative, nu fotografii confirmate din surse.
 Fontul real, dimensiunile pe telefon și comportamentul paginii se verifică la implementare. Nu există pagină funcțională sau autentificare implementată.
-Fluxul de creare în trei pași, deja cerut, va fi reprezentat separat.
+Fluxul de creare în trei pași este reprezentat separat în macheta de mai sus.
 
 ## Copia offline pe telefon — trei stări, aprobate vizual
 2026-10-22. Machetă statică în direcția vizuală aprobată, cu trei stări ale aceluiași ecran mobil.

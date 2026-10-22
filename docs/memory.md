@@ -179,10 +179,20 @@ Două stări ale aceleiași pagini mobile sunt prezentate alăturat:
 - Cu vacanțe existente: carduri ilustrative, destinație, număr de zile, transport și acces la itinerariu; acțiunea „Vacanță nouă”.
 - Înainte de prima vacanță: mesaj introductiv, Buddy cu un bilet și acțiunea „Planifică prima vacanță”.
 În ambele stări se poate accesa „Preferințele mele”. Cardurile Lisabona / 5 zile / pe jos și Madeira / 7 zile / mașină sunt exemple, nu vacanțe declarate sau date salvate ale utilizatorilor. Imaginile sunt ilustrative.
-Macheta paginii „Vacanțele noastre”, în ambele stări, este aprobată vizual la 2026-10-23. Nu s-au implementat conectarea, gestionarea vacanțelor sau preferințele. Utilizatorul apreciază explicit imaginile personalizate ale fiecărei destinații. Urmează reprezentarea fluxului de creare în trei pași.
+Macheta paginii „Vacanțele noastre”, în ambele stări, este aprobată vizual la 2026-10-23. Nu s-au implementat conectarea, gestionarea vacanțelor sau preferințele. Utilizatorul apreciază explicit imaginile personalizate ale fiecărei destinații. Fluxul de creare în trei pași este reprezentat în macheta de mai jos, încă neaprobată vizual.
 
 ## Aprobare „Vacanțele noastre” și imagini specifice destinațiilor — 2026-10-23
 Utilizatorul a aprobat vizual cele două stări ale paginii „Vacanțele noastre” și a apreciat explicit faptul că fiecare destinație are o imagine personalizată.
 Pe cardurile vacanțelor păstrăm imagini/ilustrații proprii fiecărei destinații, cu repere, peisaje sau atmosferă recognoscibile, în stilul vizual unitar aprobat (jurnal de călătorie, bilete și ștampile, paleta verde pădure/alb cald/auriu). Ilustrațiile Lisabona și Madeira din machetă sunt referințe vizuale acceptate pentru această direcție.
 Această alegere privește cardurile destinațiilor; cerințele despre fotografiile locurilor recomandate și referințele exacte ale fotografiilor pentru introducere rămân cele consemnate anterior. Metoda de obținere și păstrare a imaginilor destinațiilor rămâne de ales în limitele costului zero înainte de implementare.
-Aspectul paginii este aprobat. Interacțiunile și claritatea se verifică ulterior în site-ul funcțional. Urmează macheta creării unei vacanțe în trei pași.
+Aspectul paginii este aprobat. Interacțiunile și claritatea se verifică ulterior în site-ul funcțional. Macheta creării unei vacanțe în trei pași a fost realizată; gruparea ecranelor și aspectul sunt propuneri pentru evaluare vizuală.
+
+## Machetă creare vacanță în trei pași — 2026-10-23
+La cererea utilizatorului a fost creată macheta statică a fluxului de creare. Cerința celor trei pași este deja aprobată; gruparea concretă de mai jos este propunerea de design din această machetă, încă de evaluat.
+[Imagine și note](mockups.md), fișier `docs/mockups/trip-creation-mobile-three-steps-v1.png`.
+1. **Destinație și perioadă:** destinație, alegere între perioadă și număr de zile; exemplul folosește 12–16 mai 2027, cinci zile inclusiv.
+2. **Transport și cazare:** variante combinabile (pe jos, transport public, mașină); cazare și ore aproximative de sosire/plecare opționale.
+3. **Rezumat și preferințe:** datele introduse, starea pregătirii ambelor profiluri, ajustarea preferințelor proprii pentru vacanța respectivă și „Generează itinerariul”.
+Exemplul este consecvent în cele trei ecrane: Lisabona, cinci zile, pe jos + transport public, cazare de completat și ore neprecizate. Pregătirea ambelor profiluri este ilustrativă, nu o declarație despre datele reale ale celor doi.
+Se păstrează cerințele existente: fiecare parcurge cele cinci categorii (alege o preferință sau „Nu am preferințe speciale aici”), refuzurile ambilor sunt respectate, pot exista mai multe cazări/baze și generarea funcționează fără cazare sau buget. Stările cu preferințe incomplete se vor reprezenta în fluxul preferințelor; condiția de completare nu este eliminată de această machetă.
+Ilustrația destinației urmează direcția aprobată; fontul stabilit rămâne Bricolage Grotesque, cu redarea exactă de verificat în browser. Macheta este propunere vizuală neaprobată. Nu există formular sau generare implementate. Verificările din `docs/verification.md` sunt planificate, neexecutate.

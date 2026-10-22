@@ -75,3 +75,13 @@ Rezultatele și dovezile se consemnează după executare. Nu s-a implementat sau
 6. Schimbarea limbii salvate necesită internet și actualizarea copiei, conform regulii aprobate. Verificarea pe dispozitive include limitele reale ale stocării browserului.
 
 Rezultatele și dovezile se adaugă după executare; nu există încă o implementare offline testată.
+
+## Crearea vacanței — verificări planificate în site-ul funcțional (2026-10-23)
+**Stare: neexecutate.** Macheta este statică; se verifică ulterior pe telefon și în browser:
+1. Destinația poate fi combinată cu o perioadă sau doar cu numărul de zile, conform cerinței. Intervalul și numărul de zile sunt consecvente; se resping datele finale anterioare celor inițiale.
+2. Se pot combina modurile de transport, iar rezumatul și generarea primesc exact selecțiile făcute.
+3. Cazarea și orele de sosire/plecare sunt opționale; lipsa lor sau a bugetului nu blochează generarea. Cazările multiple și bazele pe perioade rămân posibile, fără pierderea datelor introduse.
+4. Revenirea între pași păstrează valorile introduse. Rezumatul reflectă valorile curente și permite corectarea lor înainte de generare.
+5. Generarea respectă condiția deja aprobată pentru preferințele fiecăruia: toate cele cinci categorii parcurse, cu o preferință sau „Nu am preferințe speciale aici”. Alergiile și intoleranțele rămân opționale. Starea ambelor profiluri este reală.
+6. Ajustările de preferințe pentru o vacanță sunt distincte de profilul obișnuit, iar fiecare cont își ajustează propriile preferințe.
+7. Generarea pornește din butonul final și trece în ecranul de progres aprobat; parcursul și mesajele sunt evaluate cu utilizatorul în site-ul funcțional.
