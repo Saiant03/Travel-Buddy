@@ -1,7 +1,26 @@
 # Machete Travel Buddy
 
 
-## Crearea unei vacanțe — trei pași pe telefon, pentru evaluare vizuală
+## Crearea vacanței — „Bilet, bagaj, pașaport”, propunere nouă
+2026-10-23. Alternativă cerută de utilizator după respingerea meniurilor generice din prima machetă. Schimbă compoziția și propune interacțiuni pe obiecte de călătorie, păstrând datele și opțiunile necesare.
+
+![Concept nou pentru crearea vacanței: bilet editabil, transport ca jetoane într-un bagaj, rezumat și preferințe în pașaport](mockups/trip-creation-mobile-travel-desk-v2.png)
+
+### Experiența propusă
+- **Bilet:** orașul și datele devin zone editabile pe biletul ilustrat al destinației; există alternativa cu număr de zile.
+- **Bagaj:** atingerea jetoanelor selectează transportul; combinațiile sunt vizibile prin marcaje, iar cazarea și orele rămân opționale, pe etichete.
+- **Pașaport:** datele și cele două profiluri pregătite sunt revizuite înainte de acțiunea explicită de generare.
+
+### Mișcări propuse pentru implementare
+- Jetoanele alese se așază în bagaj.
+- Pașaportul preia alegerile și arată starea fiecărui profil.
+- Acțiunea finală face tranziția către ecranul de generare aprobat.
+Aceste animații nu există încă. Atingerea/butoanele rămân suficiente; nu se cere tragere obligatorie, precizie de joc sau gesturi speciale.
+
+**Stare:** scena a treia (pașaportul / rezumatul) este aprobată vizual de utilizator. Prima și a doua scenă rămân de evaluat. La cererea utilizatorului, titlul scenei a doua a fost schimbat din „Ce luăm în călătorie?” în „Cum explorăm și unde stăm?”, pentru a descrie transportul și cazarea; ultima scenă este păstrată. Noua formulare și mișcările propuse nu au încă aprobare separată. Datele, rezervările și profilurile sunt exemple; nu există interacțiuni funcționale. Cerințele pentru preferințe, mai multe cazări, lipsa bugetului și ore opționale rămân în `product.md`. Bricolage Grotesque este fontul stabilit, cu redarea exactă de verificat în browser.
+Prima machetă este păstrată mai jos ca istoric, fără a fi tratată ca design aprobat.
+
+## Istoric — creare în trei pași, prima machetă neacceptată
 2026-10-23. Propunere de grupare a formularului cerut în trei ecrane succesive.
 
 ![Crearea unei vacanțe: destinație și perioadă, transport și cazare, rezumat și preferințe](mockups/trip-creation-mobile-three-steps-v1.png)
@@ -11,7 +30,7 @@
 2. **Detalii:** transport combinabil, cazare opțională și ore aproximative opționale de sosire/plecare.
 3. **Rezumat:** datele alese, pregătirea preferințelor amândurora, ajustarea preferințelor proprii și pornirea generării.
 
-**Stare:** propunere vizuală neaprobată. Cerința unui flux în trei pași este deja aprobată, iar această organizare concretă este de evaluat. În produs ecranele sunt succesive, nu trei coloane simultane.
+**Stare:** prima machetă nu a fost acceptată vizual. Utilizatorul consideră experiența prea generică și cere o direcție mai distractivă și creativă. Cerința unui flux în trei pași rămâne aprobată. În produs ecranele sunt succesive, nu trei coloane simultane.
 Lisabona, 12–16 mai 2027 (cinci zile inclusiv), transportul combinat și profilurile pregătite sunt exemple. Nu există date personale completate. Cazarea și orele sunt lăsate necompletate; bugetul nu este cerut. Ilustrația este de design, iar fidelitatea fontului Bricolage Grotesque se verifică în browser.
 Cele cinci categorii de preferințe trebuie parcurse de fiecare persoană conform regulii existente; ecranul trei arată doar exemplul ambelor profiluri pregătite. Cazările/bazele multiple rămân în cerințe, chiar dacă macheta arată doar intrarea „Adaugă o cazare”.
 Nu există formular funcțional. Scenariile de verificare sunt în `verification.md`, încă neexecutate.

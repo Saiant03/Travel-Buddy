@@ -85,3 +85,11 @@ Rezultatele și dovezile se adaugă după executare; nu există încă o impleme
 5. Generarea respectă condiția deja aprobată pentru preferințele fiecăruia: toate cele cinci categorii parcurse, cu o preferință sau „Nu am preferințe speciale aici”. Alergiile și intoleranțele rămân opționale. Starea ambelor profiluri este reală.
 6. Ajustările de preferințe pentru o vacanță sunt distincte de profilul obișnuit, iar fiecare cont își ajustează propriile preferințe.
 7. Generarea pornește din butonul final și trece în ecranul de progres aprobat; parcursul și mesajele sunt evaluate cu utilizatorul în site-ul funcțional.
+
+## Conceptul „Bilet, bagaj, pașaport” — verificări ulterioare (2026-10-23)
+**Stare: neexecutate; concept aprobat vizual doar pentru scena a treia.** Scenariile de creare deja planificate rămân valabile.
+- Se verifică dacă orașul/datele editabile și selecția jetoanelor sunt descoperite și înțelese pe telefon.
+- Selectarea și deselectarea fiecărui mod de transport funcționează prin atingere și prin controale accesibile, cu stare perceptibilă și fără tragere obligatorie.
+- Elementele decorative și mișcarea nu împiedică citirea rezumatului, completarea opționalelor sau revenirea la alegeri.
+- Varianta cu mișcare redusă păstrează toate acțiunile și stările. Nicio animație nu pornește generarea înainte de acțiunea explicită finală.
+- Pentru etapa transport/cazare se verifică înțelegerea titlului „Cum explorăm și unde stăm?” și a jetoanelor; experiența nu trebuie confundată cu o listă de bagaje, observație ridicată de utilizator pe prima formulare.
