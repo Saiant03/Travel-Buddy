@@ -91,4 +91,10 @@ Două stări ale aceleiași pagini mobile sunt prezentate alăturat:
 - Cu vacanțe existente: carduri ilustrative, destinație, număr de zile, transport și acces la itinerariu; acțiunea „Vacanță nouă”.
 - Înainte de prima vacanță: mesaj introductiv, Buddy cu un bilet și acțiunea „Planifică prima vacanță”.
 În ambele stări se poate accesa „Preferințele mele”. Cardurile Lisabona / 5 zile / pe jos și Madeira / 7 zile / mașină sunt exemple, nu vacanțe declarate sau date salvate ale utilizatorilor. Imaginile sunt ilustrative.
-Macheta paginii este propunere vizuală pentru evaluare, încă neaprobată. Nu s-au implementat conectarea, gestionarea vacanțelor sau preferințele. Urmează feedbackul vizual asupra acestei pagini; fluxul de creare în trei pași rămâne de reprezentat.
+Macheta paginii „Vacanțele noastre”, în ambele stări, este aprobată vizual la 2026-10-23. Nu s-au implementat conectarea, gestionarea vacanțelor sau preferințele. Utilizatorul apreciază explicit imaginile personalizate ale fiecărei destinații. Urmează reprezentarea fluxului de creare în trei pași.
+
+## Aprobare „Vacanțele noastre” și imagini specifice destinațiilor — 2026-10-23
+Utilizatorul a aprobat vizual cele două stări ale paginii „Vacanțele noastre” și a apreciat explicit faptul că fiecare destinație are o imagine personalizată.
+Pe cardurile vacanțelor păstrăm imagini/ilustrații proprii fiecărei destinații, cu repere, peisaje sau atmosferă recognoscibile, în stilul vizual unitar aprobat (jurnal de călătorie, bilete și ștampile, paleta verde pădure/alb cald/auriu). Ilustrațiile Lisabona și Madeira din machetă sunt referințe vizuale acceptate pentru această direcție.
+Această alegere privește cardurile destinațiilor; cerințele despre fotografiile locurilor recomandate și referințele exacte ale fotografiilor pentru introducere rămân cele consemnate anterior. Metoda de obținere și păstrare a imaginilor destinațiilor rămâne de ales în limitele costului zero înainte de implementare.
+Aspectul paginii este aprobat. Interacțiunile și claritatea se verifică ulterior în site-ul funcțional. Urmează macheta creării unei vacanțe în trei pași.

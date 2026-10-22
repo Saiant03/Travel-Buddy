@@ -1,7 +1,7 @@
 # Machete Travel Buddy
 
 
-## „Vacanțele noastre” pe telefon — pentru evaluare vizuală
+## „Vacanțele noastre” pe telefon — aprobată vizual
 2026-10-22. Pagina privată de după conectare, cu două stări alternative ale aceluiași ecran mobil.
 
 ![Vacanțele noastre: listă cu vacanțe existente și pagina înainte de prima vacanță](mockups/trips-home-mobile-v1.png)
@@ -12,7 +12,7 @@
 - „Preferințele mele” în ambele stări, pentru contul conectat.
 - Bilete, ștampile și paleta aprobată; Buddy discret lângă lista de vacanțe.
 
-**Stare:** propunere vizuală neaprobată. Lisabona / 5 zile / pe jos și Madeira / 7 zile / mașină sunt exemple pentru design, nu date personale sau călătorii reale salvate. Cele două stări nu apar simultan în produs. Miniaturile sunt ilustrative, nu fotografii confirmate din surse.
+**Stare:** cele două stări sunt aprobate vizual la 2026-10-23. Utilizatorul apreciază explicit imaginile specifice fiecărei destinații; această direcție se păstrează pe cardurile vacanțelor, în același stil ilustrat. Lisabona / 5 zile / pe jos și Madeira / 7 zile / mașină sunt exemple pentru design, nu date personale sau călătorii reale salvate. Cele două stări nu apar simultan în produs. Miniaturile sunt ilustrative, nu fotografii confirmate din surse.
 Fontul real, dimensiunile pe telefon și comportamentul paginii se verifică la implementare. Nu există pagină funcțională sau autentificare implementată.
 Fluxul de creare în trei pași, deja cerut, va fi reprezentat separat.
 
