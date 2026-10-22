@@ -1,7 +1,7 @@
 # Machete Travel Buddy
 
 
-## Detaliile unui loc pe telefon — pentru evaluare
+## Detaliile unui loc pe telefon — machetă aprobată
 2026-10-22. Panou cu detaliile unei opriri, deschis peste itinerariu, în direcția vizuală aprobată.
 
 ![Panou cu detaliile Castelo de São Jorge, preț și program neconfirmate, sursă și revenire la plan](mockups/place-detail-mobile-v1.png)
@@ -13,7 +13,7 @@
 - Acces la sursă, înlocuirea sau eliminarea locului și revenirea la itinerariu.
 - Închidere prin X sau „Înapoi la plan”, cu păstrarea poziției și a stării listei/hărții conform cerinței existente.
 
-**Stare:** propunere neaprobată, de evaluat. Exemplul nu constituie informații turistice verificate sau declarații despre profilurile celor doi. Imaginea este ilustrativă; datele lipsă rămân marcate. „Vezi sursa” este un control de design fără link funcțional în această machetă. Fontul real, lizibilitatea la dimensiuni reale, accesibilitatea, revenirea la poziție și acțiunile se verifică la implementare. Nu există ecran funcțional.
+**Stare:** machetă aprobată de utilizator: „da, arată bine și este în temă”. Organizarea panoului și direcția vizuală sunt acceptate. Exemplul nu constituie informații turistice verificate sau declarații despre profilurile celor doi. Imaginea este ilustrativă; datele lipsă rămân marcate. „Vezi sursa” este un control de design fără link funcțional în această machetă. Fontul real, lizibilitatea la dimensiuni reale, accesibilitatea, revenirea la poziție și acțiunile se verifică la implementare. Nu există ecran funcțional.
 
 ## Itinerariul unei zile pe telefon — Listă și Hartă, pentru evaluare
 2026-10-22. Machetă statică realizată la cererea utilizatorului, folosind direcția vizuală aprobată a combinației 2 + 3.
