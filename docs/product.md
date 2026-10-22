@@ -101,7 +101,7 @@ Utilizatorul a aprobat următorul conținut pentru planul salvat manual pe fieca
 Harta și conversațiile noi cu Buddy necesită internet. Pe fiecare telefon, copia offline se salvează în limba aleasă în cont. Cele două persoane pot avea copii în limbi diferite. Schimbarea limbii salvate necesită internet și actualizarea copiei; nu se salvează implicit toate cele trei limbi. Această variantă a fost aprobată la 2026-10-22. Aceasta este o cerință aprobată, nu o funcționalitate implementată sau testată.
 
 ## Preferințe detaliate — cerință confirmată la 2026-10-22
-Utilizatorul cere categorii mai complexe, pentru a înțelege concret ce dorește fiecare în vacanță. La mâncare și băuturi trebuie să poată selecta exact alimentele și preparatele consumate; selectarea unei bucătării naționale sau a unei categorii generale nu este suficientă. Aceasta este o cerință despre produs, nu completarea profilurilor personale. Cele patru răspunsuri alimentare sunt aprobate: „Îmi place mult”, „Mănânc”, „Aș încerca”, „Nu mănânc”. Inventarul detaliat rămâne propunere de lucru.
+Utilizatorul cere categorii mai complexe, pentru a înțelege concret ce dorește fiecare în vacanță. La mâncare și băuturi trebuie să poată selecta exact alimentele și preparatele consumate; selectarea unei bucătării naționale sau a unei categorii generale nu este suficientă. Aceasta este o cerință despre produs, nu completarea profilurilor personale. Cele patru răspunsuri alimentare sunt aprobate: „Îmi place mult”, „Mănânc”, „Aș încerca”, „Nu mănânc”. Inventarul alimentar rămâne propunere de lucru. Structura detaliată „Atracții și cultură” este aprobată în secțiunea de mai jos; celelalte inventare rămân propuneri.
 
 ### Propunere de lucru: mâncare și băuturi
 Categorii → subcategorii → elemente individuale, cu căutare și posibilitatea adăugării unui element lipsă. Exemplele descriu opțiuni pentru viitoarea aplicație, nu preferințele utilizatorilor.
@@ -139,7 +139,7 @@ Acestea sunt reguli ale produsului, nu declarații de alergii sau intoleranțe a
 Pentru activități se păstrează diferența confirmată între lipsa interesului cu acceptul participării și refuzul explicit. Subiecte suplimentare de propus separat: ritm, aglomerație, efort, înălțimi/apă și accesibilitate. Nu sunt încă preferințe confirmate sau un chestionar aprobat.
 
 
-### Detaliere „Atracții și cultură” — propunere de lucru, neaprobată
+### Detaliere „Atracții și cultură” — structură aprobată la 2026-10-22
 Fiecare element se poate selecta separat; aprecierea unei grupe nu implică automat aprecierea tuturor elementelor.
 | Grupă | Opțiuni propuse |
 |---|---|
@@ -152,3 +152,29 @@ Fiecare element se poate selecta separat; aprecierea unei grupe nu implică auto
 | Spectacole | Muzică live, concerte clasice, operă, teatru, dans, spectacole tradiționale |
 | Panorame și fotografie | Puncte de belvedere, turnuri/terase, locuri fotogenice, răsărituri și apusuri |
 Se păstrează regulile aprobate despre activități împreună și distincția dintre lipsa interesului cu acceptul participării și refuzul explicit. Opțiunile sunt exemple pentru produs, nu profiluri personale.
+
+
+### Detaliere „Activități și natură” — propunere de lucru, neaprobată
+Opțiunile se aleg individual. Exemple pentru inventarul produsului, nu preferințe personale declarate:
+| Grupă | Opțiuni propuse |
+|---|---|
+| Plimbări și drumeții | Plimbări urbane, trasee ușoare, drumeții moderate, trasee montane solicitante, plimbări de coastă |
+| Peisaje și natură | Păduri, munți, lacuri, cascade, peșteri, vulcani, deșert, parcuri naturale |
+| Pe apă | Caiac, canoe, stand-up paddle, rafting, plimbări cu barca, velier, croaziere scurte |
+| În apă | Înot, snorkeling, scufundări introductive, scufundări pentru persoane cu experiență, surfing |
+| Aventură și înălțime | Tiroliană, parcuri de aventură, escaladă, via ferrata, parapantă, balon cu aer cald, bungee jumping |
+| Sport și mișcare | Bicicletă, bicicletă electrică, mountain bike, echitație, tenis, golf |
+| Zăpadă | Schi, snowboard, săniuș, plimbări cu rachete de zăpadă |
+| Animale și natură vie | Observarea păsărilor, safari, observarea delfinilor/balenelor, acvarii, ferme vizitabile |
+| Ateliere și experiențe locale | Gătit, ceramică, pictură, meșteșuguri, vizite la producători locali |
+| Distracție și jocuri | Parcuri de distracții, parcuri acvatice, escape rooms, experiențe interactive |
+
+Propunere de filtre opționale separate de interesul pentru activitate:
+- Efort fizic acceptat: redus, moderat, ridicat.
+- Confort în apă: ape puțin adânci, ape adânci, mare deschisă; posibilitatea de a declara că nu știe să înoate.
+- Confort cu înălțimile: belvederi protejate, telecabine, expunere la înălțime, activități aeriene.
+- Experiență: începător sau cu experiență la activitatea aleasă; se pot preciza calificări când sunt relevante.
+- Format preferat: pe cont propriu, tur privat, grup mic, grup mare.
+- Limite și nevoi: evitarea scărilor, pantelor abrupte, spațiilor înguste sau alte precizări proprii.
+
+Se păstrează distincția confirmată între interes, acceptul de a participa pentru celălalt și refuzul explicit. Limitele explicite ale oricăruia se respectă în planul comun; un filtru necompletat nu dovedește aptitudinea sau calificarea pentru o activitate. Filtrele și inventarul din această secțiune sunt încă propuneri, nu decizii aprobate.
