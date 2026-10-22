@@ -266,4 +266,9 @@ Direcție de prezentare aprobată la 2026-10-22 pentru machetă:
 - Detalii suplimentare numai când există rezultate reale, de exemplu numărul de locuri găsite sau zile organizate; aceste valori nu indică automat validarea finală.
 - Indicatorii de progres reflectă date măsurabile. Duratele estimate se folosesc doar dacă pot fi susținute de date.
 - La o întrerupere, starea de așteptare este înlocuită cu explicația și acțiunile disponibile, potrivit regulilor aprobate.
-Direcția vizuală este aprobată. Urmează prima machetă statică pentru telefon a ecranului de generare. Aprobarea direcției nu înseamnă aprobarea unei randări, a desenului final al mascotei sau implementarea ecranului/animației.
+Direcția vizuală este aprobată. Prima machetă statică pentru telefon a ecranului de generare este realizată și documentată mai jos. Aprobarea direcției nu înseamnă aprobarea unei randări, a desenului final al mascotei sau implementarea ecranului/animației.
+
+
+## Prima machetă pentru telefon — 2026-10-22
+A fost generată o machetă statică a ecranului de generare: [previzualizare și note](mockups.md), imagine în `docs/mockups/generation-mobile-v1.png`.
+Direcția vizuală este aprobată, dar această randare și desenul propus al lui Buddy sunt de evaluat de utilizator. Lisabona / 5 zile este un exemplu de ecran, nu o vacanță declarată. Nu există site sau animație implementată. Tipografia exactă, dimensiunile responsive, contrastul și comportamentul din browser se verifică la implementare.
