@@ -1,6 +1,20 @@
 # Machete Travel Buddy
 
 
+## Detaliile unui loc pe telefon — pentru evaluare
+2026-10-22. Panou cu detaliile unei opriri, deschis peste itinerariu, în direcția vizuală aprobată.
+
+![Panou cu detaliile Castelo de São Jorge, preț și program neconfirmate, sursă și revenire la plan](mockups/place-detail-mobile-v1.png)
+
+### Ce arată
+- Contextul zilei și numărul opririi, imagine ilustrativă, numele și descrierea locului.
+- Motivul recomandării, cu Buddy discret.
+- Preț / Program — Neconfirmat; Rezervare — De verificat.
+- Acces la sursă, înlocuirea sau eliminarea locului și revenirea la itinerariu.
+- Închidere prin X sau „Înapoi la plan”, cu păstrarea poziției și a stării listei/hărții conform cerinței existente.
+
+**Stare:** propunere neaprobată, de evaluat. Exemplul nu constituie informații turistice verificate sau declarații despre profilurile celor doi. Imaginea este ilustrativă; datele lipsă rămân marcate. „Vezi sursa” este un control de design fără link funcțional în această machetă. Fontul real, lizibilitatea la dimensiuni reale, accesibilitatea, revenirea la poziție și acțiunile se verifică la implementare. Nu există ecran funcțional.
+
 ## Itinerariul unei zile pe telefon — Listă și Hartă, pentru evaluare
 2026-10-22. Machetă statică realizată la cererea utilizatorului, folosind direcția vizuală aprobată a combinației 2 + 3.
 
@@ -14,7 +28,7 @@
 - Adăugarea unui loc, salvarea planului offline și acces la Buddy. Harta este online; butonul de salvare se referă la planul consultabil offline.
 - Buddy discret și accente de bilete/ștampile, în paleta aprobată.
 
-**Stare:** propunere de evaluat, încă neaprobată. „Lisabona · 5 zile · Pe jos”, ziua și opririle sunt exemple. Miniaturile și harta sunt ilustrative; nu sunt fotografii licențiate ori date cartografice verificate. Nu se prezintă prețuri reale inventate, ore, distanțe sau durate. Numărul de trei opriri este doar exemplul desenat, nu o limită a produsului.
+**Stare:** utilizatorul a apreciat aspectul („Îmi place cum arată”) și a cerut continuarea. „Lisabona · 5 zile · Pe jos”, ziua și opririle sunt exemple. Miniaturile și harta sunt ilustrative; nu sunt fotografii licențiate ori date cartografice verificate. Nu se prezintă prețuri reale inventate, ore, distanțe sau durate. Numărul de trei opriri este doar exemplul desenat, nu o limită a produsului.
 
 Fontul stabilit rămâne Bricolage Grotesque. Tipografia exactă, contrastul, dimensiunile reale, adaptarea și comportamentul interactiv se verifică în browser la implementare. Nu există ecran funcțional, hartă integrată sau salvare offline implementată.
 
