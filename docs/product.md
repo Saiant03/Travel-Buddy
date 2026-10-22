@@ -101,7 +101,7 @@ Utilizatorul a aprobat următorul conținut pentru planul salvat manual pe fieca
 Harta și conversațiile noi cu Buddy necesită internet. Pe fiecare telefon, copia offline se salvează în limba aleasă în cont. Cele două persoane pot avea copii în limbi diferite. Schimbarea limbii salvate necesită internet și actualizarea copiei; nu se salvează implicit toate cele trei limbi. Această variantă a fost aprobată la 2026-10-22. Aceasta este o cerință aprobată, nu o funcționalitate implementată sau testată.
 
 ## Preferințe detaliate — cerință confirmată la 2026-10-22
-Utilizatorul cere categorii mai complexe, pentru a înțelege concret ce dorește fiecare în vacanță. La mâncare și băuturi trebuie să poată selecta exact alimentele și preparatele consumate; selectarea unei bucătării naționale sau a unei categorii generale nu este suficientă. Aceasta este o cerință despre produs, nu completarea profilurilor personale. Cele patru răspunsuri alimentare sunt aprobate: „Îmi place mult”, „Mănânc”, „Aș încerca”, „Nu mănânc”. Inventarul alimentar rămâne propunere de lucru. Structurile detaliate „Atracții și cultură” și „Activități și natură”, inclusiv filtrele opționale ale activităților, sunt aprobate în secțiunile de mai jos. Structura „Relaxare”, inclusiv precizările opționale, este de asemenea aprobată. Inventarul „Shopping” rămâne propunere.
+Utilizatorul cere categorii mai complexe, pentru a înțelege concret ce dorește fiecare în vacanță. La mâncare și băuturi trebuie să poată selecta exact alimentele și preparatele consumate; selectarea unei bucătării naționale sau a unei categorii generale nu este suficientă. Aceasta este o cerință despre produs, nu completarea profilurilor personale. Cele patru răspunsuri alimentare sunt aprobate: „Îmi place mult”, „Mănânc”, „Aș încerca”, „Nu mănânc”. Inventarul alimentar rămâne propunere de lucru. Structurile detaliate „Atracții și cultură” și „Activități și natură”, inclusiv filtrele opționale ale activităților, sunt aprobate în secțiunile de mai jos. Structura „Relaxare”, inclusiv precizările opționale, este de asemenea aprobată. Structura „Shopping”, inclusiv produsele, tipurile de locuri și precizările opționale, este aprobată.
 
 ### Propunere de lucru: mâncare și băuturi
 Categorii → subcategorii → elemente individuale, cu căutare și posibilitatea adăugării unui element lipsă. Exemplele descriu opțiuni pentru viitoarea aplicație, nu preferințele utilizatorilor.
@@ -202,7 +202,7 @@ Precizări opționale aprobate:
 Structura aprobată nu impune program pe ore și nu introduce implicit timp separat. Buddy păstrează loc pentru odihna dorită și respectă limitele ambilor. Opțiunile sunt pentru viitorul produs, nu preferințe personale deja declarate.
 
 
-### Detaliere „Shopping” — propunere de lucru, neaprobată
+### Detaliere „Shopping” — structură și precizări aprobate la 2026-10-22
 Selecții individuale pentru produsele căutate și pentru tipurile de locuri; acestea sunt opțiuni ale produsului, nu preferințe personale declarate.
 | Grupă | Opțiuni propuse |
 |---|---|
@@ -216,9 +216,9 @@ Selecții individuale pentru produsele căutate și pentru tipurile de locuri; a
 | Cărți, muzică și hobby-uri | Librării, anticariate, benzi desenate/manga, viniluri, jocuri, fotografie, materiale creative |
 | Tehnologie | Electronice, gadgeturi, accesorii pentru telefon/calculator |
 
-Tipuri de locuri propuse, selectate separat: piețe tradiționale, târguri de artizanat, talciocuri, buticuri independente, ateliere/magazine ale producătorilor, străzi comerciale, magazine universale, malluri, outleturi.
+Tipuri de locuri aprobate, selectate separat: piețe tradiționale, târguri de artizanat, talciocuri, buticuri independente, ateliere/magazine ale producătorilor, străzi comerciale, magazine universale, malluri, outleturi.
 
-Precizări opționale propuse:
+Precizări opționale aprobate:
 - Intenție: plimbare și descoperire sau cumpărături efective.
 - Frecvență: doar dacă este în apropiere, opriri ocazionale sau o perioadă dedicată.
 - Produse: local/autentic, branduri cunoscute, vintage/second-hand, exclusivist.
@@ -226,3 +226,13 @@ Precizări opționale propuse:
 - Practic: obiecte mici/ușoare pentru bagaj, cadouri sau căutarea unui produs concret.
 
 Un interes pentru piețe alimentare poate exista și fără intenție de cumpărături. Buddy poate integra o piață pentru experiența locală, păstrând interesele distincte. Se păstrează activitățile comune și respectarea refuzurilor ambilor; nu se introduce implicit timp separat.
+
+
+## Adăugarea locurilor prin nume sau link — propunere de flux, neaprobată
+Cerința de bază (adăugare prin nume/link și integrare în zi/traseu) este deja confirmată. Detaliile următoare sunt propuse:
+1. Utilizatorul introduce numele sau linkul unui loc în vacanța curentă.
+2. Buddy încearcă identificarea în contextul destinației și arată numele, localitatea/adresa și fotografia, dacă există.
+3. Dacă există mai multe potriviri, arată variantele și utilizatorul alege; nu selectează automat un loc ambiguu.
+4. Dacă linkul nu poate fi citit sau locul nu poate fi identificat suficient de clar, cere numele și localitatea/adresa ori un alt link. Nu inventează amplasarea sau datele lipsă.
+5. După identificare, Buddy propune ziua și poziția în traseu, respectând o zi indicată de utilizator dacă acesta o precizează. Prezintă rezumatul modificării pentru confirmare înainte de aplicare.
+Se păstrează celelalte locuri alese, iar prețul/programul neconfirmat rămân marcate conform regulilor existente. Nu se promite suport universal pentru orice link; sursele și accesul efectiv trebuie evaluate tehnic. Tratarea unui loc incompatibil cu limitele unuia dintre participanți rămâne de discutat separat.
