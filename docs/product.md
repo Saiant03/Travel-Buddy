@@ -312,4 +312,14 @@ Două stări ale aceluiași ecran pe telefon sunt prezentate alăturat:
 În ambele stări planul actual rămâne salvat, iar schimbările așteaptă confirmarea unei singure persoane, conform regulii existente. Există acțiunea „Mai ajustează”, câmpul de mesaj și revenirea la itinerariu.
 Macheta este aprobată vizual de utilizator: „arată bine”. Claritatea conversației, a rezumatului și a confirmării nu este încă validată; utilizatorul dorește această evaluare când site-ul este funcțional, în etapa de verificare. Locurile și mesajele sunt exemple, nu modificări reale ale unei vacanțe. Nu există chat sau sincronizare implementate. Fontul rămâne Bricolage Grotesque; redarea exactă și interacțiunile se verifică la implementare. Aspectul este acceptat pentru continuarea designului. Scenariile de verificare sunt consemnate în `docs/verification.md`; rămân neexecutate. În etapa actuală evaluăm machetele vizual, fără a cere un verdict de funcționare pe baza imaginilor statice.
 
-Următoarea machetă propusă: salvarea planului offline pe telefon, cu starea copiei, data salvării, actualizarea manuală și păstrarea ultimei copii complete la eșec, conform regulilor deja aprobate.
+Macheta salvării offline a fost realizată cu trei stări: copie salvată, actualizare disponibilă și actualizare nereușită cu ultima copie completă păstrată. Aspectul este de evaluat; verificarea clarității și a comportamentului se face ulterior în site-ul funcțional.
+
+## Machetă salvare offline pe telefon — 2026-10-22
+A fost creată macheta statică a copiei offline, în direcția vizuală aprobată. [Imagine și note](mockups.md), fișier `docs/mockups/offline-copy-mobile-states-v1.png`.
+Trei stări alternative sunt prezentate alăturat:
+1. Copie completă salvată pe acest telefon, în limba contului, cu data ultimei salvări și acces la plan.
+2. Actualizare disponibilă după schimbarea planului comun; copia existentă rămâne accesibilă, iar actualizarea pornește manual.
+3. Actualizare nereușită după întreruperea conexiunii; ultima copie completă și data ei se păstrează. Planul salvat se poate deschide; reîncercarea așteaptă reconectarea.
+„Lisabona · 5 zile”, româna și data 22 octombrie 2026 · 18:40 sunt exemple pentru machetă (ora locală Europe/Bucharest), nu o salvare reală.
+Harta și mesajele noi către Buddy necesită internet. Salvarea este separată pe fiecare telefon; cardul cu trei rânduri despre conținut este o sinteză vizuală, fără a reduce conținutul offline deja aprobat. Bricolage Grotesque rămâne fontul stabilit.
+Macheta este propunere vizuală pentru evaluare, încă neaprobată. Verificările funcționale sunt planificate în `docs/verification.md`, neexecutate. Nu există salvare offline implementată.

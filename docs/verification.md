@@ -64,3 +64,14 @@ Scenarii de urmărit în browser, inclusiv pe telefon și cu cele două conturi:
 5. În evaluarea cu utilizatorul, se verifică dacă diferența dintre „propus”, „necesită reconfirmare” și „aplicat” este înțeleasă, iar mesajele și butoanele se ajustează după observații.
 
 Rezultatele și dovezile se consemnează după executare. Nu s-a implementat sau publicat site-ul prin această actualizare.
+
+## Copia offline — verificări planificate în site-ul funcțional (2026-10-22)
+**Stare: neexecutate.** Macheta arată trei stări de design; funcționarea și claritatea se verifică pe telefoane reale, după implementare.
+1. Salvarea manuală produce o copie completă pe telefonul respectiv, în limba aleasă în cont, cu data reală a salvării. Celălalt telefon își salvează separat propria copie.
+2. Cu internetul oprit se pot consulta toate zilele, ordinea locurilor și informațiile salvate, inclusiv imaginile disponibile, cazările și sugestiile păstrate. Harta, linkurile externe și recomandările/conversațiile noi indică necesitatea internetului.
+3. O schimbare detectată online în planul comun arată actualizarea disponibilă. Copia salvată nu este înlocuită până la actualizarea manuală reușită; datele afișate corespund copiei efectiv disponibile.
+4. Întreruperea unei actualizări păstrează ultima copie completă, cu data și conținutul ei, fără amestec cu o salvare parțială. Planul salvat rămâne accesibil; reîncercarea depinde de disponibilitatea conexiunii.
+5. Dacă prima salvare eșuează și nu există o copie completă anterioară, interfața nu declară fals „Plan salvat”. Se verifică și eșecurile de stocare, nu numai întreruperea rețelei.
+6. Schimbarea limbii salvate necesită internet și actualizarea copiei, conform regulii aprobate. Verificarea pe dispozitive include limitele reale ale stocării browserului.
+
+Rezultatele și dovezile se adaugă după executare; nu există încă o implementare offline testată.

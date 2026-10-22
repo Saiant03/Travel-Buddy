@@ -1,6 +1,21 @@
 # Machete Travel Buddy
 
 
+## Copia offline pe telefon — trei stări, pentru evaluare vizuală
+2026-10-22. Machetă statică în direcția vizuală aprobată, cu trei stări ale aceluiași ecran mobil.
+
+![Copia offline: plan salvat, actualizare disponibilă și actualizare nereușită cu ultima copie completă păstrată](mockups/offline-copy-mobile-states-v1.png)
+
+### Ce arată
+- **Copie salvată:** telefonul, limba, data salvării, o sinteză a conținutului disponibil și acces la plan.
+- **Actualizare disponibilă:** schimbări în planul comun, buton pentru actualizare manuală și acces în continuare la copia salvată.
+- **Actualizare nereușită:** explicația întreruperii conexiunii, păstrarea ultimei copii complete cu aceeași dată și acces la plan; reîncercarea este dezactivată până la reconectare.
+- Harta și mesajele către Buddy necesită internet. Fiecare telefon își salvează separat copia.
+
+**Stare:** propunere vizuală neaprobată. Claritatea și comportamentul real se verifică în site-ul funcțional, potrivit cererii utilizatorului; scenariile sunt în `verification.md`, încă neexecutate.
+Datele sunt ilustrative: Lisabona, 5 zile, română, 22 octombrie 2026 · 18:40 (Europe/Bucharest). Nu există salvare reală și această imagine nu dovedește persistența sau funcționarea offline. Rândurile despre conținut sunt o sinteză și nu înlocuiesc lista aprobată din `product.md`.
+Fontul real și accesibilitatea se verifică la implementare.
+
 ## Conversația cu Buddy — machetă aprobată vizual
 2026-10-22. Machetă statică în direcția vizuală aprobată, prezentând două stări alternative ale aceluiași ecran mobil.
 
