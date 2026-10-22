@@ -110,3 +110,8 @@ Utilizatorul a aprobat următorul conținut pentru planul salvat manual pe fieca
 - Linkurile către surse, care pot fi deschise când există internet.
 
 Harta și conversațiile noi cu Buddy necesită internet. Pe fiecare telefon, copia offline se salvează în limba aleasă în cont. Cele două persoane pot avea copii în limbi diferite. Schimbarea limbii salvate necesită internet și actualizarea copiei; nu se salvează implicit toate cele trei limbi. Această variantă a fost aprobată la 2026-10-22. Aceasta este o cerință aprobată, nu o funcționalitate implementată sau testată.
+
+## Preferințe detaliate — cerință confirmată la 2026-10-22
+Utilizatorul cere categorii mai complexe, pentru a înțelege concret ce dorește fiecare în vacanță. La mâncare și băuturi trebuie să poată selecta exact alimentele și preparatele consumate; selectarea unei bucătării naționale sau a unei categorii generale nu este suficientă. Aceasta este o cerință despre produs, nu completarea profilurilor personale. Inventarul de mai jos și noile opțiuni de răspuns sunt propuneri de lucru, încă neaprobate.
+
+Propunerea detaliată pentru toate cele cinci categorii este în secțiunea corespunzătoare din `docs/product.md`. Nu prezenta inventarul, noile opțiuni pentru alimente sau comportamentul elementelor necompletate ca aprobate. Continuăm cu preferințele alimentare; apoi detaliem restul categoriilor. Nu cere utilizatorului să completeze acum profilurile personale ale celor doi.
