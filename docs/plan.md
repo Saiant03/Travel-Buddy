@@ -1,12 +1,12 @@
 # Plan de lucru — Travel Buddy
 
 ## Autorizație nouă — 2026-10-23
-Serviciile gratuite și publicarea necesară proiectului sunt acum autorizate de utilizator. Nu se mai cere acord separat pentru acești pași. Fără plăți, card, billing sau upgrade automat; orice pas care le-ar cere se oprește înainte de executare și se explică utilizatorului. Gate B1 rămâne BLOCAT de accesul efectiv: Cloudflare neautentificat și API blocat în rețeaua mediului; integrarea Firebase oficială a fost găsită și sugerată, dar nu este confirmată ca instalată/conectată. Nu s-au activat servicii și nu s-au executat probe reale prin această actualizare.
+Serviciile gratuite și publicarea necesară proiectului sunt autorizate; nu cere acord separat pentru acești pași. Fără plăți, card, billing sau upgrade automat. Gate B1 este BLOCAT de accesul efectiv: `api.cloudflare.com` nu este permis de politica rețelei, iar sesiunea Wrangler nu este autentificată. Pluginul Firebase instalat nu expune unealtă apelabilă în `ALL_TOOLS`; separat, Firebase CLI a raportat zero conturi autorizate și eroare de autentificare la listarea proiectelor. Politica de rețea nu permite hosturile Firebase, blocaj separat de autentificarea CLI. Starea detaliată este în [cloud-access.md](cloud-access.md).
 
 Utilizatorul nu are încă un cont Cloudflare; [pașii de creare și conectare](cloud-access.md) sunt pregătiți. Crearea și confirmarea emailului se fac de către utilizator. Nu cere parola sau tokenuri în chat.
 
 ## Execuție curentă — 2026-10-23
-Implementarea este autorizată prin cererea actuală. **Task 0 și Task 1 încheiate local; Task 1b are codul și probele locale încheiate, iar probele reale sunt BLOCATE.** [Contractele wire v1](contracts-v1.md), [instrucțiunile server](../probes/README-server.md) și [mini-proba offline](../probes/offline/README.md) sunt pregătite. Verificarea integrată a trecut: 75 teste, tipuri, lint, build, Worker dry-run și 2 E2E Chromium, cu review independent și remedieri delegate. [Dovezi](evidence/2026-10-23/README.md). Gate B1 precede Tasks 2+; nu este trecut prin simulări. Urmează acordul separat și accesul pentru Cloudflare Free/Firebase Spark și o probă HTTPS temporară pe iPhone/Android. Fără billing/card/upgrade automat. Stările istorice de mai jos nu redeschid brief-ul sau explorarea vizuală.
+Implementarea este autorizată. **Task 0 și Task 1 încheiate local; Task 1b are codul și probele locale încheiate, iar probele reale sunt BLOCATE.** [Contractele wire v1](contracts-v1.md), [instrucțiunile server](../probes/README-server.md) și [mini-proba offline](../probes/offline/README.md) sunt pregătite. Verificarea integrată salvată a trecut: 75 teste, tipuri, lint, build, Worker dry-run și 2 E2E Chromium, cu review independent și remedieri delegate. [Dovezi](evidence/2026-10-23/README.md). Gate B1 precede Tasks 2+; simulările nu îl trec. Acordul pentru serviciile gratuite/publicarea este deja acordat; urmează accesul efectiv la Cloudflare Free/Firebase Spark și proba HTTPS pe iPhone/Android. Fără billing/card/upgrade automat. Stările istorice de mai jos nu redeschid brief-ul sau explorarea vizuală.
 
 ## Etapa încheiată: brief și evaluare documentară (2026-10-22)
 - Definirea inițială este încheiată. Cerințele au fost consolidate în `product.md`, cu flux, limite și criterii observabile; întrebările vechi deja rezolvate au fost eliminate.
@@ -14,8 +14,8 @@ Implementarea este autorizată prin cererea actuală. **Task 0 și Task 1 înche
 - Trei agenți gpt-6-luna au cercetat domenii separate, fără editări comune. Coordonatorul a integrat și verificat rezultatul, inclusiv corectarea limitelor ORS vechi și a eligibilității Gemini.
 - Nu s-au implementat site-ul, ales definitiv tehnologii, creat conturi sau activat servicii.
 
-## Stare curentă — pregătirea implementării, 2026-10-23
-Explorarea vizuală este încheiată. Cererea curentă autorizează documentarea și planificarea, nu implementarea, activarea serviciilor sau publicarea site-ului. Notele istorice de mai jos păstrează parcursul proiectului; această secțiune stabilește următorul pas.
+## Stare anterioară — pregătirea implementării, 2026-10-23 (istoric)
+Explorarea vizuală este încheiată. La momentul acelei note, cererea autoriza documentarea și planificarea, nu implementarea, activarea serviciilor sau publicarea site-ului. Actualizarea de mai sus stabilește starea curentă și prevalează asupra acestei note istorice.
 
 **Plan de execuție:** [Etape, contracte pentru agenți și criterii de acceptare](plans/2026-10-23-implementation.md).
 
@@ -24,7 +24,7 @@ Livrabile complementare:
 - [Recomandarea tehnică, alternativele și condițiile costului zero](architecture.md).
 - [Probele timpurii: acces, sincronizare, conflicte, Buddy, hartă, surse, cote și telefon offline](plans/2026-10-23-technical-probes.md).
 
-Ordine recomandată: autorizarea viitoare a execuției → contracte/fundație și probe locale → autorizarea separată a activării strict gratuite, când sunt necesare probe reale → dovezi pentru acces/conflicte/offline și furnizori → fluxuri complete → review, corectare delegată, reverificare și verificare finală pe telefon/calculator. Nu este o autorizare implicită de publicare.
+Ordine planificată la acel moment: autorizarea viitoare a execuției → contracte/fundație și probe locale → autorizarea separată a activării strict gratuite. Această ordine este istorică; autorizarea gratuită și publicării a fost ulterior acordată. Pașii tehnici și gate-urile de acces rămân obligatorii.
 
 Tehnic, recomandarea coordonatorului este React/TypeScript/Vite ca aplicație web instalabilă, Cloudflare Pages + Worker + D1 pentru interfață/API/date și Firebase Auth Spark pentru cele două conturi; Tavily/Groq/Geoapify rămân furnizori verificați documentar, condiționați de probe. Nu se activează facturare sau upgrade automat. Detaliile și pragurile sunt în arhitectură și în planul probelor.
 

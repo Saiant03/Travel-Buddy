@@ -1,15 +1,20 @@
 # Raport de verificare a fundației
 
-## Verificarea accesului după acordul pentru gratuit — 2026-10-23
-- Autorizația nouă acoperă activarea și publicarea gratuite; nu este dovadă de conectare sau de execuție a probelor reale.
-- GitHub: `git fetch`/`ls-remote` au confirmat `main=11e72f9` și branch-ul `codex/implementation-foundation=6e89094`, fără modificări locale la reluare.
-- Runtime: observații curente, rețea restricted/enforced, fără secrete, variabile runtime sau identități externe configurate.
-- `wrangler whoami` (numai citire) a răspuns `You are not authenticated`. `curl` către endpointul public read-only `https://api.cloudflare.com/client/v4/ips` a eșuat cu `CONNECT tunnel failed, response 403`, fără HTTP de la serviciu. Nu s-a ocolit proxy-ul sau politica rețelei.
-- Căutare integrări: Cloudflare fără rezultat; Firebase oficial găsit, neinstalat la verificare și sugerat pentru instalare/conectare. Nu s-a confirmat autentificarea Firebase.
-- Un agent gpt-6-luna a inspectat help-ul/sursa Wrangler pentru conturi temporare: suport tehnic Worker/D1, expirare dinamică și acceptare de termeni, dar condiții de cost neconfirmate local. Fără cont creat, fără deploy, fără apeluri API ale agentului și fără chei citite din fișiere.
-- Nu s-au repetat testele aplicației pentru această actualizare de context. Rezultatele locale de mai jos rămân cele ale commitului `6e89094`; Gate B1 și toate probele reale rămân BLOCATE de acces.
+## Starea accesului — 2026-10-23
+Utilizatorul a autorizat activarea serviciilor gratuite și publicarea necesară proiectului. Autorizarea nu este probă de acces și nu permite billing, card sau upgrade automat. Gate B1 rămâne blocat până la Firebase/D1/CPU reale și verificarea pe iPhone/Safari și Android.
 
-## Execuție Tasks 0–1b — 2026-10-23 (stare curentă)
+- Repository remote verificat: `main=11e72f96bc93c84ecf0e8c85f26d3fb0c965361e`; `codex/implementation-foundation=e67c704e733ecd88c73f0eef1449eab66ff2504b`.
+- `environment_status`: `observations_current:true`; rețea `restricted/enforced`; zero secrets, runtime variables și outbound identities; `api.cloudflare.com` nu este permis. O cerere anterioară a primit `CONNECT 403`; `wrangler whoami` a indicat sesiune neautentificată.
+- Pluginul oficial Firebase este instalat conform confirmării și căutării `installed:true`. Coordonatorul și agentul independent nu găsesc unealtă Firebase apelabilă în `ALL_TOOLS`; pluginul instalat nu implică un cont conectat.
+- Diagnostic Firebase CLI izolat: `firebase-tools` 15.34.1 instalat numai în `/tmp` cu `--ignore-scripts`. `login:list --non-interactive` a ieșit cu cod 0 și „No authorized accounts”; varianta `--json` a returnat numai `{status:success}`, fără conturi. `projects:list --non-interactive --json` a ieșit cu cod 1 și „Failed to authenticate, have you run firebase login?”. CLI este neautentificat. Politica de rețea enforced nu permite hosturile Firebase; acesta este un blocaj separat, fără apel Firebase API reușit demonstrat. Fără login interactiv/deploy/billing și fără citire de chei.
+- Utilizatorul nu are cont Cloudflare și i-au fost furnizați pașii oficiali de creare/confirmare email fără card sau domeniu cumpărat: [creare cont](https://developers.cloudflare.com/fundamentals/account/create-account/) și [înscriere](https://dash.cloudflare.com/sign-up). Planul Firebase Spark: https://firebase.google.com/pricing.
+- Nu s-au repetat cele 75 teste sau 2 E2E desktop pentru această actualizare de documentație; acele rezultate și hashurile surselor rămân neschimbate în raportul anterior. Nu s-au executat aici build, test de aplicație, creare cont, autentificare, activare sau deploy.
+
+Vezi [detaliile de acces](cloud-access.md) și [dovezile de stare](evidence/2026-10-23/access-status.md). Raportul local existent mai jos păstrează contextul snapshotului său; referințele de hash din el sunt istorice și nu trebuie citite drept verificarea curentă a branch-ului.
+
+Reviewul documentar final a confirmat `git diff --check` și 62 de legături locale valide în cele 8 fișiere Markdown schimbate; nu au rămas defecte blocante în acest scope. Două sarcini gpt-6-luna au fost separate: diagnosticarea CLI în `/tmp` și actualizarea documentației. Nu s-a făcut review independent dificil pentru această schimbare simplă. Limitele reale de acces și blocarea Gate B1 persistă.
+
+## Execuție Tasks 0–1b — snapshot anterior, 2026-10-23
 
 GitHub `main` verificat prin integrarea GitHub și `git fetch`/`ls-remote`: `11e72f96bc93c84ecf0e8c85f26d3fb0c965361e`. Workspace-ul era la `34df3db`; fast-forward fără schimbări locale de suprascris. Lucrul este pe `codex/implementation-foundation`, fără modificarea fișierelor skill-urilor instalate. Inventarul cloud/executor și `docs/skills.md` au fost consultate; cele 24 de skill-uri locale nu au fost reinstalate.
 
@@ -42,7 +47,7 @@ Reviewul final gpt-6.1-sol a închis **BRev-01** (cursa CAS trebuia 409, nu 500)
 
 ### Gate B1 — încă BLOCAT
 
-P-01 cu Firebase real, P-02 pe D1 API real, P-09 cu CPU măsurat de Cloudflare Workers Free și P-12-A pe iOS/Safari + Android nu au fost executate. Mediul nu are credențiale/bindings de servicii sau telefoane disponibile. Activarea serviciilor și publicarea nu sunt autorizate prin implementarea locală. Nu există p50/p95 CPU real și nu se deduce din timpul local. Tasks 2+ rămân oprite la gate; fotografiile exacte Lisabona rămân de recuperat.
+P-01 cu Firebase real, P-02 pe D1 API real, P-09 cu CPU măsurat de Cloudflare Workers Free și P-12-A pe iOS/Safari + Android nu au fost executate în acel snapshot. Autorizarea gratuită/publicării a fost dată ulterior; starea curentă de acces este la începutul acestui raport. Nu există p50/p95 CPU real și nu se deduce din timpul local. Tasks 2+ rămân oprite la gate; fotografiile exacte Lisabona rămân de recuperat.
 
 **Data:** 2026-10-22
 

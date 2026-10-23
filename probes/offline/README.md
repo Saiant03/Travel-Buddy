@@ -1,6 +1,6 @@
 # Probă locală P12-A
 
-Acesta este un shell PWA de test separat de aplicația din `src/`. Build-ul dedicat se face cu `npm run build:probe`; rezultatul este `dist-probe/`. Se poate servi ulterior numai prin HTTPS pe un host convenit, fără a-l publica în această etapă. Service worker-ul păstrează doar shell-ul public. Fixture-ul privat este separat în IndexedDB și fotografia fictivă este un fișier JPEG creat local.
+Acesta este un shell PWA de test separat de aplicația din `src/`. Build-ul dedicat se face cu `npm run build:probe`; rezultatul este `dist-probe/`. Utilizatorul a autorizat publicarea necesară a probei gratuite. Înainte de servirea prin HTTPS, verifică accesul la hostul ales, planul gratuit și conectivitatea; nu activa billing. Service worker-ul păstrează doar shell-ul public. Fixture-ul privat este separat în IndexedDB și fotografia fictivă este un fișier JPEG creat local.
 
 Pagina are trei acțiuni: salvarea manuală a fixture-ului, reîncărcarea din IndexedDB și simularea unei actualizări incomplete în care lipsește fotografia obligatorie. Revizia veche trebuie să rămână activă. `sessionGeneration` și owner-ul sunt valori demonstrative; această pagină nu implementează login, logout sau curățarea contului.
 
