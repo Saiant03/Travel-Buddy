@@ -1,5 +1,8 @@
 # Proces de lucru
 
+## Execuție curentă — 2026-10-23
+Implementarea locală conform planului este autorizată; instrucțiunile istorice despre o etapă exclusiv documentară sunt depășite. Tasks 0–1 și partea locală Task 1b au urmat delegare → review → corectare delegată → reverificare → integrare → verificare finală. Gate B1 cere în continuare dovezile reale, iar activarea serviciilor și publicarea cer acord separat. Nu se publică automat issues sau PR-uri.
+
 ## Responsabilități
 Utilizatorul decide scopul, preferințele și acceptarea finală.
 Coordonatorul păstrează imaginea de ansamblu, alege soluția tehnică după brief, definește sarcinile și verifică integrarea.

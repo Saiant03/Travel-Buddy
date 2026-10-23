@@ -1,5 +1,16 @@
 # Memorie de proiect
 
+## Stare curentă — implementare începută, 2026-10-23
+Cererea actuală autorizează implementarea conform planului salvat, începând cu Tasks 0, 1 și 1b. Activarea serviciilor și publicarea cer acord separat; cost zero, fără card/billing/upgrade automat. Această stare înlocuiește interdicțiile istorice de implementare de mai jos. Nu reluăm brief-ul, compromisurile sau explorarea vizuală.
+
+GitHub `main` a fost verificat la `11e72f96bc93c84ecf0e8c85f26d3fb0c965361e`; copia locală veche a fost sincronizată prin fast-forward, inclusiv cele 16 PNG-uri existente. Branch de lucru: `codex/implementation-foundation`. Nu presupunem sincronizare automată cu calculatorul utilizatorului.
+
+Coordonatorul a înghețat [contractele wire v1](contracts-v1.md) și a ales React 19/TypeScript strict/Vite/Zod. Tasks 0–1 sunt încheiate local; Task 1b are probele locale și codul de rulare pregătite. Au lucrat efectiv agenți gpt-6-luna pe configurație, contracte, probe server și offline, în valuri cu fișiere distincte; după repornirea mediului, sarcinile de finalizare au fost reluate pe aceleași perimetre. Reviewul dificil gpt-6.1-sol și coordonatorul au reverificat remedierile. CR-01–03, F-01–05, D-01–04, DRev-01–02 și BRev-01–02 sunt închise în scope-ul local.
+
+**Rezultate finale:** instalare curată cu scripts dezactivate, tipuri/lint/build PASS, **75/75 teste**, **2/2 E2E Chromium desktop**, Worker compilat numai cu `--dry-run`, audit 0. [Dovezile și hashurile](evidence/2026-10-23/README.md) separă explicit simulările de execuția reală locală. Nu există site publicat sau servicii activate. Cele două fotografii exacte Lisabona rămân nerecuperate și nu au fost inventate.
+
+**Următorul pas indispensabil:** acord separat și acces pentru Cloudflare Workers/D1 Free, Firebase Auth Spark și găzduirea HTTPS temporară a mini-probei pentru iPhone/Safari și Android. Fără card, billing sau plan plătit. P-01/P-02/P-09 reale și P-12-A pe telefoane rămân BLOCATE; nu implementa Tasks 2+ înainte de Gate B1. Dispatcherul CPU nu estimează CPU din wall clock, ci așteaptă exportul platformei corelat independent. Nu promite cold isolate sau offline complet Task 11 din aceste probe.
+
 ## Stare curentă — pregătirea implementării, 2026-10-23
 Cererea actuală încheie explorarea vizuală și autorizează actualizarea documentației în GitHub și subagenții. Nu autorizează implementarea aplicației, activarea serviciilor sau publicarea site-ului. Brief-ul și cele patru compromisuri acceptate nu se rediscută. Istoricul de mai jos conține stări depășite; această predare și secțiunile recente au prioritate.
 

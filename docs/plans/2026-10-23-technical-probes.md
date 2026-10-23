@@ -1,5 +1,12 @@
 # Probe tehnice timpurii — plan pentru execuție viitoare
 
+## Execuție autorizată — 2026-10-23
+Tasks 0–1b și probele locale sunt autorizate prin cererea curentă. [Contractele wire v1](../contracts-v1.md) sunt înghețate de coordonator; completările lor prevalează asupra exemplelor compacte. Activarea serviciilor/publicarea cer acord separat; probele reale rămân neexecutate până la dovezi. Stările istorice de mai jos descriu momentul planificării, nu o interdicție asupra lucrului local autorizat.
+
+**Rezultate locale actuale:** [dovezi, comenzi și limite](../evidence/2026-10-23/README.md). 75/75 teste și 2/2 E2E Chromium au trecut după remediere delegată și review independent. P-01 folosește JWT RSA/X.509 sintetic; P-02 execută SQL real în SQLite cu scenarii concurente simulate; P-09 verifică dispatcherul/evaluatorul cu date sintetice, fără CPU real; P-12-A are IndexedDB și browser desktop, fără telefon real. Compilarea Worker a fost numai `--dry-run`. Nicio activare sau publicare.
+
+**Gate B1: BLOCAT.** P-01 cu Firebase, P-02 D1 API, P-09 CPU Cloudflare Free și P-12-A iOS/Safari + Android sunt neexecutate. P-03–P-08 și P-10–P-12-B complete rămân pentru etapele lor. `cold` în dispatcherul P-09 înseamnă cache de chei gol, `warm` cache valid observat; nu se pretinde observarea cold isolate. Receipt-ul P-02 are și aserțiune atomică condiționată de nonce/versiune: UPDATE reușit fără receipt produce rollback, UPDATE pierdut rămâne 409.
+
 > **Pentru agenții care vor executa:** Urmați `docs/process.md`: coordonatorul fixează contractele după revizuirea arhitecturii, agentul `gpt-6-luna` execută fiecare probă delimitată, iar coordonatorul verifică dovezile. Acesta este un plan de probe, nu o cerere de implementare. Toate probele de mai jos sunt **NEEXECUTATE**.
 
 **Scop:** Să măsurăm riscurile tehnice și de produs prin experimente izolate, înainte de a promite funcționarea integrată sau de a fixa tehnologii.

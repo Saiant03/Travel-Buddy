@@ -1,6 +1,10 @@
 node_modules/
 dist/
+dist-probe/
+.wrangler/
 build/
+playwright-report/
+test-results/
 coverage/
 .env
 .env.*
@@ -10,3 +14,5 @@ coverage/
 .local/
 Thumbs.db
 .DS_Store
+*.pem
+*.key

@@ -1,5 +1,8 @@
 # Travel Buddy MVP Implementation Plan
 
+## Execuție curentă — 2026-10-23
+Utilizatorul a autorizat implementarea, începând cu Tasks 0, 1 și 1b. [Contractele wire v1](../contracts-v1.md) sunt înghețate înaintea parserelor. Alegerea locală este React 19/TypeScript strict/Vite/Zod. Gate B1 rămâne obligatoriu înaintea Tasks 2–3; activarea serviciilor și publicarea necesită acord separat. Formulările despre neautorizare de mai jos sunt istoricul redactării planului.
+
 > **For agentic workers:** Urmați `docs/process.md`: implementare delegată, review, remediere și verificarea finală a coordonatorului task cu task. Bifați fiecare pas (`- [ ]`) pe măsură ce este executat. Nicio probă, implementare, activare de serviciu sau publicare din acest plan nu este autorizată de documentul în sine.
 
 **Goal:** Construim un MVP privat, accesibil online celor două conturi, pentru preferințe individuale, vacanțe comune și itinerarii editabile, cu consultarea manuală a unei copii offline pe fiecare telefon.
@@ -115,10 +118,10 @@ type ApiResult<T> = { ok: true; data: T; requestId: string } | { ok: false; erro
 
 **Interfețe:** Scripts exacte: `test: vitest run`, `typecheck: tsc --noEmit`, `lint: eslint .`, `test:e2e: playwright test`, `build: vite build`. Dev dependencies: TypeScript, Vitest, ESLint, Vite, Playwright. Configurația nu cere chei sau servicii externe.
 
-- [ ] **Pasul 1:** Configurează scripts și discovery pentru `tests/unit`, `tests/api`, `tests/e2e`, fără test artificial sau import din contracte încă inexistente.
-- [ ] **Pasul 2:** Rulează `npm run test -- --passWithNoTests` — PASS cu zero teste; `npm run typecheck` — PASS pe shell gol.
-- [ ] **Pasul 3:** Rulează `npm run lint` și `npm run build` — PASS pentru `index.html`, shell `src/main.tsx`, manifest și service worker instalabil minimal.
-- [ ] **Pasul 4:** Rulează `npm run test:e2e -- --list --pass-with-no-tests` — PASS fără spec-uri; niciun script nu face apel la furnizori.
+- [x] **Pasul 1:** Configurează scripts și discovery pentru `tests/unit`, `tests/api`, `tests/e2e`, fără test artificial sau import din contracte încă inexistente.
+- [x] **Pasul 2:** Rulează `npm run test -- --passWithNoTests` — PASS cu zero teste; `npm run typecheck` — PASS pe shell gol.
+- [x] **Pasul 3:** Rulează `npm run lint` și `npm run build` — PASS pentru `index.html`, shell `src/main.tsx`, manifest și service worker instalabil minimal.
+- [x] **Pasul 4:** Rulează `npm run test:e2e -- --list --pass-with-no-tests` — PASS fără spec-uri; niciun script nu face apel la furnizori.
 
 **Executant:** `gpt-6-luna`; **Skill:** `travel-buddy-engineering`; **Dependențe:** Gate A; doar harness local.
 
@@ -128,12 +131,12 @@ type ApiResult<T> = { ok: true; data: T; requestId: string } | { ok: false; erro
 
 **Interfețe:** Completează cu `PlaceRef`, `BaseStay`, `Preference`, `Stop`, `Money`, `SourceRef`, `LicensedImage`, `PhotoManifestEntry`, `LatLng`, `ChangeSummary`, `SnapshotAsset`; scheme `parseX(input: unknown): Result<X, ValidationError>`. UI `revision` se mapează unic la wire `expectedVersion`; proposal folosește `baseVersion`. DB: `users`, `profiles`, `trips`, `trip_members`, `preferences`, `itinerary_revisions`, `generation_jobs`, `idempotency_records`, receipt unic `(trip_id,uid,idempotency_key)` și per `proposal_id`.
 
-- [ ] **Pasul 1:** Coordonatorul îngheață contractele wire și codurile API în documentație, inclusiv exact cinci categorii, `revision → expectedVersion`, lifecycle job și snapshot owner-scoped.
-- [ ] **Pasul 2:** Adaugă teste pentru `parseProfile`, `parseTrip`, `parseItinerary`, `parseGenerationJob`, `parseOfflineSnapshot`: payload valid roundtrip; `revision: -1`, locale `de`, status necunoscut, manifest foto incomplet ori snapshot fără `ownerUid` sunt respinse cu `ValidationError`.
-- [ ] **Pasul 3:** Rulează `npm run test -- tests/unit/contracts` — așteptat FAIL pentru parser-ele lipsă.
-- [ ] **Pasul 4:** Implementează parser-ele/schemele și migrarea SQL; compilează strict TypeScript.
-- [ ] **Pasul 5:** Rulează `npm run typecheck && npm run test -- tests/unit/contracts` — PASS; frontend și API folosesc același wire contract.
-- [ ] **Pasul 6:** Review gate înainte de paralelizare; CAS, job states și offline ownership au aserțiuni clare.
+- [x] **Pasul 1:** Coordonatorul îngheață contractele wire și codurile API în documentație, inclusiv exact cinci categorii, `revision → expectedVersion`, lifecycle job și snapshot owner-scoped.
+- [x] **Pasul 2:** Adaugă teste pentru `parseProfile`, `parseTrip`, `parseItinerary`, `parseGenerationJob`, `parseOfflineSnapshot`: payload valid roundtrip; `revision: -1`, locale `de`, status necunoscut, manifest foto incomplet ori snapshot fără `ownerUid` sunt respinse cu `ValidationError`.
+- [x] **Pasul 3:** Rulează `npm run test -- tests/unit/contracts` — așteptat FAIL pentru parser-ele lipsă.
+- [x] **Pasul 4:** Implementează parser-ele/schemele și migrarea SQL; compilează strict TypeScript.
+- [x] **Pasul 5:** Rulează `npm run typecheck && npm run test -- tests/unit/contracts` — PASS; frontend și API folosesc același wire contract.
+- [x] **Pasul 6:** Review gate înainte de paralelizare; CAS, job states și offline ownership au aserțiuni clare.
 
 **Executant:** `gpt-6-luna`; **Skill-uri:** `travel-buddy-engineering`, `test-driven-development`; **Dependențe:** Task 0; design-system, architecture și technical-probes.
 
@@ -143,13 +146,17 @@ type ApiResult<T> = { ok: true; data: T; requestId: string } | { ok: false; erro
 
 **Interfețe:** Harness-ul verifică JWT Firebase RS256 + claims + allowlist, membership D1; CAS este un D1 `batch()` cu un UPDATE condiționat (`expectedVersion`, membership, no receipt) și INSERT receipt guardat în același atomic batch; benchmark măsoară parsarea JSON ≤256 KiB, verifier/authz și D1. Receipt policy: conflict rowcount 0 => fără receipt/applied; duplicate key sau proposal răspunde receipt existent.
 
-- [ ] **Pasul 1:** Adaptează fixture-urile sintetice P-01/P-02/P-09 la contractele aprobate; păstrează modulele de spike în `probes/`.
-- [ ] **Pasul 2:** Rulează `npm run test -- tests/probes/auth-worker.test.ts tests/probes/cas-worker.test.ts tests/probes/cpu-runner.test.ts tests/probes/offline-pwa.test.ts` — FAIL pentru probe lipsă înaintea implementării.
-- [ ] **Pasul 3:** Implementează numai minimum de probe pentru token invalid/UID outsider și două sesiuni concurente + duplicate receipt; fără UI, login form, provider adapter sau product data.
-- [ ] **Pasul 4:** Rulează cele patru suites probe locale; apoi P-02/P-09 pe Cloudflare Free numai după autorizare. P-09 cere ≥100 cold + ≥100 warm, zero CPU terminations și p95 ≤7 ms la payload ≤256 KiB. `p95 >7 ms` ori failure CAS oprește Gate B1; nu se mută codul de spike în aplicație ca workaround.
-- [ ] **Pasul 5:** Consemnează SQL-ul, versiuni, CPU p50/p95, changes/receipts și limite în `docs/verification.md`; coordonatorul decide dacă arhitectura trece spre Tasks 2–3.
+- [x] **Pasul 1:** Adaptează fixture-urile sintetice P-01/P-02/P-09 la contractele aprobate; păstrează modulele de spike în `probes/`.
+- [x] **Pasul 2:** Testele celor patru probe sunt implementate. Cicluri RED→GREEN au fost confirmate pentru regresiile CAS/receipt, conflict 409 și izolare offline; logul global inițial cu toate modulele lipsă nu este păstrat și nu este certificat retrospectiv.
+- [x] **Pasul 3:** Implementează numai minimum de probe pentru token invalid/UID outsider și două sesiuni concurente + duplicate receipt; fără UI, login form, provider adapter sau product data.
+- [x] **Pasul 4 local:** Cele patru suite locale au trecut în verificarea integrată (75/75 teste totale), împreună cu 2 E2E Chromium și build-urile dedicate.
+- [ ] **Pasul 4 real:** P-01/P-02/P-09 Cloudflare/Firebase și P-12-A iOS/Android sunt BLOCATE până la acord separat și acces; nu sunt înlocuite de SQLite/desktop. P-09 cere ≥100 cold + ≥100 warm, zero CPU terminations și p95 ≤7 ms la payload ≤256 KiB. `p95 >7 ms` ori failure CAS oprește Gate B1; nu se mută codul de spike în aplicație ca workaround.
+- [x] **Pasul 5 local:** SQL-ul, versiunile, scenariile changes/receipts și limitele sunt consemnate; CPU p50/p95 real = neexecutat, fără valori inventate. Coordonatorul menține Gate B1 BLOCAT.
+- [ ] **Pasul 5 real:** Arhivarea măsurătorilor CPU și rezultatelor API/telefon, apoi decizia Gate B1, după acord și acces.
 
 **Executant:** `gpt-6-luna`; **Skill-uri:** `travel-buddy-engineering`, `test-driven-development`; **Dependențe:** Task 1 și shell-ul Task 0; Task 2–3 depind de Gate B1 PASS. P-01/P-02/P-09 și mini P-12-A din technical-probes corespund acestui spike. Task 11 execută P-12-B full snapshot după MVP-ul offline.
+
+**Stare de integrare:** codul Task 1b și probele locale sunt reviewate și reverificate. [Dovezi finale](../evidence/2026-10-23/README.md). Nu există p50/p95 CPU real; Gate B1 rămâne BLOCAT și Task 2 nu începe.
 
 ### Task 2: Fundație aplicație, design tokens și localizare
 

@@ -1,5 +1,8 @@
 # Plan de lucru — Travel Buddy
 
+## Execuție curentă — 2026-10-23
+Implementarea este autorizată prin cererea actuală. **Task 0 și Task 1 încheiate local; Task 1b are codul și probele locale încheiate, iar probele reale sunt BLOCATE.** [Contractele wire v1](contracts-v1.md), [instrucțiunile server](../probes/README-server.md) și [mini-proba offline](../probes/offline/README.md) sunt pregătite. Verificarea integrată a trecut: 75 teste, tipuri, lint, build, Worker dry-run și 2 E2E Chromium, cu review independent și remedieri delegate. [Dovezi](evidence/2026-10-23/README.md). Gate B1 precede Tasks 2+; nu este trecut prin simulări. Urmează acordul separat și accesul pentru Cloudflare Free/Firebase Spark și o probă HTTPS temporară pe iPhone/Android. Fără billing/card/upgrade automat. Stările istorice de mai jos nu redeschid brief-ul sau explorarea vizuală.
+
 ## Etapa încheiată: brief și evaluare documentară (2026-10-22)
 - Definirea inițială este încheiată. Cerințele au fost consolidate în `product.md`, cu flux, limite și criterii observabile; întrebările vechi deja rezolvate au fost eliminate.
 - Evaluarea actuală a accesului online, căutării, generării, hărților/traseelor și consultării offline este în `feasibility.md`, cu surse oficiale, cote, compromisuri și limite de verificare.

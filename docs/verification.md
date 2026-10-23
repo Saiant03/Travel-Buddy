@@ -1,5 +1,40 @@
 # Raport de verificare a fundației
 
+## Execuție Tasks 0–1b — 2026-10-23 (stare curentă)
+
+GitHub `main` verificat prin integrarea GitHub și `git fetch`/`ls-remote`: `11e72f96bc93c84ecf0e8c85f26d3fb0c965361e`. Workspace-ul era la `34df3db`; fast-forward fără schimbări locale de suprascris. Lucrul este pe `codex/implementation-foundation`, fără modificarea fișierelor skill-urilor instalate. Inventarul cloud/executor și `docs/skills.md` au fost consultate; cele 24 de skill-uri locale nu au fost reinstalate.
+
+### Task 0 și Task 1 — verificate local
+
+- Implementare și remedieri delegate efectiv către gpt-6-luna, pe fișiere distincte; review independent gpt-6.1-sol și verificarea coordonatorului. Skill-uri aplicate: `travel-buddy-engineering`, `test-driven-development` pentru comportamente, `travel-buddy-review`, `code-review-and-quality`, `webapp-testing` pentru browser. Cloud runtime a ghidat accesul/rețeaua; nu au fost folosite skill-uri vizuale pentru o nouă explorare.
+- Task 0: React/TypeScript strict/Vite, Vitest/ESLint/Playwright, manifest și icoane originale, service worker care precachează numai resursele shell-ului public. Cache-ul este versionat după conținut; query/Authorization/API sunt excluse. Build și enumerarea E2E au trecut. La inițializare au trecut și comenzile cu zero teste; după adăugarea contractelor au existat eșecuri temporare declarate, până la implementarea lor.
+- `npm run test -- tests/unit/contracts`: **32/32 PASS**, inclusiv execuția migrației SQL cu `node:sqlite`, fără a o prezenta drept D1 real. Root wire strict: versionare, validare, două conturi/membership, vocabularul preferințelor, job, propunere/receipt, manifest complet și snapshot cu owner/limbă/calendar/baze.
+- `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium npm run test:e2e -- tests/e2e/shell.spec.ts`: **1/1 PASS** la autor și independent. Prima vizită online → SW activ/control → pagină nouă fără rețea, fără reîncărcare online intermediară; testul verifică și excluderile cache. Este browser Chromium desktop real, nu telefon și nu aplicația privată completă.
+- Test de regresie demonstrat: eliminarea temporară a bundle-ului din precache a făcut testul shell offline să eșueze; restaurarea byte-exact a configurației și build-ul complet au readus PASS. Configurația mutată nu a rămas în repository. `ignoreVary` rezolvă `Vary: Origin` al preview-ului numai în cache-ul exact al shell-ului public.
+
+| ID | Constatare și remediere reverificată |
+|---|---|
+| CR-01–CR-03 | Manifest explicit pentru fiecare loc, date/baze corelate cu Trip, conținutul și serializarea checksumului definite înainte de parser. Închise documentar de reviewer. |
+| F-01–F-05 | Precache complet la prima instalare, build+preview E2E, discovery probes, cache namespace/await claim, test fără încălzire prin reload online. Reverificate independent prin citire și browser. |
+| D-01–D-04 | Trip complet persistent; itinerariu absent permis la creare; SQL respinge schemaVersion lipsă/null; răspunsuri de preferințe tipizate. Teste contractuale și SQLite trecute. |
+| DRev-01–DRev-02 | Nota de rezervare acceptă text; geometria nu moștenește plafonul textului utilizatorului de 4.000 caractere. Testele au fost RED înainte de remediere și apoi GREEN, repetate independent. |
+
+O primă instalare npm a rulat înaintea adăugării `.npmrc`, cu lifecycle scripts implicit permise; output-ul nu dovedește ce hooks au rulat. Coordonatorul a verificat ulterior instalarea curată cu `npm ci --ignore-scripts` și cache temporar, fără modificarea lockfile-ului. Auditul final raportează zero vulnerabilități.
+
+### Task 1b și verificarea integrată finală
+
+**PASS local:** typecheck, lint inclusiv sursele probelor, **75/75 teste**, build-ul shell-ului, build-ul separat al mini-probei offline, **2/2 E2E Chromium** și compilarea Worker prin `wrangler --dry-run`. [Comenzile, versiunile, hashurile surselor și logurile](evidence/2026-10-23/README.md) sunt păstrate în repository. Dry-run nu a publicat Worker-ul. Instalarea curată nu a activat scripturile lifecycle ale dependențelor. Avertismentele Rollup și problemele de directoare temporare ale mediului sunt consemnate în dovezi, fără a le prezenta drept PASS înainte de remediere.
+
+Probele server folosesc chei RSA/X.509 generate local și SQL executat în SQLite printr-un adaptor D1 asincron; concurența și erorile sunt simulate controlat. Confirmarea strictă respinge patch/UID din client, păstrează membership înaintea receipt-ului și întoarce același receipt pentru retry. O aserțiune în batch forțează rollback pentru UPDATE reușit fără receipt; aserțiunea este condiționată de nonce/versiune, astfel încât un UPDATE pierdut într-o cursă să producă 409, nu 500. Modificarea preferințelor este verificată și prin reviziile curente ale profilurilor.
+
+Mini-proba offline salvează fixture-ul și fotografia sintetică în IndexedDB. E2E închide complet Chromium și repornește același profil fără rețea; fotografia este citită local și un update incomplet păstrează revizia veche. Nu sunt validate Safari/iOS sau Android. P-09 are dispatcher bounded, corelare prin request IDs și evaluator de date sintetice; nu a fost măsurat CPU real și nu s-a apelat un endpoint extern.
+
+Reviewul final gpt-6.1-sol a închis **BRev-01** (cursa CAS trebuia 409, nu 500) și **BRev-02** (instrucțiunea probei trebuia build+preview). Autorii gpt-6-luna au corectat, reviewerul a repetat verificările și coordonatorul a rulat verificarea integrată. Mutația controlată a protecției `tripId` a fost detectată de test, iar fișierul restaurat exact. Fără defecte blocante locale rămase în scope; fără acceptare funcțională a MVP-ului complet.
+
+### Gate B1 — încă BLOCAT
+
+P-01 cu Firebase real, P-02 pe D1 API real, P-09 cu CPU măsurat de Cloudflare Workers Free și P-12-A pe iOS/Safari + Android nu au fost executate. Mediul nu are credențiale/bindings de servicii sau telefoane disponibile. Activarea serviciilor și publicarea nu sunt autorizate prin implementarea locală. Nu există p50/p95 CPU real și nu se deduce din timpul local. Tasks 2+ rămân oprite la gate; fotografiile exacte Lisabona rămân de recuperat.
+
 **Data:** 2026-10-22
 
 ## Dovezi pentru fundația inițială (4 skill-uri)

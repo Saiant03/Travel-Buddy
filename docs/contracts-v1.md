@@ -1,0 +1,57 @@
+# Contracte wire v1 — înghețate pentru Tasks 1 și 1b
+
+Coordonator, 2026-10-23. Alegere tehnică pentru implementarea autorizată: TypeScript strict și Zod; React 19/Vite pentru shell. Cloudflare/Firebase rămân condiționate de Gate B1 și nu sunt activate. Acest document completează formele compacte din plan și arhitectură. Schimbarea contractelor cere integrarea coordonatorului, înaintea modificării consumatorilor.
+
+## Convenții
+
+- JSON strict: obiectele resping chei necunoscute; fără coerciție, fără valori implicite ascunse. Intrarea este `unknown`; `parseX` întoarce `{ok:true,data:X}` sau `{ok:false,error:{code:'VALIDATION_ERROR',issues:{path:string,message:string}[]}}`, fără a arunca pentru intrări JSON invalide. Zod este detaliu intern, nu contract de eroare.
+- Rădăcinile persistate Profile, Trip, Itinerary, Proposal, GenerationJob și OfflineSnapshot au `schemaVersion:1`. Versiunile necunoscute se resping. Numerele sunt finite; reviziile și contoarele sunt întregi sigure nenegative. Identificatorii sunt șiruri nevide de maximum 128 caractere; texte de utilizator maximum 4.000, mesaje maximum 8.000. Listele se validează, fără limită arbitrară a numărului de zile în produs. Limita de transport HTTP este separat 256 KiB.
+- `Locale = 'ro'|'en'|'fr'`; limba implicită a UI va fi româna, însă parserul nu repară un payload fără limbă.
+- Date calendaristice reale `YYYY-MM-DD`, ore `HH:mm` (24h), timestamps ISO UTC; URL-uri numai HTTPS fără userinfo. Checksum/hash: SHA-256 hex cu 64 caractere mici.
+- `Result<T,E>`, `ValidationError`, `ApiErrorCode`, `ApiResult<T>` și primitivele comune sunt în `src/shared/contracts/common.ts`; cele șapte module din plan le reutilizează. Modelele de domeniu reexportă contractele, fără duplicate.
+
+## Primitive și imagini (`common.ts`, `provider.ts`)
+
+- `LatLng={lat:number,lng:number}` în intervalele [-90,90], [-180,180].
+- `Money={amount:number,currency:string}`: sumă nenegativă, cod monetar de trei litere mari; preț necunoscut = câmp absent.
+- `PlaceRef={id,name,location:LatLng,address?:string}`; `SourceRef={url,title,checkedAt}`.
+- `LicensedImage={url,sourceUrl,author,license,licenseUrl,attribution,checkedAt,cacheAllowed:boolean}`. Câmpurile de proveniență sunt obligatorii și nevide; dreptul de cache este explicit, nu dedus din licență.
+- `PhotoManifestEntry` este o uniune: `{status:'included',assetId,placeId,image:LicensedImage,mimeType:'image/jpeg'|'image/png'|'image/webp',byteLength:number,checksum}` sau `{status:'unavailable',placeId,reason:'missing'|'license'|'cache_forbidden'}`. Included cere `cacheAllowed:true` și 1..2 MiB. Asset IDs/place IDs nu se repetă. O fotografie obligatorie eșuată respinge noul snapshot; indisponibilitatea se decide înainte de manifest.
+- `SnapshotAsset={assetId,blob:Blob}` este exclusiv local, nu JSON wire. Blob-urile sunt scrise separat de manifest și verificate înaintea comutării pointerului.
+- `ProviderFailure={code:'quota_exhausted'|'timeout'|'unavailable'|'invalid_response',retryable:boolean,retryAt?:string}`; fără chei/tokenuri în contracte.
+
+## Identitate și profil (`auth.ts`, `preferences.ts`)
+
+- `VerifiedIdentity={uid,emailVerified:true}` este rezultatul verificării criptografice, niciodată al simplei decodări. `TripMember={tripId,uid}`.
+- Cele cinci `CategoryId` exacte: `food`, `culture`, `nature`, `relaxation`, `shopping`.
+- `CategoryCompletion={categoryId,complete:boolean,noSpecialPreferences:boolean}`. Profile include exact o intrare pentru fiecare categorie. O categorie completă are o selecție sau opțiunea explicită fără preferințe speciale; acestea nu coexistă. O categorie incompletă poate avea selecții în curs; `noSpecialPreferences:true` implică `complete:true`.
+- `Preference` conține `{categoryId,subcategoryId,itemId,answer,note?:string,qualifiers?:{id,answer,note?:string}[]}`. Pentru food: `strong_like|eat|try|avoid`; pentru celelalte: `strong_like|try|no_interest|hard_no`. Qualifier folosește același vocabular ca elementul. Un singur răspuns per `(categoryId,subcategoryId,itemId)` și per qualifier. Lipsa elementului înseamnă necunoscut, nu refuz.
+- `Profile={schemaVersion,uid,revision,locale,descriptionLocale,categories,preferences,avoidFoods:string[],allergies:string[],intolerances:string[]}`. Gusturile nu completează automat câmpurile de sănătate. Ajustările viitoare per vacanță nu suprascriu acest profil.
+
+## Vacanță și itinerariu (`trip.ts`, `itinerary.ts`)
+
+- `BaseStay={id,place:PlaceRef,startDay:number,endDay:number}`: zile numerotate de la 1, interval inclusiv, în interiorul vacanței; ID-urile bazelor sunt unice și intervalele nu se suprapun. Baza lipsă rămâne permisă.
+- `Trip={schemaVersion,id,revision,memberUids:[string,string],destination:PlaceRef,dates:{start?:string,end?:string,days:number},transport:('walk'|'transit'|'car')[],bases:BaseStay[],arrivalTime?:string,departureTime?:string,budget?:Money}`. Exact doi UID distincți; cel puțin un transport, fără duplicate. Days întreg pozitiv; start/end ambele prezente sau ambele absente, iar numărul inclusiv corespunde. Cazarea și bugetul nu sunt obligatorii.
+- `Place={id,name,location,address?:string,description?:string,price?:Money,opening?:string,reservation?:string,photo?:LicensedImage,sources:SourceRef[],confidence:'verified'|'unconfirmed',matchReasons:string[]}`. Minimum o sursă; câmpurile lipsă nu devin confirmate.
+- `Stop={id,place:Place,fixedTime?:string,fixedTimeAccepted?:boolean}`: o oră fixă cere accept explicit true; fără program implicit.
+- `DayPlan={dayNumber:number,date?:string,baseId?:string,stops:Stop[],suggestions:Place[],route?:{geometry:string,provider:string,confidence:'verified'|'unconfirmed'}}`. Sugestiile alimentare sunt separate de opriri. Fără distanțe sau durate wire. Zilele sunt consecutive de la 1; ID-urile opririlor sunt unice în itinerariu.
+- `Itinerary={schemaVersion,tripId,revision,days:DayPlan[],locale}`. Plan parțial rămâne rezultat separat al jobului; snapshotul complet verifică toate zilele față de Trip.
+- `BuddyRequest={id,message,locale}`; `ChangePatch={days:DayPlan[]}` reprezintă documentul zilelor rezultat pe server, imutabil. Regulile de păstrare a opririlor se verifică ulterior în serviciu. `ChangeSummary={removed:string[],preserved:string[],added:string[]}`.
+- `AppliedReceipt={id,tripId,uid,proposalId,idempotencyKey,revision,applyNonce}`. `Proposal={schemaVersion,id,tripId,baseVersion,request:BuddyRequest,preferenceFingerprint,immutablePatch:ChangePatch,patchHash,summary:ChangeSummary,appliedReceipt?:AppliedReceipt}`. Fingerprint/hash sunt SHA-256; receipt trebuie să corespundă trip/proposal și să aibă revision=baseVersion+1.
+- `ConfirmProposalRequest={proposalId,expectedVersion,idempotencyKey}` strict; nu acceptă patch de la client. `revision` afișat în UI se trimite numai ca `expectedVersion`; `baseVersion` este cel salvat în proposal.
+
+## Job și offline (`generation.ts`, `offline.ts`)
+
+- `GenerationJob={schemaVersion,id,tripId,status,attemptId?,claimVersion,leaseToken?,checkpoint?:JsonValue,stage,completed,total,resultTripVersion?,errorCode?}`. `status=queued|running|partial|complete|quota_exhausted|failed`; `stage=search|organize|verify`. Completed ≤ total; total pozitiv; complete cere completed=total și resultTripVersion. Running cere attemptId și leaseToken; cele două sunt împreună prezente sau absente. ClaimVersion este monoton în DB, iar toate scrierile vor fi fenced pe attempt/claim/lease/stare. Schema nu pretinde că poate verifica monotonia între două documente.
+- `JsonValue` permite numai JSON finit, cu adâncime limitată la 32 pentru checkpoint.
+- `OfflineSnapshot={schemaVersion,ownerUid,tripId,revision,locale,sessionGeneration,savedAt,trip:Trip,payload:Itinerary,assets:PhotoManifestEntry[],checksum}`. Trip și payload corespund tripId/revision; ownerUid este membru; limba corespunde payloadului; numărul zilelor corespunde Trip. Manifestul conține exact o intrare per placeId distinct din opriri și sugestii: included pentru fotografie eligibilă, unavailable cu reason missing sau license fără fotografie (license înseamnă excludere upstream înaintea salvării; parserul nu certifică licența), unavailable/cache_forbidden pentru cacheAllowed:false. Nu acceptă placeId străin sau două reprezentări contradictorii ale aceluiași loc. Included reproduce fotografia eligibilă exact; nu permite downgrade arbitrar la unavailable. Datele zilelor corespund calendarului Trip dacă există, altfel lipsesc; baseId este exact baza care acoperă dayNumber sau lipsește dacă nu există bază pentru ziua respectivă. Checksum este verificat criptografic de stocarea offline, nu doar de parser.
+- Pointerul local se identifică prin `(ownerUid,tripId,locale,sessionGeneration)`; citirea și commitul verifică sesiunea. Logout invalidează generația înainte de purge. Mini-spike P-12-A verifică doar persistența atomică a fixture-ului, nu întregul Task11.
+- Checksum snapshot: SHA-256 pe UTF-8 al JSON-ului tuturor câmpurilor, excluzând numai `checksum` de la rădăcină; cheile fiecărui obiect se sortează lexicografic după unitățile UTF-16, array-urile păstrează ordinea, primitivele folosesc `JSON.stringify`, fără spații. Se folosesc numai valorile JSON validate (fără undefined). `patchHash` acoperă la fel `immutablePatch`; checksumul fiecărui asset acoperă octeții Blobului. Fingerprint-ul preferințelor acoperă aceleași profiluri efective și versiuni pentru ambele UID-uri sortate; nu se folosește drept dovadă de actualitate o valoare rămasă veche pe Trip.
+
+## Erori, SQL și probe
+
+`ApiResult<T>={ok:true,data:T,requestId}` sau `{ok:false,error:{code:ApiErrorCode,messageKey:string,retryable:boolean},requestId}`. Coduri și HTTP: `VALIDATION_ERROR` 400, `UNAUTHENTICATED` 401, `FORBIDDEN` 403 (inclusiv resursă absentă/străină, fără divulgare), `VERSION_CONFLICT`/`PREFERENCES_CHANGED`/`IDEMPOTENCY_CONFLICT` 409, `PAYLOAD_TOO_LARGE` 413, `QUOTA_EXHAUSTED` 429, `PROVIDER_UNAVAILABLE`/`KEYS_UNAVAILABLE` 503, `INTERNAL_ERROR` 500. Nicio eroare nu returnează token, SQL sau date private străine. API privat: `Cache-Control: private, no-store`.
+
+Schema inițială include `users`, `profiles`, `trips`, `trip_members`, `preferences`, `itinerary_revisions`, `proposals` (conținut insert-only), `generation_jobs`, `idempotency_records`. FK-uri și unique previn UID duplicat, membership duplicat, receipt duplicat per proposal și per `(trip_id,uid,idempotency_key)`; maximum două conturi înregistrate și maximum doi membri per trip. `trips` deține `trip_json` (vacanța completă), `version`, `itinerary_json` (nullable până există plan confirmat), `preference_fingerprint`, `last_mutation_nonce`; istoricul nu înlocuiește documentul canonic. Conținut JSON se validează prin parser la granița aplicației; DB validează JSON și reviziile. Joburile păstrează attempt/claim/lease/checkpoint.
+
+P-02 folosește un singur UPDATE cu trip/version/membership/proposal pending/baseVersion/fingerprint și lipsa receipt-ului, urmat în același batch atomic de INSERT SELECT receipt guardat prin versiunea nouă și nonce unic. Retry caută receipt înainte de conflict; o cheie folosită pentru alt proposal se respinge. Zero changes nu înseamnă applied. D1 local și SQLite sunt probe locale, nu PASS D1 real. P-09 primește măsurători CPU furnizate de platforma reală; wall clock local nu poate da PASS. Sunt necesare 100 cold + 100 warm, ≤256 KiB, p95 ≤7ms și zero CPU terminations. Gate B1 rămâne BLOCAT fără dovezile reale P-01/P-02/P-09/P-12-A.
