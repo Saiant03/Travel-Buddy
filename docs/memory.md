@@ -1,5 +1,14 @@
 # Memorie de proiect
 
+## Autorizație actualizată — servicii gratuite și publicare, 2026-10-23
+Utilizatorul a acordat acces complet pentru continuarea proiectului cât timp nu presupune plată. Acordul pentru activarea Cloudflare Free/Firebase Spark și publicarea probei HTTPS gratuite este acordat; nu îl cere din nou. Oprește-te înaintea oricărei plăți, activări billing/card/upgrade automat și informează utilizatorul. Gate B1 și dovezile reale rămân obligatorii.
+
+GitHub reverificat: `main=11e72f9`, branch-ul de implementare `codex/implementation-foundation=6e89094`; workspace curat la reluare. Mediul nu are secrete, variabile runtime sau identități externe configurate. `wrangler whoami` a confirmat că nu există autentificare Cloudflare; cererea read-only la API-ul public Cloudflare a fost blocată de proxy (`CONNECT 403`), fără creare de resurse. Căutarea integrărilor a găsit Firebase oficial, disponibil dar neconectat; instalarea/conectarea a fost sugerată utilizatorului. Nu pretinde conectare până la confirmare. Nu s-a găsit integrare Cloudflare în căutarea curentă.
+
+Un agent gpt-6-luna a verificat read-only Wrangler 4.152.0: `deploy --temporary` poate folosi conturi preview pentru Worker/D1, dar condițiile de cost și durata exactă nu sunt confirmate de help/sursa locală. Nu s-a inițiat acest flux, acceptat termeni, creat cont sau făcut deploy. Urmează accesul efectiv la conturi și deblocarea rețelei, nu o nouă întrebare de permisiune pentru gratuit. Nu cere parole/tokenuri în chat; folosește conexiuni sau secretele mediului.
+
+Utilizatorul a confirmat că **nu are cont Cloudflare** și a cerut pașii. A primit linkul oficial de înscriere și instrucțiunile fără domeniu cumpărat, plan plătit sau card; [pașii și blocajele de acces](cloud-access.md) sunt păstrați aici. Urmează confirmarea creării contului și instalarea/conectarea Firebase, apoi conectarea sigură și configurarea rețelei; nu pretinde că acestea sunt deja făcute.
+
 ## Stare curentă — implementare începută, 2026-10-23
 Cererea actuală autorizează implementarea conform planului salvat, începând cu Tasks 0, 1 și 1b. Activarea serviciilor și publicarea cer acord separat; cost zero, fără card/billing/upgrade automat. Această stare înlocuiește interdicțiile istorice de implementare de mai jos. Nu reluăm brief-ul, compromisurile sau explorarea vizuală.
 

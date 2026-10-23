@@ -1,7 +1,7 @@
 # Travel Buddy MVP Implementation Plan
 
 ## Execuție curentă — 2026-10-23
-Utilizatorul a autorizat implementarea, începând cu Tasks 0, 1 și 1b. [Contractele wire v1](../contracts-v1.md) sunt înghețate înaintea parserelor. Alegerea locală este React 19/TypeScript strict/Vite/Zod. Gate B1 rămâne obligatoriu înaintea Tasks 2–3; activarea serviciilor și publicarea necesită acord separat. Formulările despre neautorizare de mai jos sunt istoricul redactării planului.
+Utilizatorul a autorizat implementarea, începând cu Tasks 0, 1 și 1b, apoi activarea serviciilor gratuite și publicarea. [Contractele wire v1](../contracts-v1.md) sunt înghețate înaintea parserelor. Alegerea locală este React 19/TypeScript strict/Vite/Zod. Gate B1 rămâne obligatoriu înaintea Tasks 2–3; lipsesc acum [conectarea conturilor și accesul rețelei](../cloud-access.md), nu acordul pentru gratuit. Plata/cardul/billing nu sunt autorizate. Formulările despre neautorizare de mai jos sunt istoricul redactării planului.
 
 > **For agentic workers:** Urmați `docs/process.md`: implementare delegată, review, remediere și verificarea finală a coordonatorului task cu task. Bifați fiecare pas (`- [ ]`) pe măsură ce este executat. Nicio probă, implementare, activare de serviciu sau publicare din acest plan nu este autorizată de documentul în sine.
 

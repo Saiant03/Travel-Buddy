@@ -8,7 +8,7 @@
 ## Mandat
 Site local personal pentru utilizator și prietena lui. Comunicăm în română.
 Utilizatorul nu are cunoștințe IT. Explică în termeni simpli acțiunea, motivul și alegerea necesară, cu exemple concrete. Evită jargonul și tonul infantil. Skill-urile de comprimare a mesajelor pot fi folosite între agenți, dar nu reduc claritatea explicațiilor pentru utilizator.
-Etapa curentă este implementarea autorizată, începând cu Tasks 0, 1 și 1b din planul salvat. Explorarea vizuală este încheiată. Gate B1 trebuie demonstrat înaintea implementării extinse; activarea serviciilor și publicarea cer acord separat. Fără card, billing sau upgrade automat.
+Etapa curentă este implementarea autorizată, începând cu Tasks 0, 1 și 1b din planul salvat. Explorarea vizuală este încheiată. Gate B1 trebuie demonstrat înaintea implementării extinse. La 2026-10-23 utilizatorul a autorizat și activarea serviciilor gratuite și publicarea în scopul proiectului; nu cere din nou acest acord. Fără card, billing sau upgrade automat. Oprește-te înaintea oricărui pas cu plată ori care poate activa facturarea și explică utilizatorului. Conectarea conturilor și accesul tehnic se verifică separat de autorizare.
 Nu presupune stack, funcționalități, stil sau sensul cuvântului „local”.
 
 ## Ierarhie autorizată de utilizator

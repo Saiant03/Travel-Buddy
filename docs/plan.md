@@ -1,5 +1,10 @@
 # Plan de lucru — Travel Buddy
 
+## Autorizație nouă — 2026-10-23
+Serviciile gratuite și publicarea necesară proiectului sunt acum autorizate de utilizator. Nu se mai cere acord separat pentru acești pași. Fără plăți, card, billing sau upgrade automat; orice pas care le-ar cere se oprește înainte de executare și se explică utilizatorului. Gate B1 rămâne BLOCAT de accesul efectiv: Cloudflare neautentificat și API blocat în rețeaua mediului; integrarea Firebase oficială a fost găsită și sugerată, dar nu este confirmată ca instalată/conectată. Nu s-au activat servicii și nu s-au executat probe reale prin această actualizare.
+
+Utilizatorul nu are încă un cont Cloudflare; [pașii de creare și conectare](cloud-access.md) sunt pregătiți. Crearea și confirmarea emailului se fac de către utilizator. Nu cere parola sau tokenuri în chat.
+
 ## Execuție curentă — 2026-10-23
 Implementarea este autorizată prin cererea actuală. **Task 0 și Task 1 încheiate local; Task 1b are codul și probele locale încheiate, iar probele reale sunt BLOCATE.** [Contractele wire v1](contracts-v1.md), [instrucțiunile server](../probes/README-server.md) și [mini-proba offline](../probes/offline/README.md) sunt pregătite. Verificarea integrată a trecut: 75 teste, tipuri, lint, build, Worker dry-run și 2 E2E Chromium, cu review independent și remedieri delegate. [Dovezi](evidence/2026-10-23/README.md). Gate B1 precede Tasks 2+; nu este trecut prin simulări. Urmează acordul separat și accesul pentru Cloudflare Free/Firebase Spark și o probă HTTPS temporară pe iPhone/Android. Fără billing/card/upgrade automat. Stările istorice de mai jos nu redeschid brief-ul sau explorarea vizuală.
 

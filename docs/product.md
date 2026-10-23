@@ -1,7 +1,7 @@
 # Brief de produs — Travel Buddy
 
 ## Prioritate curentă — 2026-10-23
-Explorarea vizuală și planificarea sunt încheiate. Utilizatorul a autorizat implementarea conform planului salvat, începând cu Tasks 0, 1 și 1b. Gate B1 precede implementarea extinsă. Activarea serviciilor și publicarea cer acord separat; fără card, billing sau servicii cu taxare. Secțiunile recente despre compromisuri și machete înlocuiesc întrebările istorice de mai jos. Nu reluăm brief-ul și reutilizăm carnetele aprobate. Contractele tehnice sunt în [contracts-v1.md](contracts-v1.md); probele reale se raportează numai pe baza dovezilor.
+Explorarea vizuală și planificarea sunt încheiate. Utilizatorul a autorizat implementarea conform planului salvat, începând cu Tasks 0, 1 și 1b, precum și activarea serviciilor gratuite și publicarea necesară proiectului. Gate B1 precede implementarea extinsă. Fără card, billing sau servicii cu taxare; orice pas cu plată se oprește și se explică înainte de executare. Secțiunile recente despre compromisuri și machete înlocuiesc întrebările istorice de mai jos. Nu reluăm brief-ul și reutilizăm carnetele aprobate. Contractele tehnice sunt în [contracts-v1.md](contracts-v1.md); probele reale se raportează numai pe baza dovezilor.
 
 Consolidat la 2026-10-22 din cerințele confirmate. Definirea inițială este încheiată. Acest document este sursa unică pentru cerințele produsului; evaluarea opțiunilor tehnice este în `feasibility.md`. Consolidarea nu reprezintă aprobarea unei tehnologii sau autorizarea implementării.
 

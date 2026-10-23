@@ -1,7 +1,7 @@
 # Probe tehnice timpurii — plan pentru execuție viitoare
 
 ## Execuție autorizată — 2026-10-23
-Tasks 0–1b și probele locale sunt autorizate prin cererea curentă. [Contractele wire v1](../contracts-v1.md) sunt înghețate de coordonator; completările lor prevalează asupra exemplelor compacte. Activarea serviciilor/publicarea cer acord separat; probele reale rămân neexecutate până la dovezi. Stările istorice de mai jos descriu momentul planificării, nu o interdicție asupra lucrului local autorizat.
+Tasks 0–1b, activarea serviciilor gratuite și publicarea sunt autorizate prin cererea curentă. [Contractele wire v1](../contracts-v1.md) sunt înghețate de coordonator; completările lor prevalează asupra exemplelor compacte. Probele reale rămân neexecutate până la acces și dovezi; nu se activează plata/cardul/billing. [Conectarea conturilor](../cloud-access.md) este următorul pas. Stările istorice de mai jos descriu momentul planificării, nu o interdicție asupra lucrului autorizat.
 
 **Rezultate locale actuale:** [dovezi, comenzi și limite](../evidence/2026-10-23/README.md). 75/75 teste și 2/2 E2E Chromium au trecut după remediere delegată și review independent. P-01 folosește JWT RSA/X.509 sintetic; P-02 execută SQL real în SQLite cu scenarii concurente simulate; P-09 verifică dispatcherul/evaluatorul cu date sintetice, fără CPU real; P-12-A are IndexedDB și browser desktop, fără telefon real. Compilarea Worker a fost numai `--dry-run`. Nicio activare sau publicare.
 

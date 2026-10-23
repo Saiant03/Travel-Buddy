@@ -1,5 +1,14 @@
 # Raport de verificare a fundației
 
+## Verificarea accesului după acordul pentru gratuit — 2026-10-23
+- Autorizația nouă acoperă activarea și publicarea gratuite; nu este dovadă de conectare sau de execuție a probelor reale.
+- GitHub: `git fetch`/`ls-remote` au confirmat `main=11e72f9` și branch-ul `codex/implementation-foundation=6e89094`, fără modificări locale la reluare.
+- Runtime: observații curente, rețea restricted/enforced, fără secrete, variabile runtime sau identități externe configurate.
+- `wrangler whoami` (numai citire) a răspuns `You are not authenticated`. `curl` către endpointul public read-only `https://api.cloudflare.com/client/v4/ips` a eșuat cu `CONNECT tunnel failed, response 403`, fără HTTP de la serviciu. Nu s-a ocolit proxy-ul sau politica rețelei.
+- Căutare integrări: Cloudflare fără rezultat; Firebase oficial găsit, neinstalat la verificare și sugerat pentru instalare/conectare. Nu s-a confirmat autentificarea Firebase.
+- Un agent gpt-6-luna a inspectat help-ul/sursa Wrangler pentru conturi temporare: suport tehnic Worker/D1, expirare dinamică și acceptare de termeni, dar condiții de cost neconfirmate local. Fără cont creat, fără deploy, fără apeluri API ale agentului și fără chei citite din fișiere.
+- Nu s-au repetat testele aplicației pentru această actualizare de context. Rezultatele locale de mai jos rămân cele ale commitului `6e89094`; Gate B1 și toate probele reale rămân BLOCATE de acces.
+
 ## Execuție Tasks 0–1b — 2026-10-23 (stare curentă)
 
 GitHub `main` verificat prin integrarea GitHub și `git fetch`/`ls-remote`: `11e72f96bc93c84ecf0e8c85f26d3fb0c965361e`. Workspace-ul era la `34df3db`; fast-forward fără schimbări locale de suprascris. Lucrul este pe `codex/implementation-foundation`, fără modificarea fișierelor skill-urilor instalate. Inventarul cloud/executor și `docs/skills.md` au fost consultate; cele 24 de skill-uri locale nu au fost reinstalate.
