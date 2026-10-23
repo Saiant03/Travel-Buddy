@@ -1,10 +1,48 @@
-# Publicarea mini-probei P12-A prin Cloudflare Pages
+# Publicarea mini-probei P12-A prin Cloudflare Workers
 
 Acest ghid arată cum publici shell-ul de test P12-A ca site web de probă public, cu fixture și fotografie sintetice, fără date personale. Astfel îl poți verifica pe iPhone/Safari și Android/Chrome. Aplicația privată Travel Buddy nu se publică prin acest flux.
 
-Nu sunt necesare chei, secrete, Firebase sau D1 pentru acest shell. `.node-version` fixează Node 24.19.0, aceeași versiune folosită la verificarea build-ului. Dacă apare un pas care cere card, billing sau trecerea la un plan plătit, oprește-te.
+## Ecranul Worker Git din captură
 
-## Conectarea la GitHub
+Continuă în wizardul Workers pe care l-ai deschis; nu te întoarce la fluxul Pages. Site-ul P12-A este complet static și este configurat prin [`probes/offline/wrangler.toml`](../probes/offline/wrangler.toml), fără script Worker propriu, baze de date sau chei.
+
+1. Conectează GitHub din wizard. Când GitHub cere acces, alege **Only select repositories**, selectează `Saiant03/Travel-Buddy` și apasă **Install & Authorize**.
+2. Selectează repository-ul `Travel-Buddy` și continuă la configurare.
+3. Folosește valorile următoare:
+
+   | Câmp | Valoare |
+   | --- | --- |
+   | Project name (Worker) | `travel-buddy-offline-probe` |
+   | Production branch | `codex/implementation-foundation` |
+   | Root directory | rădăcina repository-ului |
+   | Build command | `npm ci --ignore-scripts --no-audit --no-fund && npm run build:probe` |
+   | Deploy command | `npx wrangler deploy --config probes/offline/wrangler.toml` |
+   | Preview command | `npx wrangler versions upload --config probes/offline/wrangler.toml` |
+
+   Build-ul scrie `dist-probe`; fișierul TOML îl leagă ca static assets. Alege configurație personalizată/manuală dacă wizardul oferă framework preset, plugin sau generarea automată de cod. Nu adăuga framework/plugin, Workers KV, D1, R2, variabile, secrets sau routes.
+
+4. Verifică selectorul branch-ului și confirmă explicit `codex/implementation-foundation`. Dacă nu îl vezi, caută în **Advanced settings** sau setările suplimentare ale conectării Git. Dacă tot nu apare, oprește-te și trimite coordonatorului o captură decupată numai la zona branch-ului, fără secrets sau alte date sensibile.
+5. Dacă există o opțiune pentru preview builds, dezactiveaz-o; păstrează comanda Preview de mai sus pentru cazul în care wizardul o solicită.
+6. Nu adăuga secrete sau environment variables. Salvează setările și folosește butonul final de deploy afișat de wizard. Dacă numele Worker este deja ocupat sau apare o cerință de card, billing ori upgrade, oprește-te și anunță coordonatorul.
+
+Worker-ul static va fi disponibil la o adresă `workers.dev`. După ce Cloudflare afișează URL-ul real, trimite-l coordonatorului; nu există încă URL confirmat. Apoi urmează [checklist-ul real pentru iPhone/Safari și Android/Chrome](../probes/offline/README.md#checklist-de-completat-pe-telefoane-reale).
+
+Costuri și limite oficiale:
+
+- [Billing și limite pentru Static Assets](https://developers.cloudflare.com/workers/static-assets/billing-and-limitations/): cererile către fișiere statice sunt gratuite și nelimitate, fără cost suplimentar de stocare pentru asset-uri.
+- [Prețuri și limite pentru Worker Builds](https://developers.cloudflare.com/workers/ci-cd/builds/limits-and-pricing/): planul Free include 3.000 de minute de build pe lună, un build concurent și maximum 20 de minute pentru fiecare build.
+- [Configurarea Worker Builds](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/), inclusiv setarea branch-ului de producție.
+- [Static Assets](https://developers.cloudflare.com/workers/static-assets/binding/): lipsa unui `main` și configurarea `assets.directory` produc un Worker cu numai asset-uri statice.
+
+Această rută folosește contul utilizatorului prin Git integration; nu schimbă și nu ocolește politica rețelei mediului de lucru, care rămâne restricționată. Configurarea din dashboard și deploy-ul nu au fost executate de agent.
+
+## Alternativă: Cloudflare Pages
+
+Ecranul din captura curentă este pentru Workers, deci urmează pașii de mai sus. Secțiunea Pages de mai jos rămâne doar alternativă documentară.
+
+Acest flux publică același shell de test P12-A ca site public, separat de aplicația privată Travel Buddy. Nu sunt necesare chei, secrete, Firebase sau D1. `.node-version` fixează Node 24.19.0. Dacă apare un pas care cere card, billing sau trecerea la un plan plătit, oprește-te.
+
+### Conectarea la GitHub în Pages
 
 1. Deschide [dash.cloudflare.com](https://dash.cloudflare.com/) și selectează contul Cloudflare pe care tocmai l-ai creat.
 2. Deschide **Workers & Pages**, apoi apasă **Create application** → **Pages** → **Connect to Git**.
@@ -28,7 +66,7 @@ Cloudflare Pages publică tot ce se află în `dist-probe` la o adresă publică
 
 ## Verificare după publicare
 
-După ce primești adresa `pages.dev`, urmează [checklist-ul real pentru iPhone/Safari și Android/Chrome](../probes/offline/README.md#checklist-de-completat-pe-telefoane-reale). Publicarea sau testul Chromium desktop nu înseamnă că P12-A a trecut: rezultatul rămâne **BLOCKED** până când ambele telefoane reale au fost verificate.
+După ce primești URL-ul real `workers.dev` sau `pages.dev`, în funcție de flux, urmează [checklist-ul real pentru iPhone/Safari și Android/Chrome](../probes/offline/README.md#checklist-de-completat-pe-telefoane-reale). Publicarea sau testul Chromium desktop nu înseamnă că P12-A a trecut: rezultatul rămâne **BLOCKED** până când ambele telefoane reale au fost verificate.
 
 Costurile și limitele documentate oficial pentru această rută:
 

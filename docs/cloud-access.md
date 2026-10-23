@@ -2,7 +2,7 @@
 
 Stare actualizată la 2026-10-23. Activarea serviciilor gratuite și publicarea necesară proiectului sunt autorizate. Utilizatorul confirmă că a creat un cont Cloudflare. Aceasta nu confirmă verificarea adresei de email, planul gratuit sau autentificarea din mediul curent. Pașii de înscriere de mai jos sunt păstrați ca referință și au fost raportați ca încheiați; nu mai cere crearea contului. Nu activa billing și nu cere din nou acordul pentru pașii gratuiți deja autorizați.
 
-Utilizatorul nu găsește setările Environment/Network/Secrets ale mediului de lucru. Pentru P12-A este pregătit un flux de publicare statică prin Pages Git integration, independent de acele setări. [Ghidul de configurare](cloudflare-pages-probe.md) descrie pașii și valorile exacte. Această rută folosește dashboard-ul Cloudflare/GitHub; nu schimbă și nu ocolește politica sesiunii, care rămâne restricționată. Build-ul local al directorului static `dist-probe` a trecut, dar conectarea Pages și deploy-ul nu au fost făcute.
+Utilizatorul nu găsește setările Environment/Network/Secrets ale mediului de lucru. Pentru P12-A este pregătit un flux Worker Git cu static assets, independent de acele setări. [Ghidul](cloudflare-pages-probe.md) urmărește ecranul Workers din captură și include Pages doar ca alternativă documentară. Captura arată `Saiant03/Travel-Buddy` selectat în wizard; ruta dashboard/GitHub nu schimbă și nu ocolește politica rețelei sesiunii, care rămâne restricționată. Nu există încă deploy, URL `workers.dev` sau build remote confirmat; s-a verificat numai build și dry-run local.
 
 ## Firebase
 
