@@ -3,16 +3,25 @@
 ## Starea accesului — 2026-10-23
 Utilizatorul a autorizat activarea serviciilor gratuite și publicarea necesară proiectului. Autorizarea nu este probă de acces și nu permite billing, card sau upgrade automat. Gate B1 rămâne blocat până la Firebase/D1/CPU reale și verificarea pe iPhone/Safari și Android.
 
-- Repository remote verificat: `main=11e72f96bc93c84ecf0e8c85f26d3fb0c965361e`; `codex/implementation-foundation=e67c704e733ecd88c73f0eef1449eab66ff2504b`.
-- `environment_status`: `observations_current:true`; rețea `restricted/enforced`; zero secrets, runtime variables și outbound identities; `api.cloudflare.com` nu este permis. O cerere anterioară a primit `CONNECT 403`; `wrangler whoami` a indicat sesiune neautentificată.
-- Pluginul oficial Firebase este instalat conform confirmării și căutării `installed:true`. Coordonatorul și agentul independent nu găsesc unealtă Firebase apelabilă în `ALL_TOOLS`; pluginul instalat nu implică un cont conectat.
+- Repository remote reverificat azi: `main=11e72f96bc93c84ecf0e8c85f26d3fb0c965361e`; `codex/implementation-foundation=74dfb53`.
+- Mediul: `observations_current:true`; rețea `restricted/enforced`; `network_policy.allowed_hosts=[]`; zero secrete, variabile runtime și identități externe. `api.cloudflare.com` lipsește din politica permisă; accesul la hostul refuzat nu a fost încercat.
+- Utilizatorul a confirmat că a creat contul Cloudflare. Nu este confirmată verificarea emailului sau planul gratuit. Wrangler 4.152.0 `whoami` a ieșit cu cod 0 și mesajul explicit „You are not authenticated”; sesiunea/API nu este autentificată.
+- Pluginul oficial Firebase este instalat, iar catalogul afișează skill-uri Firebase. Nu este disponibilă nicio unealtă Firebase apelabilă în `ALL_TOOLS`; pluginul și skill-urile nu dovedesc autentificarea.
 - Diagnostic Firebase CLI izolat: `firebase-tools` 15.34.1 instalat numai în `/tmp` cu `--ignore-scripts`. `login:list --non-interactive` a ieșit cu cod 0 și „No authorized accounts”; varianta `--json` a returnat numai `{status:success}`, fără conturi. `projects:list --non-interactive --json` a ieșit cu cod 1 și „Failed to authenticate, have you run firebase login?”. CLI este neautentificat. Politica de rețea enforced nu permite hosturile Firebase; acesta este un blocaj separat, fără apel Firebase API reușit demonstrat. Fără login interactiv/deploy/billing și fără citire de chei.
-- Utilizatorul nu are cont Cloudflare și i-au fost furnizați pașii oficiali de creare/confirmare email fără card sau domeniu cumpărat: [creare cont](https://developers.cloudflare.com/fundamentals/account/create-account/) și [înscriere](https://dash.cloudflare.com/sign-up). Planul Firebase Spark: https://firebase.google.com/pricing.
-- Nu s-au repetat cele 75 teste sau 2 E2E desktop pentru această actualizare de documentație; acele rezultate și hashurile surselor rămân neschimbate în raportul anterior. Nu s-au executat aici build, test de aplicație, creare cont, autentificare, activare sau deploy.
+- Utilizatorul a raportat încheierea pașilor de creare a contului Cloudflare; nu se mai cere crearea contului. Verificarea emailului și planul gratuit rămân neconfirmate. Referințe oficiale: [creare cont](https://developers.cloudflare.com/fundamentals/account/create-account/) și [înscriere](https://dash.cloudflare.com/sign-up). Planul Firebase Spark: https://firebase.google.com/pricing.
+- Ghidul [Cloudflare Pages pentru P12-A](cloudflare-pages-probe.md) și `.node-version` cu Node 24.19.0 sunt pregătite. `npm run build:probe` a trecut local; logul persistent este în [dovezi/pages-probe-build.txt](evidence/2026-10-23/pages-probe-build.txt). `dist-probe` conține doar fișiere statice, fără `_worker.js` sau director `functions`. Nu s-a conectat GitHub la Pages și nu s-a făcut deploy; nu există încă URL `pages.dev`. Ruta dashboard/Git este separată de politica rețelei mediului și nu o schimbă.
+- Reviewul coordonatorului a închis observația APage01 privind pașii/setările ghidului și corecția cheii `network_policy.allowed_hosts`. Build-ul local a fost verificat separat; build-ul Cloudflare Pages nu a fost rulat. [Nota de pregătire](evidence/2026-10-23/pages-probe-preparation.md) păstrează numărul/bytes outputului, manifestul istoric și hashul logului.
+- Nu s-au repetat cele 75 teste sau 2 E2E desktop pentru această actualizare. Manifestul istoric este păstrat: 66/68 hashuri identice; diferențele sunt numai `probes/README-server.md` și `probes/offline/README.md`, actualizate documentar. Codul și testele sunt neschimbate; `.node-version` nou a fost verificat prin build. Nu s-au rulat teste de aplicație, creat conturi de către agenți, autentificat servicii, activat servicii sau făcut deploy.
 
 Vezi [detaliile de acces](cloud-access.md) și [dovezile de stare](evidence/2026-10-23/access-status.md). Raportul local existent mai jos păstrează contextul snapshotului său; referințele de hash din el sunt istorice și nu trebuie citite drept verificarea curentă a branch-ului.
 
-Reviewul documentar final a confirmat `git diff --check` și 62 de legături locale valide în cele 8 fișiere Markdown schimbate; nu au rămas defecte blocante în acest scope. Două sarcini gpt-6-luna au fost separate: diagnosticarea CLI în `/tmp` și actualizarea documentației. Nu s-a făcut review independent dificil pentru această schimbare simplă. Limitele reale de acces și blocarea Gate B1 persistă.
+### Reviewul documentar — snapshotul anterior
+
+Reviewul documentar anterior a confirmat `git diff --check` și 62 de legături locale valide în cele 8 fișiere Markdown schimbate în acel snapshot; nu au rămas defecte blocante în scope-ul său. Două sarcini gpt-6-luna au fost separate atunci: diagnosticarea CLI în `/tmp` și actualizarea documentației. Limitele reale de acces și blocarea Gate B1 persistă.
+
+### Reviewul documentar — pregătirea Pages
+
+Un agent a pregătit ghidul/configurația și apoi a salvat dovada build-ului; coordonatorul a reverificat `git diff --check`, legăturile locale, fișierele statice și copia byte-exact a logului. APage01 și corecția cheii politicii sunt închise. Nu s-a făcut review independent dificil și nu s-au repetat testele aplicației. Nu au rămas defecte documentare blocante în acest scope; publicarea și verificările reale pe telefoane rămân neexecutate.
 
 ## Execuție Tasks 0–1b — snapshot anterior, 2026-10-23
 
