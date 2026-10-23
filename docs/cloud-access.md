@@ -2,7 +2,9 @@
 
 Stare actualizată la 2026-10-23. Activarea serviciilor gratuite și publicarea necesară proiectului sunt autorizate. Utilizatorul confirmă că a creat un cont Cloudflare. Aceasta nu confirmă verificarea adresei de email, planul gratuit sau autentificarea din mediul curent. Pașii de înscriere de mai jos sunt păstrați ca referință și au fost raportați ca încheiați; nu mai cere crearea contului. Nu activa billing și nu cere din nou acordul pentru pașii gratuiți deja autorizați.
 
-Utilizatorul nu găsește setările Environment/Network/Secrets ale mediului de lucru. Pentru P12-A este pregătit un flux Worker Git cu static assets, independent de acele setări. [Ghidul](cloudflare-pages-probe.md) urmărește ecranul Workers din captură și include Pages doar ca alternativă documentară. Captura arată `Saiant03/Travel-Buddy` selectat în wizard; ruta dashboard/GitHub nu schimbă și nu ocolește politica rețelei sesiunii, care rămâne restricționată. Nu există încă deploy, URL `workers.dev` sau build remote confirmat; s-a verificat numai build și dry-run local.
+Proiectul Worker `travel-buddy-offline-probe` a fost creat în contul utilizatorului. Primul build a pornit din `main` și a eșuat, dar nu avem logul cauzei. Utilizatorul a schimbat și salvat branch-ul de producție la `codex/implementation-foundation` și a salvat o selecție de API token. Asta nu demonstrează că tokenul are drepturile necesare. Nu folosi Retry pentru build-ul vechi de pe `main`; după ce root publică actualizările pe branch-ul corect, verificăm în **Deployments** dacă apare un build nou. Nu există încă deploy reușit sau URL `workers.dev`. Ghidul de configurare este [aici](cloudflare-pages-probe.md); Pages rămâne doar o rută alternativă documentară.
+
+Setările Cloudflare din browser sunt separate de mediul nostru local, care rămâne restricționat și fără secrete. Wrangler local este neautentificat; tokenul din wizard nu îl conectează automat. Nu trimite chei, tokenuri sau coduri în chat. Oprește-te dacă apare card, billing sau upgrade.
 
 ## Firebase
 

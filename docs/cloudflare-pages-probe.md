@@ -4,11 +4,12 @@ Acest ghid arată cum publici shell-ul de test P12-A ca site web de probă publi
 
 ## Ecranul Worker Git din captură
 
-Continuă în wizardul Workers pe care l-ai deschis; nu te întoarce la fluxul Pages. Site-ul P12-A este complet static și este configurat prin [`probes/offline/wrangler.toml`](../probes/offline/wrangler.toml), fără script Worker propriu, baze de date sau chei.
+Proiectul Worker `travel-buddy-offline-probe` există deja. Site-ul P12-A este complet static și este configurat prin [`probes/offline/wrangler.toml`](../probes/offline/wrangler.toml), fără script Worker propriu, baze de date sau chei. Wizardul inițial nu a arătat selectorul branch-ului; configurarea se continuă din pagina proiectului.
 
-1. Conectează GitHub din wizard. Când GitHub cere acces, alege **Only select repositories**, selectează `Saiant03/Travel-Buddy` și apasă **Install & Authorize**.
-2. Selectează repository-ul `Travel-Buddy` și continuă la configurare.
-3. Folosește valorile următoare:
+1. Deschide proiectul din Cloudflare Dashboard și intră în **Settings** → **Builds**.
+2. La **Production branch**, alege `codex/implementation-foundation` și apasă **Save changes**. Utilizatorul a salvat deja această alegere; aici poți verifica valoarea afișată.
+3. Dacă mesajul **Configured API token unavailable** încă apare, folosește **Create new token**, apoi selectează și salvează tokenul oferit de Cloudflare pentru Worker Builds. Utilizatorul a raportat deja că a salvat selecția. Nu copia și nu trimite cheia în chat. Salvarea selecției nu dovedește singură că tokenul are drepturi API suficiente.
+4. Verifică valorile proiectului:
 
    | Câmp | Valoare |
    | --- | --- |
@@ -21,9 +22,9 @@ Continuă în wizardul Workers pe care l-ai deschis; nu te întoarce la fluxul P
 
    Build-ul scrie `dist-probe`; fișierul TOML îl leagă ca static assets. Alege configurație personalizată/manuală dacă wizardul oferă framework preset, plugin sau generarea automată de cod. Nu adăuga framework/plugin, Workers KV, D1, R2, variabile, secrets sau routes.
 
-4. Verifică selectorul branch-ului și confirmă explicit `codex/implementation-foundation`. Dacă nu îl vezi, caută în **Advanced settings** sau setările suplimentare ale conectării Git. Dacă tot nu apare, oprește-te și trimite coordonatorului o captură decupată numai la zona branch-ului, fără secrets sau alte date sensibile.
-5. Dacă există o opțiune pentru preview builds, dezactiveaz-o; păstrează comanda Preview de mai sus pentru cazul în care wizardul o solicită.
-6. Nu adăuga secrete sau environment variables. Salvează setările și folosește butonul final de deploy afișat de wizard. Dacă numele Worker este deja ocupat sau apare o cerință de card, billing ori upgrade, oprește-te și anunță coordonatorul.
+5. Dacă există o opțiune pentru preview builds, dezactiveaz-o; păstrează comanda Preview de mai sus pentru cazul în care wizardul o solicită. Nu adăuga secrete sau environment variables.
+6. Nu folosi **Retry** pentru build-ul vechi care a pornit din `main`. După publicarea unei noi actualizări pe `codex/implementation-foundation`, verifică în **Deployments** dacă apare un build nou și trimite coordonatorului starea/URL-ul. Cauza eșecului build-ului anterior nu este cunoscută; nu presupune că schimbarea branch-ului sau tokenului a rezolvat-o.
+7. Dacă apare o cerință de card, billing sau upgrade, oprește-te și anunță coordonatorul.
 
 Worker-ul static va fi disponibil la o adresă `workers.dev`. După ce Cloudflare afișează URL-ul real, trimite-l coordonatorului; nu există încă URL confirmat. Apoi urmează [checklist-ul real pentru iPhone/Safari și Android/Chrome](../probes/offline/README.md#checklist-de-completat-pe-telefoane-reale).
 
