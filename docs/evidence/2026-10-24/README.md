@@ -1,5 +1,7 @@
 # Dovezi locale — 2026-10-24
 
+[Reluare manuală și starea raportată a conturilor Firebase](manual-continuation.md): notă locală ulterioară snapshotului de teste de mai jos, fără probe cloud noi sau publicare.
+
 Acest snapshot verifică local Task 1b, inclusiv consola de probe client/server. Testele simulează autentificarea Firebase și folosesc fixtures locale; niciun rezultat de aici nu este o probă Firebase, D1 sau CPU reală. Workerul consolei a fost compilat numai cu `--dry-run`, nu publicat.
 
 | Verificare | Rezultat | Dovadă |
@@ -23,3 +25,4 @@ Gate B1 rămâne blocat. P-01 (Firebase real), P-02 (D1 real), P-09 (CPU din exp
 Manifestele pentru hashurile surselor, versiunile și raportul reviewului independent sunt păstrate separat de acest README: [source-sha256.txt](source-sha256.txt), [versions.txt](versions.txt), [independent-review.md](independent-review.md).
 
 Logurile capturate au doar whitespace-ul final normalizat; conținutul rezultatelor a rămas neschimbat.
+

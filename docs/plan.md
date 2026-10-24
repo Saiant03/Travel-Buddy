@@ -1,5 +1,30 @@
 # Plan de lucru — Travel Buddy
 
+## Publicarea consolei — pregătire curentă
+
+- [x] Configurație locală completată cu projectId, două UID-uri distincte și D1; cheia se va introduce ca Secret runtime direct în Dashboard.
+- [x] Review independent și remedieri; build console, 36 teste relevante și Worker dry-run trecute. [Dovezi și limite](evidence/2026-10-24/deployment-preparation.md).
+- [ ] Salvarea configurației verificate și a progresului în GitHub pe `codex/implementation-foundation`, fără PR.
+- [ ] Formular Cloudflare: nume `travel-buddy-server-probe`, ramură producție explicită, build/deploy cu configurația separată, preview/nonproduction controlate și plan gratuit verificat înainte de publicare.
+- [ ] Deploy server, apoi Secret runtime Firebase Web, verificare endpoint/headers, două sesiuni cu email verificat, seed și probele reale. Gate B1 rămâne blocat.
+
+## Următorul pas actual — configurare manuală, 2026-10-24
+
+Decizia utilizatorului: fără depanarea pluginului Firebase sau login CLI. GitHub verificat la `be7fc5640b6d0537cd48b3d4a575a5145e0d5c3d`; documentele de lucru sunt recuperate separat, fără sincronizarea checkoutului vechi. [Stare și dovezi locale](evidence/2026-10-24/manual-continuation.md).
+
+- [x] Crearea celor două conturi: după lista inițial goală și instrucțiunile Add user, utilizatorul confirmă „apar ambele conturi”. Email/Password este deja Enabled.
+- [x] Utilizatorul a furnizat două UID-uri distincte pentru configurare; autentificarea lor și confirmarea adreselor nu au fost încă verificate.
+- [x] Utilizatorul raportează că a ajuns la configurația aplicației Web după pașii de înregistrare; fără inspecție independentă a ecranului.
+- [ ] Confirmarea `projectId` din configurație și introducerea ulterioară a cheii Web direct în Worker Dashboard.
+- [ ] D1 nou dedicat și schema; configurarea/buildul/publicarea Workerului separat `travel-buddy-server-probe`, cu binding `DB` către baza corectă.
+- [x] Baza `travel-buddy-server-probe` vizibilă în capturi; ID extras din URL furnizat de utilizator. Aplicarea schemei, planul Free și bindingul real rămân neconfirmate.
+- [x] Schema aplicată: captura ulterioară `/tables` confirmă toate cele șase tabele canonice, după mesajul SQL de succes. Planul Free, bindingul real și probele CAS/rollback rămân de verificat.
+- [ ] Autentificarea celor două conturi, cererea explicită a emailurilor, confirmarea și reconectarea.
+- [ ] Generarea seed-ului din panou și aplicarea lui o singură dată în baza dedicată; probe acces, CAS, apoi CPU cu export Cloudflare independent.
+- [ ] Restul criteriilor P-01/P-02/P-09 și verificarea Android conform planului canonic. P12-A iPhone rămâne PASS manual numai pentru fixture sintetic.
+
+Gate B1 rămâne blocat, Tasks 2+ nu încep; Tasks 0/1/1b nu se declară integral închise cât timp lipsesc dovezile cerute. Fără card, billing sau PR automat. Actualizarea este locală; nu reprezintă execuția pașilor de mai sus.
+
 ## Execuție curentă — Task 1b local complet, 2026-10-24
 
 Task 0–1b au acum o verificare integrată locală PASS. În plus față de fundația și mini-proba offline descrise în istoricul de mai jos, consola client/server permite două sesiuni Firebase separate, verificări de acces și CAS, dispatch CPU limitat și generarea SQL-ului insert-only pentru fixture-uri. Configurația publică rămâne indisponibilă până la configurarea proiectului; E2E folosește răspunsuri Firebase simulate. [Dovezile snapshotului](evidence/2026-10-24/README.md).
@@ -173,3 +198,4 @@ Trei vederi sunt propuse:
 Interfața explică regula existentă: participarea fără interes propriu poate permite activitatea comună pentru celălalt; refuzul explicit o exclude din planul comun. Se păstrează activitățile împreună și alternarea priorităților.
 Selecțiile și nota „Prefer expoziții mai mici” sunt doar exemple, nu preferințe reale declarate. Fiecare își editează propriul profil. Gramatica vizuală preia carnetul de gusturi, cu etichete adecvate activităților, distincte de răspunsurile alimentare.
 Macheta culturii a primit feedback vizual pozitiv de la utilizator („super”). Aprecierea privește direcția și aspectul, fără validare funcțională. Nu există formular sau motor de recomandări implementate. Claritatea și comportamentul se verifică în site-ul funcțional; scenariile sunt planificate în `docs/verification.md`, neexecutate.
+

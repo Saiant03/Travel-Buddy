@@ -1,5 +1,31 @@
 # Memorie de proiect
 
+## Pregătirea publicării server console — 2026-10-24
+
+Schema D1 are toate cele șase tabele confirmate vizual. Configurația consolei are acum projectId/cele două UID-uri/D1 reale; cheia Web este omisă din `[vars]` și se va introduce direct în Dashboard ca Secret runtime. Workerul rămâne indisponibil la configurare (503) până primește cheia. Instrucțiunile build/deploy și producție sunt în README-ul consolei; pe formularul Cloudflare trebuie verificată ramura `codex/implementation-foundation`, nu presupusă cea implicită. Niciun deploy server nu este încă executat.
+
+Autor gpt-6-luna → review gpt-6.1-sol → corectare delegată → reverificare → verificare coordonator. Verificări noi: build console PASS, 36/36 teste existente relevante, Worker dry-run PASS și proba locală pe bundle pentru cheia absentă: 503/no-store. Fără Firebase/D1/CPU reale, E2E noi sau închiderea Gate B1. [Dovezi și limite](evidence/2026-10-24/deployment-preparation.md). Configurația și progresul sunt pregătite pentru salvare pe ramura de implementare, fără PR, main sau publicarea probei offline existente.
+
+## Reluare manuală în browser — 2026-10-24
+
+Schema D1 confirmată vizual: captura `/tables` arată exact `idempotency_records`, `profiles`, `proposals`, `trip_members`, `trips`, `users`, după mesajul SQL de succes. `operator/cloudflare-identifiers.json` marchează schema aplicată. Nu s-a încărcat seed și nu s-au verificat CAS, rollback, bindingul ori CPU. Urmează pregătirea Workerului separat în Workers & Pages; proba offline existentă nu se modifică. Planul Free rămâne de verificat înaintea publicării.
+
+Progres schemă: captura D1 Console după rularea SQL-ului arată `This query successfully executed.` pentru schema de probă. Urmează `/tables` pentru confirmarea celor șase tabele; nu s-a încărcat seed, publicat Workerul sau executat P-02 concurență/rollback. Mesajul de succes nu închide Gate B1.
+
+Progres D1: capturile utilizatorului arată baza `travel-buddy-server-probe` (Overview: 0 tabele; Settings: Eastern Europe, read replication Disabled). URL-ul furnizat identifică baza `b6deb718-ad18-43f8-8649-95e3ed861aaf`. Acestea confirmă existența bazei în Dashboard, nu planul Free, aplicarea schemei, bindingul Worker sau probe D1 reale. Database ID nu apare în captura Settings; a fost extras din segmentul `/databases/` al URL-ului. Următorul pas al utilizatorului: fila Console pentru aplicarea schemei canonice, fără seed până la panou publicat și două sesiuni verificate.
+
+Progres ulterior: după pașii de înregistrare Web, utilizatorul a raportat „am ajuns la configuratie”. Ecranul/configurația nu au fost inspectate independent; cheia Web nu a fost cerută sau primită în chat. Urmează confirmarea `projectId=travel-buddy-b3f48` pe acel ecran și crearea bazei D1 dedicate `travel-buddy-server-probe` în Cloudflare Free, apoi preluarea numelui/ID-ului bazei. Nu sunt încă demonstrate D1, Worker publicat sau autentificarea reală.
+
+Actualizare ulterioară: utilizatorul a furnizat cele două UID-uri distincte, păstrate pentru configurare numai în `operator/firebase-identifiers.json` din snapshotul local. Nu au fost încă verificate prin autentificare reală; confirmarea emailurilor rămâne deschisă. Următorul pas este verificarea/înregistrarea aplicației Web în Firebase Project settings → General → Your apps, fără Firebase Hosting sau billing.
+
+Utilizatorul ia în calcul să ofere platforma și altor prieteni dacă prima versiune reușește. Aceasta este o posibilitate viitoare, nu o cerere de extindere acum. V1 și probele păstrează cele două conturi; accesul altor persoane va necesita invitații/permisiuni și separarea datelor, proiectate și verificate într-o etapă ulterioară.
+
+Instrucțiunea nouă a utilizatorului suspendă depanarea pluginului Firebase, autentificarea CLI și căutarea prin setările ChatGPT. Continuăm manual în Firebase/Cloudflare; utilizatorul gestionează parolele și mesajele primite. Email/Password este deja Enabled, nu cerem reactivarea. Implementarea și publicarea gratuită rămân autorizate, fără card/billing/upgrade și fără PR automat.
+
+GitHub a fost verificat prin conexiunea GitHub: `codex/implementation-foundation` este la `be7fc5640b6d0537cd48b3d4a575a5145e0d5c3d`, iar `main` la `11e72f96bc93c84ecf0e8c85f26d3fb0c965361e`. Copia `/workspace/Travel-Buddy` este veche (`34df3db`); accesul Git prin proxy a eșuat. Documentele actuale și configurația probei au fost recuperate separat în `/workspace/travel-buddy-current`, care nu este checkout Git complet. Nu suprascriem copia veche și nu pretindem sincronizare, build sau teste noi. Această notă este salvată local, fără commit/push în această reluare.
+
+După lista inițial goală și instrucțiunile Add user, utilizatorul a confirmat: „apar ambele conturi”. Existența lor este confirmată de utilizator, fără verificare independentă; UID-urile și confirmarea adreselor rămân de obținut. Următorul pas manual: copierea celor două User UID din Authentication → Users. UID-urile pot fi comunicate pentru configurare; cheia Web se introduce direct în Worker Dashboard, fără chat. Urmează aplicația Web, D1 dedicat/schema, Worker separat/configurare/publicare, autentificare și confirmarea adreselor, apoi seed și probe. Gate B1 rămâne blocat; nu închidem integral Tasks 0/1/1b numai pe baza verificărilor locale. [Dovada reluării](evidence/2026-10-24/manual-continuation.md).
+
 ## Stare curentă — consolă locală pentru probe server, 2026-10-24
 
 Task 1b are acum și consola locală client/server. Utilizatorii pot testa conectarea Firebase prin REST email/parolă în două sloturi distincte; tokenurile rămân doar în memorie, verificarea emailului se cere explicit, iar ieșirea anulează cererile în curs. Consola poate executa verificări de acces, concurență/idempotency și dispatch CPU cu raportare limitată la dovezi, iar SQL-ul de fixture este insert-only. Configurația publică lipsește în mod implicit și interfața afișează starea indisponibilă până când proiectul este configurat. Acestea sunt fluxuri locale, cu fixture-uri și Firebase simulat în teste; nu sunt o probă de autentificare Firebase reală.
@@ -279,3 +305,4 @@ Trei vederi sunt propuse:
 Interfața explică regula existentă: participarea fără interes propriu poate permite activitatea comună pentru celălalt; refuzul explicit o exclude din planul comun. Se păstrează activitățile împreună și alternarea priorităților.
 Selecțiile și nota „Prefer expoziții mai mici” sunt doar exemple, nu preferințe reale declarate. Fiecare își editează propriul profil. Gramatica vizuală preia carnetul de gusturi, cu etichete adecvate activităților, distincte de răspunsurile alimentare.
 Macheta culturii a primit feedback vizual pozitiv de la utilizator („super”). Aprecierea privește direcția și aspectul, fără validare funcțională. Nu există formular sau motor de recomandări implementate. Claritatea și comportamentul se verifică în site-ul funcțional; scenariile sunt planificate în `docs/verification.md`, neexecutate.
+

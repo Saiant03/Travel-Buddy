@@ -9,13 +9,16 @@ binding = "ASSETS"
 run_worker_first = ["/probe/*"]
 
 [vars]
-FIREBASE_PROJECT_ID = "travel-buddy-local-probe.invalid"
-FIREBASE_WEB_API_KEY = ""
-ALLOWED_UID_1 = "synthetic-uid-alpha"
-ALLOWED_UID_2 = "synthetic-uid-beta"
+FIREBASE_PROJECT_ID = "travel-buddy-b3f48"
+ALLOWED_UID_1 = "tkAFWb61AcPvQpSGDtxZmh6v4gu1"
+ALLOWED_UID_2 = "8HJg7aAcNDhW4upaqEZyAS6wktv1"
+
+# Set FIREBASE_WEB_API_KEY as a runtime Secret in the Cloudflare Dashboard.
+# Do not add the API key to this file, the repository, or build environment.
 
 [[d1_databases]]
 binding = "DB"
 database_name = "travel-buddy-server-probe"
-database_id = "00000000-0000-0000-0000-000000000001"
+database_id = "b6deb718-ad18-43f8-8649-95e3ed861aaf"
 migrations_dir = "../migrations"
+
