@@ -16,3 +16,4 @@ Thumbs.db
 .DS_Store
 *.pem
 *.key
+dist-server-probe/

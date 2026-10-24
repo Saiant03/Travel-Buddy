@@ -1,5 +1,15 @@
 # Plan de lucru — Travel Buddy
 
+## Execuție curentă — Task 1b local complet, 2026-10-24
+
+Task 0–1b au acum o verificare integrată locală PASS. În plus față de fundația și mini-proba offline descrise în istoricul de mai jos, consola client/server permite două sesiuni Firebase separate, verificări de acces și CAS, dispatch CPU limitat și generarea SQL-ului insert-only pentru fixture-uri. Configurația publică rămâne indisponibilă până la configurarea proiectului; E2E folosește răspunsuri Firebase simulate. [Dovezile snapshotului](evidence/2026-10-24/README.md).
+
+Coordonatorul a rulat 111 teste în 12 fișiere, typecheck, lint, 7 E2E Chromium și un Wrangler Worker dry-run. Reviewul independent a închis ICR-01–05; nu s-a publicat Workerul consolei. Setările din `probes/server/wrangler.console.toml` sunt placeholders, nu proiect, UID-uri sau D1 reale.
+
+Utilizatorul a confirmat în Firebase Console proiectul TravelBuddy (`travel-buddy-b3f48`), Spark și Email/Password activ. Identificarea celor două conturi/UID-uri, cheii web și D1 rămâne deschisă; încercarea de conectare Firebase s-a oprit înainte de OAuth, fără link de autorizare, la cererea către `auth.firebase.tools/attest` din mediul restricționat. [Diagnosticul](evidence/2026-10-24/firebase-connection.md). Nicio probă reală nu este declarată aici.
+
+**Gate B1 este încă blocat înaintea Tasks 2+.** Rămân de executat P-01 cu Firebase real, P-02 cu D1 real, P-09 cu valori CPU din exportul Cloudflare și P12-A pe Android. P12-A pe iPhone a trecut manual numai cu fixture sintetic. Fără billing, card sau upgrade automat. Istoricul de mai jos consemnează snapshoturi anterioare și nu schimbă starea curentă.
+
 ## Autorizație nouă — 2026-10-23
 Serviciile gratuite și publicarea necesară proiectului sunt autorizate; nu cere acord separat pentru acești pași. Fără plăți, card, billing sau upgrade automat. Utilizatorul confirmă crearea contului Cloudflare; emailul verificat, planul Free și autentificarea API nu sunt demonstrate. Wrangler 4.152.0 `whoami` a ieșit cu cod 0, dar a afișat „You are not authenticated”. Mediul nu permite `api.cloudflare.com` (`network_policy.allowed_hosts=[]`), iar accesul la hostul refuzat nu a fost încercat. Pluginul Firebase și skill-urile sale sunt instalate/listate, însă nu există unealtă apelabilă în `ALL_TOOLS`; Firebase CLI rămâne neautentificat. Gate B1 este blocat. Starea detaliată este în [cloud-access.md](cloud-access.md).
 

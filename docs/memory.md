@@ -1,5 +1,17 @@
 # Memorie de proiect
 
+## Stare curentă — consolă locală pentru probe server, 2026-10-24
+
+Task 1b are acum și consola locală client/server. Utilizatorii pot testa conectarea Firebase prin REST email/parolă în două sloturi distincte; tokenurile rămân doar în memorie, verificarea emailului se cere explicit, iar ieșirea anulează cererile în curs. Consola poate executa verificări de acces, concurență/idempotency și dispatch CPU cu raportare limitată la dovezi, iar SQL-ul de fixture este insert-only. Configurația publică lipsește în mod implicit și interfața afișează starea indisponibilă până când proiectul este configurat. Acestea sunt fluxuri locale, cu fixture-uri și Firebase simulat în teste; nu sunt o probă de autentificare Firebase reală.
+
+Coordonatorul a verificat integrarea la 2026-10-24: **111/111 teste în 12 fișiere, typecheck, lint, 7/7 E2E Chromium, buildurile shell-urilor pornite de E2E și Worker dry-run**. Reviewul independent gpt-6.1-sol a închis ICR-01–05, inclusiv verificarea câștigătorului CAS, anularea la ieșire, headerele private/no-store, preluarea configurării cu timeout și CSP/rutele de assets. [Logurile și limitele verificării](evidence/2026-10-24/README.md).
+
+Captura curentă a consolei Firebase arată proiectul TravelBuddy (`travel-buddy-b3f48`), planul Spark și providerul Email/Password activ. Nu sunt încă identificate și verificate cele două conturi/UID-uri, cheia web sau legătura D1 necesare probei reale. Pluginul Firebase este instalat și activ, dar nu există un server MCP activ în CLI-ul verificat. Încercarea autorizată `login --no-localhost` s-a oprit înainte de OAuth deoarece nu a putut contacta `auth.firebase.tools/attest`; nu s-a produs un link de autorizare. [Diagnosticul și limitele](evidence/2026-10-24/firebase-connection.md) nu demonstrează autentificarea sau un apel API reușit. Workerul consolei este configurat local în `probes/server/wrangler.console.toml`, cu valori placeholder, și a fost compilat numai cu `--dry-run`; nu a fost publicat.
+
+**Gate B1 rămâne blocat; Tasks 2+ nu încep.** Nu au fost executate P-01 cu autentificare Firebase reală, P-02 pe D1 real, măsurarea P-09 cu export CPU Cloudflare sau P12-A pe Android. P12-A pe iPhone rămâne un PASS manual pentru fixture-ul sintetic, consemnat în [progresul telefonului](evidence/2026-10-23/phone-probe-progress.md). Nu s-a activat billing, nu s-a adăugat card și nu s-a făcut deploy pentru consola server.
+
+Această stare înlocuiește numai snapshoturile curente mai vechi de mai jos; istoricul documentar și rezultatele lor rămân păstrate.
+
 ## Autorizație și acces — stare actualizată după publicarea P12-A
 Activarea serviciilor gratuite și publicarea necesară proiectului sunt autorizate. Nu cere din nou acest acord. Fără plată, card, billing sau upgrade automat; oprește-te înainte de un asemenea pas. Autorizarea este separată de accesul efectiv: conturi, autentificare, unelte care pot fi apelate și politica de rețea trebuie verificate înainte de probe reale. Gate B1 rămâne obligatoriu.
 

@@ -12,7 +12,9 @@
     "test:e2e": "playwright test",
     "build": "vite build",
     "build:probe": "vite build --config probes/offline/vite.config.ts",
-    "preview:probe": "vite preview --config probes/offline/vite.config.ts --host 127.0.0.1 --port 4174 --strictPort"
+    "preview:probe": "vite preview --config probes/offline/vite.config.ts --host 127.0.0.1 --port 4174 --strictPort",
+    "build:server-probe": "vite build --config probes/server-console/vite.config.ts",
+    "preview:server-probe": "vite preview --config probes/server-console/vite.config.ts --host 127.0.0.1 --port 4175 --strictPort"
   },
   "dependencies": {
     "react": "^19.2.0",

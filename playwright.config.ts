@@ -15,6 +15,17 @@ export default defineConfig({
       },
     },
     {
+      name: 'server-console',
+      testMatch: 'server-console.spec.ts',
+      use: {
+        baseURL: 'http://127.0.0.1:4175',
+        headless: true,
+        launchOptions: {
+          executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH,
+        },
+      },
+    },
+    {
       name: 'offline-probe',
       testMatch: 'offline-probe.spec.ts',
       use: {
@@ -39,6 +50,11 @@ export default defineConfig({
     {
       command: 'npm run build:probe && npm run preview:probe',
       url: 'http://127.0.0.1:4174',
+      reuseExistingServer: false,
+    },
+    {
+      command: 'npm run build:server-probe && npm run preview:server-probe',
+      url: 'http://127.0.0.1:4175',
       reuseExistingServer: false,
     },
   ],

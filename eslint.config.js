@@ -4,7 +4,7 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   {
-    ignores: ['.agents/**', '.codex/**', 'node_modules/**', 'dist/**', 'dist-probe/**', '.wrangler/**', 'test-results/**', 'playwright-report/**'],
+    ignores: ['.agents/**', '.codex/**', 'node_modules/**', 'dist/**', 'dist-probe/**', 'dist-server-probe/**', '.wrangler/**', 'test-results/**', 'playwright-report/**'],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
