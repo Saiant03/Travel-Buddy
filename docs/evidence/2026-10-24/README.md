@@ -2,6 +2,8 @@
 
 [Reluare manuală și starea raportată a conturilor Firebase](manual-continuation.md): notă locală ulterioară snapshotului de teste de mai jos, fără probe cloud noi sau publicare.
 
+[Pregătirea și reviewul handoff-ului Claude](claude-handoff-review.md): `CLAUDE.md` conține următorii pași pentru publicarea manuală a Workerului și limitele probelor; nu este încă un deploy.
+
 Acest snapshot verifică local Task 1b, inclusiv consola de probe client/server. Testele simulează autentificarea Firebase și folosesc fixtures locale; niciun rezultat de aici nu este o probă Firebase, D1 sau CPU reală. Workerul consolei a fost compilat numai cu `--dry-run`, nu publicat.
 
 | Verificare | Rezultat | Dovadă |
