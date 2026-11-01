@@ -1,5 +1,9 @@
 # Brief de produs — Travel Buddy
 
+## Actualizare de mandat — 2026-11-01
+
+Utilizatorul a autorizat remedierea și verificarea probelor Cloudflare/Firebase existente și consemnarea rezultatelor în GitHub. Detaliile sunt în [jurnalul operațional](operations/2026-11-01-probe-recovery.md). Această cerere nu schimbă funcțiile produsului sau compromisurile aprobate și nu autorizează implicit implementarea aplicației complete ori servicii cu plată. Limitările de activare din secțiunile istorice de mai jos nu anulează mandatul restrâns pentru probe.
+
 ## Prioritate curentă — 2026-10-23
 Explorarea vizuală este încheiată la cererea utilizatorului. Secțiunile recente despre compromisurile acceptate și machetele aprobate înlocuiesc întrebările istorice de mai jos; nu reluăm brief-ul. Pregătim componentele, inventarul imaginilor, recomandarea tehnică și planul de execuție, cu legătură din [plan](plan.md). Nu sunt autorizate încă implementarea aplicației, activarea serviciilor sau publicarea site-ului. Valorile exacte de stil și tehnologiile recomandate sunt alegeri de pregătire, fără probe funcționale trecute. Preferințele rămase reutilizează carnetele aprobate.
 

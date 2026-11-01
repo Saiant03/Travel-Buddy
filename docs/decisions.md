@@ -1,5 +1,11 @@
 # Decizii
 
+## D010 — Recuperarea probelor existente și continuitate în GitHub (2026-11-01)
+
+După conectarea instrumentelor administrative Cloudflare și Firebase și o verificare numai de citire, utilizatorul a autorizat corectarea listei celor două conturi acceptate de proba server, pregătirea datelor sintetice în D1 dedicată și reluarea verificărilor. Autorizarea include aplicarea configurației necesare probei și salvarea documentației în GitHub. Nu include produsul complet, alte servicii sau facturare.
+
+Conectarea administrativă nu înlocuiește autentificarea celor două conturi ale aplicației. Confirmarea reală a emailurilor rămâne la proprietarii inboxurilor; nu ocolim controlul prin schimbarea manuală a `emailVerified`. Documentăm dovezile și limitele în [jurnalul operațional](operations/2026-11-01-probe-recovery.md); nu păstrăm acreditări sau identificatori personali în Git. Starea verificată recent primează asupra notelor istorice din octombrie.
+
 ## D001 — Context în fișiere locale (2026-10-22)
 `AGENTS.md` este punctul de intrare, iar `docs/` păstrează memoria, brief-ul, procesul și planul. Sunt convenții locale: agenții trebuie să citească și să actualizeze documentele pentru continuitate.
 

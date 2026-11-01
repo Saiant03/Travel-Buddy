@@ -1,6 +1,18 @@
 # Memorie de proiect
 
-## Stare curentă — pregătirea implementării, 2026-10-23
+## Stare curentă — recuperarea probelor, 2026-11-01
+
+Utilizatorul a autorizat corectarea probei server Cloudflare/Firebase, date fictive în D1 dedicată și salvarea rezultatelor în GitHub. Nu este o cerere de implementare a produsului complet. Starea detaliată și pașii de reluare se păstrează în [jurnalul operațional](operations/2026-11-01-probe-recovery.md); această secțiune primează asupra istoricului din octombrie.
+
+Există deja probele [server](https://travel-buddy-server-probe.saiuantonio.workers.dev/) și [offline](https://travel-buddy-offline-probe.saiuantonio.workers.dev/), actualizate la 25 octombrie. Aplicația completă nu este încă implementată în checkout. Conectarea administrativă Cloudflare/Firebase a fost verificată după repornirea mediului; înaintea oricărei lucrări noi se verifică din nou, fără afișarea acreditărilor.
+
+Verificările au trecut pentru disponibilitatea paginii, respingerea accesului fără token/cu token malformat și fixture-ul offline în Chromium desktop. Două blocaje au fost remediate și reverificate: serverul acceptă acum exact cele două conturi Firebase, iar D1 conține fixture-ul sintetic verificat. Codul și fișierele Workerului au rămas identice; s-au schimbat numai cele două valori ale allowlist-ului. Ambele emailuri rămân neconfirmate, deci probele cu sesiuni reale, CAS și CPU sunt încă neexecutate. Nu confunda accesul de administrator cu sesiunile conturilor din aplicație și nu modifica manual `emailVerified`.
+
+**Următorul pas:** proprietarii confirmă adresele și se autentifică în [panoul server](https://travel-buddy-server-probe.saiuantonio.workers.dev/). Alpha este contul Firebase creat primul, Beta al doilea. Dacă nu există mesajul de confirmare, butonul este disponibil după conectarea contului respectiv. Nu solicita parole în chat. Testul de concurență modifică fixture-ul de la versiunea 7; nu reseta automat baza pentru a repeta testul. Detaliile și limitele sunt în jurnal.
+
+Continuitate: folosește CLI-urile `cf` și `firebase` deja instalate și autentificarea lor configurată. Pentru apelurile Node din acest mediu este necesar `NODE_USE_ENV_PROXY=1`. Nu reintroduce coduri de autorizare deja consumate, nu salva parole/tokenuri/UID-uri/emailuri personale în Git și nu cere parole în chat. Următorul pas este în jurnal, nu în secțiunile istorice de mai jos.
+
+## Istoric — pregătirea implementării, 2026-10-23
 Cererea actuală încheie explorarea vizuală și autorizează actualizarea documentației în GitHub și subagenții. Nu autorizează implementarea aplicației, activarea serviciilor sau publicarea site-ului. Brief-ul și cele patru compromisuri acceptate nu se rediscută. Istoricul de mai jos conține stări depășite; această predare și secțiunile recente au prioritate.
 
 Livrabilele sunt legate din [plan.md](plan.md): [planul de execuție](plans/2026-10-23-implementation.md), [design-system.md](design-system.md), [architecture.md](architecture.md) și [probele tehnice](plans/2026-10-23-technical-probes.md). Recomandarea este React/TypeScript/Vite PWA + Cloudflare Pages/Worker/D1 + Firebase Auth Spark, cu Tavily/Groq/Geoapify în cote gratuite; nu este o combinație activată sau demonstrată integral. Detaliile de cost și probele sunt în documentele dedicate.

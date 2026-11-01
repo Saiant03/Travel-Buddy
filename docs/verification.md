@@ -1,6 +1,28 @@
 # Raport de verificare a fundației
 
-**Data:** 2026-10-22
+## Verificări reale ale probelor — 2026-11-01
+
+Această secțiune și [jurnalul operațional](operations/2026-11-01-probe-recovery.md) descriu serviciile observate acum; rapoartele de pregătire din octombrie rămân istoric. Verificarea de către trei agenți `gpt-6-luna`, reviewul independent `gpt-6.1-sol` și verificarea integrată a coordonatorului au confirmat:
+
+- Proiectul Firebase și aplicația web active; autentificarea email/parolă activată; două conturi existente, nedesactivate, dar ambele cu email neconfirmat.
+- Pagina server în Chromium: HTTP 200, configurația Firebase acceptată, fără erori JavaScript. Configurația publică corespunde aplicației Firebase înregistrate; valorile de chei nu se păstrează în raport.
+- Trei verificări negative în browser: itinerariu fără token, profil fără token și itinerariu cu token malformat au răspuns `401 UNAUTHENTICATED`, cu `Cache-Control: private, no-store`.
+- Proba offline sintetică pe Chromium desktop: salvare și recitire din IndexedDB, fotografie disponibilă, copie păstrată după actualizare întreruptă și reîncărcare fără internet. Nu înlocuiește probele pe telefoane reale.
+- Baza D1 dedicată există, cu schema cerută. La verificarea inițială toate cele șase tabele ale aplicației erau goale, iar cele două valori ale allowlist-ului din versiunea care deservea 100% din trafic nu corespundeau conturilor Firebase.
+
+Remedierea celor două probleme tehnice a fost autorizată ulterior și finalizată:
+
+- Configurația activă deservește 100% din trafic și acceptă exact cele două conturi Firebase. Comparația privată a găsit două potriviri, față de zero înaintea remedierii; ordinea Alpha/Beta urmează data creării conturilor.
+- Compararea modulelor Worker înainte/după a găsit codul și source map-ul identice byte cu byte. Setul de bindings, D1, configurația assets și celelalte setări au rămas neschimbate; doar `ALLOWED_UID_1` și `ALLOWED_UID_2` au primit valorile corecte. Configurația publică Firebase a rămas identică celei înregistrate pentru aplicația web.
+- D1 are fixture-ul cerut: 2 utilizatori, 2 profiluri, 3 vacanțe la versiunea 7, 5 apartenențe, 2 propuneri și zero confirmări/idempotency. Schema nu a fost schimbată. Verificarea exactă repetată nu a scris date și verificarea cheilor externe nu a găsit încălcări.
+- SQL-ul a trecut testarea locală și reviewul independent; s-au verificat parametrii, valorile, relațiile, ordinea conturilor, refuzul datelor neașteptate, reluarea fără dublare și rollback-ul. Scriptul de schimbare a configurației a trecut testul local al etapelor și refuzul unei modificări concurente de versiune/deployment. Defectele găsite la review au fost corectate și reverificate înainte de aplicare.
+- După aplicare, pagina server a revenit cu HTTP 200, fără erori JavaScript; configurația publică a revenit cu 200, iar aceleași trei cereri neautentificate/invalide au primit 401 și `private, no-store`.
+
+La ultima verificare, ambele emailuri sunt încă neconfirmate, iar conturile nu sunt dezactivate. Confirmarea rămâne la proprietarii inboxurilor. **Nu sunt executate:** conectarea pozitivă cu cele două conturi reale, izolarea sesiunilor autentificate, CAS/idempotency și benchmarkul CPU. Nu echivala rezultatele de mai sus cu aceste probe sau cu validarea produsului. Pașii de reluare sunt în [jurnal](operations/2026-11-01-probe-recovery.md).
+
+Observații de review: suita limitată de acces/CAS nu acoperă întregul plan P-01/P-02. Lipsa domeniului Worker din domeniile Firebase autorizate nu dovedește un defect în fluxul REST actual, care nu folosește redirect OAuth/continueUrl. Refuzul unui client urllib de către Cloudflare nu a fost generalizat la browser, unde probele au funcționat.
+
+**Istoricul fundației — data:** 2026-10-22
 
 ## Dovezi pentru fundația inițială (4 skill-uri)
 

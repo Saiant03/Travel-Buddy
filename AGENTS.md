@@ -8,7 +8,7 @@
 ## Mandat
 Site local personal pentru utilizator și prietena lui. Comunicăm în română.
 Utilizatorul nu are cunoștințe IT. Explică în termeni simpli acțiunea, motivul și alegerea necesară, cu exemple concrete. Evită jargonul și tonul infantil. Skill-urile de comprimare a mesajelor pot fi folosite între agenți, dar nu reduc claritatea explicațiilor pentru utilizator.
-Etapa curentă este pregătirea implementării: reguli vizuale, componente, recomandare tehnică, plan și probe. Explorarea vizuală este încheiată. Nu implementa aplicația, activa servicii sau publica site-ul fără o cerere ulterioară.
+Etapa curentă include recuperarea și verificarea probelor Cloudflare/Firebase existente, autorizată explicit la 2026-11-01. Citește starea recentă din `docs/memory.md` și `docs/operations/2026-11-01-probe-recovery.md`; notele din octombrie sunt istoric. Mandatul acoperă alinierea celor două conturi acceptate de server, fixture-uri sintetice în D1 dedicată și verificarea probelor, inclusiv aplicarea configurației necesare probei. Nu autorizează implementarea completă a aplicației, publicarea produsului, facturarea sau activarea altor furnizori. Explorarea vizuală este încheiată.
 Nu presupune stack, funcționalități, stil sau sensul cuvântului „local”.
 
 ## Ierarhie autorizată de utilizator

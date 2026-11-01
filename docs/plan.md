@@ -1,12 +1,20 @@
 # Plan de lucru — Travel Buddy
 
+## Prioritate curentă — recuperarea probelor, 2026-11-01
+
+Cererea nouă autorizează alinierea conturilor probei server Cloudflare la cele două conturi existente în Firebase, pregătirea fixture-ului sintetic în D1 dedicată și reluarea verificărilor, cu evidențe în GitHub. Nu pornește implementarea aplicației complete sau servicii cu plată.
+
+Starea operațională și dovezile sunt în [jurnalul de recuperare](operations/2026-11-01-probe-recovery.md). Preflight-ul, backup-ul privat, reviewul, corectarea allowlist-ului și fixture-ul D1 au fost finalizate și reverificate. Au trecut verificările de păstrare a codului/configurației și accesul negativ după aplicare. **Rămân:** confirmarea reală a celor două emailuri și conectarea conturilor în panoul de probe, apoi verificările autentificate. Nu au fost rulate CAS sau benchmarkul CPU; telefoanele rămân pentru o etapă separată. Dovezile și limitele sunt și în [raportul de verificare](verification.md).
+
+Nu relua explorarea vizuală sau interviul de produs și nu interpreta notele istorice „nu există servicii” drept starea actuală: probele Cloudflare/Firebase există deja. Publicarea documentației și a configurației necesare probei nu înseamnă publicarea produsului.
+
 ## Etapa încheiată: brief și evaluare documentară (2026-10-22)
 - Definirea inițială este încheiată. Cerințele au fost consolidate în `product.md`, cu flux, limite și criterii observabile; întrebările vechi deja rezolvate au fost eliminate.
 - Evaluarea actuală a accesului online, căutării, generării, hărților/traseelor și consultării offline este în `feasibility.md`, cu surse oficiale, cote, compromisuri și limite de verificare.
 - Trei agenți gpt-6-luna au cercetat domenii separate, fără editări comune. Coordonatorul a integrat și verificat rezultatul, inclusiv corectarea limitelor ORS vechi și a eligibilității Gemini.
 - Nu s-au implementat site-ul, ales definitiv tehnologii, creat conturi sau activat servicii.
 
-## Stare curentă — pregătirea implementării, 2026-10-23
+## Istoric — pregătirea implementării, 2026-10-23
 Explorarea vizuală este încheiată. Cererea curentă autorizează documentarea și planificarea, nu implementarea, activarea serviciilor sau publicarea site-ului. Notele istorice de mai jos păstrează parcursul proiectului; această secțiune stabilește următorul pas.
 
 **Plan de execuție:** [Etape, contracte pentru agenți și criterii de acceptare](plans/2026-10-23-implementation.md).
