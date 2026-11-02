@@ -22,6 +22,9 @@ import {
 import { PlaceResolution } from "../features/place-resolution/PlaceResolution";
 import { TripWizard } from "../features/trip-creation/TripWizard";
 import { createTripDraft } from "../features/trip-creation/demo-model";
+import { GenerationPage } from "../features/generation/GenerationPage";
+import { generationMessages } from "../features/generation/messages";
+import { createDemoExecutor, GenerationDemoController, type GenerationScenario } from "../domain/generation/demo";
 
 function Star({ className = "" }: { className?: string }) {
   return (
@@ -50,6 +53,8 @@ export function App() {
   const [customItems, setCustomItems] = useState<DemoItem[]>([]);
   const [profile, setProfile] = useState(createDemoProfile);
   const [locale, setLocale] = useState<Locale>("ro");
+  const [generationController] = useState(() => new GenerationDemoController(createDemoExecutor()));
+  const [generationScenario, setGenerationScenario] = useState<GenerationScenario>("success");
   const [path, setPath] = useState(window.location.pathname);
   const [dialog, setDialog] = useState(false);
   const [toast, setToast] = useState(false);
@@ -71,6 +76,8 @@ export function App() {
       ? tripMessages[locale].title
       : route === "placeResolution"
         ? placeMessages[locale].title
+        : route === "generation"
+          ? generationMessages[locale].title
         : t(locale, titleKey);
     document.title = `${title} — Travel Buddy`;
     if (previousPath.current !== path) {
@@ -190,6 +197,7 @@ export function App() {
               {placeMessages[locale].open}
             </a>
             <a className="button" href="/trip-creation" onClick={(event) => navigate(event, "/trip-creation")}>{tripMessages[locale].open}</a>
+            <a className="button" href="/generation" onClick={(event) => navigate(event, "/generation")}>{generationMessages[locale].open}</a>
             <Card className="journey">
               <div>
                 <span className="ticket-label">{text("demoBadge")}</span>
@@ -269,6 +277,7 @@ export function App() {
           <PlaceResolution locale={locale} state={resolution} dispatch={dispatchResolution} />
         )}
         {route === "tripCreation" && <TripWizard locale={locale} draft={tripDraft} setDraft={setTripDraft} step={tripStep} setStep={setTripStep} />}
+        {route === "generation" && <GenerationPage locale={locale} controller={generationController} scenario={generationScenario} setScenario={setGenerationScenario} />}
         {route === "preferences" && <Preferences locale={locale} profile={profile} setProfile={setProfile} customItems={customItems} setCustomItems={setCustomItems} />}
         {route === "notFound" && (
           <div className="page-heading">

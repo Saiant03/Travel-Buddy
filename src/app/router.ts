@@ -1,5 +1,6 @@
-export type Route = "home" | "explore" | "preferences" | "tripCreation" | "placeResolution" | "notFound";
+export type Route = "home" | "explore" | "preferences" | "tripCreation" | "placeResolution" | "generation" | "notFound";
 export function resolveRoute(pathname: string): Route {
+  if (pathname === "/generation" || pathname === "/generation/") return "generation";
   if (pathname === "/place-resolution" || pathname === "/place-resolution/") return "placeResolution";
   if (pathname === "/") return "home";
   if (pathname === "/explore" || pathname === "/explore/") return "explore";

@@ -246,6 +246,8 @@ type ApiResult<T> = { ok: true; data: T; requestId: string } | { ok: false; erro
 
 ### Task 7: Generare cu progres adevărat și rezultate parțiale explicite
 
+**Separare autorizată, 2026-11-02:** [Task 7A local](2026-11-02-task-7a-local-generation.md) poate continua după Tasks 1–2: numai contracte/executor sintetic injectabil și UI separată în memorie. Nu conectează finalul Task 5A sau confirmarea Task 6A și nu salvează/aplică itinerarii. Task 7 complet rămâne nebifat; dependențele Tasks 1, 5–6 și P-03/P-06/P-07 de mai jos, precum și gate-urile serverului, se păstrează pentru funcționarea reală. Fără PASS integral al probelor din simulările 7A.
+
 **Fișiere:** Creează `src/domain/generation/orchestrator.ts`, `src/server/routes/generation.ts`, `src/server/repositories/d1-itinerary.ts`, `src/features/generation/{GenerationPage.tsx,GenerationProgress.tsx,GenerationResult.tsx}`, `migrations/0002_generation.sql`, `tests/unit/generation/*.test.ts`, `tests/api/generation.test.ts`, `tests/e2e/generation.spec.ts`.
 
 **Interfețe:** `startGeneration(uid, tripId, expectedVersion, idempotencyKey): Promise<GenerationJob>` creează job durabil; `runGenerationStep(jobId, attemptId): Promise<GenerationJob>` face claim/lease limitat, cu `claimVersion` monoton și `leaseToken` unic, checkpoint și fencing la toate writes; `getGeneration(uid, jobId): Promise<GenerationJob>`. UI face polling la 15s numai când tab-ul vizibil și permite retry manual după lease expiry. Stări canonice: `queued | running | complete | partial | quota_exhausted | failed`; status distinct, `partial` nu înseamnă `complete`. Reguli deterministe pentru hard-no, ambele profiluri, opening/booking flags, păstrarea alegerilor și fallback/base; modelul doar redactează în baza faptelor returnate.

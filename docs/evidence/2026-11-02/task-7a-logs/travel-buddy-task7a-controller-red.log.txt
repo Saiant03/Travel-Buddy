@@ -1,0 +1,224 @@
+
+> travel-buddy@0.0.0 test
+> vitest run tests/unit/generation/demo-controller.test.ts
+
+
+ RUN  v4.1.12 /workspace/Travel-Buddy
+
+ ❯ tests/unit/generation/demo-controller.test.ts (12 tests | 12 failed) 18ms
+     × counts a stage only after its injected executor finishes 7ms
+     × does not replace a running job when a new start is attempted 1ms
+     × handles success as complete and counts only executed stages 1ms
+     × handles partial as partial and counts only executed stages 0ms
+     × handles invalid_result as failed and counts only executed stages 1ms
+     × handles unavailable as failed and counts only executed stages 0ms
+     × handles timeout as failed and counts only executed stages 0ms
+     × handles quota_exhausted as quota_exhausted and counts only executed stages 0ms
+     × rejects an invalid final result and never exposes it as a completed trip 1ms
+     × allows retry only by an explicit call after a retryable failure 0ms
+     × keeps fixture result fields fictional and visibly unconfirmed 0ms
+     × passes each manually requested stage and scenario to the injected executor 2ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/generation/demo-controller.test.ts > local generation controller > counts a stage only after its injected executor finishes
+AssertionError: expected undefined to be 'running' // Object.is equality
+
+- Expected:
+"running"
+
++ Received:
+undefined
+
+ ❯ tests/unit/generation/demo-controller.test.ts:32:42
+     30|     const running = controller.nextStep();
+     31|
+     32|     expect(controller.state.job?.status).toBe('running');
+       |                                          ^
+     33|     expect(controller.state.job?.completed).toBe(0);
+     34|     pending.resolve({ stage: 'search' });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/12]⎯
+
+ FAIL  tests/unit/generation/demo-controller.test.ts > local generation controller > does not replace a running job when a new start is attempted
+AssertionError: expected undefined to be 1 // Object.is equality
+
+- Expected:
+1
+
++ Received:
+undefined
+
+ ❯ tests/unit/generation/demo-controller.test.ts:52:45
+     50|     pending.resolve({ stage: 'search' });
+     51|     await running;
+     52|     expect(controller.state.job?.completed).toBe(1);
+       |                                             ^
+     53|   });
+     54|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/12]⎯
+
+ FAIL  tests/unit/generation/demo-controller.test.ts > local generation controller > handles success as complete and counts only executed stages
+AssertionError: expected undefined to be 'complete' // Object.is equality
+
+- Expected:
+"complete"
+
++ Received:
+undefined
+
+ ❯ tests/unit/generation/demo-controller.test.ts:64:31
+     62|   ] as const)('handles %s as %s and counts only executed stages', asyn…
+     63|     const state = await finish(scenario);
+     64|     expect(state.job?.status).toBe(status);
+       |                               ^
+     65|     expect(state.job?.completed).toBe(completed);
+     66|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/12]⎯
+
+ FAIL  tests/unit/generation/demo-controller.test.ts > local generation controller > handles partial as partial and counts only executed stages
+AssertionError: expected undefined to be 'partial' // Object.is equality
+
+- Expected:
+"partial"
+
++ Received:
+undefined
+
+ ❯ tests/unit/generation/demo-controller.test.ts:64:31
+     62|   ] as const)('handles %s as %s and counts only executed stages', asyn…
+     63|     const state = await finish(scenario);
+     64|     expect(state.job?.status).toBe(status);
+       |                               ^
+     65|     expect(state.job?.completed).toBe(completed);
+     66|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/12]⎯
+
+ FAIL  tests/unit/generation/demo-controller.test.ts > local generation controller > handles invalid_result as failed and counts only executed stages
+ FAIL  tests/unit/generation/demo-controller.test.ts > local generation controller > handles unavailable as failed and counts only executed stages
+ FAIL  tests/unit/generation/demo-controller.test.ts > local generation controller > handles timeout as failed and counts only executed stages
+AssertionError: expected undefined to be 'failed' // Object.is equality
+
+- Expected:
+"failed"
+
++ Received:
+undefined
+
+ ❯ tests/unit/generation/demo-controller.test.ts:64:31
+     62|   ] as const)('handles %s as %s and counts only executed stages', asyn…
+     63|     const state = await finish(scenario);
+     64|     expect(state.job?.status).toBe(status);
+       |                               ^
+     65|     expect(state.job?.completed).toBe(completed);
+     66|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/12]⎯
+
+ FAIL  tests/unit/generation/demo-controller.test.ts > local generation controller > handles quota_exhausted as quota_exhausted and counts only executed stages
+AssertionError: expected undefined to be 'quota_exhausted' // Object.is equality
+
+- Expected:
+"quota_exhausted"
+
++ Received:
+undefined
+
+ ❯ tests/unit/generation/demo-controller.test.ts:64:31
+     62|   ] as const)('handles %s as %s and counts only executed stages', asyn…
+     63|     const state = await finish(scenario);
+     64|     expect(state.job?.status).toBe(status);
+       |                               ^
+     65|     expect(state.job?.completed).toBe(completed);
+     66|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/12]⎯
+
+ FAIL  tests/unit/generation/demo-controller.test.ts > local generation controller > rejects an invalid final result and never exposes it as a completed trip
+AssertionError: expected undefined to be 'failed' // Object.is equality
+
+- Expected:
+"failed"
+
++ Received:
+undefined
+
+ ❯ tests/unit/generation/demo-controller.test.ts:70:31
+     68|   it('rejects an invalid final result and never exposes it as a comple…
+     69|     const state = await finish('invalid_result');
+     70|     expect(state.job?.status).toBe('failed');
+       |                               ^
+     71|     expect(state.job?.errorCode).toBe('VALIDATION_ERROR');
+     72|     expect(state.result).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/12]⎯
+
+ FAIL  tests/unit/generation/demo-controller.test.ts > local generation controller > allows retry only by an explicit call after a retryable failure
+AssertionError: expected undefined to be 'failed' // Object.is equality
+
+- Expected:
+"failed"
+
++ Received:
+undefined
+
+ ❯ tests/unit/generation/demo-controller.test.ts:79:42
+     77|     controller.start('unavailable');
+     78|     await controller.nextStep();
+     79|     expect(controller.state.job?.status).toBe('failed');
+       |                                          ^
+     80|     expect(controller.retry()).toBe(true);
+     81|     expect(controller.state.job?.status).toBe('queued');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/12]⎯
+
+ FAIL  tests/unit/generation/demo-controller.test.ts > local generation controller > keeps fixture result fields fictional and visibly unconfirmed
+AssertionError: expected undefined to be 'complete' // Object.is equality
+
+- Expected:
+"complete"
+
++ Received:
+undefined
+
+ ❯ tests/unit/generation/demo-controller.test.ts:88:31
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/12]⎯
+
+ FAIL  tests/unit/generation/demo-controller.test.ts > local generation controller > passes each manually requested stage and scenario to the injected executor
+AssertionError: expected [] to deeply equal [ [ 'search', 'success' ], …(1) ]
+
+- Expected
++ Received
+
+- [
+-   [
+-     "search",
+-     "success",
+-   ],
+-   [
+-     "organize",
+-     "success",
+-   ],
+- ]
++ []
+
+ ❯ tests/unit/generation/demo-controller.test.ts:102:19
+    100|     await controller.nextStep();
+    101|     await controller.nextStep();
+    102|     expect(calls).toEqual([['search', 'success'], ['organize', 'succes…
+       |                   ^
+    103|     expect(controller.state.job?.completed).toBe(2);
+    104|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/12]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  12 failed (12)
+   Start at  18:26:35
+   Duration  228ms (transform 52ms, setup 29ms, import 46ms, tests 18ms, environment 0ms)

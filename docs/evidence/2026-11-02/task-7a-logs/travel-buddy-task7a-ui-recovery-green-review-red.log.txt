@@ -1,0 +1,116 @@
+
+> travel-buddy@0.0.0 test:e2e
+> playwright test --project=generation
+
+[WebServer] (node:12688) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 27 tests using 1 worker
+
+(node:12707) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [generation] › tests/e2e/generation.spec.ts:19:1 › generation is reachable from home through an explicit link (1.1s)
+  ✓   2 [generation] › tests/e2e/generation.spec.ts:26:1 › start creates a queued job without running any stage automatically (1.1s)
+  ✓   3 [generation] › tests/e2e/generation.spec.ts:35:1 › selected scenario survives navigation before starting (1.0s)
+  ✓   4 [generation] › tests/e2e/generation.spec.ts:43:1 › one explicit next-step click completes exactly one local stage (987ms)
+  ✘   5 [generation] › tests/e2e/generation.spec.ts:53:1 › current simulated stage is announced until the attempt ends (6.0s)
+(node:13003) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   6 [generation] › tests/e2e/generation.spec.ts:68:1 › fictional source address is visible as inert text (6.4s)
+(node:13148) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [generation] › tests/e2e/generation.spec.ts:77:1 › complete status says simulation ended and does not claim a confirmed plan (1.2s)
+  ✓   8 [generation] › tests/e2e/generation.spec.ts:87:1 › complete result explicitly says the plan is not confirmed (1.1s)
+  ✓   9 [generation] › tests/e2e/generation.spec.ts:96:3 › success result states that no itinerary was saved or applied (1.0s)
+  ✓  10 [generation] › tests/e2e/generation.spec.ts:96:3 › partial result states that no itinerary was saved or applied (1.1s)
+  ✓  11 [generation] › tests/e2e/generation.spec.ts:105:1 › partial output remains distinct and identifies a missing day (1.1s)
+  ✓  12 [generation] › tests/e2e/generation.spec.ts:115:1 › partial result identifies the missing fictional day (1.1s)
+  ✓  13 [generation] › tests/e2e/generation.spec.ts:123:1 › invalid verification fails at two of three completed stages (1.1s)
+  ✓  14 [generation] › tests/e2e/generation.spec.ts:139:3 › unavailable stays a distinct simulated failure (1.1s)
+  ✓  15 [generation] › tests/e2e/generation.spec.ts:139:3 › timeout stays a distinct simulated failure (1.2s)
+  ✓  16 [generation] › tests/e2e/generation.spec.ts:139:3 › quota_exhausted stays a distinct simulated failure (1.1s)
+  ✓  17 [generation] › tests/e2e/generation.spec.ts:151:1 › retry is a separate manual action and queues without executing (1.1s)
+  ✓  18 [generation] › tests/e2e/generation.spec.ts:161:1 › quota exhaustion does not offer retry (968ms)
+  ✓  19 [generation] › tests/e2e/generation.spec.ts:175:3 › invalid_result can recover by explicitly starting a success scenario (1.2s)
+  ✓  20 [generation] › tests/e2e/generation.spec.ts:175:3 › unavailable can recover by explicitly starting a success scenario (1.4s)
+  ✓  21 [generation] › tests/e2e/generation.spec.ts:175:3 › timeout can recover by explicitly starting a success scenario (1.5s)
+  ✓  22 [generation] › tests/e2e/generation.spec.ts:175:3 › quota_exhausted can recover by explicitly starting a success scenario (1.3s)
+  ✓  23 [generation] › tests/e2e/generation.spec.ts:189:1 › explicit new attempt clears the prior result (1.4s)
+  ✓  24 [generation] › tests/e2e/generation.spec.ts:199:1 › job progress survives in-app navigation (1.3s)
+  ✓  25 [generation] › tests/e2e/generation.spec.ts:209:1 › language change preserves generation progress (1.2s)
+  ✓  26 [generation] › tests/e2e/generation.spec.ts:219:1 › reload resets job and language to Romanian (1.5s)
+  ✓  27 [generation] › tests/e2e/generation.spec.ts:231:1 › fixture labels follow the selected language without rerunning a stage (1.2s)
+
+
+  1) [generation] › tests/e2e/generation.spec.ts:53:1 › current simulated stage is announced until the attempt ends
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  getByText('Căutare simulată')
+    Expected: "step"
+    Received: ""
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" getByText('Căutare simulată') with timeout 5000ms
+      - waiting for getByText('Căutare simulată')
+        14 × locator resolved to <li data-complete="false">Căutare simulată</li>
+           - unexpected value "null"
+
+
+      54 |   await open(page);
+      55 |   await chooseAndStart(page);
+    > 56 |   await expect(page.getByText('Căutare simulată')).toHaveAttribute('aria-current', 'step');
+         |                                                    ^
+      57 |   await runSteps(page, 1);
+      58 |   await expect(page.getByRole('progressbar')).toHaveAttribute('value', '1');
+      59 |   await expect(page.getByText('Organizare simulată')).toHaveAttribute('aria-current', 'step');
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:56:52
+
+    Error Context: test-results/generation-current-simulat-ff8e6-nced-until-the-attempt-ends-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-current-simulat-ff8e6-nced-until-the-attempt-ends-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-current-simulat-ff8e6-nced-until-the-attempt-ends-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [generation] › tests/e2e/generation.spec.ts:68:1 › fictional source address is visible as inert text
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('https://source.example.invalid/demo')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('https://source.example.invalid/demo') with timeout 5000ms
+      - waiting for getByText('https://source.example.invalid/demo')
+
+
+      71 |   await runSteps(page, 3);
+      72 |   await expect(page.getByRole('progressbar')).toHaveAttribute('value', '3');
+    > 73 |   await expect(page.getByText('https://source.example.invalid/demo')).toBeVisible();
+         |                                                                       ^
+      74 |   await expect(page.getByRole('link', { name: /source\.example\.invalid/ })).toHaveCount(0);
+      75 | });
+      76 |
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:73:71
+
+    Error Context: test-results/generation-fictional-source-address-is-visible-as-inert-text-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-fictional-source-address-is-visible-as-inert-text-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-fictional-source-address-is-visible-as-inert-text-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [generation] › tests/e2e/generation.spec.ts:53:1 › current simulated stage is announced until the attempt ends
+    [generation] › tests/e2e/generation.spec.ts:68:1 › fictional source address is visible as inert text
+  25 passed (44.9s)

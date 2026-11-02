@@ -1,0 +1,54 @@
+
+> travel-buddy@0.0.0 test:e2e
+> playwright test --project=generation -g start creates a queued job|selected scenario survives navigation before starting|one explicit next-step click completes exactly one local stage
+
+[WebServer] (node:8625) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:8649) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [generation] › tests/e2e/generation.spec.ts:26:1 › start creates a queued job without running any stage automatically (1.1s)
+  ✓  2 [generation] › tests/e2e/generation.spec.ts:35:1 › selected scenario survives navigation before starting (1.1s)
+  ✘  3 [generation] › tests/e2e/generation.spec.ts:43:1 › one explicit next-step click completes exactly one local stage (6.0s)
+
+
+  1) [generation] › tests/e2e/generation.spec.ts:43:1 › one explicit next-step click completes exactly one local stage
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  getByRole('progressbar')
+    Expected: "1"
+    Received: "0"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" getByRole('progressbar') with timeout 5000ms
+      - waiting for getByRole('progressbar')
+        14 × locator resolved to <progress max="3" value="0" aria-label="Etape executate"></progress>
+           - unexpected value "0"
+
+
+      47 |   await expect(page.getByRole('progressbar')).toHaveAttribute('value', '0');
+      48 |   await page.getByRole('button', { name: 'Execută următorul pas local' }).click();
+    > 49 |   await expect(page.getByRole('progressbar')).toHaveAttribute('value', '1');
+         |                                               ^
+      50 |   await expect(page.getByText('Organizare simulată')).toHaveAttribute('data-complete', 'false');
+      51 | });
+      52 |
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:49:47
+
+    Error Context: test-results/generation-one-explicit-ne-1e702-tes-exactly-one-local-stage-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-one-explicit-ne-1e702-tes-exactly-one-local-stage-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-one-explicit-ne-1e702-tes-exactly-one-local-stage-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [generation] › tests/e2e/generation.spec.ts:43:1 › one explicit next-step click completes exactly one local stage
+  2 passed (9.7s)

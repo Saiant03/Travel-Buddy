@@ -1,0 +1,210 @@
+Checked ro: 1440px, CSS zoom 1; states=10, failures=0
+Checked en: 1440px, CSS zoom 1; states=20, failures=0
+Checked fr: 1440px, CSS zoom 1; states=30, failures=0
+Checked ro: 768px, CSS zoom 1; states=40, failures=0
+Checked en: 768px, CSS zoom 1; states=50, failures=0
+Checked fr: 768px, CSS zoom 1; states=60, failures=0
+Checked ro: 390px, CSS zoom 1; states=70, failures=0
+Checked en: 390px, CSS zoom 1; states=80, failures=0
+Checked fr: 390px, CSS zoom 1; states=90, failures=0
+Checked ro: 320px, CSS zoom 1; states=98, failures=2
+Checked en: 320px, CSS zoom 1; states=106, failures=4
+Checked fr: 320px, CSS zoom 1; states=114, failures=6
+Checked ro: 1280px, CSS zoom 2; states=124, failures=6
+Checked en: 1280px, CSS zoom 2; states=134, failures=6
+Checked fr: 1280px, CSS zoom 2; states=144, failures=6
+Checked ro: 640px, CSS zoom 2; states=144, failures=12
+Checked en: 640px, CSS zoom 2; states=144, failures=18
+Checked fr: 640px, CSS zoom 2; states=144, failures=24
+{
+  "checks": 145,
+  "failures": [
+    {
+      "locale": "ro",
+      "width": 320,
+      "zoom": 1,
+      "scenario": "success",
+      "error": "{'overflow': True, 'lang': 'ro', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 320, 'scroll': 342}"
+    },
+    {
+      "locale": "ro",
+      "width": 320,
+      "zoom": 1,
+      "scenario": "partial",
+      "error": "{'overflow': True, 'lang': 'ro', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 320, 'scroll': 342}"
+    },
+    {
+      "locale": "en",
+      "width": 320,
+      "zoom": 1,
+      "scenario": "success",
+      "error": "{'overflow': True, 'lang': 'en', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 320, 'scroll': 342}"
+    },
+    {
+      "locale": "en",
+      "width": 320,
+      "zoom": 1,
+      "scenario": "partial",
+      "error": "{'overflow': True, 'lang': 'en', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 320, 'scroll': 342}"
+    },
+    {
+      "locale": "fr",
+      "width": 320,
+      "zoom": 1,
+      "scenario": "success",
+      "error": "{'overflow': True, 'lang': 'fr', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 320, 'scroll': 342}"
+    },
+    {
+      "locale": "fr",
+      "width": 320,
+      "zoom": 1,
+      "scenario": "partial",
+      "error": "{'overflow': True, 'lang': 'fr', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 320, 'scroll': 342}"
+    },
+    {
+      "locale": "ro",
+      "width": 640,
+      "zoom": 2,
+      "scenario": "success",
+      "error": "{'overflow': True, 'lang': 'ro', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 640, 'scroll': 693}"
+    },
+    {
+      "locale": "ro",
+      "width": 640,
+      "zoom": 2,
+      "scenario": "partial",
+      "error": "{'overflow': True, 'lang': 'ro', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 640, 'scroll': 693}"
+    },
+    {
+      "locale": "ro",
+      "width": 640,
+      "zoom": 2,
+      "scenario": "invalid_result",
+      "error": "{'overflow': True, 'lang': 'ro', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 640, 'scroll': 693}"
+    },
+    {
+      "locale": "ro",
+      "width": 640,
+      "zoom": 2,
+      "scenario": "unavailable",
+      "error": "{'overflow': True, 'lang': 'ro', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 640, 'scroll': 693}"
+    },
+    {
+      "locale": "ro",
+      "width": 640,
+      "zoom": 2,
+      "scenario": "timeout",
+      "error": "{'overflow': True, 'lang': 'ro', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 640, 'scroll': 693}"
+    },
+    {
+      "locale": "ro",
+      "width": 640,
+      "zoom": 2,
+      "scenario": "quota_exhausted",
+      "error": "{'overflow': True, 'lang': 'ro', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 640, 'scroll': 693}"
+    },
+    {
+      "locale": "en",
+      "width": 640,
+      "zoom": 2,
+      "scenario": "success",
+      "error": "{'overflow': True, 'lang': 'en', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 640, 'scroll': 755}"
+    },
+    {
+      "locale": "en",
+      "width": 640,
+      "zoom": 2,
+      "scenario": "partial",
+      "error": "{'overflow': True, 'lang': 'en', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 640, 'scroll': 755}"
+    },
+    {
+      "locale": "en",
+      "width": 640,
+      "zoom": 2,
+      "scenario": "invalid_result",
+      "error": "{'overflow': True, 'lang': 'en', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 640, 'scroll': 755}"
+    },
+    {
+      "locale": "en",
+      "width": 640,
+      "zoom": 2,
+      "scenario": "unavailable",
+      "error": "{'overflow': True, 'lang': 'en', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 640, 'scroll': 755}"
+    },
+    {
+      "locale": "en",
+      "width": 640,
+      "zoom": 2,
+      "scenario": "timeout",
+      "error": "{'overflow': True, 'lang': 'en', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 640, 'scroll': 755}"
+    },
+    {
+      "locale": "en",
+      "width": 640,
+      "zoom": 2,
+      "scenario": "quota_exhausted",
+      "error": "{'overflow': True, 'lang': 'en', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 640, 'scroll': 755}"
+    },
+    {
+      "locale": "fr",
+      "width": 640,
+      "zoom": 2,
+      "scenario": "success",
+      "error": "{'overflow': True, 'lang': 'fr', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 640, 'scroll': 755}"
+    },
+    {
+      "locale": "fr",
+      "width": 640,
+      "zoom": 2,
+      "scenario": "partial",
+      "error": "{'overflow': True, 'lang': 'fr', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 640, 'scroll': 755}"
+    },
+    {
+      "locale": "fr",
+      "width": 640,
+      "zoom": 2,
+      "scenario": "invalid_result",
+      "error": "{'overflow': True, 'lang': 'fr', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 640, 'scroll': 755}"
+    },
+    {
+      "locale": "fr",
+      "width": 640,
+      "zoom": 2,
+      "scenario": "unavailable",
+      "error": "{'overflow': True, 'lang': 'fr', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 640, 'scroll': 755}"
+    },
+    {
+      "locale": "fr",
+      "width": 640,
+      "zoom": 2,
+      "scenario": "timeout",
+      "error": "{'overflow': True, 'lang': 'fr', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 640, 'scroll': 755}"
+    },
+    {
+      "locale": "fr",
+      "width": 640,
+      "zoom": 2,
+      "scenario": "quota_exhausted",
+      "error": "{'overflow': True, 'lang': 'fr', 'font': True, 'animation': 0, 'persistent': 0, 'externalLinks': 0, 'width': 640, 'scroll': 755}"
+    }
+  ],
+  "external": [],
+  "pageerrors": [],
+  "zoom": "CSS 200%, approximation, not native"
+}
+Traceback (most recent call last):
+  File "/tmp/travel-buddy-task7a-browser.py", line 125, in <module>
+    assert not failures and not external and not pageerrors
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Starting server 1/1: npm run preview -- --host 127.0.0.1 --port 4180 --strictPort
+Waiting for server on port 4180...
+Server ready on port 4180
+
+All 1 server(s) ready
+Running: python /tmp/travel-buddy-task7a-browser.py
+
+
+Stopping 1 server(s)...
+Server 1 stopped
+All servers stopped

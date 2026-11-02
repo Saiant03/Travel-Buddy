@@ -1,0 +1,51 @@
+
+> travel-buddy@0.0.0 test:e2e
+> playwright test --project=generation -g start creates a queued
+
+[WebServer] (node:8095) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:8115) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [generation] › tests/e2e/generation.spec.ts:26:1 › start creates a queued job without running any stage automatically (6.2s)
+
+
+  1) [generation] › tests/e2e/generation.spec.ts:26:1 › start creates a queued job without running any stage automatically
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('status')
+    Expected substring: "În coadă"
+    Received string:    "Alege un scenariu și pornește generarea când dorești."
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('status') with timeout 5000ms
+      - waiting for getByRole('status')
+        14 × locator resolved to <p role="status" aria-live="polite" class="generation-status">Alege un scenariu și pornește generarea când dore…</p>
+           - unexpected value "Alege un scenariu și pornește generarea când dorești."
+
+
+      29 |   await expect(page.getByRole('progressbar')).toHaveAttribute('value', '0');
+      30 |   await chooseAndStart(page);
+    > 31 |   await expect(page.getByRole('status')).toContainText('În coadă');
+         |                                          ^
+      32 |   await expect(page.getByRole('progressbar')).toHaveAttribute('value', '0');
+      33 | });
+      34 |
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:31:42
+
+    Error Context: test-results/generation-start-creates-a-c7687-ing-any-stage-automatically-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-start-creates-a-c7687-ing-any-stage-automatically-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-start-creates-a-c7687-ing-any-stage-automatically-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [generation] › tests/e2e/generation.spec.ts:26:1 › start creates a queued job without running any stage automatically

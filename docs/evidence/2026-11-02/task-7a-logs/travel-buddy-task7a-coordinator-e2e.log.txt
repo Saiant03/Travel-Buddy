@@ -1,0 +1,108 @@
+
+> travel-buddy@0.0.0 test:e2e
+> playwright test --project=generation --project=place-resolution --project=trip-creation --project=preferences --project=shell
+
+[WebServer] (node:16993) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] node_modules/zod/v4/core/regexes.js (74:0): A comment
+[WebServer]
+[WebServer] "/** Anchors a pattern source. The interpolation lives here rather than at the call site because
+[WebServer]  * esbuild will not drop a `@__PURE__` call whose own argument interpolates a variable, but it
+[WebServer]  * will drop `anchor(dateSource)`. Keeping it inline pinned `date` into every bundle. */"
+[WebServer]
+[WebServer] in "node_modules/zod/v4/core/regexes.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] node_modules/zod/v4/core/util.js (400:0): A comment
+[WebServer]
+[WebServer] "// Wrapped in a `@__PURE__` IIFE: esbuild never tree-shakes a top-level initializer that contains a member access on `Number`, so the bare object literal survived into every bundle."
+[WebServer]
+[WebServer] in "node_modules/zod/v4/core/util.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] (node:17026) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:17056) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] node_modules/zod/v4/core/util.js (400:0): A comment
+[WebServer]
+[WebServer] "// Wrapped in a `@__PURE__` IIFE: esbuild never tree-shakes a top-level initializer that contains a member access on `Number`, so the bare object literal survived into every bundle."
+[WebServer]
+[WebServer] in "node_modules/zod/v4/core/util.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] node_modules/zod/v4/core/regexes.js (74:0): A comment
+[WebServer]
+[WebServer] "/** Anchors a pattern source. The interpolation lives here rather than at the call site because
+[WebServer]  * esbuild will not drop a `@__PURE__` call whose own argument interpolates a variable, but it
+[WebServer]  * will drop `anchor(dateSource)`. Keeping it inline pinned `date` into every bundle. */"
+[WebServer]
+[WebServer] in "node_modules/zod/v4/core/regexes.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] (node:17087) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:17118) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:17148) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 53 tests using 1 worker
+
+(node:17167) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [generation] › tests/e2e/generation.spec.ts:19:1 › generation is reachable from home through an explicit link (983ms)
+  ✓   2 [generation] › tests/e2e/generation.spec.ts:26:1 › start creates a queued job without running any stage automatically (911ms)
+  ✓   3 [generation] › tests/e2e/generation.spec.ts:35:1 › selected scenario survives navigation before starting (889ms)
+  ✓   4 [generation] › tests/e2e/generation.spec.ts:43:1 › one explicit next-step click completes exactly one local stage (906ms)
+  ✓   5 [generation] › tests/e2e/generation.spec.ts:53:1 › current simulated stage is announced until the attempt ends (1.0s)
+  ✓   6 [generation] › tests/e2e/generation.spec.ts:68:1 › fictional source address is visible as inert text (995ms)
+  ✓   7 [generation] › tests/e2e/generation.spec.ts:77:1 › complete status says simulation ended and does not claim a confirmed plan (945ms)
+  ✓   8 [generation] › tests/e2e/generation.spec.ts:87:1 › complete result explicitly says the plan is not confirmed (972ms)
+  ✓   9 [generation] › tests/e2e/generation.spec.ts:96:3 › success result states that no itinerary was saved or applied (969ms)
+  ✓  10 [generation] › tests/e2e/generation.spec.ts:96:3 › partial result states that no itinerary was saved or applied (993ms)
+  ✓  11 [generation] › tests/e2e/generation.spec.ts:105:1 › partial output remains distinct and identifies a missing day (1.0s)
+  ✓  12 [generation] › tests/e2e/generation.spec.ts:115:1 › partial result identifies the missing fictional day (1.0s)
+  ✓  13 [generation] › tests/e2e/generation.spec.ts:123:1 › invalid verification fails at two of three completed stages (1.0s)
+  ✓  14 [generation] › tests/e2e/generation.spec.ts:139:3 › unavailable stays a distinct simulated failure (911ms)
+  ✓  15 [generation] › tests/e2e/generation.spec.ts:139:3 › timeout stays a distinct simulated failure (1.3s)
+  ✓  16 [generation] › tests/e2e/generation.spec.ts:139:3 › quota_exhausted stays a distinct simulated failure (1.3s)
+  ✓  17 [generation] › tests/e2e/generation.spec.ts:151:1 › retry is a separate manual action and queues without executing (1.8s)
+  ✓  18 [generation] › tests/e2e/generation.spec.ts:161:1 › quota exhaustion does not offer retry (1.4s)
+  ✓  19 [generation] › tests/e2e/generation.spec.ts:175:3 › invalid_result can recover by explicitly starting a success scenario (1.7s)
+  ✓  20 [generation] › tests/e2e/generation.spec.ts:175:3 › unavailable can recover by explicitly starting a success scenario (1.6s)
+  ✓  21 [generation] › tests/e2e/generation.spec.ts:175:3 › timeout can recover by explicitly starting a success scenario (1.5s)
+  ✓  22 [generation] › tests/e2e/generation.spec.ts:175:3 › quota_exhausted can recover by explicitly starting a success scenario (1.6s)
+  ✓  23 [generation] › tests/e2e/generation.spec.ts:189:1 › explicit new attempt clears the prior result (1.5s)
+  ✓  24 [generation] › tests/e2e/generation.spec.ts:199:1 › job progress survives in-app navigation (1.4s)
+  ✓  25 [generation] › tests/e2e/generation.spec.ts:209:1 › language change preserves generation progress (1.4s)
+  ✓  26 [generation] › tests/e2e/generation.spec.ts:219:1 › reload resets job and language to Romanian (1.5s)
+  ✓  27 [generation] › tests/e2e/generation.spec.ts:231:1 › fixture labels follow the selected language without rerunning a stage (1.5s)
+(node:18406) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  28 [place-resolution] › tests/e2e/place-resolution.spec.ts:14:1 › zero results (1.7s)
+  ✓  29 [place-resolution] › tests/e2e/place-resolution.spec.ts:24:1 › one result requires selection and confirmation; edit invalidates (1.6s)
+  ✓  30 [place-resolution] › tests/e2e/place-resolution.spec.ts:35:1 › multiple results require explicit choice (1.4s)
+  ✓  31 [place-resolution] › tests/e2e/place-resolution.spec.ts:48:3 › simulated invalid_response (1.5s)
+  ✓  32 [place-resolution] › tests/e2e/place-resolution.spec.ts:48:3 › simulated unavailable (1.3s)
+  ✓  33 [place-resolution] › tests/e2e/place-resolution.spec.ts:48:3 › simulated timeout (1.4s)
+  ✓  34 [place-resolution] › tests/e2e/place-resolution.spec.ts:48:3 › simulated quota_exhausted (1.4s)
+  ✓  35 [place-resolution] › tests/e2e/place-resolution.spec.ts:58:1 › preserves state across navigation and language, reload resets (1.6s)
+  ✓  36 [place-resolution] › tests/e2e/place-resolution.spec.ts:72:1 › invalid input can be corrected (1.6s)
+  ✓  37 [place-resolution] › tests/e2e/place-resolution.spec.ts:83:1 › unconfirmed selection survives navigation and French translation (1.5s)
+  ✓  38 [place-resolution] › tests/e2e/place-resolution.spec.ts:95:1 › keyboard can select and confirm (1.4s)
+  ✓  39 [place-resolution] › tests/e2e/place-resolution.spec.ts:105:1 › narrow view keeps fictional sources inert and makes no external requests (1.3s)
+(node:18926) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  40 [trip-creation] › tests/e2e/trip-creation.spec.ts:3:1 › validates and preserves the draft across steps, pages, language and reload (2.6s)
+  ✓  41 [trip-creation] › tests/e2e/trip-creation.spec.ts:54:1 › keeps both duration modes and catches a shortened trip with a retained stay (1.8s)
+  ✓  42 [trip-creation] › tests/e2e/trip-creation.spec.ts:81:1 › reports gaps in accommodation and supports removing the last stay (1.8s)
+  ✓  43 [trip-creation] › tests/e2e/trip-creation.spec.ts:107:1 › updates validation after correcting a field or removing an invalid stay (1.2s)
+  ✓  44 [trip-creation] › tests/e2e/trip-creation.spec.ts:121:1 › removes validation belonging to a deleted stay (1.9s)
+(node:19202) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  45 [preferences] › tests/e2e/preferences.spec.ts:3:1 › carnetele păstrează alegeri locale și separă restricțiile (3.1s)
+  ✓  46 [preferences] › tests/e2e/preferences.spec.ts:49:1 › căutarea alimentară găsește rezultate în toate filele (1.3s)
+  ✓  47 [preferences] › tests/e2e/preferences.spec.ts:55:1 › exemplul adăugat rămâne local la navigare și dispare la reîncărcare (1.6s)
+  ✓  48 [preferences] › tests/e2e/preferences.spec.ts:68:1 › tastatură și vizualizare îngustă cu mișcare redusă (1.3s)
+  ✓  49 [preferences] › tests/e2e/preferences.spec.ts:84:1 › băuturile au note fără opțiuni de preparare nepotrivite (1.4s)
+  ✓  50 [preferences] › tests/e2e/preferences.spec.ts:94:1 › ștergerea cu tastatura readuce focusul la primul răspuns (1.3s)
+  ✓  51 [preferences] › tests/e2e/preferences.spec.ts:107:1 › ștergerea unei precizări păstrează focusul în grupul ei (1.7s)
+(node:19564) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  52 [shell] › tests/e2e/shell.spec.ts:3:1 › first visit precaches only the public shell for an offline launch (2.1s)
+  ✓  53 [shell] › tests/e2e/shell.spec.ts:98:1 › local navigation, language and example controls work with keyboard (2.4s)
+
+  53 passed (1.5m)

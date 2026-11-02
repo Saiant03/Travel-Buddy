@@ -1,0 +1,144 @@
+
+> travel-buddy@0.0.0 test
+> vitest run tests/unit/generation/domain-boundaries.test.ts
+
+
+ RUN  v4.1.12 /workspace/Travel-Buddy
+
+ ❯ tests/unit/generation/domain-boundaries.test.ts (7 tests | 7 failed) 37ms
+     × derives partial when a fixture declares complete but omits the second expected day 10ms
+     × rejects duplicate place IDs and places whose source is not attached to that place 2ms
+     × does not count a malformed search response as executed work 19ms
+     × does not count a malformed organize response as executed work 1ms
+     × clears the previous result when an explicit new attempt starts 2ms
+     × lets a new attempt finish while an older deferred response is pending, then ignores the old response 1ms
+     × ignores rejection from an older attempt without failing the current attempt 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/generation/domain-boundaries.test.ts > generation boundaries and attempt fencing > derives partial when a fixture declares complete but omits the second expected day
+AssertionError: expected 'complete' to be 'partial' // Object.is equality
+
+Expected: "partial"
+Received: "complete"
+
+ ❯ tests/unit/generation/domain-boundaries.test.ts:31:58
+     29|     const parsed = generationDemoResultSchema.safeParse(declaredComple…
+     30|     expect(parsed.success).toBe(true);
+     31|     if (parsed.success) expect(parsed.data.completeness).toBe('partial…
+       |                                                          ^
+     32|   });
+     33|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  tests/unit/generation/domain-boundaries.test.ts > generation boundaries and attempt fencing > rejects duplicate place IDs and places whose source is not attached to that place
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ tests/unit/generation/domain-boundaries.test.ts:40:69
+     38|       { id: 'fictional-day-2', label: 'Zi 2', places: [one.days[0]!.pl…
+     39|     ]);
+     40|     expect(generationDemoResultSchema.safeParse(duplicate).success).to…
+       |                                                                     ^
+     41|
+     42|     const missingSource = declaredComplete([{ ...one.days[0]!, places:…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  tests/unit/generation/domain-boundaries.test.ts > generation boundaries and attempt fencing > does not count a malformed search response as executed work
+AssertionError: expected 'running' to be 'failed' // Object.is equality
+
+Expected: "failed"
+Received: "running"
+
+ ❯ tests/unit/generation/domain-boundaries.test.ts:50:42
+     48|     controller.start('success');
+     49|     await controller.nextStep();
+     50|     expect(controller.state.job?.status).toBe('failed');
+       |                                          ^
+     51|     expect(controller.state.job?.completed).toBe(0);
+     52|     expect(controller.state.job?.errorCode).toBe('VALIDATION_ERROR');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  tests/unit/generation/domain-boundaries.test.ts > generation boundaries and attempt fencing > does not count a malformed organize response as executed work
+AssertionError: expected 'running' to be 'failed' // Object.is equality
+
+Expected: "failed"
+Received: "running"
+
+ ❯ tests/unit/generation/domain-boundaries.test.ts:61:42
+     59|     await controller.nextStep();
+     60|     await controller.nextStep();
+     61|     expect(controller.state.job?.status).toBe('failed');
+       |                                          ^
+     62|     expect(controller.state.job?.completed).toBe(1);
+     63|     expect(controller.state.job?.stage).toBe('organize');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  tests/unit/generation/domain-boundaries.test.ts > generation boundaries and attempt fencing > clears the previous result when an explicit new attempt starts
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/unit/generation/domain-boundaries.test.ts:71:43
+     69|     await controller.nextStep(); await controller.nextStep(); await co…
+     70|     expect(controller.state.result).not.toBeNull();
+     71|     expect(controller.restart('partial')).toBe(true);
+       |                                           ^
+     72|     expect(controller.state.result).toBeNull();
+     73|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+
+ FAIL  tests/unit/generation/domain-boundaries.test.ts > generation boundaries and attempt fencing > lets a new attempt finish while an older deferred response is pending, then ignores the old response
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/unit/generation/domain-boundaries.test.ts:84:43
+     82|     const oldJobId = controller.state.job?.id;
+     83|
+     84|     expect(controller.restart('partial')).toBe(true);
+       |                                           ^
+     85|     const currentJobId = controller.state.job?.id;
+     86|     expect(currentJobId).not.toBe(oldJobId);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/7]⎯
+
+ FAIL  tests/unit/generation/domain-boundaries.test.ts > generation boundaries and attempt fencing > ignores rejection from an older attempt without failing the current attempt
+AssertionError: expected 'failed' to be 'running' // Object.is equality
+
+Expected: "running"
+Received: "failed"
+
+ ❯ tests/unit/generation/domain-boundaries.test.ts:109:42
+    107|     oldResponse.reject(new Error('late provider failure'));
+    108|     await oldStep;
+    109|     expect(controller.state.job?.status).toBe('running');
+       |                                          ^
+    110|     expect(controller.state.job?.completed).toBe(1);
+    111|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/7]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  7 failed (7)
+   Start at  18:29:13
+   Duration  303ms (transform 62ms, setup 22ms, import 106ms, tests 37ms, environment 0ms)

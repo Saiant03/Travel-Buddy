@@ -1,0 +1,374 @@
+
+> travel-buddy@0.0.0 test:e2e
+> playwright test --project=generation -g complete status|complete result explicitly|partial output|partial result identifies|invalid verification|stays a distinct simulated failure|result states that no itinerary|retry is a separate|quota exhaustion does not offer|can recover by explicitly|explicit new attempt clears|job progress survives|language change preserves|reload resets|fixture labels follow
+
+[WebServer] (node:10351) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 21 tests using 1 worker
+
+(node:10369) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [generation] › tests/e2e/generation.spec.ts:53:1 › complete status says simulation ended and does not claim a confirmed plan (1.3s)
+  ✓   2 [generation] › tests/e2e/generation.spec.ts:63:1 › complete result explicitly says the plan is not confirmed (1.1s)
+  ✘   3 [generation] › tests/e2e/generation.spec.ts:72:3 › success result states that no itinerary was saved or applied (6.1s)
+(node:10580) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   4 [generation] › tests/e2e/generation.spec.ts:72:3 › partial result states that no itinerary was saved or applied (6.2s)
+(node:10728) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   5 [generation] › tests/e2e/generation.spec.ts:81:1 › partial output remains distinct and identifies a missing day (1.2s)
+  ✓   6 [generation] › tests/e2e/generation.spec.ts:91:1 › partial result identifies the missing fictional day (1.1s)
+  ✓   7 [generation] › tests/e2e/generation.spec.ts:99:1 › invalid verification fails at two of three completed stages (1.1s)
+  ✓   8 [generation] › tests/e2e/generation.spec.ts:115:3 › unavailable stays a distinct simulated failure (932ms)
+  ✓   9 [generation] › tests/e2e/generation.spec.ts:115:3 › timeout stays a distinct simulated failure (1.1s)
+  ✓  10 [generation] › tests/e2e/generation.spec.ts:115:3 › quota_exhausted stays a distinct simulated failure (992ms)
+  ✘  11 [generation] › tests/e2e/generation.spec.ts:127:1 › retry is a separate manual action and queues without executing (6.1s)
+(node:11100) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  12 [generation] › tests/e2e/generation.spec.ts:137:1 › quota exhaustion does not offer retry (6.2s)
+(node:11240) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  13 [generation] › tests/e2e/generation.spec.ts:151:3 › invalid_result can recover by explicitly starting a success scenario (6.3s)
+(node:11388) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  14 [generation] › tests/e2e/generation.spec.ts:151:3 › unavailable can recover by explicitly starting a success scenario (6.2s)
+(node:11522) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  15 [generation] › tests/e2e/generation.spec.ts:151:3 › timeout can recover by explicitly starting a success scenario (6.2s)
+(node:11662) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  16 [generation] › tests/e2e/generation.spec.ts:151:3 › quota_exhausted can recover by explicitly starting a success scenario (6.2s)
+(node:11798) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  17 [generation] › tests/e2e/generation.spec.ts:165:1 › explicit new attempt clears the prior result (6.2s)
+(node:11937) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  18 [generation] › tests/e2e/generation.spec.ts:175:1 › job progress survives in-app navigation (1.2s)
+  ✓  19 [generation] › tests/e2e/generation.spec.ts:185:1 › language change preserves generation progress (944ms)
+  ✓  20 [generation] › tests/e2e/generation.spec.ts:195:1 › reload resets job and language to Romanian (1.2s)
+  ✓  21 [generation] › tests/e2e/generation.spec.ts:207:1 › fixture labels follow the selected language without rerunning a stage (1.1s)
+
+
+  1) [generation] › tests/e2e/generation.spec.ts:72:3 › success result states that no itinerary was saved or applied
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('Niciun itinerar nu a fost salvat sau aplicat.')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('Niciun itinerar nu a fost salvat sau aplicat.') with timeout 5000ms
+      - waiting for getByText('Niciun itinerar nu a fost salvat sau aplicat.')
+
+
+      75 |     await runSteps(page, 3);
+      76 |     await expect(page.getByRole('progressbar')).toHaveAttribute('value', '3');
+    > 77 |     await expect(page.getByText('Niciun itinerar nu a fost salvat sau aplicat.')).toBeVisible();
+         |                                                                                   ^
+      78 |   });
+      79 | }
+      80 |
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:77:83
+
+    Error Context: test-results/generation-success-result--3ac1c-nerary-was-saved-or-applied-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-success-result--3ac1c-nerary-was-saved-or-applied-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-success-result--3ac1c-nerary-was-saved-or-applied-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [generation] › tests/e2e/generation.spec.ts:72:3 › partial result states that no itinerary was saved or applied
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('Niciun itinerar nu a fost salvat sau aplicat.')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('Niciun itinerar nu a fost salvat sau aplicat.') with timeout 5000ms
+      - waiting for getByText('Niciun itinerar nu a fost salvat sau aplicat.')
+
+
+      75 |     await runSteps(page, 3);
+      76 |     await expect(page.getByRole('progressbar')).toHaveAttribute('value', '3');
+    > 77 |     await expect(page.getByText('Niciun itinerar nu a fost salvat sau aplicat.')).toBeVisible();
+         |                                                                                   ^
+      78 |   });
+      79 | }
+      80 |
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:77:83
+
+    Error Context: test-results/generation-partial-result--7d204-nerary-was-saved-or-applied-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-partial-result--7d204-nerary-was-saved-or-applied-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-partial-result--7d204-nerary-was-saved-or-applied-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [generation] › tests/e2e/generation.spec.ts:127:1 › retry is a separate manual action and queues without executing
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('status')
+    Expected substring: "În coadă"
+    Received string:    "Etapa nu a putut fi încheiată în această simulare."
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('status') with timeout 5000ms
+      - waiting for getByRole('status')
+        14 × locator resolved to <p role="status" aria-live="polite" class="generation-status">Etapa nu a putut fi încheiată în această simulare.</p>
+           - unexpected value "Etapa nu a putut fi încheiată în această simulare."
+
+
+      131 |   await expect(page.getByRole('alert')).toContainText('Serviciul simulat nu este disponibil');
+      132 |   await page.getByRole('button', { name: 'Reîncearcă manual' }).click();
+    > 133 |   await expect(page.getByRole('status')).toContainText('În coadă');
+          |                                          ^
+      134 |   await expect(page.getByRole('progressbar')).toHaveAttribute('value', '0');
+      135 | });
+      136 |
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:133:42
+
+    Error Context: test-results/generation-retry-is-a-sepa-58a00-nd-queues-without-executing-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-retry-is-a-sepa-58a00-nd-queues-without-executing-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-retry-is-a-sepa-58a00-nd-queues-without-executing-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [generation] › tests/e2e/generation.spec.ts:137:1 › quota exhaustion does not offer retry ─────
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByRole('button', { name: 'Reîncearcă manual' })
+    Expected: 0
+    Received: 1
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" getByRole('button', { name: 'Reîncearcă manual' }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Reîncearcă manual' })
+        14 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      140 |   await page.getByRole('button', { name: 'Execută următorul pas local' }).click();
+      141 |   await expect(page.getByRole('alert')).toContainText('Cota simulată s-a epuizat');
+    > 142 |   await expect(page.getByRole('button', { name: 'Reîncearcă manual' })).toHaveCount(0);
+          |                                                                         ^
+      143 | });
+      144 |
+      145 | for (const [scenario, message, steps] of [
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:142:73
+
+    Error Context: test-results/generation-quota-exhaustion-does-not-offer-retry-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-quota-exhaustion-does-not-offer-retry-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-quota-exhaustion-does-not-offer-retry-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [generation] › tests/e2e/generation.spec.ts:151:3 › invalid_result can recover by explicitly starting a success scenario
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('status')
+    Expected substring: "În coadă"
+    Received string:    "Etapa nu a putut fi încheiată în această simulare."
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('status') with timeout 5000ms
+      - waiting for getByRole('status')
+        14 × locator resolved to <p role="status" aria-live="polite" class="generation-status">Etapa nu a putut fi încheiată în această simulare.</p>
+           - unexpected value "Etapa nu a putut fi încheiată în această simulare."
+
+
+      156 |     await page.getByLabel('Scenariu demonstrativ').selectOption('success');
+      157 |     await page.getByRole('button', { name: 'Pornește o încercare nouă' }).click();
+    > 158 |     await expect(page.getByRole('status')).toContainText('În coadă');
+          |                                            ^
+      159 |     await runSteps(page, 3);
+      160 |     await expect(page.getByRole('status')).toContainText('Simulare încheiată');
+      161 |     await expect(page.getByRole('progressbar')).toHaveAttribute('value', '3');
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:158:44
+
+    Error Context: test-results/generation-invalid-result--d668f-starting-a-success-scenario-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-invalid-result--d668f-starting-a-success-scenario-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-invalid-result--d668f-starting-a-success-scenario-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [generation] › tests/e2e/generation.spec.ts:151:3 › unavailable can recover by explicitly starting a success scenario
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('status')
+    Expected substring: "În coadă"
+    Received string:    "Etapa nu a putut fi încheiată în această simulare."
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('status') with timeout 5000ms
+      - waiting for getByRole('status')
+        14 × locator resolved to <p role="status" aria-live="polite" class="generation-status">Etapa nu a putut fi încheiată în această simulare.</p>
+           - unexpected value "Etapa nu a putut fi încheiată în această simulare."
+
+
+      156 |     await page.getByLabel('Scenariu demonstrativ').selectOption('success');
+      157 |     await page.getByRole('button', { name: 'Pornește o încercare nouă' }).click();
+    > 158 |     await expect(page.getByRole('status')).toContainText('În coadă');
+          |                                            ^
+      159 |     await runSteps(page, 3);
+      160 |     await expect(page.getByRole('status')).toContainText('Simulare încheiată');
+      161 |     await expect(page.getByRole('progressbar')).toHaveAttribute('value', '3');
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:158:44
+
+    Error Context: test-results/generation-unavailable-can-7f91f-starting-a-success-scenario-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-unavailable-can-7f91f-starting-a-success-scenario-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-unavailable-can-7f91f-starting-a-success-scenario-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [generation] › tests/e2e/generation.spec.ts:151:3 › timeout can recover by explicitly starting a success scenario
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('status')
+    Expected substring: "În coadă"
+    Received string:    "Etapa nu a putut fi încheiată în această simulare."
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('status') with timeout 5000ms
+      - waiting for getByRole('status')
+        14 × locator resolved to <p role="status" aria-live="polite" class="generation-status">Etapa nu a putut fi încheiată în această simulare.</p>
+           - unexpected value "Etapa nu a putut fi încheiată în această simulare."
+
+
+      156 |     await page.getByLabel('Scenariu demonstrativ').selectOption('success');
+      157 |     await page.getByRole('button', { name: 'Pornește o încercare nouă' }).click();
+    > 158 |     await expect(page.getByRole('status')).toContainText('În coadă');
+          |                                            ^
+      159 |     await runSteps(page, 3);
+      160 |     await expect(page.getByRole('status')).toContainText('Simulare încheiată');
+      161 |     await expect(page.getByRole('progressbar')).toHaveAttribute('value', '3');
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:158:44
+
+    Error Context: test-results/generation-timeout-can-rec-1b41f-starting-a-success-scenario-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-timeout-can-rec-1b41f-starting-a-success-scenario-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-timeout-can-rec-1b41f-starting-a-success-scenario-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) [generation] › tests/e2e/generation.spec.ts:151:3 › quota_exhausted can recover by explicitly starting a success scenario
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('status')
+    Expected substring: "În coadă"
+    Received string:    "Cota simulată este epuizată. Nu se face retry automat."
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('status') with timeout 5000ms
+      - waiting for getByRole('status')
+        14 × locator resolved to <p role="status" aria-live="polite" class="generation-status">Cota simulată este epuizată. Nu se face retry aut…</p>
+           - unexpected value "Cota simulată este epuizată. Nu se face retry automat."
+
+
+      156 |     await page.getByLabel('Scenariu demonstrativ').selectOption('success');
+      157 |     await page.getByRole('button', { name: 'Pornește o încercare nouă' }).click();
+    > 158 |     await expect(page.getByRole('status')).toContainText('În coadă');
+          |                                            ^
+      159 |     await runSteps(page, 3);
+      160 |     await expect(page.getByRole('status')).toContainText('Simulare încheiată');
+      161 |     await expect(page.getByRole('progressbar')).toHaveAttribute('value', '3');
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:158:44
+
+    Error Context: test-results/generation-quota-exhausted-bf035-starting-a-success-scenario-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-quota-exhausted-bf035-starting-a-success-scenario-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-quota-exhausted-bf035-starting-a-success-scenario-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9) [generation] › tests/e2e/generation.spec.ts:165:1 › explicit new attempt clears the prior result
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByRole('heading', { name: 'Itinerar fictiv' })
+    Expected: 0
+    Received: 1
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" getByRole('heading', { name: 'Itinerar fictiv' }) with timeout 5000ms
+      - waiting for getByRole('heading', { name: 'Itinerar fictiv' })
+        14 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      169 |   await expect(page.getByRole('heading', { name: 'Itinerar fictiv' })).toBeVisible();
+      170 |   await page.getByRole('button', { name: 'Pornește o încercare nouă' }).click();
+    > 171 |   await expect(page.getByRole('heading', { name: 'Itinerar fictiv' })).toHaveCount(0);
+          |                                                                        ^
+      172 |   await expect(page.getByRole('status')).toContainText('În coadă');
+      173 | });
+      174 |
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:171:72
+
+    Error Context: test-results/generation-explicit-new-attempt-clears-the-prior-result-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-explicit-new-attempt-clears-the-prior-result-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-explicit-new-attempt-clears-the-prior-result-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9 failed
+    [generation] › tests/e2e/generation.spec.ts:72:3 › success result states that no itinerary was saved or applied
+    [generation] › tests/e2e/generation.spec.ts:72:3 › partial result states that no itinerary was saved or applied
+    [generation] › tests/e2e/generation.spec.ts:127:1 › retry is a separate manual action and queues without executing
+    [generation] › tests/e2e/generation.spec.ts:137:1 › quota exhaustion does not offer retry ──────
+    [generation] › tests/e2e/generation.spec.ts:151:3 › invalid_result can recover by explicitly starting a success scenario
+    [generation] › tests/e2e/generation.spec.ts:151:3 › unavailable can recover by explicitly starting a success scenario
+    [generation] › tests/e2e/generation.spec.ts:151:3 › timeout can recover by explicitly starting a success scenario
+    [generation] › tests/e2e/generation.spec.ts:151:3 › quota_exhausted can recover by explicitly starting a success scenario
+    [generation] › tests/e2e/generation.spec.ts:165:1 › explicit new attempt clears the prior result
+  12 passed (1.3m)

@@ -1,0 +1,51 @@
+
+> travel-buddy@0.0.0 test:e2e
+> playwright test --project=generation -g selected scenario survives navigation before starting
+
+[WebServer] (node:8332) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:8350) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [generation] › tests/e2e/generation.spec.ts:35:1 › selected scenario survives navigation before starting (6.3s)
+
+
+  1) [generation] › tests/e2e/generation.spec.ts:35:1 › selected scenario survives navigation before starting
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator:  getByLabel('Scenariu demonstrativ')
+    Expected: "partial"
+    Received: "success"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveValue" getByLabel('Scenariu demonstrativ') with timeout 5000ms
+      - waiting for getByLabel('Scenariu demonstrativ')
+        14 × locator resolved to <select id="generation-scenario">…</select>
+           - unexpected value "success"
+
+
+      38 |   await page.getByRole('link', { name: 'Acasă' }).click();
+      39 |   await page.getByRole('link', { name: 'Deschide demonstrația generării' }).click();
+    > 40 |   await expect(page.getByLabel('Scenariu demonstrativ')).toHaveValue('partial');
+         |                                                          ^
+      41 | });
+      42 |
+      43 | test('one explicit next-step click completes exactly one local stage', async ({ page }) => {
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:40:58
+
+    Error Context: test-results/generation-selected-scenar-565d9--navigation-before-starting-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-selected-scenar-565d9--navigation-before-starting-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-selected-scenar-565d9--navigation-before-starting-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [generation] › tests/e2e/generation.spec.ts:35:1 › selected scenario survives navigation before starting

@@ -1,0 +1,12 @@
+
+> travel-buddy@0.0.0 test
+> vitest run tests/unit/generation/demo-controller.test.ts
+
+
+ RUN  v4.1.12 /workspace/Travel-Buddy
+
+
+ Test Files  1 passed (1)
+      Tests  12 passed (12)
+   Start at  18:27:06
+   Duration  320ms (transform 90ms, setup 24ms, import 144ms, tests 20ms, environment 0ms)

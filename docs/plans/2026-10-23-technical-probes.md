@@ -96,6 +96,8 @@ Pregătiți fixture-uri locale fictive, fără persoane sau locații private rea
 
 ### P-03 — Buddy: cerere păstrată, reconfirmare, dublare și timeout
 
+**Task 7A, 2026-11-02:** demonstrația locală poate verifica protecția încercării curente la răspunsuri învechite. Nu implementează/verifică propuneri, confirmări CAS, receipt, lease/checkpoint/fencing distribuit, reluare durabilă sau polling real; nu acordă PASS integral P-03.
+
 
 **Responsabil:** `gpt-6-luna`
 
@@ -158,6 +160,8 @@ Pregătiți fixture-uri locale fictive, fără persoane sau locații private rea
 
 ### P-06 — Cote, concurență, reset, timeout și retry mărginit
 
+**Task 7A, 2026-11-02:** stările locale de cotă/timeout și retry manual sunt scenarii sintetice. Nu validează cotele persistente, resetul/timezone-ul furnizorului, concurența distribuită, HTTP sau consumul real; P-06 integral rămâne deschis.
+
 **Snapshot local limitat, 2026-11-02:** [Task 6A](../evidence/2026-11-02/task-6a-local-place-resolution.md) are numai rezultate controlate pentru timeout/cotă/indisponibilitate, zero consum și zero retry automat. Fără cote persistente/concurență/reset/timezone sau probe live; nu acordă PASS integral P-06 și nu înlocuiește pașii de mai jos.
 
 
@@ -179,6 +183,8 @@ Pregătiți fixture-uri locale fictive, fără persoane sau locații private rea
 **Stop/fallback:** mock-ul este fallback complet până la activare. Opriți apelurile reale înainte de pragul rezervat; fără autorizare, cheie sau informații certe de reset, testul real rămâne **NEEXECUTAT/BLOCAT**. Niciun upgrade plătit.
 
 ### P-07 — Calitatea limbilor, refuz explicit și alergii
+
+**Task 7A, 2026-11-02:** verifică numai textele demonstrației RO/EN/FR și incertitudinea fixture-urilor. Motorul de recomandări și integrarea ambelor profiluri, refuzurilor/alergiilor și calitatea unui furnizor real rămân neimplementate; fără PASS integral P-07.
 
 
 **Responsabil:** `gpt-6-luna`

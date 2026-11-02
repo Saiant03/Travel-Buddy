@@ -1,0 +1,314 @@
+
+> travel-buddy@0.0.0 test:e2e
+> playwright test --project=generation -g one explicit next-step|complete status|complete result explicitly|partial output|partial result identifies|invalid verification|stays a distinct simulated failure
+
+[WebServer] (node:9025) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 9 tests using 1 worker
+
+(node:9045) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [generation] › tests/e2e/generation.spec.ts:43:1 › one explicit next-step click completes exactly one local stage (1.0s)
+  ✘  2 [generation] › tests/e2e/generation.spec.ts:53:1 › complete status says simulation ended and does not claim a confirmed plan (6.2s)
+(node:9225) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  3 [generation] › tests/e2e/generation.spec.ts:63:1 › complete result explicitly says the plan is not confirmed (6.2s)
+(node:9368) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  4 [generation] › tests/e2e/generation.spec.ts:71:1 › partial output remains distinct and identifies a missing day (6.2s)
+(node:9500) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  5 [generation] › tests/e2e/generation.spec.ts:81:1 › partial result identifies the missing fictional day (6.4s)
+(node:9646) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  6 [generation] › tests/e2e/generation.spec.ts:89:1 › invalid verification fails at two of three completed stages (6.3s)
+(node:9781) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  7 [generation] › tests/e2e/generation.spec.ts:105:3 › unavailable stays a distinct simulated failure (6.1s)
+(node:9922) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  8 [generation] › tests/e2e/generation.spec.ts:105:3 › timeout stays a distinct simulated failure (6.2s)
+(node:10058) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  9 [generation] › tests/e2e/generation.spec.ts:105:3 › quota_exhausted stays a distinct simulated failure (6.1s)
+
+
+  1) [generation] › tests/e2e/generation.spec.ts:53:1 › complete status says simulation ended and does not claim a confirmed plan
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('status')
+    Expected substring: "Simulare încheiată"
+    Received string:    "Alege un scenariu și pornește generarea când dorești."
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('status') with timeout 5000ms
+      - waiting for getByRole('status')
+        14 × locator resolved to <p role="status" aria-live="polite" class="generation-status">Alege un scenariu și pornește generarea când dore…</p>
+           - unexpected value "Alege un scenariu și pornește generarea când dorești."
+
+
+      56 |   await runSteps(page, 3);
+      57 |   await expect(page.getByRole('progressbar')).toHaveAttribute('value', '3');
+    > 58 |   await expect(page.getByRole('status')).toContainText('Simulare încheiată');
+         |                                          ^
+      59 |   await expect(page.getByText('Planul nu este confirmat.')).toBeVisible();
+      60 |   await expect(page.getByRole('progressbar')).toHaveAttribute('value', '3');
+      61 | });
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:58:42
+
+    Error Context: test-results/generation-complete-status-b8a9e--not-claim-a-confirmed-plan-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-complete-status-b8a9e--not-claim-a-confirmed-plan-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-complete-status-b8a9e--not-claim-a-confirmed-plan-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [generation] › tests/e2e/generation.spec.ts:63:1 › complete result explicitly says the plan is not confirmed
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('Planul nu este confirmat.')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('Planul nu este confirmat.') with timeout 5000ms
+      - waiting for getByText('Planul nu este confirmat.')
+
+
+      66 |   await runSteps(page, 3);
+      67 |   await expect(page.getByRole('progressbar')).toHaveAttribute('value', '3');
+    > 68 |   await expect(page.getByText('Planul nu este confirmat.')).toBeVisible();
+         |                                                             ^
+      69 | });
+      70 |
+      71 | test('partial output remains distinct and identifies a missing day', async ({ page }) => {
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:68:61
+
+    Error Context: test-results/generation-complete-result-09c22-s-the-plan-is-not-confirmed-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-complete-result-09c22-s-the-plan-is-not-confirmed-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-complete-result-09c22-s-the-plan-is-not-confirmed-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [generation] › tests/e2e/generation.spec.ts:71:1 › partial output remains distinct and identifies a missing day
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('status')
+    Expected substring: "incomplet"
+    Received string:    "Alege un scenariu și pornește generarea când dorești."
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('status') with timeout 5000ms
+      - waiting for getByRole('status')
+        14 × locator resolved to <p role="status" aria-live="polite" class="generation-status">Alege un scenariu și pornește generarea când dore…</p>
+           - unexpected value "Alege un scenariu și pornește generarea când dorești."
+
+
+      74 |   await runSteps(page, 3);
+      75 |   await expect(page.getByRole('progressbar')).toHaveAttribute('value', '3');
+    > 76 |   await expect(page.getByRole('status')).toContainText('incomplet');
+         |                                          ^
+      77 |   await expect(page.getByText(/Zi fictivă 2/)).toBeVisible();
+      78 |   await expect(page.getByRole('progressbar')).toHaveAttribute('value', '3');
+      79 | });
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:76:42
+
+    Error Context: test-results/generation-partial-output--723f7-nd-identifies-a-missing-day-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-partial-output--723f7-nd-identifies-a-missing-day-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-partial-output--723f7-nd-identifies-a-missing-day-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [generation] › tests/e2e/generation.spec.ts:81:1 › partial result identifies the missing fictional day
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText(/Zi fictivă 2/)
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText(/Zi fictivă 2/) with timeout 5000ms
+      - waiting for getByText(/Zi fictivă 2/)
+
+
+      84 |   await runSteps(page, 3);
+      85 |   await expect(page.getByRole('progressbar')).toHaveAttribute('value', '3');
+    > 86 |   await expect(page.getByText(/Zi fictivă 2/)).toBeVisible();
+         |                                                ^
+      87 | });
+      88 |
+      89 | test('invalid verification fails at two of three completed stages', async ({ page }) => {
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:86:48
+
+    Error Context: test-results/generation-partial-result--50e68-s-the-missing-fictional-day-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-partial-result--50e68-s-the-missing-fictional-day-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-partial-result--50e68-s-the-missing-fictional-day-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [generation] › tests/e2e/generation.spec.ts:89:1 › invalid verification fails at two of three completed stages
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('alert')
+    Expected substring: "nu a trecut validarea"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" getByRole('alert') with timeout 5000ms
+      - waiting for getByRole('alert')
+
+
+      94 |   await expect(page.getByRole('status')).not.toContainText('următoarea acțiune');
+      95 |   await expect(page.getByRole('button', { name: 'Execută următorul pas local' })).toBeDisabled();
+    > 96 |   await expect(page.getByRole('alert')).toContainText('nu a trecut validarea');
+         |                                         ^
+      97 |   await expect(page.getByRole('progressbar')).toHaveAttribute('value', '2');
+      98 | });
+      99 |
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:96:41
+
+    Error Context: test-results/generation-invalid-verific-2f7f0-o-of-three-completed-stages-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-invalid-verific-2f7f0-o-of-three-completed-stages-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-invalid-verific-2f7f0-o-of-three-completed-stages-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [generation] › tests/e2e/generation.spec.ts:105:3 › unavailable stays a distinct simulated failure
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('alert')
+    Expected substring: "Serviciul simulat nu este disponibil"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" getByRole('alert') with timeout 5000ms
+      - waiting for getByRole('alert')
+
+
+      110 |     await expect(page.getByRole('status')).not.toContainText('următoarea acțiune');
+      111 |     await expect(page.getByRole('button', { name: 'Execută următorul pas local' })).toBeDisabled();
+    > 112 |     await expect(page.getByRole('alert')).toContainText(errorText);
+          |                                           ^
+      113 |     await expect(page.getByRole('progressbar')).toHaveAttribute('value', '0');
+      114 |   });
+      115 | }
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:112:43
+
+    Error Context: test-results/generation-unavailable-stays-a-distinct-simulated-failure-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-unavailable-stays-a-distinct-simulated-failure-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-unavailable-stays-a-distinct-simulated-failure-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [generation] › tests/e2e/generation.spec.ts:105:3 › timeout stays a distinct simulated failure
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('alert')
+    Expected substring: "Etapa a expirat în simulare"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" getByRole('alert') with timeout 5000ms
+      - waiting for getByRole('alert')
+
+
+      110 |     await expect(page.getByRole('status')).not.toContainText('următoarea acțiune');
+      111 |     await expect(page.getByRole('button', { name: 'Execută următorul pas local' })).toBeDisabled();
+    > 112 |     await expect(page.getByRole('alert')).toContainText(errorText);
+          |                                           ^
+      113 |     await expect(page.getByRole('progressbar')).toHaveAttribute('value', '0');
+      114 |   });
+      115 | }
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:112:43
+
+    Error Context: test-results/generation-timeout-stays-a-distinct-simulated-failure-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-timeout-stays-a-distinct-simulated-failure-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-timeout-stays-a-distinct-simulated-failure-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) [generation] › tests/e2e/generation.spec.ts:105:3 › quota_exhausted stays a distinct simulated failure
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('alert')
+    Expected substring: "Cota simulată s-a epuizat"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" getByRole('alert') with timeout 5000ms
+      - waiting for getByRole('alert')
+
+
+      110 |     await expect(page.getByRole('status')).not.toContainText('următoarea acțiune');
+      111 |     await expect(page.getByRole('button', { name: 'Execută următorul pas local' })).toBeDisabled();
+    > 112 |     await expect(page.getByRole('alert')).toContainText(errorText);
+          |                                           ^
+      113 |     await expect(page.getByRole('progressbar')).toHaveAttribute('value', '0');
+      114 |   });
+      115 | }
+        at /workspace/Travel-Buddy/tests/e2e/generation.spec.ts:112:43
+
+    Error Context: test-results/generation-quota-exhausted-c1bc0--distinct-simulated-failure-generation/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generation-quota-exhausted-c1bc0--distinct-simulated-failure-generation/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generation-quota-exhausted-c1bc0--distinct-simulated-failure-generation/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8 failed
+    [generation] › tests/e2e/generation.spec.ts:53:1 › complete status says simulation ended and does not claim a confirmed plan
+    [generation] › tests/e2e/generation.spec.ts:63:1 › complete result explicitly says the plan is not confirmed
+    [generation] › tests/e2e/generation.spec.ts:71:1 › partial output remains distinct and identifies a missing day
+    [generation] › tests/e2e/generation.spec.ts:81:1 › partial result identifies the missing fictional day
+    [generation] › tests/e2e/generation.spec.ts:89:1 › invalid verification fails at two of three completed stages
+    [generation] › tests/e2e/generation.spec.ts:105:3 › unavailable stays a distinct simulated failure
+    [generation] › tests/e2e/generation.spec.ts:105:3 › timeout stays a distinct simulated failure ─
+    [generation] › tests/e2e/generation.spec.ts:105:3 › quota_exhausted stays a distinct simulated failure
+  1 passed (57.7s)
