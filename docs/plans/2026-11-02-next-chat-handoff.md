@@ -1,5 +1,9 @@
 # Handoff pentru chat nou — Travel Buddy Task 2
 
+## Snapshot ulterior — Task 2 finalizat local, 2026-11-02
+
+Nu reporni Task 2 din instrucțiunile istorice de mai jos. `gpt-6.1-terra` medium a implementat fundația, iar coordonatorul a revizuit și verificat rezultatul; [dovada](../evidence/2026-11-02/task-2-ui.md) prezintă testele, capturile și limitele. Locale rămâne în memorie, cu RO la reload; exemplele sunt fictive. P-09 rămâne FAIL, p95 exact necunoscut, iar B1/Task 3/backend/acceptarea online rămân blocate. Nu s-au reluat CPU/CAS/iPhone și nu s-au modificat servicii sau făcut deploy. Task 4+ nu sunt autorizate în bloc. Commit/push autorizate sunt următorul pas al coordonatorului, încă neexecutate la data acestui snapshot.
+
 > **Delegare:** coordonatorul poate împărți lucrări ușoare, independente și justificate între mai mulți agenți. Alege între modelele disponibile potrivit sarcinii și consumului: `gpt-6-luna` implicit pentru lucrări simple; `gpt-6-sol` și `gpt-6.1-terra` sunt de asemenea permise pentru sarcini potrivite. Nu presupune cost inferior garantat pentru Sol/Terra. Evită paralelismul risipitor și serializează editările comune. Pentru Task 2, păstrează un singur implementer dacă munca nu se împarte în subtaskuri independente. Escaladarea peste mandatul de cost/complexitate cere acordul utilizatorului; coordonatorul preia implementarea numai după confirmarea agentului că e prea complexă și acordul utilizatorului.
 
 **Scop:** construiește numai fundația UI locală Travel Buddy: shell, tokenuri/componente comune, navigare și limbile RO/EN/FR cu româna implicită.

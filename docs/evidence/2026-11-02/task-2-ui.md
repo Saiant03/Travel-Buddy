@@ -1,0 +1,16 @@
+# Task 2 — fundația UI locală, 2026-11-02
+
+Implementarea și remedierile au fost realizate de `gpt-6.1-terra` medium; coordonatorul a făcut review și verificarea integrată. Înainte de lucru, `main` era curat și sincronizat la `a2f8272`. Acesta este un snapshot local, înaintea commitului și pushului autorizate; nu certifică produsul complet.
+
+Shell-ul React are rutele `/`, `/explore` și o stare pentru adrese necunoscute; navigarea locală, accesul direct și back/forward au fost verificate. Catalogul RO/EN/FR pornește în română; alegerea limbii există numai în memorie și revine la RO la reîncărcare. Interacțiunile folosesc exemple fictive, fără autentificare, server sau persistență. Fontul Bricolage Grotesque este găzduit local cu licența OFL și proveniența lângă fișier. Shell-ul public PWA include fontul și CSS în cache și exclude cererile private; aceasta nu implementează salvarea offline reală din Task 11.
+
+## Verificări coordonator
+
+- `npm run typecheck` și `npm run lint`: exit 0; `npm run test`: **116/116** în 14 fișiere, inclusiv cinci teste noi i18n/router; `npm run build`: PASS.
+- `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium npm run test:e2e -- --project=shell tests/e2e/shell.spec.ts`: **2/2 PASS** după modificarea finală CSS. Cele trei builduri pornite local de configurația Playwright existentă au trecut. Avertismentele `NO_COLOR` și Rollup/Zod `@PURE` au fost neblocante. Testele de probe din `npm run test` folosesc fixture-uri/simulări locale, nu reprezintă reluări CPU/CAS reale.
+- Review browser independent: RO/EN/FR la lățimi 1440, 768, 390 și 320 px fără overflow, Bricolage încărcat, `html.lang` corect, zero `pageerror` și cereri externe. Tastatura a acoperit skip, navigare, input, capturarea și revenirea focusului în dialog, retry/loading, reduced motion și reflow 320×225. La zoom CSS 200% în viewport 640×450, dialogul a avut rect 32,32,576,386, conținut derulabil și butonul Închide activabil cu Enter. Scripturile și logurile din `/tmp` sunt dovezi ale sesiunii curente, nu comenzi portabile versionate.
+- Capturi reale inspectate: [acasă la 390 px](task-2-home-390.png) și [demonstrație la 1440 px](task-2-explore-1440.png). Perechile de text verificate au contrast 5,23–11,56:1; eroare pe hârtie 6,21:1. Constatările R2-A–G, touch, câmp, meta, Locale comun și zoom au fost corectate și reverificate; niciun defect blocant confirmat în scope.
+
+Testele i18n/router au fost scrise înaintea modulelor. Logul inițial RED a arătat **două erori de import pentru module inexistente și zero teste executate**, nu eșecuri pe aserțiuni. După implementare au trecut 5/5. Ulterior, o mutație temporară a condiției routerului a produs un FAIL pe aserțiune; fișierul a fost restaurat și cele 5 teste au trecut din nou. Logurile sesiunii sunt `/tmp/travel-buddy-task2-red.log` și `/tmp/travel-buddy-task2-mutation.log`.
+
+Safari/WebKit și telefon fizic nu au fost testate în acest task; proba iPhone anterioară nu a fost repetată. Nu există aprobare umană finală a percepției designului. P-09 rămâne FAIL: 10/100 cold observate peste 7 ms, p95 exact necunoscut; B1, Task 3, backendul și acceptarea online rămân blocate. Nu s-au reluat CPU/CAS/iPhone, modificat Firebase/Cloudflare/D1, activat costuri sau făcut deploy/publicare. Commit/push sunt următorul pas autorizat al coordonatorului, încă neexecutate la acest snapshot.

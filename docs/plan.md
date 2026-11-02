@@ -1,5 +1,9 @@
 # Plan de lucru — Travel Buddy
 
+## Snapshot curent — Task 2 finalizat local, 2026-11-02
+
+Fundația UI locală a trecut reviewul și verificările coordonatorului; detaliile și limitele sunt în [dovada Task 2](evidence/2026-11-02/task-2-ui.md). Exemplele sunt fictive, iar limba este doar în memorie. Nu s-au implementat produsul complet sau backendul. P-09 rămâne FAIL, p95 exact necunoscut; Gate B1 și Task 3/backend/acceptarea online rămân blocate. Task 4+ nu sunt autorizate în bloc. Commit/push autorizate sunt următorul pas al coordonatorului și nu erau executate la acest snapshot; fără deploy sau publicare. Textul de pornire al Task 2 de mai jos este istoric.
+
 ## Prioritate curentă — fundație locală și gate server separat, 2026-11-02
 
 Utilizatorul a autorizat începerea Task 2 pentru interfața locală: React 19 + TypeScript strict + Vite + Zod, fundație comună, design tokens/componente de bază, navigare și localizare RO/EN/FR (româna implicită). Această lucrare folosește machetele și contractele deja aprobate/documentate; nu redeschide brief-ul sau explorarea vizuală. Datele/sesiunile folosite în interfață sunt explicite mock/synthetic, fără Firebase/Auth real sau date personale.

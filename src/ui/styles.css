@@ -1,0 +1,436 @@
+@font-face {
+  font-family: Bricolage;
+  src: url("../assets/font/BricolageGrotesque.ttf") format("truetype");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+/* Starting proposals, adjustable after visual review; the palette direction is approved. */
+:root {
+  font-family: Bricolage, system-ui, sans-serif;
+  color: var(--forest);
+  background: var(--cream);
+  font-synthesis: none;
+  --forest: #193f32;
+  --deep: #103326;
+  --cream: #f7f5ea;
+  --paper: #fffef8;
+  --gold: #d0a74f;
+  --muted: #536c5d;
+  --line: #d9dfd1;
+  --soft: #e9eee2;
+  --error: #944c36;
+  --shadow-color: #193f3210;
+  --backdrop: #103326b8;
+  --focus: #193f32;
+  --focus-halo: #fffef8;
+  --shadow: 0 12px 35px var(--shadow-color);
+  --radius: 20px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+}
+button,
+input,
+select {
+  font: inherit;
+}
+a {
+  color: inherit;
+}
+button,
+a,
+select,
+input {
+  outline-offset: 4px;
+}
+:focus-visible {
+  outline: 3px solid var(--focus);
+  box-shadow: 0 0 0 6px var(--focus-halo);
+}
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+p {
+  line-height: 1.55;
+}
+h1,
+h2,
+h3 {
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+h1 {
+  font-size: clamp(2.7rem, 6vw, 5.5rem);
+  max-width: 11ch;
+  margin-bottom: 1.2rem;
+}
+h2 {
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+}
+h3 {
+  font-size: 1.35rem;
+}
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -5rem;
+  background: var(--paper);
+  padding: 0.75rem;
+  z-index: 10;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+.header {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+.brand {
+  text-decoration: none;
+  font-size: 1.18rem;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.brand-mark {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: var(--gold);
+}
+.brand-dot {
+  color: var(--gold);
+}
+nav {
+  display: flex;
+  gap: 2rem;
+  align-self: stretch;
+}
+nav a {
+  min-height: 44px;
+  text-decoration: none;
+  font-weight: 650;
+  display: flex;
+  align-items: center;
+  border-bottom: 3px solid transparent;
+  padding: 0.5rem 0.1rem;
+}
+nav a[aria-current="page"] {
+  border-color: var(--gold);
+}
+.locale {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.locale select {
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--forest);
+  background: var(--paper);
+  padding: 0.5rem;
+}
+.main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1.5rem 2rem 5rem;
+  min-height: 75vh;
+}
+.notice {
+  font-size: 0.85rem;
+  background: var(--soft);
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  color: var(--forest);
+}
+.notice span {
+  color: var(--forest);
+  margin-right: 0.4rem;
+}
+.intro {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 5rem 0 5.5rem;
+}
+.eyebrow,
+.ticket-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+.lead {
+  font-size: 1.14rem;
+  color: var(--muted);
+  max-width: 38rem;
+  margin-bottom: 2rem;
+}
+.button {
+  display: inline-flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--forest);
+  border-radius: 10px;
+  background: var(--forest);
+  color: var(--paper);
+  padding: 0.85rem 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  min-height: 48px;
+}
+.button:hover {
+  background: var(--deep);
+}
+.button-secondary {
+  background: transparent;
+  color: var(--forest);
+}
+.button-secondary:hover {
+  background: var(--soft);
+}
+.passport {
+  justify-self: center;
+  width: min(100%, 260px);
+  aspect-ratio: 3/4;
+  background: var(--forest);
+  border-radius: 12px 25px 25px 12px;
+  padding: 14px;
+  box-shadow: 12px 14px 0 var(--gold);
+  transform: rotate(5deg);
+  color: var(--cream);
+}
+.passport-inner {
+  height: 100%;
+  border: 1px solid var(--gold);
+  border-radius: 5px 15px 15px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+}
+.passport-globe {
+  width: 7rem;
+  height: 7rem;
+  color: var(--gold);
+}
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
+}
+.journey {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  border-left: 7px solid var(--gold);
+  padding: 2rem 2.5rem;
+}
+.journey h2 {
+  margin: 0.8rem 0;
+}
+.journey p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+.stamp {
+  border: 2px solid var(--gold);
+  color: var(--forest);
+  border-radius: 50%;
+  width: 105px;
+  height: 105px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  line-height: 1.2;
+  font-size: 0.8rem;
+  font-weight: 800;
+  transform: rotate(-12deg);
+  flex: none;
+}
+.page-heading {
+  padding: 4rem 0 1rem;
+}
+.page-heading h1 {
+  max-width: 18ch;
+}
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.demo-grid > .card:first-child {
+  grid-column: 1/-1;
+}
+.field {
+  display: grid;
+  gap: 0.5rem;
+  max-width: 35rem;
+  font-weight: 700;
+}
+.field input {
+  width: 100%;
+  border: 1px solid var(--muted);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--forest);
+  padding: 0.85rem;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+.state p {
+  color: var(--muted);
+}
+.error {
+  border-left: 3px solid var(--error);
+  padding-left: 1rem;
+}
+.dialog {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 2rem;
+  max-width: min(calc(100% - 2rem), 32rem);
+  max-height: calc(100% - 2rem);
+  overflow: auto;
+  color: var(--forest);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+.dialog::backdrop {
+  background: var(--backdrop);
+}
+.toast {
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  background: var(--soft);
+  border-radius: 8px;
+}
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.spinner {
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid var(--line);
+  border-top-color: var(--forest);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.footer {
+  border-top: 1px solid var(--line);
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.footer span {
+  color: var(--gold);
+  padding: 0 0.5rem;
+}
+@media (max-width: 700px) {
+  .header-inner {
+    padding: 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .brand {
+    margin-right: auto;
+  }
+  nav {
+    order: 3;
+    width: 100%;
+    gap: 1.5rem;
+  }
+  .locale {
+    margin-left: 0;
+  }
+  .main {
+    padding: 1rem 1rem 3rem;
+  }
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 3rem 0;
+  }
+  .passport {
+    width: 160px;
+    justify-self: end;
+    margin-right: 1rem;
+  }
+  .passport-globe {
+    width: 4rem;
+    height: 4rem;
+  }
+  .passport-inner {
+    font-size: 0.6rem;
+  }
+  .journey {
+    padding: 1.5rem;
+    align-items: flex-start;
+  }
+  .stamp {
+    width: 75px;
+    height: 75px;
+    font-size: 0.6rem;
+  }
+  .demo-grid {
+    grid-template-columns: 1fr;
+  }
+  .demo-grid > .card:first-child {
+    grid-column: auto;
+  }
+  .page-heading {
+    padding: 2.5rem 0 1rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+  }
+}
+
+.state h2 {
+  font-size: 1.35rem;
+}

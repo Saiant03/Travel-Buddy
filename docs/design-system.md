@@ -1,5 +1,9 @@
 # Travel Buddy — sistem vizual propus
 
+## Snapshot implementat — Task 2 local, 2026-11-02
+
+Shell-ul demonstrativ folosește Bricolage Grotesque găzduit local cu OFL și proveniență și tokenuri CSS centralizate pentru culoare, focus și suprafețe. Valorile implementate sunt **propuneri ajustabile**, nu aprobări noi. Reviewul browser și contrastele măsurate sunt în [dovada Task 2](evidence/2026-11-02/task-2-ui.md); nu există aprobare umană finală a percepției designului.
+
 **Scop:** contract de design pentru pregătirea implementării. Este o sinteză de lucru, nu o machetă nouă și nu o aprobare implicită a detaliilor care nu au fost confirmate. Machetele descrise în [mockups.md](mockups.md) sunt repere vizuale statice; nu dovedesc funcționarea, lizibilitatea la dimensiuni reale sau accesibilitatea. Fișierele PNG la care se referă notele nu sunt prezente în copia locală inspectată.
 
 ## Ce este deja aprobat și ce rămâne propunere

@@ -164,15 +164,17 @@ type ApiResult<T> = { ok: true; data: T; requestId: string } | { ok: false; erro
 
 **Interfețe:** `App` furnizează router; `t(locale: Locale, key: MessageKey, args?: Record<string,string|number>): string`; componente UI primesc props accesibile și clase/tokens, nu culori hardcodate. UI-ul Task 2 operează numai cu stări demonstrative/mock și nu conectează Firebase, Worker sau D1.
 
-- [ ] **Pasul 1 — inventariere:** verifică fișierele și dependențele existente (Task 0–1, `src/main.tsx`, `src/shared/contracts/*`, configul Vite/TS/package); marchează ce se reutilizează și evită rescrierea probei server/offline.
-- [ ] **Pasul 2 — contract vizual:** extrage din `docs/design-system.md` valorile propuse (marcate în cod/documentație ca propuneri ajustabile), creează tokens CSS și componente comune accesibile: Button, Card, Field, Dialog, Toast, Loading, EmptyState, ErrorState; fără culori inline fixe.
-- [ ] **Pasul 3 — shell:** configurează routerul și navigarea locală responsive; traseele inexistente au fallback. Adaugă date mock explicite dacă e nevoie să demonstrezi interacțiunea; nu acceptă sesiune reală sau date private.
-- [ ] **Pasul 4 — localizare:** implementează catalog complet pentru cheile fundației în RO/EN/FR, cu româna implicită; `t` este tipizat, interpolarea sigură, iar cheile lipsă se detectează în verificare locală.
-- [ ] **Pasul 5 — asset font:** descarcă Bricolage Grotesque aprobat din sursa oficială când este necesar; self-host fișierul și păstrează OFL și proveniența lângă asset.
-- [ ] **Pasul 6 — verificare locală:** rulează verificările existente adecvate (`npm run typecheck`, `npm run lint`, testele fundației/i18n și `npm run build`); documentează exact comenzile și rezultatul. Acestea verifică numai codul local, nu serverul sau P-09.
-- [ ] **Pasul 7 — review:** coordonatorul verifică comportamentul/responsivitatea/accessibility, linkurile, difful și lipsa conectării backend; implementerul repară constatările și coordonatorul reverifică.
+- [x] **Pasul 1 — inventariere:** verifică fișierele și dependențele existente (Task 0–1, `src/main.tsx`, `src/shared/contracts/*`, configul Vite/TS/package); marchează ce se reutilizează și evită rescrierea probei server/offline.
+- [x] **Pasul 2 — contract vizual:** extrage din `docs/design-system.md` valorile propuse (marcate în cod/documentație ca propuneri ajustabile), creează tokens CSS și componente comune accesibile: Button, Card, Field, Dialog, Toast, Loading, EmptyState, ErrorState; fără culori inline fixe.
+- [x] **Pasul 3 — shell:** configurează routerul și navigarea locală responsive; traseele inexistente au fallback. Adaugă date mock explicite dacă e nevoie să demonstrezi interacțiunea; nu acceptă sesiune reală sau date private.
+- [x] **Pasul 4 — localizare:** implementează catalog complet pentru cheile fundației în RO/EN/FR, cu româna implicită; `t` este tipizat, interpolarea sigură, iar cheile lipsă se detectează în verificare locală.
+- [x] **Pasul 5 — asset font:** descarcă Bricolage Grotesque aprobat din sursa oficială când este necesar; self-host fișierul și păstrează OFL și proveniența lângă asset.
+- [x] **Pasul 6 — verificare locală:** rulează verificările existente adecvate (`npm run typecheck`, `npm run lint`, testele fundației/i18n și `npm run build`); documentează exact comenzile și rezultatul. Acestea verifică numai codul local, nu serverul sau P-09.
+- [x] **Pasul 7 — review:** coordonatorul verifică comportamentul/responsivitatea/accessibility, linkurile, difful și lipsa conectării backend; implementerul repară constatările și coordonatorul reverifică.
 
-**Executant:** `gpt-6-luna`; **Skill-uri:** `travel-buddy-engineering`, `frontend-design`, `design-taste-frontend`, `test-driven-development`, `webapp-testing`, `travel-buddy-review`; testele comportamentale i18n/router urmează fail-then-pass; smoke browser local; fără teste pentru CSS/documentație; **Dependențe locale:** Task 0–1 și contractele vizuale existente. **Gate server:** Task 3/live backend rămân blocate de Gate B1/P-09. Asset Lisabona poate rămâne ticket deschis.
+**Executant:** `gpt-6.1-terra` medium (conform D014); **Skill-uri:** `travel-buddy-engineering`, `frontend-design`, `design-taste-frontend`, `test-driven-development`, `webapp-testing`, `travel-buddy-review`; testele comportamentale i18n/router urmează fail-then-pass; smoke browser local; fără teste pentru CSS/documentație; **Dependențe locale:** Task 0–1 și contractele vizuale existente. **Gate server:** Task 3/live backend rămân blocate de Gate B1/P-09. Asset Lisabona poate rămâne ticket deschis.
+
+**Snapshot 2026-11-02:** Task 2 local revizuit și verificat; [dovezi și limite](../evidence/2026-11-02/task-2-ui.md). Nu este acceptare online, iar Task 3 rămâne blocat de B1/P-09. Commit/push autorizate sunt încă neexecutate la acest snapshot.
 
 ### Task 3: API auth, administrare celor două conturi și izolarea privată
 
