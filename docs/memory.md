@@ -8,7 +8,7 @@ Implementarea și remedierile sunt delegate; coordonatorul nu a preluat codul. R
 
 [Contractul Task 4A](plans/2026-11-02-task-4a-local-preferences.md) și planul păstrează **Task 4 complet nefinalizat și dependent de Task 3** pentru backend, izolare reală și ajustări per vacanță. P-09 rămâne FAIL: zece cereri cold distincte din 100 peste 7 ms, p95 exact necunoscut; Gate B1, Task 3, backendul și acceptarea online rămân blocate. Nu s-au reluat CPU/CAS/iPhone, atins fixture-uri reale sau modificat servicii/furnizori/costuri. Fără deploy/publicare sau PR.
 
-La reluare copia locală era curată pe `work` la `a2f8272`; fetch a confirmat `origin/main` la `55c2c11`, iar `main` local a fost deschis fără force/reset. Reperele Task 2 `40198ed` și `55c2c11` au fost păstrate. După verificări, un nou fetch a confirmat zero divergență față de remote; commit/push autorizate urmează acestui snapshot.
+La reluare copia locală era curată pe `work` la `a2f8272`; fetch a confirmat `origin/main` la `55c2c11`, iar `main` local a fost deschis fără force/reset. Reperele Task 2 `40198ed` și `55c2c11` au fost păstrate. După verificări, un nou fetch a confirmat zero divergență față de remote. Task 4A a fost livrat în `c4ffb7d63c23cd8c39d7b798d1bd8f32a16b6d8e` prin push fără force pe `main`; HEAD și `origin/main` identice și arbore curat au fost confirmate. Confirmarea documentară se salvează separat; fără deploy.
 
 ## Task 2 — fundație UI locală finalizată, 2026-11-02
 

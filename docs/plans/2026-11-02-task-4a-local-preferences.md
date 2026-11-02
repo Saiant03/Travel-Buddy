@@ -40,8 +40,10 @@
 - [x] Confirmă GREEN, apoi rulează suita unit completă, typecheck, lint și build.
 - [x] Review independent și browser local al coordonatorului: selecții/căutare/progres, navigare și tastatură, RO/EN/FR, mobil/desktop, zoom 200%, reduced motion, reset la reload.
 - [x] Delegă remedierile și reverifică rezultatul afectat; documentează exact verificările și limitele.
-- [ ] După review și verificări trecute, commit/push fără force pe `main`, autorizate. Fără deploy sau PR automat.
+- [x] După review și verificări trecute, commit/push fără force pe `main`, autorizate. Fără deploy sau PR automat.
 
 ## Rezultat
 
 [Rezultatul verificat și limitele](../evidence/2026-11-02/task-4a-local-preferences.md): 130/130 teste unitare, typecheck, lint, build, 9/9 E2E Chromium. Reviewurile independente și coordonatorul au închis defectele confirmate. Browser: cinci categorii în RO/EN/FR, mobil/desktop, tastatură, reduced motion, zoom CSS 200%; zoomul nativ, Safari, cititorul de ecran și telefonul fizic nu sunt demonstrate. Precizările non-food sunt note, iar prepararea structurată este demonstrată la ceapă/roșii. Inventarul alimentar și valorile exacte de design rămân propuneri. Task 4 complet rămâne nefinalizat și blocat pentru integrarea backend/izolare reală/ajustări per vacanță.
+
+Livrare Git: `c4ffb7d63c23cd8c39d7b798d1bd8f32a16b6d8e`, push fără force confirmat pe `main`, HEAD egal cu `origin/main` și arbore curat după push. Fără deploy sau PR.
