@@ -4,11 +4,13 @@
 1. Citește `docs/memory.md`, `docs/product.md` și `docs/plan.md`.
 2. Pentru implementare sau review, citește `docs/process.md` și deciziile relevante din `docs/decisions.md`.
 3. Păstrează documentele la zi cu fapte verificate; memoria nu se încarcă singură și nu înlocuiește codul.
+4. Înaintea unei sarcini administrative, verifică discret accesul disponibil în sesiunea curentă. Variabilele persistente apar în sesiunile care folosesc mediul Travel-Buddy; un chat vechi poate să nu le încarce. Nu reface setup-ul automat, nu afișa și nu copia secrete și nu presupune că profilul CLI `cf` este autentificat (profilul `default` a fost găsit neconectat). Raportul dintr-un alt chat despre variabilele Cloudflare și GET-urile reușite este consemnat în `docs/memory.md`, dar nu se prezintă ca verificare directă a sesiunii curente. Nu există un buton de restart verificat.
 
 ## Mandat
 Site local personal pentru utilizator și prietena lui. Comunicăm în română.
 Utilizatorul nu are cunoștințe IT. Explică în termeni simpli acțiunea, motivul și alegerea necesară, cu exemple concrete. Evită jargonul și tonul infantil. Skill-urile de comprimare a mesajelor pot fi folosite între agenți, dar nu reduc claritatea explicațiilor pentru utilizator.
 Etapa curentă include recuperarea și verificarea probelor Cloudflare/Firebase existente, autorizată explicit la 2026-11-01. Citește starea recentă din `docs/memory.md` și `docs/operations/2026-11-01-probe-recovery.md`; notele din octombrie sunt istoric. Mandatul acoperă alinierea celor două conturi acceptate de server, fixture-uri sintetice în D1 dedicată și verificarea probelor, inclusiv aplicarea configurației necesare probei. Nu autorizează implementarea completă a aplicației, publicarea produsului, facturarea sau activarea altor furnizori. Explorarea vizuală este încheiată.
+Utilizatorul a autorizat și operațiunile necesare cererilor explicite de lucru prin GitHub, Firebase și Cloudflare, fără confirmări repetitive. Cere confirmare numai dacă accesul a expirat sau verificarea depinde de o acțiune a proprietarului, dacă apar costuri, ștergere importantă ori o acțiune care depășește mandatul. Această autorizare nu este permisiune implicită de implementare sau publicare a produsului.
 Nu presupune stack, funcționalități, stil sau sensul cuvântului „local”.
 
 ## Ierarhie autorizată de utilizator

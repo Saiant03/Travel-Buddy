@@ -29,14 +29,16 @@ Nu sunt incluse măsurători ale timpului CPU p50/p95, numărul de erori sau cot
 
 Proba offline desktop trecuse deja și nu a fost rerulată la 2 noiembrie. Utilizatorul a spus că a verificat offline, fără a preciza dispozitivul; nu există dovezi păstrate pentru telefon, deci verificarea pe telefon rămâne nedemonstrată și nu se marchează trecut.
 
-Pentru acces administrativ persistent, utilizatorul a raportat că a creat un cont de serviciu dedicat proiectului și i-a atribuit rolul recomandat Firebase Authentication Admin; rolul nu a fost verificat independent aici. După publicarea configurației mediului și pornirea unei sesiuni noi, acea sesiune a raportat că `FIREBASE_SERVICE_ACCOUNT_JSON` era disponibil și nevid, autentificarea a reușit, iar citirea proiectului a întors HTTP 200 fără modificări. Acest rezultat aparține sesiunii noi și nu a fost măsurat în acest checkout. Accesul este reutilizabil în sesiunile care folosesc mediul Travel-Buddy cât timp credentialul este valid; nu este acces global tuturor chaturilor.
+Pentru acces administrativ persistent, la 2026-11-02 autentificarea service account din chatul curent și citirea proiectului Firebase au reușit (HTTP 200) fără modificări. `FIREBASE_SERVICE_ACCOUNT_JSON` este disponibil în mediul folosit de acea verificare; accesul depinde de mediul sesiunii și de valabilitatea credentialului.
 
-Persistența Cloudflare rămâne de configurat/verificat în sesiunea nouă. Nu pretinde că este conectată. Numele variabilei `FIREBASE_SERVICE_ACCOUNT_JSON` este păstrat ca reper; nu se salvează emailul contului de serviciu sau ID-ul cheii. Codul `FIREBASE_AUTH_CODE` a fost consumat și nu se reutilizează. Nu cere parole, coduri sau secrete în chat.
+Utilizatorul a raportat dintr-un alt chat nou că `CLOUDFLARE_API_TOKEN` și `CLOUDFLARE_ACCOUNT_ID` au fost salvate de el în Environment. În acel chat, verificarea nevidă a variabilelor a reușit, iar apelurile GET au returnat HTTP 200 pentru Worker-ele `travel-buddy-offline-probe`, `travel-buddy-server-probe` și pentru listarea/metadatele D1 `travel-buddy-server-probe`. Acesta este un raport copiat, nu o verificare directă făcută în chatul curent; acesta încă nu a încărcat noile variabile. Nu deduce din acest rezultat că profilul CLI `cf` este autentificat: profilul `default` observat anterior nu era conectat.
+
+La începutul unei sesiuni noi, verifică discret ce acces este efectiv disponibil, fără a afișa sau citi în conversație valorile secretelor și fără a reface automat configurarea. Nu copia, șterge sau roti tokenurile existente. Numele variabilelor sunt repere suficiente. Codul `FIREBASE_AUTH_CODE` a fost consumat și nu se reutilizează. Nu cere parole, coduri sau secrete în chat.
 
 ## Limite și următorii pași
 
 1. Păstrează fixture-ul la starea rezultată din CAS; nu îl reseta automat.
 2. Obține valorile Cloudflare CPU p50/p95, erorile și cotele aferente workloadului transmis pentru a decide P-09.
-3. Verifică separat accesul persistent Cloudflare în sesiunea nouă.
+3. La următoarea sarcină, verifică discret accesul Cloudflare disponibil în acea sesiune; rezultatul din chatul nou rămâne raportat, nu verificat direct aici.
 4. Păstrează telefonul offline nedemonstrat până există o dovadă specifică dispozitivului.
 5. Produsul complet nu este implementat; nu a fost autorizată facturarea.

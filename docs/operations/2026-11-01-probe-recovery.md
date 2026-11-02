@@ -19,7 +19,7 @@ Acest document păstrează dovezile și pașii de recuperare pentru probele tehn
 - Proiect Firebase (ID neconfidențial): `travel-buddy-b3f48`
 - Baza D1 dedicată: `travel-buddy-server-probe`; nu folosi o bază de produs pentru fixture-uri.
 - Firebase CLI observat: `15.34.2`; apelurile de rețea din acest mediu folosesc `NODE_USE_ENV_PROXY=1`.
-- CLI-urile Cloudflare și Firebase trebuie să folosească sesiunile lor administrative deja configurate; nu copia și nu afișa tokenuri de sesiune.
+- Folosește CLI-urile Cloudflare/Firebase numai după ce verifici discret sesiunea curentă; profilul `default` al CLI-ului Cloudflare a fost găsit neautentificat, deci nu presupune că există OAuth valid. Pentru contextul actual de acces persistent și limita chatului vechi, vezi actualizarea din 2 noiembrie în [jurnalul verificărilor](2026-11-02-alpha-beta-verification.md). Nu copia și nu afișa tokenuri de sesiune.
 
 Nu salva parole, coduri de autentificare, UID-uri, adrese de email, chei API sau tokenuri în acest document, în rezultate sau în loguri. Nu afișa acești identificatori în capturi ori rapoarte. Nu exporta utilizatorii Firebase; exportul poate include hash-uri de parole. Folosește numai verificări de metadate strict necesare, fără câmpurile de identitate.
 
