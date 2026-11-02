@@ -2,7 +2,11 @@
 
 Proiect personal pentru doi utilizatori. Aplicația completă nu este încă implementată. Există două probe tehnice Cloudflare, cu Firebase Authentication și o bază D1 dedicată probei server.
 
-## Stare actuală — 1 noiembrie 2026
+## Stare actuală — 2 noiembrie 2026
+
+Defectul care oprea conectarea Alpha înainte de cererea Firebase este corectat. Ambele emailuri sunt confirmate; urmează autentificarea reală în panou. [Predarea incidentului și continuarea](docs/operations/2026-11-02-alpha-login-fix.md) păstrează dovezile și limitele.
+
+## Recuperarea inițială — 1 noiembrie 2026
 
 Recuperăm probele existente și verificăm conectarea celor două conturi. Starea verificată, blocajele și limitele autorizării sunt în [jurnalul de recuperare](docs/operations/2026-11-01-probe-recovery.md). Machetele și planul produsului rămân repere; disponibilitatea probelor nu demonstrează funcționarea aplicației complete.
 

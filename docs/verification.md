@@ -1,5 +1,11 @@
 # Raport de verificare a fundației
 
+## Regresia conectării Alpha — 2026-11-02
+
+Corecția apelului nativ `fetch` a trecut RED/GREEN în Chromium cu răspunsuri Firebase sintetice și review independent. După aplicare, formularul real a trimis cererea la Firebase: un cont fictiv inexistent a primit 400 `INVALID_LOGIN_CREDENTIALS`, fără eșec de transport. Modulele backend, bindings și datele D1 nu au fost schimbate. Ambele conturi Firebase au acum emailurile confirmate.
+
+Aceste dovezi nu demonstrează conectarea cu parolele reale, accesul pozitiv, CAS sau CPU. Detaliile și instrumentele sunt în [jurnalul incidentului](operations/2026-11-02-alpha-login-fix.md). Rezultatele de mai jos păstrează starea etapelor anterioare, la data fiecăreia.
+
 ## Verificări reale ale probelor — 2026-11-01
 
 Această secțiune și [jurnalul operațional](operations/2026-11-01-probe-recovery.md) descriu serviciile observate acum; rapoartele de pregătire din octombrie rămân istoric. Verificarea de către trei agenți `gpt-6-luna`, reviewul independent `gpt-6.1-sol` și verificarea integrată a coordonatorului au confirmat:

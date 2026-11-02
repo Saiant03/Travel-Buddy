@@ -1,6 +1,10 @@
 # Plan de lucru — Travel Buddy
 
-## Prioritate curentă — recuperarea probelor, 2026-11-01
+## Prioritate curentă — reluarea conectării, 2026-11-02
+
+Corecția clientului de conectare este activă; ambele emailuri sunt confirmate. Urmează autentificarea reală Alpha/Beta în panoul de probe și rezultatele testelor autentificate. [Predarea incidentului](operations/2026-11-02-alpha-login-fix.md) conține versiunea activă, dovezile și limitele; nu reface onboardingul, nu cere parole și nu reseta fixture-ul. Produsul complet nu este încă implementat sau validat.
+
+## Etapa precedentă — recuperarea probelor, 2026-11-01
 
 Cererea nouă autorizează alinierea conturilor probei server Cloudflare la cele două conturi existente în Firebase, pregătirea fixture-ului sintetic în D1 dedicată și reluarea verificărilor, cu evidențe în GitHub. Nu pornește implementarea aplicației complete sau servicii cu plată.
 

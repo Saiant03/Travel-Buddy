@@ -1,6 +1,12 @@
 # Memorie de proiect
 
-## Stare curentă — recuperarea probelor, 2026-11-01
+## Stare curentă — conectarea Alpha corectată, 2026-11-02
+
+Pagina de probă avea un defect de apel al funcției native `fetch`, care oprea conectarea înainte să ajungă la Firebase. Corecția este aplicată, verificată în browser și documentată în [predarea incidentului Alpha](operations/2026-11-02-alpha-login-fix.md). Instrumentele de reproducere sunt salvate în `tools/probe-recovery`; sursa TypeScript originală a clientului rămâne de recuperat, nu există un build complet în checkout.
+
+Ambele emailuri sunt acum confirmate. **Următorul pas:** utilizatorul reîncarcă panoul și încearcă Alpha, apoi Beta. Nu este încă demonstrată conectarea cu parolele reale sau rularea probelor pozitive/CAS/CPU. Nu cere parole în chat și nu reface setup-ul administrativ fără un eșec concret. Allowlist-ul și fixture-ul D1 au rămas corecte; nu reseta baza. Contextul de mai jos este istoricul etapei precedente.
+
+## Etapa precedentă — recuperarea probelor, 2026-11-01
 
 Utilizatorul a autorizat corectarea probei server Cloudflare/Firebase, date fictive în D1 dedicată și salvarea rezultatelor în GitHub. Nu este o cerere de implementare a produsului complet. Starea detaliată și pașii de reluare se păstrează în [jurnalul operațional](operations/2026-11-01-probe-recovery.md); această secțiune primează asupra istoricului din octombrie.
 

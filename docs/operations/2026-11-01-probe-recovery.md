@@ -1,5 +1,9 @@
 # Recuperarea probelor autentificate — 1 noiembrie 2026
 
+## Actualizare — 2 noiembrie 2026
+
+Ambele emailuri sunt acum confirmate. A fost remediat și defectul clientului care oprea cererea de conectare; starea actuală și pasul următor sunt în [incidentul Alpha](2026-11-02-alpha-login-fix.md). Rezultatele de mai jos descriu etapa inițială din 1 noiembrie; nu relua cererile de confirmare pentru conturi deja confirmate.
+
 ## Stare și scop
 
 Acest document păstrează dovezile și pașii de recuperare pentru probele tehnice deja publicate. Verificarea inițială a confirmat că paginile de probă răspund, dar probele pozitive cu cele două conturi nu au fost executate. Faptele necesare reluării sunt consemnate aici, fără dependență de fișierele temporare ale sesiunii.
