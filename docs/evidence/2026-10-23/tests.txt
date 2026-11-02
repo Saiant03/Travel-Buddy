@@ -1,0 +1,12 @@
+
+> travel-buddy@0.0.0 test
+> vitest run
+
+
+ RUN  v4.1.12 /workspace/Travel-Buddy
+
+
+ Test Files  9 passed (9)
+      Tests  75 passed (75)
+   Start at  07:09:43
+   Duration  5.87s (transform 574ms, setup 110ms, import 1.51s, tests 2.08s, environment 1ms)

@@ -4,21 +4,18 @@
 1. Citește `docs/memory.md`, `docs/product.md` și `docs/plan.md`.
 2. Pentru implementare sau review, citește `docs/process.md` și deciziile relevante din `docs/decisions.md`.
 3. Păstrează documentele la zi cu fapte verificate; memoria nu se încarcă singură și nu înlocuiește codul.
-4. Înaintea unei sarcini administrative, verifică discret accesul disponibil în sesiunea curentă. Variabilele persistente apar în sesiunile care folosesc mediul Travel-Buddy; un chat vechi poate să nu le încarce. Nu reface setup-ul automat, nu afișa și nu copia secrete și nu presupune că profilul CLI `cf` este autentificat (profilul `default` a fost găsit neconectat). Raportul dintr-un alt chat despre variabilele Cloudflare și GET-urile reușite este consemnat în `docs/memory.md`, dar nu se prezintă ca verificare directă a sesiunii curente. Nu există un buton de restart verificat.
+4. Înaintea unei sarcini administrative, verifică discret accesul disponibil în sesiunea curentă. Variabilele persistente apar în sesiunile care folosesc mediul Travel-Buddy; un chat vechi poate să nu le încarce. Nu reface setup-ul automat, nu afișa și nu copia secrete și nu presupune că profilul CLI `cf` este autentificat (profilul `default` a fost găsit neconectat). Separă rapoartele din alte sesiuni de preflight-ul efectuat direct în sesiunea curentă. Ultimul preflight read-only a confirmat Cloudflare Worker/D1 metadata și Firebase OAuth/Auth cu HTTP 200; D1 a afișat șase tabele fără validarea schemei/conținutului. Nu afișa secrete și nu reface setup-ul dacă preflight-ul actual a reușit.
 
 ## Mandat
 Site local personal pentru utilizator și prietena lui. Comunicăm în română.
 Utilizatorul nu are cunoștințe IT. Explică în termeni simpli acțiunea, motivul și alegerea necesară, cu exemple concrete. Evită jargonul și tonul infantil. Skill-urile de comprimare a mesajelor pot fi folosite între agenți, dar nu reduc claritatea explicațiilor pentru utilizator.
-Etapa curentă include recuperarea și verificarea probelor Cloudflare/Firebase existente, autorizată explicit la 2026-11-01. Citește starea recentă din `docs/memory.md` și `docs/operations/2026-11-01-probe-recovery.md`; notele din octombrie sunt istoric. Mandatul acoperă alinierea celor două conturi acceptate de server, fixture-uri sintetice în D1 dedicată și verificarea probelor, inclusiv aplicarea configurației necesare probei. Nu autorizează implementarea completă a aplicației, publicarea produsului, facturarea sau activarea altor furnizori. Explorarea vizuală este încheiată.
+Fundația tehnică din branch-ul `codex/implementation-foundation` este candidat de integrare; produsul complet rămâne neimplementat. Starea reală a probelor, a măsurătorilor și a telefonului este în `docs/memory.md` și `docs/verification.md`. Rezolvarea documentației pentru integrare nu autorizează implementarea produsului, facturarea sau activarea altor furnizori. Explorarea vizuală este încheiată.
 Utilizatorul a autorizat și operațiunile necesare cererilor explicite de lucru prin GitHub, Firebase și Cloudflare, fără confirmări repetitive. Cere confirmare numai dacă accesul a expirat sau verificarea depinde de o acțiune a proprietarului, dacă apar costuri, ștergere importantă ori o acțiune care depășește mandatul. Această autorizare nu este permisiune implicită de implementare sau publicare a produsului.
 Nu presupune stack, funcționalități, stil sau sensul cuvântului „local”.
 
 ## Ierarhie autorizată de utilizator
 Agentul principal planifică, stabilește contractele, deleagă, integrează și verifică rezultatul final.
-Folosește agenți mai mici pentru sarcini clare de implementare și corectare; delegarea este autorizată pentru acest proiect.
-Folosește `gpt-6-luna` pentru lucrări delimitate și modelul principal pentru decizii și review final.
-Pentru review independent dificil folosește `gpt-6.1-sol`, dacă este disponibil.
-Folosește atâția subagenți câte lucrări independente justifică, în limita capacității sesiunii (în această sesiune: șase subagenți plus coordonatorul), inclusiv în valuri. Instrucțiunea utilizatorului din 2026-10-23 înlocuiește limita istorică de trei. Fiecare are fișiere proprii; serializăm modificările comune.
+Delegarea este autorizată, cu preferința curentă a utilizatorului: subagenții folosesc numai `gpt-6-luna`; coordonatorul face reviewul final. Nu folosi modele mai costisitoare, inclusiv `gpt-6.1-sol`, fără acordul utilizatorului. Împarte lucrul pe fișiere distincte și serializează modificările comune.
 Nu schimba automat modelul principal. Dacă un model cerut nu este disponibil, raportează și folosește o alternativă disponibilă explicit identificată.
 
 ## Skill-uri

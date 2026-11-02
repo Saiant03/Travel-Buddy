@@ -1,0 +1,16 @@
+name = "travel-buddy-probe-local"
+main = "./index.ts"
+compatibility_date = "2026-10-22"
+
+# This placeholder project/UID pair cannot authenticate real Firebase users.
+# Replace values only after a separate service-activation agreement.
+[vars]
+FIREBASE_PROJECT_ID = "travel-buddy-local-probe.invalid"
+ALLOWED_UID_1 = "synthetic-uid-alpha"
+ALLOWED_UID_2 = "synthetic-uid-beta"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "travel-buddy-probe-local"
+database_id = "00000000-0000-0000-0000-000000000001"
+migrations_dir = "../migrations"

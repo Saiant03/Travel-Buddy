@@ -1,7 +1,7 @@
 name = "tb_reviewer"
 description = "Review independent Travel Buddy pentru corectitudine, regresii si verificari lipsa."
-model = "gpt-6.1-sol"
-model_reasoning_effort = "high"
+model = "gpt-6-luna"
+model_reasoning_effort = "medium"
 developer_instructions = """
 Citeste AGENTS.md, cerintele si modificarile efective. Foloseste travel-buddy-review.
 Nu modifica fisiere. Cauta defecte concrete si comportamente neverificate, proportional cu sarcina.

@@ -7,9 +7,23 @@ Utilizatorul a furnizat rapoarte pentru build `032757c940a4cd17c624304bc010d9381
 - **Acces și izolare: 10/10 trecute.** Cererile fără autentificare sau cu autentificare malformată au primit 401; fiecare cont și-a citit propriul profil (200), profilul celuilalt a fost refuzat (403), ambii au citit vacanța comună (200), iar accesul la vacanța privată a fost refuzat (403). Toate răspunsurile au `private, no-store`.
 - **CAS/idempotency: 14/14 trecute.** Ambii au citit versiunea 7; propunerea câștigătoare a primit 200, concurenta 409; ambii au reîncărcat versiunea 8, iar retry-urile au întors aceeași confirmare câștigătoare. Testul a modificat fixture-ul; nu îl reseta și nu îl relua automat.
 - **CPU / P-09: trimitere executată, verdict în așteptare.** Au fost trimise 200 de cereri (100 cold/cold și 100 warm/warm), payload 262144 bytes și `isolateColdState=not_observed`. Raportul nu conține CPU p50/p95, erori sau cote Cloudflare, deci nu demonstrează performanța ori rezultatul P-09.
-- **Offline:** proba desktop trecută anterior; nu a fost repetată. Telefonul nu este demonstrat de dovezile păstrate și nu se marchează trecut.
-- **Acces administrativ Firebase:** utilizatorul a raportat că sesiunea nouă, pornită după configurarea mediului Travel-Buddy, a citit `FIREBASE_SERVICE_ACCOUNT_JSON`, s-a autentificat și a citit proiectul cu HTTP 200 fără modificări. Aceasta este confirmare raportată pentru sesiunea respectivă, nu măsurare din acest checkout. Cloudflare persistent rămâne neconfigurat/neconfirmat în sesiunea nouă.
+- **P12-A offline pe iPhone:** PASS manual raportat de utilizator pentru fixture-ul sintetic pe iPhone 14 Pro Max, conform [dovezii de progres](evidence/2026-10-23/phone-probe-progress.md). Nu este test independent sau acceptare a produsului complet; nu se cere repetarea. E2E-ul desktop offline a trecut; Android nu este confirmat și nu este condiție de integrare.
 
+## Preflight curent și verificări de integrare — 2026-11-02
+
+Preflight-ul coordonatorului, numai de citire, a confirmat Cloudflare HTTP 200 pentru listarea ambelor Worker-e și listarea/detaliile D1. Răspunsul D1 a afișat șase tabele, fără validarea schemei sau conținutului. Firebase OAuth și citirea Auth au răspuns HTTP 200; agregatul a arătat două conturi email-confirmate și enabled. Nu s-au făcut mutații Cloudflare/Firebase/D1, workload CPU sau CAS în acest preflight. Nu s-a comparat direct configurația UID versionată cu allowlist-ul live: sursa privată a valorilor lipsește. Această comparație rămâne necesară înainte de un deploy/configurare, nu pentru integrarea locală; niciun deploy nu s-a executat.
+
+Verificările locale au trecut: `npm ci` cu cache temporar, 111/111 teste în 12 fișiere, typecheck, lint și E2E Chromium **8/8** (shell 1, server-console 6, offline 1). Testul BR01 a reprodus „Neautentificat” pe codul original (RED), apoi a trecut după fix (GREEN). Toate cele trei builds pornite prin Playwright `webServer` au trecut. Buildurile au emis avertismente Rollup `@PURE` pentru Zod și `NO_COLOR`; nu au fost erori blocante. Reviewul și verificarea finală a coordonatorului s-au încheiat; candidatul rămâne necomis, deci integrarea nu este declarată finalizată.
+
+Workers Builds API a răspuns HTTP 403 la trigger. Nu s-a stabilit dacă există automatizare de branch și nu s-a executat nicio acțiune de deploy. Rezultatul nu este tratat ca dovadă de deploy și nici ca blocaj demonstrat pentru integrarea locală.
+
+Aceste verificări sunt separate de P12-A pe iPhone (PASS manual pe fixture sintetic, fără repetare) și de măsurătorile Cloudflare încă lipsă pentru workload-ul CPU trimis anterior.
+
+## Fundația locală — rezultate istorice din snapshotul 2026-10-24
+
+Branch-ul de fundație a păstrat un snapshot cu **111/111 teste în 12 fișiere**, typecheck, lint, **7/7 E2E Chromium** și compilare Worker cu Wrangler `--dry-run`. E2E-urile consolei au folosit Firebase simulat; dry-run-ul nu este deploy. Aceste rezultate sunt ale snapshotului respectiv și nu au fost rerulate pentru această reconciliere. Dovezile complete și limitele sunt în [README-ul de dovezi din 24 octombrie](evidence/2026-10-24/README.md).
+
+Snapshotul local din 23 octombrie consemnează 75/75 teste, 2/2 E2E Chromium și dry-run, de asemenea istoric. Niciun rezultat local nu substituie verificările Cloudflare/Firebase reale ori acceptarea produsului complet.
 
 ## Regresia conectării Alpha — 2026-11-02
 

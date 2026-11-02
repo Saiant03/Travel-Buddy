@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f0e5" />
+    <meta name="description" content="Probă tehnică locală pentru salvare offline." />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <title>Proba offline — Travel Buddy</title>
+  </head>
+  <body>
+    <main>
+      <h1>Proba locală P12-A</h1>
+      <p>Fixture fictiv. Pagina verifică shell-ul public și copia locală din IndexedDB.</p>
+      <p id="connection" aria-live="polite">Conexiune: se verifică…</p>
+      <p id="shell-state" aria-live="polite">Shell public: se verifică…</p>
+      <p id="snapshot-state" role="status" aria-live="polite">Copie locală: se verifică…</p>
+      <div>
+        <button id="save" type="button">Salvează fixture-ul</button>
+        <button id="reload" type="button">Reîncarcă din IndexedDB</button>
+        <button id="interrupt" type="button">Simulează update întrerupt</button>
+      </div>
+      <figure>
+        <img id="fixture-photo" alt="Fotografie sintetică locală pentru proba offline" />
+        <figcaption>Fotografie sintetică; nu provine dintr-o destinație reală.</figcaption>
+      </figure>
+      <p id="photo-state" aria-live="polite">Fotografie salvată: încă nu a fost citită.</p>
+    </main>
+    <script type="module" src="/main.ts"></script>
+  </body>
+</html>

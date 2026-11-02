@@ -1,5 +1,8 @@
 # Proces de lucru
 
+## Execuție curentă — 2026-10-23
+Implementarea conform planului, activarea serviciilor gratuite și publicarea sunt autorizate prin cererea actuală; nu cere repetarea acordului. Instrucțiunile istorice despre acord separat pentru gratuit sunt depășite. Tasks 0–1 și partea locală Task 1b au urmat delegare → review → corectare delegată → reverificare → integrare → verificare finală. Gate B1 cere în continuare dovezile reale. Fără card/billing/upgrade automat; orice pas cu plată se oprește și se explică înainte de executare. Nu se publică automat issues sau PR-uri.
+
 ## Responsabilități
 Utilizatorul decide scopul, preferințele și acceptarea finală.
 Coordonatorul păstrează imaginea de ansamblu, alege soluția tehnică după brief, definește sarcinile și verifică integrarea.

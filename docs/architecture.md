@@ -1,5 +1,8 @@
 # Arhitectură propusă — Travel Buddy
 
+## Execuție autorizată — 2026-10-23
+Utilizatorul a autorizat Tasks 0, 1 și 1b, apoi activarea serviciilor gratuite și publicarea. Contractele wire și codurile API sunt înghețate de coordonator în [contracts-v1.md](contracts-v1.md), înainte de implementarea parserelor. React/TypeScript/Vite și Zod sunt alegeri de implementare locală; extinderea aplicației așteaptă Gate B1. Plata, cardul, billing și upgrade-ul automat nu sunt autorizate. [Accesul la conturi](cloud-access.md) rămâne necesar și nu se deduce din acest acord.
+
 Evaluare documentară pentru o aplicație privată cu două conturi, în limitele planurilor gratuite. Sursele au fost consultate la 23 octombrie 2026 (Europe/Bucharest); prețurile, limitele și termenii se reverifică înainte de activarea serviciilor. Aceasta este recomandarea coordonatorului pentru planificare, nu o tehnologie activată și nici o garanție de cost zero sau funcționare integrată.
 
 ## Recomandare
