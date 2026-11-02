@@ -1,74 +1,44 @@
-# Plan de reconciliere a branchurilor — 2 noiembrie 2026
+# Reconciliere branchului implementation-foundation — 2 noiembrie 2026
 
-> **For agentic workers:** Follow docs/process.md: delegated implementation, review, repair and final coordinator verification task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **Execuție:** numai agenți gpt-6-luna pentru corectări și verificări delimitate. Coordonatorul definește contractul, face review și verificarea integrată. Planul curent este numai pentru corectări și verificări, fără mutații sau publicare. După trecerea testelor, integrarea în main este autorizată de utilizator; publicarea rămâne o acțiune separată.
 
-**Goal:** Integrarea sigură a fundației și probelor în main, păstrând remedierile și dovezile recente.
-**Architecture:** Se combină codul din codex/implementation-foundation cu actualizările operaționale din main. Configurația privată activă rămâne sursa identităților; integrarea Git nu implică publicare.
-**Tech Stack:** TypeScript, React/Vite, Cloudflare Worker/D1, Firebase Auth, Vitest/Playwright.
-**Spec:** docs/product.md, docs/process.md, docs/operations/2026-11-02-alpha-login-fix.md, docs/operations/2026-11-02-alpha-beta-verification.md.
+**Scop:** Pregătirea integrării selective peste main după remedierea a două probleme P1 și alinierea documentelor la dovezile curente.
 
-## Starea verificată și decizia
+**Context:** Compare GitHub indică branch divergent, 13 commituri înainte și 9 în urmă. Reviewul a găsit (1) fallback fetch nativ nelegat în probes/server-console/controller.ts, cu risc de Illegal invocation, și (2) UID-uri vechi în probes/server/wrangler.console.toml. Valorile private nu se repetă aici.
 
-Connectorul GitHub confirmă două branchuri: main și codex/implementation-foundation. Comparația arată 13 commituri specifice fundației și 9 specifice main; baza comună este 11e72f96. Snapshotul local work=48b91d6 este deja inclus în main=ea4f974 și nu are nimic nou de integrat.
+## BR01 — Fetch
 
-Review independent: NU integra fundația în forma actuală. BR-01: controller.ts păstrează fetch nativ fără receptor și reintroduce defectul Illegal invocation. BR-02: wrangler.console.toml include identificatori privați și configurație veche care poate suprascrie allowlist-ul corectat. BR-03: documentele fundației trebuie reconciliate cu dovezile din 1–2 noiembrie. Reviewul a inspectat inventarul diferențelor și fișierele relevante, nu certifică fiecare fișier și nu înlocuiește testele.
+Fișiere: probes/server-console/controller.ts; tests/probes/console-controller.test.ts; tests/e2e/server-console.spec.ts.
 
-Rezultate păstrate în main: acces Alpha/Beta 10/10, CAS/retry 14/14, fixture avansat la versiunea 8. CPU a fost trimis, fără verdict de performanță. Offline desktop trecut; telefon nedemonstrat. Produsul complet nu este implementat.
+- [ ] Adaugă regresie cu fetch nativ fără wrapper window.fetch și verifică reproducerea defectului înainte de fix.
+- [ ] Aplică fallback fetch.bind(globalThis), păstrând fetcherul injectat; testează ambele căi și fluxul relevant.
+- [ ] Rulează testele țintite, typecheck, lint, build și E2E disponibil. Dacă npm/proxy blochează, declară comenzile neexecutate cu eroarea exactă fără secrete.
+- [ ] Review independent; coordonatorul verifică fixul și rezultatele.
 
-În această sesiune, environment_status confirmă variabilele administrative ready și politica de rețea enforced, dar cererile reale către Workers și git fetch eșuează deoarece proxy:8080 este inaccesibil. Nu putem reconfirma acum Firebase, Cloudflare sau D1. Readiness nu este dovadă HTTP.
+## BR02 — Configurație UID privată
 
-## Global Constraints
+Fișiere: probes/server/wrangler.console.toml; probes/server-console/README.md; docs/cloud-access.md.
 
-- Fără facturare, produs complet sau publicare implicită.
-- Nu reseta fixture-ul, nu relua CAS automat; versiunea 8 este rezultatul probei.
-- Nu salva identificatori personali, parole sau tokenuri în Git ori rapoarte.
-- Nu modifica emailVerified și nu crea sesiuni de substituție.
-- Păstrează rezultatele recente din main; nu înlocui main cu snapshotul vechi.
-- Problemele de proxy se remediază prin configurația mediului; nu se ocolește proxy-ul.
+- [ ] Elimină valorile vechi din fișierul urmărit; păstrează numele variabilelor și bindings necesare.
+- [ ] Compară numai în citire configurația versionată cu starea/documentația privată existentă, fără a afișa valori. JSON Merge Patch din D010 este procedura istorică de păstrare a bindings; documenteaz-o pentru continuitate, dar nu o aplica în această corectare și nu modifica servicii.
+- [ ] Verifică read-only că configurația nu contrazice allowlist-ul privat și că diff-ul/logurile nu conțin identități. Zero mutații Cloudflare/Firebase/D1 în această etapă. Dacă metoda de livrare ulterioară nu păstrează valorile private, ridică întrebarea înaintea execuției.
+- [ ] Review independent al TOML-ului și instrucțiunilor.
 
-## Review Focus
+## BR03 — Documente, stare offline și costuri
 
-- Fetch nativ în Chromium trebuie să ajungă la endpoint fără Illegal invocation.
-- Fetcherul injectat trebuie să continue să funcționeze.
-- Configurația versionată nu trebuie să introducă identități sau să înlocuiască allowlist-ul privat.
-- Îmbinarea documentelor trebuie să păstreze rezultatele Alpha/Beta și restricția fixture-ului.
-- Dovezile desktop nu închid automat verificarea pe telefon sau P-09.
+Fișiere: docs/verification.md; docs/memory.md; docs/plan.md; docs/plans/2026-10-23-technical-probes.md; docs/cloud-access.md și docs/cloudflare-pages-probe.md după verificarea provenienței.
 
-## Task 1: Corecția sursei și regresia conectării
+- [ ] Marchează P12-A drept PASS MANUAL USER pe iPhone, fixture sintetic, pe baza docs/evidence/2026-10-23/phone-probe-progress.md și a confirmării utilizatorului. Păstrează limitele dovezii și rezultatul Chromium desktop separat; nu cere repetarea iPhone-ului și nu descrie testul ca validare a produsului privat.
+- [ ] Android este neconfirmat; clarifică dacă rămâne gate pentru continuarea produsului. Offline/iPhone nu blochează merge-ul Git.
+- [ ] P-09: workload-ul de 200 de cereri a fost trimis, dar metricile și verdictul lipsesc. Recuperează întâi metricile existente; orice test nou necesită decizie ulterioară și nu se face ca parte a acestor corectări.
+- [ ] Reconcilează documentele: docs/cloudflare-pages-probe.md descrie Worker static și Pages ca alternativă; utilizatorul confirmă că pagina există, însă captura istorică Ready nu confirmă starea live. O singură cerere GET publică a eșuat la proxy:8080 (HTTP 000), iar cf workers get a eșuat cu fetch failed. environment_status a raportat policy unrestricted/enforced și variabile ready, fără a dovedi accesul remote. Nu ocoli proxy-ul și nu declara pagina inaccesibilă.
+- [ ] Păstrează cost zero și fără billing/upgrade; documentează separat tarifele din surse și starea contului, nereconfirmată prin API. Review documentar pentru stări, legături și lipsa datelor private.
 
-**Files:** probes/server-console/controller.ts; tests/e2e/server-console.spec.ts; tests/probes/console-controller.test.ts.
-**Interfaces:** constructorul controllerului păstrează contractul fetcherului injectabil și operațiile actuale de conectare.
-- [ ] Introdu o regresie Chromium cu fetch nativ și răspuns Firebase interceptat la nivelul rețelei, fără înlocuirea window.fetch cu wrapper arrow.
-- [ ] Confirmă eșecul original: cererea nu ajunge la interceptare din cauza receptorului incorect.
-- [ ] Portează corecția documentată: fallback fetch.bind(globalThis); păstrează fetcherul injectat.
-- [ ] Rulează regresia Chromium și testele controllerului; confirmă răspunsurile pentru cont confirmat/neconfirmat și credentiale fictive.
-- [ ] Salvează corecția pe branchul de lucru și trimite la review.
+## Gate de merge
 
-## Task 2: Configurație privată și reconciliere
+- [ ] După remediere, recitește capetele remote și integrează selectiv peste main actual; nu suprascrie main cu branch-ul divergent.
+- [ ] Rulează npm ci, test, typecheck, lint, build, build:probe, build:server-probe și E2E disponibil. Nu marca verificările blocate de rețea ca trecute.
+- [ ] Review independent și verificare integrată a coordonatorului. Integrarea cere BR01/BR02 și toate verificările relevante trecute. Dacă proxy-ul, instalarea sau alt blocaj împiedică verificările necesare, amână integrarea până la remedierea blocajului și repetarea lor. Nu trata verificările rulate parțial ca gate trecut. Recuperarea metricilor P-09 se face înainte de orice workload nou; verdictul CPU se evaluează separat. Fără deploy sau publicare.
 
-**Files:** probes/server/wrangler.console.toml; probes/server-console/README.md; docs/cloud-access.md; docs/memory.md; docs/plan.md; docs/verification.md; docs/operations/.
-**Interfaces:** aceleași nume de bindings; valorile private sunt furnizate în afara repository-ului.
-- [ ] Elimină valorile de identitate din configurația versionată; documentează furnizarea lor privată fără a le copia în loguri.
-- [ ] Verifică în privat configurația generată față de versiunea activă, fără deploy și fără a imprima bindings.
-- [ ] Combină documentele păstrând starea din 2 noiembrie și dovezile istorice utile; nu transforma verificări raportate în verificări directe.
-- [ ] Verifică diff-ul și fișierele urmărite pentru identificatori și secrete; nu rescrie istoricul automat.
-- [ ] Trimite schimbările la review independent.
+**Constrângeri:** Nu modifica Firebase, D1, emailVerified sau fixture-ul și nu relua CAS. Nu introduce valori private în Git/loguri. Fără facturare și furnizori noi. Numai gpt-6-luna execută; un model mai costisitor necesită acordul utilizatorului.
 
-## Task 3: Verificare integrată și integrare
-
-**Files:** întregul diff al candidatului de integrare; docs/verification.md.
-**Interfaces:** main actual și branchul corectat; fără schimbări de servicii.
-- [ ] Restabilește conectivitatea mediului și recitește capetele remote înaintea construirii candidatului.
-- [ ] Rulează npm ci, npm test, npm run typecheck, npm run lint, npm run build, npm run build:probe, npm run build:server-probe și npm run test:e2e conform cerințelor Node din repository.
-- [ ] Verifică independent BR-01–BR-03 și conflictele reale; coordonatorul verifică rezultatul combinat.
-- [ ] Integrează în main numai după trecerea verificărilor; verifică SHA-ul remote rezultat. Nu publica Workers ca efect secundar.
-
-## Task 4: Închiderea probelor rămase
-
-**Files:** docs/operations/2026-11-02-alpha-beta-verification.md; docs/plans/2026-10-23-technical-probes.md; docs/verification.md.
-**Interfaces:** datele workloadului CPU deja transmis și fixture-ul existent, fără reset.
-- [ ] Reconfirmă administrativ Firebase/Cloudflare prin citiri minime când proxy-ul funcționează.
-- [ ] Recuperează CPU p50/p95, erori și cote pentru workloadul existent; dacă nu mai sunt disponibile, consemnează lipsa înaintea definirii unei runde noi.
-- [ ] Compară rezultatele cu criteriile P-09 existente; nu deduce izolarea cold din etichetele cererilor.
-- [ ] Obține dovadă specifică telefonului: dispozitiv/browser, salvare online, închidere și redeschidere fără internet, conținut complet și comportament la actualizare întreruptă.
-- [ ] Actualizează verdictul probelor. Abia apoi propune următoarea etapă de produs în limitele mandatului.
