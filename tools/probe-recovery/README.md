@@ -25,3 +25,27 @@ python3 tools/probe-recovery/login-browser-regression.py \
 ```
 
 The original-mode regression should fail at the assertion that the sign-in request reached its local stub. It passes if the original bundle is already corrected. Patched mode checks invalid credentials, successful unverified and verified sign-in, and the probe's existing button gating. These scripts only create a local bundle; they do not deploy it.
+
+## Capture Cloudflare CPU telemetry
+
+Start this listener in a network-enabled terminal before using the probe panel:
+
+```sh
+node tools/probe-recovery/cpu-capture.mjs \
+  --wrangler-path /workspace/tb-integration/node_modules/.bin/wrangler \
+  --config-home /tmp/tb-cpu-wrangler-config \
+  --cache-home /tmp/tb-cpu-wrangler-cache \
+  --tmp-dir /tmp/tb-cpu-wrangler-tmp
+```
+
+The script sets `NODE_USE_ENV_PROXY=1`, starts `wrangler tail travel-buddy-server-probe --format json`, and writes only allowlisted event fields to a private `.local/cpu-<timestamp>/` directory (directory mode 700, files mode 600). It never writes raw tail JSON, headers, request bodies, query strings, or credentials. It records each sanitized event immediately and updates `summary.json`; CPU and wall-time numbers remain exactly as Wrangler reports them, with no unit conversion. Status strings are discarded. A `/probe/public-config` trace can mark telemetry observed only when it includes a finite nonnegative `cpuTime` and string `outcome`; that event is not saved as a benchmark sample.
+
+Wrangler 4.152 rejects `--sampling-rate 1` because its CLI only accepts values strictly between 0 and 1; the capture therefore leaves that filter unset and counts the observed benchmark events.
+
+After the listener is active, sign in with Alpha only and click **Verifică sarcina serverului** once. Do not click access or CAS controls during this capture. The UI starts the existing workload; this script only listens. It stops after 201 benchmark invocations (the first warm invocation is the unmeasured primer, followed by 100 cold and 100 measured warm invocations), on Ctrl+C, or after ten minutes. The summary reports missing metrics, duplicates, hash/size mismatches, truncation and error outcomes. `reviewStatus` stays `NOT_EVALUATED`; a captured set is not a CPU verdict. The reviewer must check Wrangler's metric units and correlate the 201 records before evaluating P-09.
+
+Run the parser and aggregation tests without network access:
+
+```sh
+node tools/probe-recovery/cpu-capture.test.mjs
+```
