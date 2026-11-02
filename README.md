@@ -4,11 +4,9 @@ Proiect personal pentru doi utilizatori. Aplicația completă nu este încă imp
 
 ## Stare actuală — 2 noiembrie 2026
 
-Defectul care oprea conectarea Alpha înainte de cererea Firebase este corectat. Ambele emailuri sunt confirmate; urmează autentificarea reală în panou. [Predarea incidentului și continuarea](docs/operations/2026-11-02-alpha-login-fix.md) păstrează dovezile și limitele.
+Probele autentificate Alpha/Beta au trecut accesul 10/10 și CAS/idempotency 14/14. Proba CPU a fost trimisă, dar măsurătorile Cloudflare necesare verdictului P-09 lipsesc. Offline desktop este trecut; telefonul nu este demonstrat de dovezile păstrate. [Jurnalul Alpha/Beta](docs/operations/2026-11-02-alpha-beta-verification.md) păstrează rezultatele și limitele. Accesul administrativ Firebase a fost raportat funcțional într-o sesiune nouă cu mediul Travel-Buddy; accesul Cloudflare persistent rămâne de verificat.
 
-## Recuperarea inițială — 1 noiembrie 2026
-
-Recuperăm probele existente și verificăm conectarea celor două conturi. Starea verificată, blocajele și limitele autorizării sunt în [jurnalul de recuperare](docs/operations/2026-11-01-probe-recovery.md). Machetele și planul produsului rămân repere; disponibilitatea probelor nu demonstrează funcționarea aplicației complete.
+Aplicația completă nu este implementată, iar facturarea nu este autorizată. Machetele și planul produsului rămân repere; probele tehnice nu demonstrează funcționarea produsului complet.
 
 ## Harta proiectului
 - `AGENTS.md`: punctul de intrare pentru agenți.
