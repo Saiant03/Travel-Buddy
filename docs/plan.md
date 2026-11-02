@@ -1,8 +1,8 @@
 # Plan de lucru — Travel Buddy
 
-## Prioritate curentă — reluarea conectării, 2026-11-02
+## Prioritate curentă — închiderea măsurătorilor probei, 2026-11-02
 
-Corecția clientului de conectare este activă; ambele emailuri sunt confirmate. Urmează autentificarea reală Alpha/Beta în panoul de probe și rezultatele testelor autentificate. [Predarea incidentului](operations/2026-11-02-alpha-login-fix.md) conține versiunea activă, dovezile și limitele; nu reface onboardingul, nu cere parole și nu reseta fixture-ul. Produsul complet nu este încă implementat sau validat.
+Accesul autentificat Alpha/Beta a trecut 10/10, iar CAS/idempotency 14/14 pe buildul raportat. Nu reseta fixture-ul și nu relua CAS automat. Proba CPU a fost trimisă, dar verdictul P-09 așteaptă CPU p50/p95, erori și cote Cloudflare. Offline desktop este deja trecut; telefonul nu este demonstrat de dovezile păstrate. Jurnalul [Alpha/Beta](operations/2026-11-02-alpha-beta-verification.md) conține starea și limitele. Accesul Firebase administrativ a fost raportat funcțional într-o sesiune nouă cu mediul Travel-Buddy configurat; Cloudflare persistent încă trebuie verificat. Produsul complet nu este implementat, iar facturarea nu este autorizată.
 
 ## Etapa precedentă — recuperarea probelor, 2026-11-01
 
