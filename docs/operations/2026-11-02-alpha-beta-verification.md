@@ -42,3 +42,11 @@ La începutul unei sesiuni noi, verifică discret ce acces este efectiv disponib
 3. La următoarea sarcină, verifică discret accesul Cloudflare disponibil în acea sesiune; rezultatul din chatul nou rămâne raportat, nu verificat direct aici.
 4. Păstrează telefonul offline nedemonstrat până există o dovadă specifică dispozitivului.
 5. Produsul complet nu este implementat; nu a fost autorizată facturarea.
+
+## Încercare de recuperare a metricilor P-09 — 2 noiembrie 2026
+
+Preflight-ul read-only a confirmat accesul Cloudflare la resursele probei. Cererea de introspecție către endpointul GraphQL Cloudflare a răspuns HTTP 200 cu un element în `errors`; codul și mesajul nu au fost păstrate, deci eroarea nu poate fi clasificată drept permisiune sau interogare de schemă. Nu s-au obținut câmpuri de analytics sau metrici CPU. Nu am interogat agregate pe intervale largi, deoarece raportul păstrat nu include ora UTC de început/sfârșit și nu oferă o cheie de corelare pe care analytics agregate să o poată filtra exact. Build hash-ul și workload hash-ul identifică rapoartele locale, dar nu dovedesc corespondența cu evenimentele Cloudflare.
+
+Prin urmare, p50/p95 CPU, terminările CPU, erorile și cotele consumate rămân **NECUNOSCUTE**; P-09 nu are verdict. Etichetele `cold/cold` și `warm/warm` nu demonstrează izolarea unui isolate cold (`isolateColdState=not_observed`). Nu a fost trimis workload nou și nu s-au modificat servicii.
+
+Următorul pas minim: utilizatorul furnizează raportul CPU original sanitizat, cu începutul/sfârșitul UTC și `requestId`-urile care identifică exact cele 200 de cereri, sau un export Cloudflare Logs deja corelat cu CPU pentru acele cereri. Nu sunt necesare tokenuri; nu copia identificatorii sau logurile brute în Git. Dacă datele nu permit corelarea exactă și separarea cold/warm, metricile nu pot fi atribuite retrospectiv acestui workload; P-09 rămâne în așteptare până la o măsurare ulterioară cu corelare explicită și autorizare separată. Nu porni un workload nou în această sarcină.
