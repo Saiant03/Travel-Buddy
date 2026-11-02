@@ -1,5 +1,16 @@
 # Raport de verificare a fundației
 
+## Probe autentificate Alpha/Beta — 2026-11-02
+
+Utilizatorul a furnizat rapoarte pentru build `032757c940a4cd17c624304bc010d93818cdf15a130bff0eb202fdd20889ce11`; detaliile sunt în [jurnalul probei](operations/2026-11-02-alpha-beta-verification.md).
+
+- **Acces și izolare: 10/10 trecute.** Cererile fără autentificare sau cu autentificare malformată au primit 401; fiecare cont și-a citit propriul profil (200), profilul celuilalt a fost refuzat (403), ambii au citit vacanța comună (200), iar accesul la vacanța privată a fost refuzat (403). Toate răspunsurile au `private, no-store`.
+- **CAS/idempotency: 14/14 trecute.** Ambii au citit versiunea 7; propunerea câștigătoare a primit 200, concurenta 409; ambii au reîncărcat versiunea 8, iar retry-urile au întors aceeași confirmare câștigătoare. Testul a modificat fixture-ul; nu îl reseta și nu îl relua automat.
+- **CPU / P-09: trimitere executată, verdict în așteptare.** Au fost trimise 200 de cereri (100 cold/cold și 100 warm/warm), payload 262144 bytes și `isolateColdState=not_observed`. Raportul nu conține CPU p50/p95, erori sau cote Cloudflare, deci nu demonstrează performanța ori rezultatul P-09.
+- **Offline:** proba desktop trecută anterior; nu a fost repetată. Telefonul nu este demonstrat de dovezile păstrate și nu se marchează trecut.
+- **Acces administrativ Firebase:** utilizatorul a raportat că sesiunea nouă, pornită după configurarea mediului Travel-Buddy, a citit `FIREBASE_SERVICE_ACCOUNT_JSON`, s-a autentificat și a citit proiectul cu HTTP 200 fără modificări. Aceasta este confirmare raportată pentru sesiunea respectivă, nu măsurare din acest checkout. Cloudflare persistent rămâne neconfigurat/neconfirmat în sesiunea nouă.
+
+
 ## Regresia conectării Alpha — 2026-11-02
 
 Corecția apelului nativ `fetch` a trecut RED/GREEN în Chromium cu răspunsuri Firebase sintetice și review independent. După aplicare, formularul real a trimis cererea la Firebase: un cont fictiv inexistent a primit 400 `INVALID_LOGIN_CREDENTIALS`, fără eșec de transport. Modulele backend, bindings și datele D1 nu au fost schimbate. Ambele conturi Firebase au acum emailurile confirmate.
