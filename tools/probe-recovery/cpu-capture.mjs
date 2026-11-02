@@ -100,6 +100,11 @@ export class JsonStreamParser {
   finish() {
     const remaining = this.#buffer;
     this.#buffer = '';
+    const trimmed = remaining.trimStart();
+    if ((trimmed[0] === '{' || trimmed[0] === '[') && scanJsonValue(trimmed, 0) < 0) {
+      this.#parseErrors += 1;
+      return [];
+    }
     return this.push(remaining);
   }
 }

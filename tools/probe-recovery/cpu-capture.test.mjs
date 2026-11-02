@@ -1,6 +1,12 @@
 import assert from 'node:assert/strict';
+import { spawn } from 'node:child_process';
+import { closeSync, mkdtempSync, openSync, readFileSync, readdirSync, statSync, writeFileSync, chmodSync } from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import test from 'node:test';
+import { fileURLToPath } from 'node:url';
 import { JsonStreamParser, createCaptureAccumulator } from './cpu-capture.mjs';
+
 
 const hash = 'e72a2f1d6b21af68ca1860b9dc6528005721f236ead66eaf0cbd9ebdfdab62d9';
 
@@ -165,5 +171,97 @@ test('summary counts the warm primer, measured samples, duplicates, and invalid 
   assert.equal(summary.duplicateRequestIds, 1);
   assert.equal(summary.invalidWorkloadEvents, 1);
   assert.equal(summary.missingCpuEvents, 1);
+  assert.equal(summary.reviewStatus, 'NOT_EVALUATED');
+});
+
+test('CLI captures 201 Wrangler child events privately and stops gracefully on SIGINT', async () => {
+  const root = mkdtempSync(path.join(os.tmpdir(), 'cpu-capture-integration-'));
+  const fakeExecutable = path.join(root, 'fake-wrangler');
+  const fixture = path.join(root, 'events.jsonl');
+  const stdoutPath = path.join(root, 'capture-stdout.txt');
+  const stopped = path.join(root, 'stopped');
+  const outputRoot = path.join(root, 'captures');
+  const cli = fileURLToPath(new URL('./cpu-capture.mjs', import.meta.url));
+  const rows = [['primer', 'warm'], ...Array.from({ length: 100 }, (_, i) => [`cold-${i}`, 'cold']), ...Array.from({ length: 100 }, (_, i) => [`warm-${i}`, 'warm'])];
+  const events = rows.map(([requestId, samplePath]) => ({
+    eventTimestamp: 1793600938145,
+    event: { request: { method: 'POST', url: 'https://worker.test/probe/benchmark?token=cpu-private-marker', headers: { authorization: 'Bearer cpu-private-marker' } } },
+    scriptVersion: { id: 'build-123' }, cpuTime: 2, wallTime: 7, outcome: 'ok', truncated: false, exceptions: [],
+    logs: [{ message: [JSON.stringify({ probe: 'cpu-workload', requestId, path: samplePath, workloadHash: hash, payloadBytes: 262144, ignored: 'cpu-private-marker' })] }],
+  }));
+  writeFileSync(fixture, `${events.map(JSON.stringify).join('\n')}\n`);
+  writeFileSync(fakeExecutable, `#!/bin/sh\ntrap 'printf stopped > ${JSON.stringify(stopped)}; exit 0' INT\nprintf '\\033[32mConnected to fake tail\\033[0m\\n'\ncat ${JSON.stringify(fixture)}\nwhile :; do sleep 1; done\n`);
+  chmodSync(fakeExecutable, 0o700);
+  writeFileSync(stdoutPath, '');
+  const stdoutFd = openSync(stdoutPath, 'w');
+  const capture = spawn(process.execPath, [cli, '--wrangler-path', fakeExecutable, '--output-root', outputRoot, '--config-home', path.join(root, 'config'), '--cache-home', path.join(root, 'cache'), '--tmp-dir', path.join(root, 'tmp')], { stdio: ['ignore', stdoutFd, 'ignore'] });
+  const timeout = setTimeout(() => capture.kill('SIGTERM'), 10_000);
+  const exitCode = await new Promise((resolve, reject) => {
+    capture.once('error', reject);
+    capture.once('close', (code) => resolve(code));
+  });
+  clearTimeout(timeout);
+  closeSync(stdoutFd);
+  assert.equal(exitCode, 0);
+  const stdout = readFileSync(stdoutPath, 'utf8');
+  assert.ok(stdout.trim(), 'capture CLI should emit its final JSON summary');
+  const result = JSON.parse(stdout.trim());
+  assert.equal(result.status, 'CAPTURED_201_EVENTS');
+  assert.equal(result.benchmarkEvents, 201);
+  assert.equal(readFileSync(stopped, 'utf8'), 'stopped');
+  const dir = result.outputDirectory;
+  assert.equal(statSync(dir).mode & 0o777, 0o700);
+  const eventsPath = path.join(dir, 'sanitized-events.jsonl');
+  assert.equal(statSync(eventsPath).mode & 0o777, 0o600);
+  assert.equal(statSync(path.join(dir, 'summary.json')).mode & 0o777, 0o600);
+  const lines = readFileSync(eventsPath, 'utf8').trim().split('\n');
+  assert.equal(lines.length, 201);
+  const records = lines.map(JSON.parse);
+  assert.equal(records[0].primer, true);
+  assert.deepEqual(records.reduce((acc, record) => { if (!record.primer) acc[record.cpuWorkload.path] += 1; return acc; }, { cold: 0, warm: 0 }), { cold: 100, warm: 100 });
+  const summary = JSON.parse(readFileSync(path.join(dir, 'summary.json'), 'utf8'));
+  assert.equal(summary.parsedObjects, 201);
+  assert.equal(summary.parseErrors, 0);
+  assert.equal(summary.benchmarkEvents, 201);
+  assert.deepEqual(summary.measuredEvents, { cold: 100, warm: 100 });
+  assert.equal(summary.reviewStatus, 'NOT_EVALUATED');
+  const persisted = readFileSync(eventsPath, 'utf8') + readFileSync(path.join(dir, 'summary.json'), 'utf8') + stdout;
+  assert.equal(persisted.includes('cpu-private-marker'), false);
+  assert.deepEqual(readdirSync(dir).sort(), ['sanitized-events.jsonl', 'summary.json']);
+});
+
+test('a partial trailing JSON event is counted as a parse error and never evaluates a capture', () => {
+  const parser = new JsonStreamParser();
+  assert.deepEqual(parser.push('{"complete":true}\n{"partial":'), [{ complete: true }]);
+  assert.deepEqual(parser.finish(), []);
+  assert.deepEqual(parser.summary(), { parseErrors: 1, parsedObjects: 1 });
+});
+
+test('tail failure and partial child output remain incomplete and unevaluated', async () => {
+  const root = mkdtempSync(path.join(os.tmpdir(), 'cpu-capture-failure-'));
+  const fakeExecutable = path.join(root, 'fake-wrangler');
+  const outputRoot = path.join(root, 'captures');
+  const cli = fileURLToPath(new URL('./cpu-capture.mjs', import.meta.url));
+  writeFileSync(fakeExecutable, '#!/bin/sh\nprintf \'{"event":\'\nprintf \'ERROR tail disconnected\\n\' >&2\nexit 1\n');
+  chmodSync(fakeExecutable, 0o700);
+  const stdoutPath = path.join(root, 'capture-stdout.txt');
+  writeFileSync(stdoutPath, '');
+  const stdoutFd = openSync(stdoutPath, 'w');
+  const capture = spawn(process.execPath, [cli, '--wrangler-path', fakeExecutable, '--output-root', outputRoot, '--config-home', path.join(root, 'config'), '--cache-home', path.join(root, 'cache'), '--tmp-dir', path.join(root, 'tmp')], { stdio: ['ignore', stdoutFd, 'ignore'] });
+  const timeout = setTimeout(() => capture.kill('SIGTERM'), 10_000);
+  const exitCode = await new Promise((resolve, reject) => {
+    capture.once('error', reject);
+    capture.once('close', (code) => resolve(code));
+  });
+  clearTimeout(timeout);
+  closeSync(stdoutFd);
+  assert.equal(exitCode, 0);
+  assert.ok(readFileSync(stdoutPath, 'utf8').includes('"status":"TAIL_ERROR"'));
+  const dir = readdirSync(outputRoot).map((name) => path.join(outputRoot, name))[0];
+  const summary = JSON.parse(readFileSync(path.join(dir, 'summary.json'), 'utf8'));
+  assert.equal(summary.status, 'TAIL_ERROR');
+  assert.equal(summary.tailError, true);
+  assert.equal(summary.parseErrors, 1);
+  assert.equal(summary.benchmarkEvents, 0);
   assert.equal(summary.reviewStatus, 'NOT_EVALUATED');
 });
