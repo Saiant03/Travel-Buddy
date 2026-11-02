@@ -45,10 +45,10 @@
 - [x] Testele de flux acoperă validările, revenirea, păstrarea datelor, combinatele, opționalele și resetarea.
 - [x] Review și corectare delegată, apoi reverificare.
 - [x] Coordonator: `npm run test`, `npm run typecheck`, `npm run lint`, `npm run build`, E2E Task 5A și regresii shell/preferințe; browser local pentru RO/EN/FR, mobil/desktop, tastatură, zoom CSS 200% (aproximare, nativ neexecutat) și reduced motion.
-- [ ] Numai după rezultate: memorie, plan și dovadă versionată cu rezultate exacte, verificări neexecutate și limite. Commit/push fără force/reset și fără deploy.
+- [x] Numai după rezultate: memorie, plan și dovadă versionată cu rezultate exacte, verificări neexecutate și limite. Commit/push fără force/reset și fără deploy.
 
 Task 5A depinde local de Tasks 1–2 și reutilizează fundația Task 4A fără a o reimplementa. Task 5 complet păstrează Tasks 1–4, membership, API, persistență, idempotency, reluarea salvării și trecerea reală spre generare. Acestea nu sunt validate prin 5A.
 
 ## Rezultat verificat
 
-[Dovezi și limite](../evidence/2026-11-02/task-5a-local-trip-creation.md): 139/139 teste în 18 fișiere, typecheck/lint/build și 14/14 E2E Chromium. Reviewul independent și coordonatorul au închis defectele confirmate, inclusiv erorile mutate între cazări și contrastul acțiunilor. Sunt implementate cele trei scene și `scene-types.ts` pentru interfețele lor. Prima scenă și detaliile exacte rămân propuneri, fără acceptare vizuală implicită. Safari/dispozitiv fizic/cititor de ecran/zoom nativ nu sunt verificate. Livrarea Git se confirmă separat după push.
+[Dovezi și limite](../evidence/2026-11-02/task-5a-local-trip-creation.md): 139/139 teste în 18 fișiere, typecheck/lint/build și 14/14 E2E Chromium. Reviewul independent și coordonatorul au închis defectele confirmate, inclusiv erorile mutate între cazări și contrastul acțiunilor. Sunt implementate cele trei scene și `scene-types.ts` pentru interfețele lor. Prima scenă și detaliile exacte rămân propuneri, fără acceptare vizuală implicită. Safari/dispozitiv fizic/cititor de ecran/zoom nativ nu sunt verificate. Livrare în `0695cd2a973e635d9534813fc75b8880cb2f4ee5`, push fără force pe `main` confirmat, HEAD/remote identice și arbore curat; confirmarea documentară urmează separat, fără deploy.

@@ -49,4 +49,4 @@ Task 5A local este verificat; **Task 5 complet nu este finalizat** și păstreaz
 
 **P-09 rămâne FAIL:** zece cereri cold distincte din 100 au depășit 7 ms; p95 exact rămâne necunoscut. Gate B1, Task 3, backendul real și acceptarea online rămân blocate. Task 5A nu rezolvă și nu validează serverul.
 
-Nu s-au repetat CPU/CAS/iPhone, modificat/resetat fixture-uri reale, modificat Firebase/Cloudflare/D1, activat furnizori/costuri, autentificare/API/persistență/sincronizare/căutare/hărți/generare, făcut deploy/publicare sau creat PR. Livrarea Git se confirmă separat după push normal pe `main`.
+Nu s-au repetat CPU/CAS/iPhone, modificat/resetat fixture-uri reale, modificat Firebase/Cloudflare/D1, activat furnizori/costuri, autentificare/API/persistență/sincronizare/căutare/hărți/generare, făcut deploy/publicare sau creat PR. Implementarea și dovezile au fost livrate în `0695cd2a973e635d9534813fc75b8880cb2f4ee5` prin push fără force pe `main`; HEAD și `origin/main` identice și arbore curat au fost confirmate după push. Această confirmare documentară se salvează separat; nu este deploy.
