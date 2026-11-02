@@ -15,7 +15,7 @@ Task 2 — fundația UI locală — este autorizat conform `docs/plans/2026-11-0
 
 ## Ierarhie autorizată de utilizator
 Agentul principal planifică, stabilește contractele, deleagă, face reviewul și verificările, coordonează corectările și integrează rezultatul final; nu implementează.
-Implementarea revine agenților delegați, conform preferinței curente a utilizatorului: subagenții folosesc numai `gpt-6-luna`. Coordonatorul poate prelua implementarea numai dacă agentul delegat confirmă că sarcina este prea complexă și utilizatorul confirmă intervenția. Nu folosi modele mai costisitoare, inclusiv `gpt-6.1-sol`, fără acordul utilizatorului. Împarte lucrul pe fișiere distincte și serializează modificările comune.
+Implementarea revine agenților delegați. Coordonatorul poate delega sarcini ușoare și independente mai multor agenți când acest lucru este justificat, alegând între modelele disponibile potrivit sarcinii și consumului. `gpt-6-luna` este opțiunea implicită pentru lucrări simple; `gpt-6-sol` și `gpt-6.1-terra` sunt de asemenea permise pentru sarcini potrivite. Nu presupune că Sol sau Terra au cost inferior garantat. Evită paralelismul risipitor; împarte lucrul pe fișiere distincte și serializează modificările comune. Coordonatorul poate prelua implementarea numai dacă agentul confirmă că sarcina îi depășește capacitatea și utilizatorul confirmă intervenția. Cere acordul utilizatorului înainte de escaladarea la modele, cost sau complexitate peste acest mandat.
 Nu schimba automat modelul principal. Dacă un model cerut nu este disponibil, raportează și folosește o alternativă disponibilă explicit identificată.
 
 ## Skill-uri

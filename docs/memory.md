@@ -6,7 +6,7 @@ Utilizatorul a autorizat actualizarea planului și pregătirea handoff-ului pent
 
 P-09 rămâne FAIL: măsurarea cold observată demonstrează depășirea pragului p95 ≤7 ms; p95 exact și măsurarea completă rămân necunoscute. Dezvoltarea UI locală nu este validare sau remediere server. Gate B1, Task 3 (auth/API privat/live backend) și orice acceptare online rămân blocate de P-09 PASS și probele reale obligatorii. Proba iPhone P12-A este PASS manual pentru fixture sintetic și nu se repetă; nu se reia CPU/CAS și nu se modifică fixture-ul.
 
-Implementarea delegată revine unui singur agent `gpt-6-luna`; coordonatorul face contract, review, corectări delegate, reverificare și integrare. Coordonatorul nu preia codul fără confirmarea agentului că sarcina e prea complexă și confirmarea utilizatorului. Nu folosi modele mai costisitoare fără aprobare. Nu crea chatul automat; promptul copy-ready este în [handoff](plans/2026-11-02-next-chat-handoff.md). După review și verificările cerute, commit/push pe `main` sunt acoperite de autorizarea Git persistentă, fără confirmare repetată. Fără deploy/publicare a produsului sau PR automat.
+Coordonatorul poate delega sarcini ușoare, independente și justificate mai multor agenți, cu modele disponibile potrivite sarcinii și consumului; `gpt-6-luna` este implicit pentru lucrări simple, iar `gpt-6-sol`/`gpt-6.1-terra` sunt de asemenea permise pentru sarcini potrivite. Nu presupune cost inferior garantat pentru Sol/Terra și evită paralelismul risipitor; modificările comune se serializează. Escaladarea peste mandatul de cost/complexitate cere acordul utilizatorului; coordonatorul preia implementarea numai după confirmarea agentului că sarcina e prea complexă și acordul utilizatorului. „5.6” este un nume provizoriu menționat de utilizator, neconfirmat în lista ID-urilor disponibile; nu îl include în pool-ul executabil și clarifică-l ulterior. Regula curentă este D014; D013 păstrează autorizarea și delimitarea Task 2. Nu crea chatul automat; promptul copy-ready este în [handoff](plans/2026-11-02-next-chat-handoff.md). După review și verificările cerute, commit/push pe `main` sunt acoperite de autorizarea Git persistentă, fără confirmare repetată. Fără deploy/publicare a produsului sau PR automat.
 
 ## Rezultatul ultimei runde CPU — 2026-11-02
 
@@ -103,7 +103,7 @@ Următorul pas după predarea documentelor: evaluarea planului de către utiliza
 - Preferința pentru explicații clare către utilizator primează asupra oricărui skill de comprimare a comunicării (inclusiv Caveman).
 - Nu presupunem cerințe care nu au fost confirmate; ideile despre călătorii sunt propuneri, nu decizii.
 - Procesul urmărit: coordonator puternic → agenți mai mici pentru sarcini delimitate → review → repararea observațiilor → verificare finală umană.
-- Utilizatorul a reconfirmat delegarea pe 2026-10-22: modelul puternic coordonează și verifică; sarcinile delimitate de implementare și corectare merg către agenți cu model mai mic. Conform AGENTS.md, folosim gpt-6-luna pentru acestea, maximum trei subagenți simultan, cu responsabilități distincte.
+- Istoric, 2026-10-22: utilizatorul a reconfirmat delegarea sarcinilor delimitate către agenți cu model mai mic, cu coordonare și verificare centrală. Preferința de model și limita numerică de atunci au fost înlocuite de D014 și regula curentă din AGENTS.md.
 - Înainte de implementare se pregătesc brief-ul, designul și planul MVP.
 
 ## Stare
@@ -120,7 +120,7 @@ Următorul pas după predarea documentelor: evaluarea planului de către utiliza
 - Definirea inițială este încheiată; cerințele confirmate sunt salvate în `product.md`. Nu relua interviul de la început și nu trata întrebările vechi din document ca fiind toate încă fără răspuns.
 - Urmează consolidarea cerințelor într-un brief coerent în documentul existent, apoi cercetarea actuală a fezabilității cu costuri zero. Raportează dovezi și limite pentru găzduire, căutare/colectare online, generare, hărți/trasee și consultare offline. Nu promite gratuitate sau fezabilitate neverificată.
 - După evaluare, prezintă alegerile și eventualele compromisuri în română simplă. Designul concret și planul de implementare urmează pe baza brief-ului și fezabilității; site-ul nu se implementează încă fără cerere de implementare.
-- Mandatul rămâne: coordonatorul principal planifică, deleagă lucrările delimitate către gpt-6-luna și verifică rezultatul final; maximum trei subagenți simultan. Pentru review dificil independent este prevăzut gpt-6.1-sol. Nu crea conversații noi sau publicații externe din proprie inițiativă.
+- Istoric, la încheierea explorării inițiale: coordonatorul planifica și delega către gpt-6-luna, cu limită de trei subagenți; ulterior D008 a înlăturat limita, iar regula curentă de modele/delegare este D014. Nu crea conversații noi sau publicații externe din proprie inițiativă.
 
 ## Predare istorică înainte de definire — 2026-10-22 (depășită de predările ulterioare)
 - Utilizatorul dorește să continue etapa de definire a produsului într-o conversație nouă, în același proiect Travel Buddy.
