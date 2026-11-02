@@ -1,7 +1,7 @@
 # Travel Buddy MVP Implementation Plan
 
 ## Execuție curentă — 2026-10-23
-Utilizatorul a autorizat implementarea, începând cu Tasks 0, 1 și 1b, apoi activarea serviciilor gratuite și publicarea. [Contractele wire v1](../contracts-v1.md) sunt înghețate înaintea parserelor. Alegerea locală este React 19/TypeScript strict/Vite/Zod. Gate B1 rămâne obligatoriu înaintea Tasks 2–3; lipsesc acum [conectarea conturilor și accesul rețelei](../cloud-access.md), nu acordul pentru gratuit. Plata/cardul/billing nu sunt autorizate. Formulările despre neautorizare de mai jos sunt istoricul redactării planului.
+Utilizatorul a autorizat implementarea, începând cu Tasks 0, 1 și 1b, apoi activarea serviciilor gratuite și publicarea. [Contractele wire v1](../contracts-v1.md) sunt înghețate înaintea parserelor. Alegerea locală este React 19/TypeScript strict/Vite/Zod. Gate B1 rămâne obligatoriu pentru Task 3/backend live; Task 2 local este separat și autorizat la 2026-11-02 prin handoff. Starea accesului este consemnată în [conectarea conturilor și accesul rețelei](../cloud-access.md). Plata/cardul/billing nu sunt autorizate. Formulările despre neautorizare de mai jos sunt istoricul redactării planului.
 
 > **For agentic workers:** Urmați `docs/process.md`: implementare delegată, review, remediere și verificarea finală a coordonatorului task cu task. Bifați fiecare pas (`- [ ]`) pe măsură ce este executat. Nicio probă, implementare, activare de serviciu sau publicare din acest plan nu este autorizată de documentul în sine.
 
@@ -85,8 +85,8 @@ type ApiResult<T> = { ok: true; data: T; requestId: string } | { ok: false; erro
 ## Etape, gates și coordonare
 
 1. **Gate A — pregătire:** `docs/design-system.md`, `docs/architecture.md`, planul probelor și Task 0 harness local. Task 1 îngheață scheme înainte de implementarea tipurilor.
-2. **Gate B1 — probes arhitecturale după Task 1 + Task 1b:** după autorizare: P-01 auth/API, P-02 D1 CAS real, P-09 Worker CPU și mini P-12-A offline pe shell instalabil Task 0. P-09 cere ≥100 cold + ≥100 warm, JSON ≤256 KiB, zero CPU terminations, p95 ≤7 ms; peste 7 ms reconsiderare fără paid fallback. P-02 CAS + receipt batch; rowcount 0 fără applied. P-12-A verifică manual save, cold launch, mod avion și update întrerupt pe device înainte de UI extinsă.
-3. **Gate C — fundație:** după B1 și contracte, Tasks 2–4. Doar configurațiile comune rămân serial; taskurile cu fișiere disjuncte/contracte blocate pot fi val.
+2. **Gate B1 — probes server/dispozitiv după Task 1 + Task 1b:** conform autorizării și accesului: P-01 auth/API, P-02 D1 CAS real, P-09 Worker CPU și mini P-12-A offline pe shell instalabil Task 0. P-09 cere ≥100 cold + ≥100 warm, JSON ≤256 KiB, zero CPU terminations, p95 ≤7 ms; peste 7 ms reconsiderare fără paid fallback. P-02 CAS + receipt batch; rowcount 0 fără applied. P-12-A verifică manual save, cold launch, mod avion și update întrerupt pe device înainte de UI extinsă.
+3. **Gate C — UI local și backend:** Task 2 (fundație UI locală) poate începe după Tasks 0–1 fără a depinde de B1. Task 3 și auth/API privat/live backend așteaptă B1 PASS. Tasks 4+ pornesc numai conform dependențelor din plan și autorizării aplicabile.
 4. **Gate D — fluxuri:** Tasks 5–10 în ordinea dependențelor; probe locale P-03–P-08 se rulează lângă implementarea deținătoare, nu ca prerequisite pentru shell. P-03 înainte/în Task 7–8; P-04 lângă Task 8; P-05/P-06/P-07 lângă Task 6–7; P-08 lângă Task 11.
 5. **Gate E — offline real:** Task 11 după Task 2/3/5/8/10; P-12 iOS/Safari + Android numai după build-ul snapshot și autorizarea testelor pe dispozitive. Logout invalidează `sessionGeneration`, blochează citirea snapshotului imediat, apoi șterge IndexedDB/private cache; purge întrerupt nu permite alt UID să citească.
 6. **Gate F — live providers/integrated review:** P-10/P-11 după probe locale și numai cu autorizare de furnizor; Task 12 după tasks/probes. Două conturi și două telefoane, itinerary RO/EN/FR, airplane mode. Publicarea/activarea rămâne în afara planului fără autorizare explicită.
@@ -97,9 +97,9 @@ type ApiResult<T> = { ok: true; data: T; requestId: string } | { ok: false; erro
 |---|---|---|---|
 | 0 | Task 0, un agent | Gate A | shell local trece typecheck/test/lint/build |
 | 1 | Task 1, un agent | Task 0 + documente de arhitectură/design/probe | contract review înainte de codul UI/API |
-| B1 | Task 1b: P-01, P-02, P-09 și mini P-12-A secvențial; minimum spike fără UI | Tasks 0–1 + authorization pentru D1/Worker/phone | stop dacă P-09 p95 >7 ms, CAS nu e atomic ori offline shell nu trece |
-| 2 | Task 2 | Gate B1 | configurare comună integrată serial |
-| 3 | Task 3 | Task 2, P-01/P-09 | auth merge înainte de date reale |
+| B1 | Task 1b: probe reale P-01, P-02, P-09 și mini P-12-A secvențial; spike-ul server e separat de UI | Tasks 0–1 + autorizările specifice D1/Worker/phone | FAIL P-09 blochează Task 3/backend live; UI local Task 2 poate continua. CAS/telefon păstrează gate-urile lor |
+| 2 | Task 2 local | Tasks 0–1 și contracte vizuale; nu depinde de Gate B1 | mock/synthetic only; nu contactează serverul; gate separat pentru backend |
+| 3 | Task 3 | Task 2 + Gate B1 PASS și probe live P-01/P-09 | auth merge înainte de date reale; cât P-09 eșuează, taskul rămâne blocat |
 | 4 | Task 4 și Task 9 pot fi separate după Task 2–3; distincte paths | contracts + shell + login interface pentru CTA | UI review separat; Task 9 deține singur IntroPage |
 | 5 | Task 5; Task 6 poate lucra în paralel pe adapters/domeniu cu paths disjuncte | Task 4 pentru trip; Task 1 + provider contract pentru Task 6 | wrangler/env bindings și lockfile integrate serial; P-05/P-06 locale |
 | 6 | Task 7 | Tasks 5–6; P-03/P-06/P-07 locale | migrarea job-urilor și bindings integrate serial |
@@ -150,27 +150,29 @@ type ApiResult<T> = { ok: true; data: T; requestId: string } | { ok: false; erro
 - [x] **Pasul 2:** Testele celor patru probe sunt implementate. Cicluri RED→GREEN au fost confirmate pentru regresiile CAS/receipt, conflict 409 și izolare offline; logul global inițial cu toate modulele lipsă nu este păstrat și nu este certificat retrospectiv.
 - [x] **Pasul 3:** Implementează numai minimum de probe pentru token invalid/UID outsider și două sesiuni concurente + duplicate receipt; fără UI, login form, provider adapter sau product data.
 - [x] **Pasul 4 local:** Cele patru suite locale au trecut în verificarea integrată (75/75 teste totale), împreună cu 2 E2E Chromium și build-urile dedicate.
-- [ ] **Pasul 4 real:** P-01/P-02/P-09 Cloudflare/Firebase și P-12-A iOS/Android sunt BLOCATE până la acord separat și acces; nu sunt înlocuite de SQLite/desktop. P-09 cere ≥100 cold + ≥100 warm, zero CPU terminations și p95 ≤7 ms la payload ≤256 KiB. `p95 >7 ms` ori failure CAS oprește Gate B1; nu se mută codul de spike în aplicație ca workaround.
+- [ ] **Pasul 4 real:** P-01/P-02/P-09 Cloudflare/Firebase și P-12-A iOS/Android necesită autorizarea și accesul specifice probei; SQLite/desktop nu le înlocuiesc. La momentul actual P-09 este FAIL și nu se rerulează fără autorizare separată. P-09 cere ≥100 cold + ≥100 warm, zero CPU terminations și p95 ≤7 ms la payload ≤256 KiB. `p95 >7 ms` ori failure CAS oprește Gate B1; nu se mută codul de spike în aplicație ca workaround.
 - [x] **Pasul 5 local:** SQL-ul, versiunile, scenariile changes/receipts și limitele sunt consemnate; CPU p50/p95 real = neexecutat, fără valori inventate. Coordonatorul menține Gate B1 BLOCAT.
 - [ ] **Pasul 5 real:** Arhivarea măsurătorilor CPU și rezultatelor API/telefon, apoi decizia Gate B1, după acord și acces.
 
-**Executant:** `gpt-6-luna`; **Skill-uri:** `travel-buddy-engineering`, `test-driven-development`; **Dependențe:** Task 1 și shell-ul Task 0; Task 2–3 depind de Gate B1 PASS. P-01/P-02/P-09 și mini P-12-A din technical-probes corespund acestui spike. Task 11 execută P-12-B full snapshot după MVP-ul offline.
+**Executant:** `gpt-6-luna`; **Skill-uri:** `travel-buddy-engineering`, `test-driven-development`; **Dependențe:** Task 1 și shell-ul Task 0; Task 3/backend depinde de Gate B1 PASS; Task 2 local este separat. P-01/P-02/P-09 și mini P-12-A din technical-probes corespund acestui spike. Task 11 execută P-12-B full snapshot după MVP-ul offline.
 
-**Stare de integrare:** codul Task 1b și probele locale sunt reviewate și reverificate. [Dovezi finale](../evidence/2026-10-23/README.md). Nu există p50/p95 CPU real; Gate B1 rămâne BLOCAT și Task 2 nu începe.
+**Stare curentă, 2026-11-02:** [captura CPU](../operations/2026-11-02-cpu-rerun.md) demonstrează că P-09 cold depășește 7 ms și eșuează pragul; eșantionul corelat este incomplet, iar p95 exact rămâne necunoscut. Gate-ul server B1 rămâne BLOCAT. Aceasta blochează Task 3 și folosirea unui backend real, dar nu dezvoltarea izolată a fundației locale Task 2. Dezvoltarea UI locală nu poate fi folosită ca dovadă sau remediere P-09.
 
 ### Task 2: Fundație aplicație, design tokens și localizare
 
-**Fișiere:** Modifică `package.json`, `tsconfig.json`, `index.html`; creează `vite.config.ts`, `wrangler.toml`, `src/app/{App.tsx,router.tsx}`, `src/ui/{tokens.css,global.css,Button.tsx,Card.tsx,Field.tsx,Dialog.tsx,Toast.tsx,Loading.tsx,EmptyState.tsx,ErrorState.tsx}`, `src/app/i18n/{ro,en,fr}.ts`, `public/assets/font/` și `tests/unit/i18n/*.test.ts`.
+**Fișiere:** Inspectează și modifică numai configurile existente care sunt necesare (`package.json`, `tsconfig.json`, `index.html`, `vite.config.ts`, `src/main.tsx`); adaugă module UI/i18n în structura `src/` deja existentă și, dacă justificat, font/licența în `public/assets/font/`. Nu adăuga `wrangler.toml` pentru UI locală. Păstrează configurile și probele PWA existente.
 
-**Interfețe:** `App` furnizează router; `t(locale: Locale, key: MessageKey, args?: Record<string,string|number>): string`; componente UI primesc props accesibile și clase/tokens, nu culori hardcodate.
+**Interfețe:** `App` furnizează router; `t(locale: Locale, key: MessageKey, args?: Record<string,string|number>): string`; componente UI primesc props accesibile și clase/tokens, nu culori hardcodate. UI-ul Task 2 operează numai cu stări demonstrative/mock și nu conectează Firebase, Worker sau D1.
 
-- [ ] **Pasul 1:** Adaugă teste pentru chei lipsă, fallback română și aceeași cheie în toate cele trei limbi.
-- [ ] **Pasul 2:** Rulează `npm run test -- tests/unit/i18n` — așteptat: FAIL la implementarea lipsă.
-- [ ] **Pasul 3:** Configurează Vite/strict TS/PWA shell, locale și componente; descarcă font doar din sursă/licență validată și documentează proveniența.
-- [ ] **Pasul 4:** Rulează `npm run typecheck && npm run lint && npm run test -- tests/unit/i18n && npm run build` — așteptat: PASS, rutele SPA au fallback și nicio cheie nu lipsește.
-- [ ] **Pasul 5:** Reviewer verifică focus tastatură, zoom 200%, reduced motion, contrast și tokenuri față de `docs/design-system.md`.
+- [ ] **Pasul 1 — inventariere:** verifică fișierele și dependențele existente (Task 0–1, `src/main.tsx`, `src/shared/contracts/*`, configul Vite/TS/package); marchează ce se reutilizează și evită rescrierea probei server/offline.
+- [ ] **Pasul 2 — contract vizual:** extrage din `docs/design-system.md` valorile propuse (marcate în cod/documentație ca propuneri ajustabile), creează tokens CSS și componente comune accesibile: Button, Card, Field, Dialog, Toast, Loading, EmptyState, ErrorState; fără culori inline fixe.
+- [ ] **Pasul 3 — shell:** configurează routerul și navigarea locală responsive; traseele inexistente au fallback. Adaugă date mock explicite dacă e nevoie să demonstrezi interacțiunea; nu acceptă sesiune reală sau date private.
+- [ ] **Pasul 4 — localizare:** implementează catalog complet pentru cheile fundației în RO/EN/FR, cu româna implicită; `t` este tipizat, interpolarea sigură, iar cheile lipsă se detectează în verificare locală.
+- [ ] **Pasul 5 — asset font:** descarcă Bricolage Grotesque aprobat din sursa oficială când este necesar; self-host fișierul și păstrează OFL și proveniența lângă asset.
+- [ ] **Pasul 6 — verificare locală:** rulează verificările existente adecvate (`npm run typecheck`, `npm run lint`, testele fundației/i18n și `npm run build`); documentează exact comenzile și rezultatul. Acestea verifică numai codul local, nu serverul sau P-09.
+- [ ] **Pasul 7 — review:** coordonatorul verifică comportamentul/responsivitatea/accessibility, linkurile, difful și lipsa conectării backend; implementerul repară constatările și coordonatorul reverifică.
 
-**Executant:** `gpt-6-luna`; **Skill-uri:** `travel-buddy-engineering`, `frontend-design`, `design-taste-frontend`; **Dependențe:** Tasks 0–1; Asset Lisabona poate rămâne ticket deschis.
+**Executant:** `gpt-6-luna`; **Skill-uri:** `travel-buddy-engineering`, `frontend-design`, `design-taste-frontend`, `test-driven-development`, `webapp-testing`, `travel-buddy-review`; testele comportamentale i18n/router urmează fail-then-pass; smoke browser local; fără teste pentru CSS/documentație; **Dependențe locale:** Task 0–1 și contractele vizuale existente. **Gate server:** Task 3/live backend rămân blocate de Gate B1/P-09. Asset Lisabona poate rămâne ticket deschis.
 
 ### Task 3: API auth, administrare celor două conturi și izolarea privată
 
@@ -338,4 +340,4 @@ type ApiResult<T> = { ok: true; data: T; requestId: string } | { ok: false; erro
 
 Probele concrete, variantele de destinație, criteriile de oprire și datele de măsurat se definesc în `docs/plans/2026-10-23-technical-probes.md`. Legătura este bidirecțională: P-01 → Task 3; P-02/P-03 → Tasks 7–8; P-04/P-10 → Task 8; P-05/P-06/P-07/P-11 → Tasks 4, 6–7; P-08/P-12-B → Task 11; P-12-A → Task 1b/Gate B1; P-09 → Task 1b/Gate B1 și retest Task 3. Probele reale necesită acces autorizat la conturi/chei și dispozitive; documentarea aceasta nu le execută și nici nu autorizează crearea/activarea lor.
 
-Acesta este planul de lucru pentru etapa viitoare. Înainte de implementare, coordonatorul trebuie să primească cerere explicită de implementare și să confirme cu utilizatorul compromisurile tehnice rămase deschise; apoi urmează probele autorizate și gates de mai sus. Nicio aplicație, cheie, cont extern, migrare sau site publicat nu rezultă din redactarea acestui plan.
+Planul păstrează separat implementarea UI locale de acceptarea backend-ului. Task 2 local a fost autorizat explicit la 2026-11-02 și poate începe conform handoff-ului curent; Task 3 și activarea/live backend cer trecerea Gate B1, inclusiv P-09 PASS. Alte tasks se pornesc numai conform dependențelor și autorizărilor punctuale; handoff-ul nu autorizează MVP-ul complet, deploy-ul sau publicarea.

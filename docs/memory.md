@@ -1,5 +1,13 @@
 # Memorie de proiect
 
+## Următorul pas autorizat — fundație UI locală, 2026-11-02
+
+Utilizatorul a autorizat actualizarea planului și pregătirea handoff-ului pentru Task 2, precum și pornirea Task 2 într-un chat nou după citirea documentației și stabilirea contractului scurt; nu a cerut crearea automată a chatului. Task 2 este limitat la fundația locală React 19/TypeScript strict/Vite/Zod, tokens și componente comune, navigare, localizare RO/EN/FR cu româna implicită și date demonstrative mock/synthetic. Nu folosește sesiuni/date reale și nu schimbă Worker, Firebase sau D1.
+
+P-09 rămâne FAIL: măsurarea cold observată demonstrează depășirea pragului p95 ≤7 ms; p95 exact și măsurarea completă rămân necunoscute. Dezvoltarea UI locală nu este validare sau remediere server. Gate B1, Task 3 (auth/API privat/live backend) și orice acceptare online rămân blocate de P-09 PASS și probele reale obligatorii. Proba iPhone P12-A este PASS manual pentru fixture sintetic și nu se repetă; nu se reia CPU/CAS și nu se modifică fixture-ul.
+
+Implementarea delegată revine unui singur agent `gpt-6-luna`; coordonatorul face contract, review, corectări delegate, reverificare și integrare. Coordonatorul nu preia codul fără confirmarea agentului că sarcina e prea complexă și confirmarea utilizatorului. Nu folosi modele mai costisitoare fără aprobare. Nu crea chatul automat; promptul copy-ready este în [handoff](plans/2026-11-02-next-chat-handoff.md). După review și verificările cerute, commit/push pe `main` sunt acoperite de autorizarea Git persistentă, fără confirmare repetată. Fără deploy/publicare a produsului sau PR automat.
+
 ## Rezultatul ultimei runde CPU — 2026-11-02
 
 Raportul corect confirmă 200 de ID-uri unice și toți indicii 0–99 pentru cold și warm. Captura de zece minute a salvat un primer și 21 de cereri corelate (10 cold, 11 warm), cu 90 de indici cold și 89 warm fără CPU capturat. Toate cele 10 valori cold observate sunt 8–15 ms; fiind 10 cereri distincte din cele 100 cold, p95 cold este demonstrabil >7 ms chiar dacă valorile lipsă ar fi toate ≤7 ms. **P-09 eșuează pragul CPU cold;** p95 exact, p95 warm și terminările CPU pentru întregul set rămân necunoscute. Cauza evenimentelor lipsă nu este stabilită; parserul noii capturi a înregistrat 0 erori. Nu relansa workloadul. Detaliile și limitele sunt în [jurnalul rundei](operations/2026-11-02-cpu-rerun.md). Nu repeta CAS sau proba iPhone.
