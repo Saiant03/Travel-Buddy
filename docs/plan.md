@@ -1,5 +1,12 @@
 # Plan de lucru — Travel Buddy
 
+## Task 5A — verificat local, 2026-11-02
+
+Utilizatorul a autorizat explicit extragerea interfeței locale de creare din Task 5. [Contractul Task 5A](plans/2026-11-02-task-5a-local-trip-creation.md) acoperă biletul destinației/perioadei, bagajul transportului și cazărilor și pașaportul cu rezumat, RO/EN/FR și date fictive numai în memorie. Demonstrația se oprește la rezumat; nu include generare, ajustări per vacanță sau backend. Task 5 complet păstrează dependențele Tasks 1–4 și rămâne nefinalizat; Task 4 complet rămâne dependent de Task 3. P-09 rămâne FAIL (10/100 cold peste 7 ms), p95 exact necunoscut; B1, Task 3, backendul și acceptarea online sunt blocate. Task 2/4A nu se reiau.
+
+Implementare și corectări delegate Terra high, review static Sol medium și verificare finală a coordonatorului: **139/139 teste, typecheck, lint, build, 14/14 E2E Chromium**. Browser local: toate cele trei scene în RO/EN/FR, mobil/desktop, tastatură, reset, opționale, calendar, reduced motion și zoom CSS 200%; fără overflow. R1 și contrastul butoanelor au fost remediate și reverificate. [Dovezi și limite](evidence/2026-11-02/task-5a-local-trip-creation.md): unele teste suplimentare au fost adăugate ulterior, zoomul nativ/Safari/cititorul de ecran/dispozitivul fizic nu sunt verificate; prima scenă și detaliile exacte nu primesc aprobare vizuală implicită. Livrarea Git se confirmă după push, fără deploy/PR.
+
+
 ## Snapshot curent — Task 4A verificat local, 2026-11-02
 
 Task 4A a fost extras explicit din Task 4 și implementat delegat după fundația Task 2 (`40198ed`, confirmare `55c2c11`). [Contractul local](plans/2026-11-02-task-4a-local-preferences.md) și [dovezile](evidence/2026-11-02/task-4a-local-preferences.md) descriu pagina celor cinci carnete, alegerile exclusive, căutarea, precizările, progresul, RO/EN/FR și exemplele fictive în memorie. Resetarea la reload este explicată. Inventarul alimentar nu este aprobat final; precizările non-food sunt note, iar prepararea structurată este demonstrată la ceapă/roșii.

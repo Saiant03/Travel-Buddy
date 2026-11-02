@@ -9,11 +9,14 @@ import {
   Loading,
   Toast,
 } from "../ui/components";
-import { t, type Locale, type MessageKey } from "./i18n";
+import { t, tripMessages, type Locale, type MessageKey } from "./i18n";
 import { resolveRoute } from "./router";
 import { Preferences } from "../features/preferences/Preferences";
 import type { DemoItem } from "../features/preferences/demo-catalog";
 import { createDemoProfile } from "../features/preferences/demo-model";
+
+import { TripWizard } from "../features/trip-creation/TripWizard";
+import { createTripDraft } from "../features/trip-creation/demo-model";
 
 function Star({ className = "" }: { className?: string }) {
   return (
@@ -32,6 +35,8 @@ function Star({ className = "" }: { className?: string }) {
 }
 
 export function App() {
+  const [tripDraft, setTripDraft] = useState(createTripDraft);
+  const [tripStep, setTripStep] = useState(0);
   const [customItems, setCustomItems] = useState<DemoItem[]>([]);
   const [profile, setProfile] = useState(createDemoProfile);
   const [locale, setLocale] = useState<Locale>("ro");
@@ -52,7 +57,7 @@ export function App() {
           : route === "preferences"
             ? "preferences"
             : "notFound";
-    document.title = `${t(locale, titleKey)} — Travel Buddy`;
+    document.title = `${route === "tripCreation" ? tripMessages[locale].title : t(locale, titleKey)} — Travel Buddy`;
     if (previousPath.current !== path) {
       mainRef.current?.focus();
       previousPath.current = path;
@@ -162,6 +167,7 @@ export function App() {
                 </div>
               </div>
             </div>
+            <a className="button" href="/trip-creation" onClick={(event) => navigate(event, "/trip-creation")}>{tripMessages[locale].open}</a>
             <Card className="journey">
               <div>
                 <span className="ticket-label">{text("demoBadge")}</span>
@@ -237,6 +243,7 @@ export function App() {
             </Dialog>
           </>
         )}
+        {route === "tripCreation" && <TripWizard locale={locale} draft={tripDraft} setDraft={setTripDraft} step={tripStep} setStep={setTripStep} />}
         {route === "preferences" && <Preferences locale={locale} profile={profile} setProfile={setProfile} customItems={customItems} setCustomItems={setCustomItems} />}
         {route === "notFound" && (
           <div className="page-heading">

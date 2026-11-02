@@ -1,0 +1,210 @@
+.trip-wizard {
+  max-width: 920px;
+  margin: 0 auto;
+  overflow-wrap: anywhere;
+}
+.trip-wizard h1 {
+  text-align: center;
+  max-width: 16ch;
+  margin: 1rem auto;
+}
+.trip-notice {
+  text-align: center;
+}
+.trip-steps {
+  display: flex;
+  justify-content: center;
+  gap: clamp(0.5rem, 3vw, 2rem);
+  padding: 0;
+  list-style: none;
+  flex-wrap: wrap;
+}
+.trip-steps li {
+  color: var(--muted);
+  font-weight: 700;
+}
+.trip-steps li[aria-current] {
+  color: var(--forest);
+  text-decoration: underline;
+  text-underline-offset: 0.35em;
+}
+.trip-ticket,
+.trip-passport {
+  background: var(--paper);
+  border: 3px solid var(--gold);
+  border-radius: 16px;
+  padding: clamp(1rem, 4vw, 2.5rem);
+}
+.ticket-top {
+  display: flex;
+  justify-content: space-between;
+  color: var(--forest);
+  font-weight: 800;
+  border-bottom: 2px dashed var(--gold);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.7rem;
+}
+.trip-wizard fieldset {
+  border: 0;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+.trip-wizard legend {
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+}
+.trip-ticket fieldset label {
+  display: block;
+  margin: 0.5rem 0;
+}
+.trip-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.trip-row > * {
+  min-width: 0;
+}
+.trip-wizard input:not([type="checkbox"]):not([type="radio"]) {
+  max-width: 100%;
+  width: 100%;
+}
+.trip-ticket > .button {
+  margin-top: 1.5rem;
+}
+.trip-luggage {
+  position: relative;
+  margin-top: 1.5rem;
+  background: var(--deep);
+  color: var(--paper);
+  border: 8px solid var(--gold);
+  border-radius: 22px;
+  padding: clamp(1rem, 4vw, 2rem);
+}
+.trip-luggage::before {
+  content: "";
+  position: absolute;
+  width: 96px;
+  height: 20px;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid var(--gold);
+  border-bottom: 0;
+  border-radius: 12px 12px 0 0;
+}
+.trip-luggage > p {
+  text-align: center;
+}
+.transport-choices {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.transport-choices legend {
+  width: 100%;
+}
+.transport-choices label {
+  flex: 1 1 120px;
+  min-width: 0;
+  background: var(--paper);
+  color: var(--forest);
+  border: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  font-weight: 700;
+}
+.transport-choices svg {
+  width: 48px;
+  height: 40px;
+  flex: none;
+}
+.trip-stays,
+.trip-times {
+  color: var(--forest);
+  background: var(--paper);
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+.trip-stays h2 {
+  margin-top: 0;
+}
+.trip-stay {
+  border-top: 2px dashed var(--gold);
+  padding: 1rem 0;
+}
+.trip-error {
+  color: var(--error);
+  font-weight: 700;
+  margin: 0.4rem 0;
+}
+.trip-luggage > .trip-error {
+  color: var(--paper);
+}
+.trip-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.passport-pages {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 6px solid var(--gold);
+  border-radius: 12px;
+  background: var(--cream);
+}
+.passport-pages > div {
+  padding: 1.25rem;
+  min-width: 0;
+}
+.passport-pages > div + div {
+  border-left: 2px dashed var(--gold);
+}
+.trip-destination {
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+@media (max-width: 560px) {
+  .passport-pages {
+    grid-template-columns: 1fr;
+  }
+  .passport-pages > div + div {
+    border-left: 0;
+    border-top: 2px dashed var(--gold);
+  }
+  .trip-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.trip-ticket fieldset label {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.trip-luggage > .trip-actions .button {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--deep);
+}
+.trip-luggage > .trip-actions .button:hover {
+  background: var(--cream);
+  border-color: var(--cream);
+}
+.trip-luggage > .trip-actions .button-secondary {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: var(--forest);
+}
+.trip-luggage > .trip-actions .button-secondary:hover {
+  background: var(--soft);
+  border-color: var(--soft);
+}

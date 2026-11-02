@@ -6,6 +6,8 @@ describe("local routes", () => {
     expect(resolveRoute("/")).toBe("home");
     expect(resolveRoute("/explore")).toBe("explore");
     expect(resolveRoute("/explore/")).toBe("explore");
+    expect(resolveRoute("/trip-creation")).toBe("tripCreation");
+    expect(resolveRoute("/trip-creation/")).toBe("tripCreation");
   });
   it("returns a not-found state for unknown routes", () => {
     expect(resolveRoute("/missing")).toBe("notFound");

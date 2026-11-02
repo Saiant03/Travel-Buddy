@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { messages, t } from "../../src/app/i18n";
+import { messages, t, tripMessages } from "../../src/app/i18n";
 
 describe("foundation translations", () => {
   it("provides every Romanian key in each supported language", () => {
@@ -20,5 +20,17 @@ describe("foundation translations", () => {
   });
   it("leaves missing placeholders visible", () => {
     expect(t("ro", "greeting")).toBe("Bun venit, {name}!");
+  });
+});
+
+describe("trip translations", () => {
+  it("contains the same nonempty keys in each language", () => {
+    for (const locale of ["ro", "en", "fr"] as const) {
+      expect(Object.keys(tripMessages[locale]).sort()).toEqual(
+        Object.keys(tripMessages.ro).sort(),
+      );
+      for (const value of Object.values(tripMessages[locale]))
+        expect(value.trim()).not.toBe("");
+    }
   });
 });
