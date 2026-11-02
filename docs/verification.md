@@ -6,7 +6,7 @@ Utilizatorul a furnizat rapoarte pentru build `032757c940a4cd17c624304bc010d9381
 
 - **Acces și izolare: 10/10 trecute.** Cererile fără autentificare sau cu autentificare malformată au primit 401; fiecare cont și-a citit propriul profil (200), profilul celuilalt a fost refuzat (403), ambii au citit vacanța comună (200), iar accesul la vacanța privată a fost refuzat (403). Toate răspunsurile au `private, no-store`.
 - **CAS/idempotency: 14/14 trecute.** Ambii au citit versiunea 7; propunerea câștigătoare a primit 200, concurenta 409; ambii au reîncărcat versiunea 8, iar retry-urile au întors aceeași confirmare câștigătoare. Testul a modificat fixture-ul; nu îl reseta și nu îl relua automat.
-- **CPU / P-09: trimitere executată, verdict în așteptare.** Au fost trimise 200 de cereri (100 cold/cold și 100 warm/warm), payload 262144 bytes și `isolateColdState=not_observed`. Raportul nu conține CPU p50/p95, erori sau cote Cloudflare, deci nu demonstrează performanța ori rezultatul P-09.
+- **CPU / P-09: FAIL la pragul cold; captură incompletă.** În captura UTC 2026-11-02 07:10:33–07:20:34 s-au corelat pe ID 10 cereri cold distincte din cele 100 raportate, toate cu CPU >7 ms. Asta demonstrează că p95 cold depășește pragul 7 ms; p95 exact și CPU-ul celorlalte 179 de cereri măsurate rămân necunoscute. Raportul are 100 `cold/cold`, 100 `warm/warm`, payload 262144 bytes și `isolateColdState=not_observed`. Nu deducem terminările CPU pentru setul întreg și nu repetăm workloadul.
 - **P12-A offline pe iPhone:** PASS manual raportat de utilizator pentru fixture-ul sintetic pe iPhone 14 Pro Max, conform [dovezii de progres](evidence/2026-10-23/phone-probe-progress.md). Nu este test independent sau acceptare a produsului complet; nu se cere repetarea. E2E-ul desktop offline a trecut; Android nu este confirmat și nu este condiție de integrare.
 
 ## Preflight curent și verificări de integrare — 2026-11-02
@@ -17,7 +17,7 @@ Verificările locale au trecut: `npm ci` cu cache temporar, 111/111 teste în 12
 
 Workers Builds API a răspuns HTTP 403 la trigger. Nu s-a stabilit dacă există automatizare de branch și nu am lansat nicio comandă sau acțiune de deploy. Rezultatul nu este tratat ca dovadă de deploy sau ca blocaj al integrării GitHub confirmate.
 
-Aceste verificări sunt separate de P12-A pe iPhone (PASS manual pe fixture sintetic, fără repetare) și de măsurătorile Cloudflare încă lipsă pentru workload-ul CPU trimis anterior.
+Aceste verificări sunt separate de P12-A pe iPhone (PASS manual pe fixture sintetic, fără repetare). Detaliile capturii CPU și limitele verdictului sunt în [jurnalul P-09](operations/2026-11-02-cpu-rerun.md).
 
 ## Fundația locală — rezultate istorice din snapshotul 2026-10-24
 
