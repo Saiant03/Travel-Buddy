@@ -174,7 +174,7 @@ type ApiResult<T> = { ok: true; data: T; requestId: string } | { ok: false; erro
 
 **Executant:** `gpt-6.1-terra` medium (conform D014); **Skill-uri:** `travel-buddy-engineering`, `frontend-design`, `design-taste-frontend`, `test-driven-development`, `webapp-testing`, `travel-buddy-review`; testele comportamentale i18n/router urmează fail-then-pass; smoke browser local; fără teste pentru CSS/documentație; **Dependențe locale:** Task 0–1 și contractele vizuale existente. **Gate server:** Task 3/live backend rămân blocate de Gate B1/P-09. Asset Lisabona poate rămâne ticket deschis.
 
-**Snapshot 2026-11-02:** Task 2 local revizuit și verificat; [dovezi și limite](../evidence/2026-11-02/task-2-ui.md). Nu este acceptare online, iar Task 3 rămâne blocat de B1/P-09. Commit/push autorizate sunt încă neexecutate la acest snapshot.
+**Snapshot 2026-11-02:** Task 2 local revizuit și verificat; [dovezi și limite](../evidence/2026-11-02/task-2-ui.md). Nu este acceptare online, iar Task 3 rămâne blocat de B1/P-09. Implementarea a fost livrată pe `main` prin `40198eda5bc83976ef3aaef8dcb0f8c2897bbf38`; push fără force confirmat, fără deploy. Actualizarea documentară de livrare urmează separat.
 
 ### Task 3: API auth, administrare celor două conturi și izolarea privată
 

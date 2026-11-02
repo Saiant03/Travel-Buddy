@@ -2,7 +2,7 @@
 
 ## Snapshot curent — Task 2 finalizat local, 2026-11-02
 
-Fundația UI locală a trecut reviewul și verificările coordonatorului; detaliile și limitele sunt în [dovada Task 2](evidence/2026-11-02/task-2-ui.md). Exemplele sunt fictive, iar limba este doar în memorie. Nu s-au implementat produsul complet sau backendul. P-09 rămâne FAIL, p95 exact necunoscut; Gate B1 și Task 3/backend/acceptarea online rămân blocate. Task 4+ nu sunt autorizate în bloc. Commit/push autorizate sunt următorul pas al coordonatorului și nu erau executate la acest snapshot; fără deploy sau publicare. Textul de pornire al Task 2 de mai jos este istoric.
+Fundația UI locală a trecut reviewul și verificările coordonatorului; detaliile și limitele sunt în [dovada Task 2](evidence/2026-11-02/task-2-ui.md). Exemplele sunt fictive, iar limba este doar în memorie. Nu s-au implementat produsul complet sau backendul. P-09 rămâne FAIL, p95 exact necunoscut; Gate B1 și Task 3/backend/acceptarea online rămân blocate. Task 4+ nu sunt autorizate în bloc. Implementarea a fost livrată pe `main` prin `40198eda5bc83976ef3aaef8dcb0f8c2897bbf38`; push fără force confirmat, fără deploy. Actualizarea documentară de livrare urmează separat. Textul de pornire al Task 2 de mai jos este istoric.
 
 ## Prioritate curentă — fundație locală și gate server separat, 2026-11-02
 

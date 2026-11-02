@@ -14,3 +14,7 @@ Shell-ul React are rutele `/`, `/explore` și o stare pentru adrese necunoscute;
 Testele i18n/router au fost scrise înaintea modulelor. Logul inițial RED a arătat **două erori de import pentru module inexistente și zero teste executate**, nu eșecuri pe aserțiuni. După implementare au trecut 5/5. Ulterior, o mutație temporară a condiției routerului a produs un FAIL pe aserțiune; fișierul a fost restaurat și cele 5 teste au trecut din nou. Logurile sesiunii sunt `/tmp/travel-buddy-task2-red.log` și `/tmp/travel-buddy-task2-mutation.log`.
 
 Safari/WebKit și telefon fizic nu au fost testate în acest task; proba iPhone anterioară nu a fost repetată. Nu există aprobare umană finală a percepției designului. P-09 rămâne FAIL: 10/100 cold observate peste 7 ms, p95 exact necunoscut; B1, Task 3, backendul și acceptarea online rămân blocate. Nu s-au reluat CPU/CAS/iPhone, modificat Firebase/Cloudflare/D1, activat costuri sau făcut deploy/publicare. Commit/push sunt următorul pas autorizat al coordonatorului, încă neexecutate la acest snapshot.
+
+## Livrare Git verificată
+
+Implementarea a fost livrată pe `main` prin commitul `40198eda5bc83976ef3aaef8dcb0f8c2897bbf38`; push-ul fără force a fost confirmat, iar `origin/main` era identic la verificare. Nu s-a făcut deploy. Actualizarea documentară de livrare urmează separat.

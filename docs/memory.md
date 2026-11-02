@@ -4,7 +4,7 @@
 
 Fundația locală a fost implementată de `gpt-6.1-terra` medium, revizuită și verificată integrat de coordonator. Shell-ul, componentele, rutele `/` și `/explore`, fallbackul și RO/EN/FR sunt demonstrative; limba este în memorie și revine la RO la reload. Fontul aprobat este local, cu OFL/proveniență, iar shell-ul public PWA este păstrat. Rezultatele și limitele sunt în [dovada Task 2](evidence/2026-11-02/task-2-ui.md). Nu există aprobare umană finală a percepției designului.
 
-P-09 rămâne FAIL (10/100 cold observate peste 7 ms, p95 exact necunoscut); B1, Task 3/backend și acceptarea online rămân blocate. Nu s-au reluat CPU/CAS/iPhone și nu s-au modificat Firebase/Cloudflare/D1, activat costuri sau publicat. Task 4+ nu sunt autorizate în bloc. Commit/push pe `main` sunt următorul pas autorizat al coordonatorului, încă neexecutat la acest snapshot. Secțiunile de pornire de mai jos sunt istorice unde diferă de această stare.
+P-09 rămâne FAIL (10/100 cold observate peste 7 ms, p95 exact necunoscut); B1, Task 3/backend și acceptarea online rămân blocate. Nu s-au reluat CPU/CAS/iPhone și nu s-au modificat Firebase/Cloudflare/D1, activat costuri sau publicat. Task 4+ nu sunt autorizate în bloc. Implementarea a fost livrată pe `main` prin `40198eda5bc83976ef3aaef8dcb0f8c2897bbf38`; push fără force confirmat, fără deploy. Actualizarea documentară de livrare urmează separat. Secțiunile de pornire de mai jos sunt istorice unde diferă de această stare.
 
 ## Următorul pas autorizat — fundație UI locală, 2026-11-02
 
