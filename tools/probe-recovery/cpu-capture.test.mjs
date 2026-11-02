@@ -29,6 +29,61 @@ test('JSON stream parser handles pretty chunks and discards status strings', () 
   assert.equal(JSON.stringify(parsed).includes('private'), false);
 });
 
+test('JSON stream parser skips ANSI and CLI noise across split escape and JSON chunks', () => {
+  const value = { event: { request: { method: 'POST', url: 'https://test/probe/benchmark' } }, cpuTime: 5, message: 'legitimate { text } with \\"quotes\\"' };
+  const stream = `\u001b[?25l${JSON.stringify(value, null, 2)}\n\u001b[32mConnected\u001b[0m\n`;
+  for (const size of [1, 7, 200, 4096]) {
+    const parser = new JsonStreamParser();
+    const parsed = [];
+    for (let offset = 0; offset < stream.length; offset += size) parsed.push(...parser.push(stream.slice(offset, offset + size)));
+    parsed.push(...parser.finish());
+    assert.deepEqual(parsed, [value], `chunk size ${size}`);
+    assert.deepEqual(parser.summary(), { parseErrors: 0, parsedObjects: 1 });
+  }
+});
+
+test('JSON stream parser discards complete quoted status strings before the next event', () => {
+  const status = 'CLI status with unmatched [ and { characters plus escaped quote: \\"still text';
+  const invocation = { event: { request: { method: 'POST', url: 'https://synthetic.test/probe/benchmark' } }, cpuTime: 5 };
+  const stream = `${JSON.stringify(status)}\n${JSON.stringify(invocation)}\n`;
+  for (const size of [1, 7]) {
+    const parser = new JsonStreamParser();
+    const parsed = [];
+    for (let offset = 0; offset < stream.length; offset += size) parsed.push(...parser.push(stream.slice(offset, offset + size)));
+    parsed.push(...parser.finish());
+    assert.deepEqual(parsed, [invocation], `chunk size ${size}`);
+    assert.deepEqual(parser.summary(), { parseErrors: 0, parsedObjects: 1 });
+  }
+});
+
+test('synthetic Wrangler replay captures primer, cold, and warm events despite ANSI and status noise', () => {
+  const traces = [];
+  const add = (requestId, path) => traces.push(trace({
+    log: { probe: 'cpu-workload', requestId, path, workloadHash: 'a'.repeat(64), payloadBytes: 262144 },
+  }));
+  add('synthetic-primer', 'warm');
+  for (let i = 0; i < 100; i += 1) add(`synthetic-cold-${i}`, 'cold');
+  for (let i = 0; i < 100; i += 1) add(`synthetic-warm-${i}`, 'warm');
+  const stream = traces.map((item, i) => `${i % 2 ? '\u001b[?25l' : '\u001b[32m'}${JSON.stringify(item, null, i % 3 ? 0 : 2)}\n${i % 2 ? '\u001b[0m' : '"HEAD /probe HTTP/1.1 200 OK"\n'}`).join('');
+  for (const size of [1, 7, 200, 4096]) {
+    const parser = new JsonStreamParser();
+    const replay = [];
+    for (let offset = 0; offset < stream.length; offset += size) replay.push(...parser.push(stream.slice(offset, offset + size)));
+    replay.push(...parser.finish());
+    const result = createCaptureAccumulator({ expectedWorkloadHash: 'a'.repeat(64), expectedPayloadBytes: 262144 });
+    const captured = replay.map((item) => result.consume(item)).filter(Boolean);
+    const summary = result.summary();
+    assert.equal(replay.length, 201, `parsed with chunk size ${size}`);
+    assert.equal(captured.length, 201, `captured with chunk size ${size}`);
+    assert.equal(summary.invalidWorkloadEvents, 0);
+    assert.equal(summary.benchmarkEvents, 201);
+    assert.deepEqual(summary.measuredEvents, { cold: 100, warm: 100 });
+    assert.equal(summary.primerOrderValid, true);
+    assert.deepEqual(captured[0].cpuWorkload, { requestId: 'synthetic-primer', path: 'warm', workloadHash: 'a'.repeat(64), payloadBytes: 262144 });
+    assert.deepEqual(parser.summary(), { parseErrors: 0, parsedObjects: 201 });
+  }
+});
+
 test('capture stores only allowlisted request, trace, and CPU workload fields', () => {
   const capture = createCaptureAccumulator({ expectedWorkloadHash: hash, expectedPayloadBytes: 262144 });
   const record = capture.consume(trace({

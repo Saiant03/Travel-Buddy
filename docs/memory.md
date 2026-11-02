@@ -2,7 +2,7 @@
 
 ## Rezultatul ultimei runde CPU — 2026-11-02
 
-Runda nouă autorizată a fost executată de utilizator: raportul confirmă 100 cold + 100 warm, cu identificatori distincți și indicii compleți. Captura a salvat numai 22 de invocări (primer + 21 potrivite cu raportul), deci P-09 rămâne incomplet; nu extrapola percentile sau absența erorilor pentru cererile fără CPU capturat. Datele sunt păstrate privat în `.local/`; concluziile sunt în [jurnalul rundei](operations/2026-11-02-cpu-rerun.md). Nu relansa workloadul. Trebuie diagnosticată și validată captura înaintea oricărei alte runde; nu repeta CAS sau proba iPhone.
+Runda nouă autorizată a fost executată de utilizator: raportul confirmă 100 cold + 100 warm, cu identificatori distincți și indicii compleți. Captura a salvat numai 22 de invocări (primer + 21 potrivite cu raportul), deci P-09 rămâne incomplet; nu extrapola percentile sau absența erorilor pentru cererile fără CPU capturat. Corecțiile locale ANSI/status ale parserului și contoarele sanitizate sunt încheiate și verificate; cauza celor 179 de evenimente lipsă rămâne nedovedită. Nu relansa workloadul. Datele sunt păstrate privat în `.local/`; concluziile sunt în [jurnalul rundei](operations/2026-11-02-cpu-rerun.md). Nu repeta CAS sau proba iPhone.
 
 ## Stare curentă — integrare confirmată și probe, 2026-11-02
 

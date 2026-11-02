@@ -48,29 +48,53 @@ function scanJsonValue(text, start) {
 
 export class JsonStreamParser {
   #buffer = '';
+  #parseErrors = 0;
+  #parsedObjects = 0;
 
   push(chunk) {
     this.#buffer += chunk;
     const values = [];
     let offset = 0;
     while (offset < this.#buffer.length) {
-      while (/\s/.test(this.#buffer[offset] ?? '')) offset += 1;
-      if (offset >= this.#buffer.length) break;
-      const end = scanJsonValue(this.#buffer, offset);
-      if (end < 0) break;
-      const raw = this.#buffer.slice(offset, end);
-      offset = end;
-      try {
-        const value = JSON.parse(raw);
-        if (value && typeof value === 'object') values.push(value);
-        // Wrangler's JSON-mode status strings are intentionally discarded.
-      } catch {
-        const lineEnd = this.#buffer.indexOf('\n', offset);
-        offset = lineEnd < 0 ? this.#buffer.length : lineEnd + 1;
+      const c = this.#buffer[offset];
+      if (c === '\u001b') {
+        const ansi = this.#buffer.slice(offset + 1).match(/^\[[0-?]*[ -/]*[@-~]/);
+        if (ansi) { offset += ansi[0].length + 1; continue; }
+        break;
       }
+      if (c === '"') {
+        const end = scanJsonValue(this.#buffer, offset);
+        if (end < 0) break;
+        // Top-level JSON strings are Wrangler status messages; consume whole.
+        offset = end;
+        continue;
+      }
+      if (c === '{' || c === '[') {
+        const end = scanJsonValue(this.#buffer, offset);
+        if (end < 0) break;
+        try {
+          const value = JSON.parse(this.#buffer.slice(offset, end));
+          if (value && typeof value === 'object') {
+            values.push(value);
+            this.#parsedObjects += 1;
+          }
+        } catch {
+          this.#parseErrors += 1;
+          const lineEnd = this.#buffer.indexOf('\n', offset);
+          offset = lineEnd < 0 ? this.#buffer.length : lineEnd + 1;
+          continue;
+        }
+        offset = end;
+        continue;
+      }
+      offset += 1;
     }
     this.#buffer = this.#buffer.slice(offset);
     return values;
+  }
+
+  summary() {
+    return { parseErrors: this.#parseErrors, parsedObjects: this.#parsedObjects };
   }
 
   finish() {
@@ -234,6 +258,7 @@ async function runCapture(options) {
     captureEndedAt: null,
     status,
     tailError,
+    ...parser.summary(),
     ...accumulator.summary(),
   });
   saveSummary(outDir, baseSummary());

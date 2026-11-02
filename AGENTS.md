@@ -14,8 +14,8 @@ Utilizatorul a autorizat și operațiunile necesare cererilor explicite de lucru
 Nu presupune stack, funcționalități, stil sau sensul cuvântului „local”.
 
 ## Ierarhie autorizată de utilizator
-Agentul principal planifică, stabilește contractele, deleagă, integrează și verifică rezultatul final.
-Delegarea este autorizată, cu preferința curentă a utilizatorului: subagenții folosesc numai `gpt-6-luna`; coordonatorul face reviewul final. Nu folosi modele mai costisitoare, inclusiv `gpt-6.1-sol`, fără acordul utilizatorului. Împarte lucrul pe fișiere distincte și serializează modificările comune.
+Agentul principal planifică, stabilește contractele, deleagă, face reviewul și verificările, coordonează corectările și integrează rezultatul final; nu implementează.
+Implementarea revine agenților delegați, conform preferinței curente a utilizatorului: subagenții folosesc numai `gpt-6-luna`. Coordonatorul poate prelua implementarea numai dacă agentul delegat confirmă că sarcina este prea complexă și utilizatorul confirmă intervenția. Nu folosi modele mai costisitoare, inclusiv `gpt-6.1-sol`, fără acordul utilizatorului. Împarte lucrul pe fișiere distincte și serializează modificările comune.
 Nu schimba automat modelul principal. Dacă un model cerut nu este disponibil, raportează și folosește o alternativă disponibilă explicit identificată.
 
 ## Skill-uri
