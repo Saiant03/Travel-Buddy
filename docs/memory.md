@@ -1,10 +1,14 @@
 # Memorie de proiect
 
-## Stare curentă — conectarea Alpha corectată, 2026-11-02
+## Stare curentă — probe Alpha/Beta și acces administrativ, 2026-11-02
 
-Pagina de probă avea un defect de apel al funcției native `fetch`, care oprea conectarea înainte să ajungă la Firebase. Corecția este aplicată, verificată în browser și documentată în [predarea incidentului Alpha](operations/2026-11-02-alpha-login-fix.md). Instrumentele de reproducere sunt salvate în `tools/probe-recovery`; sursa TypeScript originală a clientului rămâne de recuperat, nu există un build complet în checkout.
+După confirmarea emailurilor și corectarea clientului de conectare consemnată în [incidentul Alpha](operations/2026-11-02-alpha-login-fix.md), utilizatorul a transmis rapoarte de probe pentru build `032757c940a4cd17c624304bc010d93818cdf15a130bff0eb202fdd20889ce11`. Accesul autentificat a trecut 10/10 verificări, iar CAS/idempotency a trecut 14/14: o singură propunere a fost aplicată, cealaltă a primit conflict, ambii membri au reîncărcat versiunea 8, iar retry-urile au returnat aceeași confirmare. Fixture-ul CAS a fost modificat și nu trebuie resetat sau testat din nou automat.
 
-Ambele emailuri sunt acum confirmate. **Următorul pas:** utilizatorul reîncarcă panoul și încearcă Alpha, apoi Beta. Nu este încă demonstrată conectarea cu parolele reale sau rularea probelor pozitive/CAS/CPU. Nu cere parole în chat și nu reface setup-ul administrativ fără un eșec concret. Allowlist-ul și fixture-ul D1 au rămas corecte; nu reseta baza. Contextul de mai jos este istoricul etapei precedente.
+Proba CPU a fost trimisă (status `sent`): payload 262144 bytes, 100 cereri cold și 100 warm, 200 de înregistrări unice după `requestId`. Stările raportate sunt 100 `cold/cold` și 100 `warm/warm`; izolarea stării cold nu a fost observată. Lipsesc măsurătorile timpului CPU p50/p95, erorile și cotele Cloudflare, deci proba este executată ca trimitere, iar verdictul P-09 rămâne în așteptarea măsurătorilor Cloudflare.
+
+Offline desktop a trecut anterior; nu a fost cerută repetarea. Utilizatorul a spus că a verificat offline, fără a preciza dispozitivul; nu există dovezi păstrate pentru telefon, deci verificarea pe telefon rămâne nedemonstrată. Pentru acces persistent, utilizatorul raportează că o sesiune nouă cu mediul Travel-Buddy configurat a avut `FIREBASE_SERVICE_ACCOUNT_JSON` disponibil, autentificare reușită și citire HTTP 200 fără modificări. Această confirmare aparține acelei sesiuni, nu acestui checkout. Accesul este reutilizabil în sesiunile care folosesc acel mediu cât timp credentialul rămâne valid; nu este global tuturor chaturilor. Persistența Cloudflare încă trebuie configurată și verificată în noul chat.
+
+Detaliile, dovezile și limitele sunt în [jurnalul probelor din 2 noiembrie](operations/2026-11-02-alpha-beta-verification.md). Nu salva emailul contului de serviciu, ID-ul cheii, secrete, parole sau coduri de autorizare. Codul `FIREBASE_AUTH_CODE` a fost consumat; nu îl reutiliza. Produsul complet nu este implementat, iar facturarea nu a fost autorizată. Contextul de mai jos este istoricul etapelor precedente.
 
 ## Etapa precedentă — recuperarea probelor, 2026-11-01
 
