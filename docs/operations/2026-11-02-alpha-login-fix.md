@@ -1,10 +1,10 @@
 # Corecția conectării Alpha — 2 noiembrie 2026
 
-## Stare finală și următorul pas
+## Stare și continuare — actualizare 2 noiembrie
 
-Corecția este aplicată pe [panoul server](https://travel-buddy-server-probe.saiuantonio.workers.dev/). Ambele conturi Firebase au acum adresele confirmate. Utilizatorul trebuie să reîncarce pagina și să încerce autentificarea Alpha, apoi Beta. Alpha este contul Firebase creat primul, Beta al doilea; ordinea este aceeași ca în fixture-ul D1.
+Corecția este aplicată pe [panoul server](https://travel-buddy-server-probe.saiuantonio.workers.dev/). Ulterior, utilizatorul a furnizat rezultate: accesul autentificat Alpha/Beta a trecut 10/10, iar CAS/idempotency 14/14; proba CPU a fost trimisă, dar măsurătorile Cloudflare pentru verdictul P-09 lipsesc. Offline desktop este deja trecut; verificarea telefonului rămâne nedemonstrată. Vezi [jurnalul Alpha/Beta](2026-11-02-alpha-beta-verification.md) pentru rezultate și pașii următori.
 
-Autentificarea efectivă cu parolele reale și testele de acces pozitiv/CAS nu sunt încă demonstrate. Sesiunea administrativă a agentului nu este sesiunea celor două conturi din browser. Nu solicita parole sau tokenuri în chat și nu reseta conturi ori fixture-ul pentru a obține rezultate verzi.
+Ambele adrese Firebase au fost confirmate. Nu cere parole sau tokenuri în chat și nu reseta fixture-ul ori relua CAS automat. Raportul de probe nu este validarea produsului complet.
 
 ## Defect și corecție
 
@@ -31,6 +31,6 @@ Mesajul generic al interfeței încă apare pentru unele refuzuri Firebase. Dac�
 
 ## Continuitate
 
-Contextul și limitele probei sunt în [recuperarea inițială](2026-11-01-probe-recovery.md). Datele sintetice D1 sunt pregătite; nu au fost schimbate de această corecție. Testul CAS schimbă intenționat versiunea 7 și nu trebuie repetat prin resetarea automată a bazei. Produsul complet, benchmarkul CPU și verificările pe telefoane nu sunt validate prin această remediere.
+Contextul inițial și limitele operaționale sunt în [jurnalul de recuperare](2026-11-01-probe-recovery.md), iar rezultatele noi în [jurnalul Alpha/Beta](2026-11-02-alpha-beta-verification.md). CAS a mutat fixture-ul D1 de la versiunea 7 la 8; nu îl reseta și nu relua testul automat. Proba CPU nu are încă măsurătorile Cloudflare pentru verdictul P-09.
 
-În chatul nou se citesc `AGENTS.md`, `docs/memory.md` și acest document. Se verifică întâi sesiunile administrative deja configurate; nu se reface onboardingul și nu se cer coduri OAuth noi fără o eroare concretă. Folosește `NODE_USE_ENV_PROXY=1` pentru comenzile Node care accesează rețeaua din acest mediu.
+Utilizatorul a raportat acces Firebase reutilizabil în sesiunile care folosesc mediul Travel-Buddy, cu credential valid. Acea verificare aparține sesiunii noi, nu acestui checkout. Persistența Cloudflare rămâne de verificat. Nu reface onboardingul, nu reutiliza `FIREBASE_AUTH_CODE` și nu cere coduri, parole ori secrete în chat.
