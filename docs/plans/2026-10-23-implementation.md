@@ -228,6 +228,10 @@ type ApiResult<T> = { ok: true; data: T; requestId: string } | { ok: false; erro
 
 ### Task 6: Provider adapters, căutare și identificare locurilor
 
+**Separare autorizată, 2026-11-02:** [Task 6A local](2026-11-02-task-6a-local-place-resolution.md) extrage contractele interne și demonstrația cu furnizor injectabil/fixture-uri sintetice, pe fundația Tasks 1–2. Se oprește la confirmarea selecției locale, separat de Task 5A. Task 6 complet rămâne nefinalizat; adaptoarele HTTP reale, endpointurile, autentificarea, protecția completă a URL-urilor, cotele persistente și probele live păstrează dependențele de mai jos și gate-urile serverului. Testele 6A nu acordă PASS integral P-05/P-06; checkboxurile Task 6 complet nu se bifează prin 6A. P-09 FAIL/B1/Task 3/backend/acceptarea online rămân blocate.
+
+**Snapshot 6A, 2026-11-02:** implementare/review și verificare funcțională locală: 184/184 teste, typecheck/lint/build, 26/26 E2E Chromium, browser RO/EN/FR, tastatură, reduced motion și zoom CSS 200%. [Dovezi și limite TDD](../evidence/2026-11-02/task-6a-local-place-resolution.md); nu se certifică RED separat pentru fiecare comportament. Task 6 complet rămâne cu checkboxurile nefinalizate.
+
 **Fișiere:** Creează `src/server/providers/{tavily,groq,geoapify,images}.ts`, `src/server/routes/places.ts`, `src/domain/itinerary/place-resolution.ts`, `src/features/itinerary/AddPlaceDialog.tsx`, `tests/unit/providers/*.test.ts`, `tests/unit/place-resolution.test.ts`, `tests/api/places.test.ts`.
 
 **Interfețe:** `SearchProvider.search(query, locale, limit): Promise<SourceCandidate[]>`; `PlaceResolver.resolve(input: string, locale): Promise<Resolution[]>`; `ImageProvider.find(place): Promise<LicensedImage | null>`; `RoutingProvider.route(stops, mode): Promise<RouteResult>`; fiecare adapter aplică quota budget, timeout, retry policy, input/output schema și citește cheile numai din Worker env.

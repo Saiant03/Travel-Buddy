@@ -1,5 +1,9 @@
 # Plan de lucru — Travel Buddy
 
+## Task 6A — implementat și verificat funcțional local, 2026-11-02
+
+[Contractul Task 6A](plans/2026-11-02-task-6a-local-place-resolution.md) separă demonstrația `/place-resolution` de integrarea reală. Fixture-uri sintetice deterministe, validare strictă, 0/1/multiple și simulări de erori, confirmare locală explicită; numai memorie, RO/EN/FR, fără efect în Task 5A. Review independent fără defecte confirmate; coordonator: 184/184 teste, typecheck/lint/build, 26/26 E2E și matrice browser 198 verificări cu reduced motion/zoom CSS 200%. [Dovezi și limite TDD](evidence/2026-11-02/task-6a-local-place-resolution.md): nu se certifică RED separat pentru fiecare comportament; testul mobil suplimentar a fost scris ulterior. Task 6 complet și P-05/P-06 integrale rămân deschise cu dependențele reale păstrate. P-09 FAIL (10/100 cold peste 7 ms, p95 exact necunoscut), B1/Task 3/backend/acceptarea online rămân blocate. Tasks 4/5 complete rămân nefinalizate. Fără probe reale, servicii/costuri sau publicare.
+
 ## Task 5A — verificat local, 2026-11-02
 
 Utilizatorul a autorizat explicit extragerea interfeței locale de creare din Task 5. [Contractul Task 5A](plans/2026-11-02-task-5a-local-trip-creation.md) acoperă biletul destinației/perioadei, bagajul transportului și cazărilor și pașaportul cu rezumat, RO/EN/FR și date fictive numai în memorie. Demonstrația se oprește la rezumat; nu include generare, ajustări per vacanță sau backend. Task 5 complet păstrează dependențele Tasks 1–4 și rămâne nefinalizat; Task 4 complet rămâne dependent de Task 3. P-09 rămâne FAIL (10/100 cold peste 7 ms), p95 exact necunoscut; B1, Task 3, backendul și acceptarea online sunt blocate. Task 2/4A nu se reiau.

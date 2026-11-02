@@ -277,3 +277,5 @@ export const tripMessages = {
 
 const checkedTripMessages: Record<Locale, Record<keyof typeof tripMessages.ro, string>> = tripMessages;
 void checkedTripMessages;
+
+export { placeMessages } from '../features/place-resolution/messages';

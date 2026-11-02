@@ -3,6 +3,15 @@ import { defineConfig } from '@playwright/test';
 export default defineConfig({
   testDir: './tests/e2e',
   projects: [
+    {
+      name: 'place-resolution',
+      testMatch: 'place-resolution.spec.ts',
+      use: {
+        baseURL: 'http://127.0.0.1:4173',
+        headless: true,
+        launchOptions: { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH },
+      },
+    },
     { name: 'trip-creation', testMatch: 'trip-creation.spec.ts', use: { baseURL: 'http://127.0.0.1:4173', headless: true, launchOptions: { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH } } },
     {
       name: 'preferences',

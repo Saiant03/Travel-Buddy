@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type MouseEvent } from "react";
+import { useEffect, useReducer, useRef, useState, type MouseEvent } from "react";
 import {
   Button,
   Card,
@@ -9,12 +9,17 @@ import {
   Loading,
   Toast,
 } from "../ui/components";
-import { t, tripMessages, type Locale, type MessageKey } from "./i18n";
+import { t, tripMessages, placeMessages, type Locale, type MessageKey } from "./i18n";
 import { resolveRoute } from "./router";
 import { Preferences } from "../features/preferences/Preferences";
 import type { DemoItem } from "../features/preferences/demo-catalog";
 import { createDemoProfile } from "../features/preferences/demo-model";
 
+import {
+  createResolutionDemoState,
+  transition,
+} from "../features/place-resolution/demo-model";
+import { PlaceResolution } from "../features/place-resolution/PlaceResolution";
 import { TripWizard } from "../features/trip-creation/TripWizard";
 import { createTripDraft } from "../features/trip-creation/demo-model";
 
@@ -35,6 +40,11 @@ function Star({ className = "" }: { className?: string }) {
 }
 
 export function App() {
+  const [resolution, dispatchResolution] = useReducer(
+    transition,
+    undefined,
+    createResolutionDemoState,
+  );
   const [tripDraft, setTripDraft] = useState(createTripDraft);
   const [tripStep, setTripStep] = useState(0);
   const [customItems, setCustomItems] = useState<DemoItem[]>([]);
@@ -57,7 +67,12 @@ export function App() {
           : route === "preferences"
             ? "preferences"
             : "notFound";
-    document.title = `${route === "tripCreation" ? tripMessages[locale].title : t(locale, titleKey)} — Travel Buddy`;
+    const title = route === "tripCreation"
+      ? tripMessages[locale].title
+      : route === "placeResolution"
+        ? placeMessages[locale].title
+        : t(locale, titleKey);
+    document.title = `${title} — Travel Buddy`;
     if (previousPath.current !== path) {
       mainRef.current?.focus();
       previousPath.current = path;
@@ -167,6 +182,13 @@ export function App() {
                 </div>
               </div>
             </div>
+            <a
+              className="button"
+              href="/place-resolution"
+              onClick={(event) => navigate(event, "/place-resolution")}
+            >
+              {placeMessages[locale].open}
+            </a>
             <a className="button" href="/trip-creation" onClick={(event) => navigate(event, "/trip-creation")}>{tripMessages[locale].open}</a>
             <Card className="journey">
               <div>
@@ -242,6 +264,9 @@ export function App() {
               <p>{text("dialogText")}</p>
             </Dialog>
           </>
+        )}
+        {route === "placeResolution" && (
+          <PlaceResolution locale={locale} state={resolution} dispatch={dispatchResolution} />
         )}
         {route === "tripCreation" && <TripWizard locale={locale} draft={tripDraft} setDraft={setTripDraft} step={tripStep} setStep={setTripStep} />}
         {route === "preferences" && <Preferences locale={locale} profile={profile} setProfile={setProfile} customItems={customItems} setCustomItems={setCustomItems} />}

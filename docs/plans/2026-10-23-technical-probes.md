@@ -136,6 +136,8 @@ Pregătiți fixture-uri locale fictive, fără persoane sau locații private rea
 
 ### P-05 — Sursă incertă, URL ambiguă, SSRF și licențe
 
+**Snapshot local limitat, 2026-11-02:** [Task 6A](../evidence/2026-11-02/task-6a-local-place-resolution.md) verifică fixture-uri/validare/alegere/incertitudine, fără fetch sau imagini. Nu acoperă protecția completă URL/DNS/redirect/proxy/licențe și nu acordă PASS integral P-05; cerințele și dependențele de mai jos rămân.
+
 
 **Responsabil:** `gpt-6-luna`
 
@@ -155,6 +157,8 @@ Pregătiți fixture-uri locale fictive, fără persoane sau locații private rea
 **Stop/fallback:** la orice încercare de fetch non-local din harness, mock server-ul izolat simulează requestul mașinii locale; nu accesați gazde reale în această probă de securitate. Dacă termenii permit numai hotlink, nu forțați proxy-ul: folosiți sursa online când permis și omiteți fotografia offline; dacă drepturile nu permit nici asta, omiteți fotografia și marcați indisponibilă. Licență neclară înseamnă omiterea activului și escaladare către coordonator, nu presupunerea unei licențe.
 
 ### P-06 — Cote, concurență, reset, timeout și retry mărginit
+
+**Snapshot local limitat, 2026-11-02:** [Task 6A](../evidence/2026-11-02/task-6a-local-place-resolution.md) are numai rezultate controlate pentru timeout/cotă/indisponibilitate, zero consum și zero retry automat. Fără cote persistente/concurență/reset/timezone sau probe live; nu acordă PASS integral P-06 și nu înlocuiește pașii de mai jos.
 
 
 **Responsabil:** `gpt-6-luna`
