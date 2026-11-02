@@ -1,5 +1,9 @@
 # Memorie de proiect
 
+## Rezultatul ultimei runde CPU — 2026-11-02
+
+Runda nouă autorizată a fost executată de utilizator: raportul confirmă 100 cold + 100 warm, cu identificatori distincți și indicii compleți. Captura a salvat numai 22 de invocări (primer + 21 potrivite cu raportul), deci P-09 rămâne incomplet; nu extrapola percentile sau absența erorilor pentru cererile fără CPU capturat. Datele sunt păstrate privat în `.local/`; concluziile sunt în [jurnalul rundei](operations/2026-11-02-cpu-rerun.md). Nu relansa workloadul. Trebuie diagnosticată și validată captura înaintea oricărei alte runde; nu repeta CAS sau proba iPhone.
+
 ## Stare curentă — integrare confirmată și probe, 2026-11-02
 
 Integrarea selectivă a fundației în `main` a reușit, verificată la `aace865e28cc88d012d6b585aaad9e6044c1b701` (părinți `1fb41d7, b295642`), prin push fără force. Produsul complet nu este implementat. Utilizatorul a transmis rezultate pentru buildul `032757c940a4cd17c624304bc010d93818cdf15a130bff0eb202fdd20889ce11`: accesul autentificat Alpha/Beta a trecut 10/10, iar CAS/idempotency 14/14. Un câștigător a aplicat propunerea, concurenta a primit conflict, iar ambii membri au reîncărcat versiunea 8 și retry-urile au întors aceeași confirmare. Fixture-ul CAS este modificat; nu-l reseta și nu relua proba automat.
