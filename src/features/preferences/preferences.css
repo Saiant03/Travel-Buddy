@@ -1,0 +1,46 @@
+.preferences-page { max-width: 1000px; margin: auto; }
+.preference-progress { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem; padding: 1rem 1.2rem; background: var(--soft); border-radius: 12px; }
+.notebook-picker { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1.5rem 0; }
+.notebook-picker button, .food-tabs button { border: 1px solid var(--line); background: var(--paper); color: var(--forest); border-radius: 10px; padding: .7rem 1rem; min-height: 48px; cursor: pointer; font-weight: 700; }
+.notebook-picker button span:first-child { color: var(--muted); margin-right: .6rem; font-size: .75rem; }
+.notebook-picker button[aria-pressed="true"], .food-tabs button[aria-pressed="true"] { background: var(--forest); color: var(--paper); border-color: var(--forest); }
+.notebook-picker button[aria-pressed="true"] span:first-child { color: var(--paper); }
+.notebook { background: var(--paper); border: 1px solid var(--line); border-left: 6px solid var(--gold); border-radius: var(--radius); box-shadow: var(--shadow); padding: clamp(1rem, 4vw, 2.5rem); }
+.notebook-heading { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.notebook-heading h2 { margin-bottom: 1.5rem; }
+.notebook-stamp { color: var(--gold); font-size: 3rem; }
+.search-label, .note-label { display: grid; gap: .5rem; font-weight: 700; max-width: 35rem; }
+.search-label input, .note-label textarea { border: 1px solid var(--muted); border-radius: 8px; background: var(--paper); color: var(--forest); padding: .8rem; width: 100%; font: inherit; }
+.note-label textarea { min-height: 5rem; resize: vertical; }
+.food-tabs { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.25rem; }
+.no-special { background: var(--soft); border-radius: 12px; padding: 1rem; margin: 1.5rem 0; }
+.no-special label, .restriction-panel label { display: flex; gap: .65rem; align-items: baseline; font-weight: 700; }
+.no-special p { margin: .5rem 0 0; font-size: .9rem; }
+.preference-group { margin-top: 2rem; }
+.preference-group h3 { border-bottom: 1px solid var(--line); padding-bottom: .7rem; }
+.preference-item, .preparation, .restriction-panel fieldset { min-width: 0; border: 0; padding: 0; margin: 0 0 1.5rem; }
+.preference-item { border-bottom: 1px solid var(--line); padding-bottom: 1.5rem; }
+.preference-item legend, .preparation legend, .restriction-panel legend { font-weight: 700; margin-bottom: .65rem; }
+.answer-options { display: flex; flex-wrap: wrap; gap: .5rem; }
+.answer { display: inline-flex; align-items: center; gap: .4rem; border: 1px solid var(--line); border-radius: 9px; padding: .6rem .75rem; min-height: 44px; cursor: pointer; }
+.answer:has(input:checked) { background: var(--soft); border-color: var(--forest); }
+input[type="radio"], input[type="checkbox"] { accent-color: var(--forest); width: 1.1rem; height: 1.1rem; flex: none; }
+.text-button { border: 0; background: transparent; color: var(--forest); text-decoration: underline; padding: .7rem 0; cursor: pointer; font-weight: 700; }
+.preference-details { margin-top: .5rem; }
+.preference-details summary { cursor: pointer; font-weight: 700; min-height: 44px; padding: .6rem 0; }
+.preparations { padding-top: 1rem; }
+.restriction-panel { background: var(--cream); padding: 1.25rem; border-radius: 12px; margin-top: 2rem; }
+.restriction-panel fieldset:last-child { margin-bottom: 0; }
+@media (max-width: 700px) { .notebook-picker { gap: .4rem; } .notebook-picker button { flex: 1 1 auto; } .notebook-stamp { font-size: 2rem; } }
+.notebook-status { display: block; font-size: .75rem; font-weight: 500; margin-top: .2rem; }
+.preference-help, .item-status { color: var(--muted); font-size: .9rem; }
+.preference-help { margin: .75rem 0; }
+.item-status { margin: 0 0 .75rem; }
+.no-special label, .restriction-panel label { min-height: 44px; align-items: center; cursor: pointer; }
+.clear-button { margin-top: .6rem; }
+.notebook-picker button:hover, .food-tabs button:hover { border-color: var(--forest); }
+.custom-item-form { margin: 1.5rem 0; border: 1px dashed var(--line); border-radius: 12px; padding: 1rem; }
+.custom-item-form h3 { margin-bottom: .5rem; }
+.custom-item-form p { font-size: .9rem; }
+.custom-item-form .button { margin-top: .8rem; }
+.preference-item legend { max-width: 100%; overflow-wrap: anywhere; }

@@ -1,5 +1,15 @@
 # Memorie de proiect
 
+## Task 4A — implementat și verificat local, 2026-11-02
+
+Utilizatorul a autorizat explicit extragerea interfeței demonstrative a preferințelor din Task 4. Pagina `/preferences` are cinci carnete, căutare fără diacritice, răspunsuri exclusive, revenire la necunoscut, „fără preferințe speciale”, note, progres și exemple adăugate local. RO/EN/FR reutilizează fundația existentă; starea rămâne în memorie între navigări și limbi și se resetează la reload, cu explicație vizibilă. Alergiile/intoleranțele/evitările folosesc numai exemple fictive separate; nu se cer date reale de sănătate și nu se promit recomandări sigure. Inventarul alimentar rămâne demonstrativ/extensibil; prepararea structurată este exemplificată la ceapă/roșii, restul au note. Precizările non-food sunt note pe element, fără toate filtrele structurate ale produsului complet.
+
+Implementarea și remedierile sunt delegate; coordonatorul nu a preluat codul. Reviewul independent și verificarea integrată au închis defectele confirmate: integrarea catalogului strict, nota qualifier, claritatea stărilor, căutarea între file, prepararea nepotrivită, focusul la ștergere și overflowul numelor lungi/antetului francez. Coordonatorul a confirmat **130/130 teste în 17 fișiere, typecheck, lint, build și 9/9 E2E Chromium** (7 preferințe, 2 shell). Browserul independent a acoperit cinci categorii × RO/EN/FR × 1440/768/390/320 px, tastatură, progres, reduced motion și zoom CSS 200% la 1280/640, fără overflow. Zoom nativ, Safari/WebKit, cititor de ecran și dispozitiv fizic nu sunt demonstrate; nu există acceptare umană finală a percepției designului. Dovezi TDD, limite și capturi: [raport Task 4A](evidence/2026-11-02/task-4a-local-preferences.md).
+
+[Contractul Task 4A](plans/2026-11-02-task-4a-local-preferences.md) și planul păstrează **Task 4 complet nefinalizat și dependent de Task 3** pentru backend, izolare reală și ajustări per vacanță. P-09 rămâne FAIL: zece cereri cold distincte din 100 peste 7 ms, p95 exact necunoscut; Gate B1, Task 3, backendul și acceptarea online rămân blocate. Nu s-au reluat CPU/CAS/iPhone, atins fixture-uri reale sau modificat servicii/furnizori/costuri. Fără deploy/publicare sau PR.
+
+La reluare copia locală era curată pe `work` la `a2f8272`; fetch a confirmat `origin/main` la `55c2c11`, iar `main` local a fost deschis fără force/reset. Reperele Task 2 `40198ed` și `55c2c11` au fost păstrate. După verificări, un nou fetch a confirmat zero divergență față de remote; commit/push autorizate urmează acestui snapshot.
+
 ## Task 2 — fundație UI locală finalizată, 2026-11-02
 
 Fundația locală a fost implementată de `gpt-6.1-terra` medium, revizuită și verificată integrat de coordonator. Shell-ul, componentele, rutele `/` și `/explore`, fallbackul și RO/EN/FR sunt demonstrative; limba este în memorie și revine la RO la reload. Fontul aprobat este local, cu OFL/proveniență, iar shell-ul public PWA este păstrat. Rezultatele și limitele sunt în [dovada Task 2](evidence/2026-11-02/task-2-ui.md). Nu există aprobare umană finală a percepției designului.

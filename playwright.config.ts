@@ -4,6 +4,15 @@ export default defineConfig({
   testDir: './tests/e2e',
   projects: [
     {
+      name: 'preferences',
+      testMatch: 'preferences.spec.ts',
+      use: {
+        baseURL: 'http://127.0.0.1:4173',
+        headless: true,
+        launchOptions: { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH },
+      },
+    },
+    {
       name: 'shell',
       testMatch: 'shell.spec.ts',
       use: {
@@ -41,7 +50,11 @@ export default defineConfig({
   fullyParallel: false,
   reporter: 'list',
   use: { trace: 'retain-on-failure' },
-  webServer: [
+  webServer: process.env.PREFERENCES_ONLY ? [{
+    command: 'npm run dev -- --host 127.0.0.1 --port 4173 --strictPort',
+    url: 'http://127.0.0.1:4173',
+    reuseExistingServer: false,
+  }] : [
     {
       command: 'npm run build && npm run preview -- --host 127.0.0.1 --port 4173 --strictPort',
       url: 'http://127.0.0.1:4173',

@@ -86,7 +86,7 @@ type ApiResult<T> = { ok: true; data: T; requestId: string } | { ok: false; erro
 
 1. **Gate A — pregătire:** `docs/design-system.md`, `docs/architecture.md`, planul probelor și Task 0 harness local. Task 1 îngheață scheme înainte de implementarea tipurilor.
 2. **Gate B1 — probes server/dispozitiv după Task 1 + Task 1b:** conform autorizării și accesului: P-01 auth/API, P-02 D1 CAS real, P-09 Worker CPU și mini P-12-A offline pe shell instalabil Task 0. P-09 cere ≥100 cold + ≥100 warm, JSON ≤256 KiB, zero CPU terminations, p95 ≤7 ms; peste 7 ms reconsiderare fără paid fallback. P-02 CAS + receipt batch; rowcount 0 fără applied. P-12-A verifică manual save, cold launch, mod avion și update întrerupt pe device înainte de UI extinsă.
-3. **Gate C — UI local și backend:** Task 2 (fundație UI locală) poate începe după Tasks 0–1 fără a depinde de B1. Task 3 și auth/API privat/live backend așteaptă B1 PASS. Tasks 4+ pornesc numai conform dependențelor din plan și autorizării aplicabile.
+3. **Gate C — UI local și backend:** Task 2 (fundație UI locală) poate începe după Tasks 0–1 fără a depinde de B1. Task 3 și auth/API privat/live backend așteaptă B1 PASS. Task 4A local este autorizat separat după Tasks 1–2, conform contractului din 2 noiembrie. Task 4 complet păstrează dependența de Task 3; celelalte taskuri pornesc numai conform dependențelor și autorizării aplicabile.
 4. **Gate D — fluxuri:** Tasks 5–10 în ordinea dependențelor; probe locale P-03–P-08 se rulează lângă implementarea deținătoare, nu ca prerequisite pentru shell. P-03 înainte/în Task 7–8; P-04 lângă Task 8; P-05/P-06/P-07 lângă Task 6–7; P-08 lângă Task 11.
 5. **Gate E — offline real:** Task 11 după Task 2/3/5/8/10; P-12 iOS/Safari + Android numai după build-ul snapshot și autorizarea testelor pe dispozitive. Logout invalidează `sessionGeneration`, blochează citirea snapshotului imediat, apoi șterge IndexedDB/private cache; purge întrerupt nu permite alt UID să citească.
 6. **Gate F — live providers/integrated review:** P-10/P-11 după probe locale și numai cu autorizare de furnizor; Task 12 după tasks/probes. Două conturi și două telefoane, itinerary RO/EN/FR, airplane mode. Publicarea/activarea rămâne în afara planului fără autorizare explicită.
@@ -100,7 +100,8 @@ type ApiResult<T> = { ok: true; data: T; requestId: string } | { ok: false; erro
 | B1 | Task 1b: probe reale P-01, P-02, P-09 și mini P-12-A secvențial; spike-ul server e separat de UI | Tasks 0–1 + autorizările specifice D1/Worker/phone | FAIL P-09 blochează Task 3/backend live; UI local Task 2 poate continua. CAS/telefon păstrează gate-urile lor |
 | 2 | Task 2 local | Tasks 0–1 și contracte vizuale; nu depinde de Gate B1 | mock/synthetic only; nu contactează serverul; gate separat pentru backend |
 | 3 | Task 3 | Task 2 + Gate B1 PASS și probe live P-01/P-09 | auth merge înainte de date reale; cât P-09 eșuează, taskul rămâne blocat |
-| 4 | Task 4 și Task 9 pot fi separate după Task 2–3; distincte paths | contracts + shell + login interface pentru CTA | UI review separat; Task 9 deține singur IntroPage |
+| 4A local | Task 4A — carnete demonstrative | Tasks 1–2; autorizare explicită 2026-11-02 | numai memorie; fără backend; nu finalizează Task 4 |
+| 4 | Restul Task 4 și Task 9 pot fi separate după Task 2–3; distincte paths | contracts + shell + login interface pentru CTA | UI review separat; Task 9 deține singur IntroPage |
 | 5 | Task 5; Task 6 poate lucra în paralel pe adapters/domeniu cu paths disjuncte | Task 4 pentru trip; Task 1 + provider contract pentru Task 6 | wrangler/env bindings și lockfile integrate serial; P-05/P-06 locale |
 | 6 | Task 7 | Tasks 5–6; P-03/P-06/P-07 locale | migrarea job-urilor și bindings integrate serial |
 | 7 | Task 8 | Task 7 și Task 5–6; P-02/P-03/P-04 | CAS/concurrency review înainte de UI acceptare |
@@ -191,6 +192,8 @@ type ApiResult<T> = { ok: true; data: T; requestId: string } | { ok: false; erro
 **Executant:** `gpt-6-luna`; **Skill-uri:** `travel-buddy-engineering`, `test-driven-development`; **Dependențe:** Tasks 1–2 și P-01/P-09.
 
 ### Task 4: Profiluri, cinci categorii, alergii și override per vacanță
+
+**Separare autorizată, 2026-11-02:** [Task 4A local](2026-11-02-task-4a-local-preferences.md) extrage numai interfața demonstrativă a propriilor preferințe și depinde de Tasks 1–2. Task 4 complet rămâne nefinalizat; dependența sa de Task 3 se păstrează pentru autentificare, API, persistență, izolarea reală a profilurilor și ajustările per vacanță. P-09 FAIL/B1 blochează în continuare aceste părți. Checkboxurile de mai jos sunt ale Task 4 complet și nu se bifează prin realizarea 4A.
 
 **Fișiere:** Creează `src/domain/preferences/service.ts`, `src/server/routes/preferences.ts`, `src/features/preferences/{PreferencesHome.tsx,CategoryNotebook.tsx,FoodNotebook.tsx,AllergyForm.tsx,PreferenceAnswer.tsx}`, `src/features/trips/TripPreferenceOverrides.tsx`, `tests/unit/preferences/*.test.ts`, `tests/api/preferences.test.ts`, `tests/e2e/preferences.spec.ts`.
 

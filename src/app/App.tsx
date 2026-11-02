@@ -11,6 +11,9 @@ import {
 } from "../ui/components";
 import { t, type Locale, type MessageKey } from "./i18n";
 import { resolveRoute } from "./router";
+import { Preferences } from "../features/preferences/Preferences";
+import type { DemoItem } from "../features/preferences/demo-catalog";
+import { createDemoProfile } from "../features/preferences/demo-model";
 
 function Star({ className = "" }: { className?: string }) {
   return (
@@ -29,6 +32,8 @@ function Star({ className = "" }: { className?: string }) {
 }
 
 export function App() {
+  const [customItems, setCustomItems] = useState<DemoItem[]>([]);
+  const [profile, setProfile] = useState(createDemoProfile);
   const [locale, setLocale] = useState<Locale>("ro");
   const [path, setPath] = useState(window.location.pathname);
   const [dialog, setDialog] = useState(false);
@@ -44,7 +49,9 @@ export function App() {
         ? "intro"
         : route === "explore"
           ? "notebook"
-          : "notFound";
+          : route === "preferences"
+            ? "preferences"
+            : "notFound";
     document.title = `${t(locale, titleKey)} — Travel Buddy`;
     if (previousPath.current !== path) {
       mainRef.current?.focus();
@@ -114,6 +121,7 @@ export function App() {
             >
               {text("explore")}
             </a>
+            <a href="/preferences" aria-current={route === "preferences" ? "page" : undefined} onClick={(event) => navigate(event, "/preferences")}>{text("preferences")}</a>
           </nav>
           <div className="locale">
             <label htmlFor="locale">{text("language")}</label>
@@ -229,6 +237,7 @@ export function App() {
             </Dialog>
           </>
         )}
+        {route === "preferences" && <Preferences locale={locale} profile={profile} setProfile={setProfile} customItems={customItems} setCustomItems={setCustomItems} />}
         {route === "notFound" && (
           <div className="page-heading">
             <h1>{text("notFound")}</h1>

@@ -1,5 +1,11 @@
 # Plan de lucru — Travel Buddy
 
+## Snapshot curent — Task 4A verificat local, 2026-11-02
+
+Task 4A a fost extras explicit din Task 4 și implementat delegat după fundația Task 2 (`40198ed`, confirmare `55c2c11`). [Contractul local](plans/2026-11-02-task-4a-local-preferences.md) și [dovezile](evidence/2026-11-02/task-4a-local-preferences.md) descriu pagina celor cinci carnete, alegerile exclusive, căutarea, precizările, progresul, RO/EN/FR și exemplele fictive în memorie. Resetarea la reload este explicată. Inventarul alimentar nu este aprobat final; precizările non-food sunt note, iar prepararea structurată este demonstrată la ceapă/roșii.
+
+Coordonatorul a confirmat 130/130 teste, typecheck, lint, build și 9/9 E2E Chromium; browserul independent a acoperit tastatură, cele trei limbi, mobil/desktop, reduced motion și zoom CSS 200%. Zoomul nativ, Safari/dispozitivul fizic și cititorul de ecran nu sunt demonstrate; limitele TDD și ale probelor sunt în raport. Task 4 complet rămâne nefinalizat și dependent de Task 3; backendul, izolarea reală și ajustările per vacanță nu sunt implementate. P-09 rămâne FAIL, p95 exact necunoscut; B1, Task 3 și acceptarea online rămân blocate. Fără reluarea probelor reale, schimbări de servicii, deploy/publicare sau PR. Commit/push sunt autorizați după review; livrarea Git se consemnează separat.
+
 ## Snapshot curent — Task 2 finalizat local, 2026-11-02
 
 Fundația UI locală a trecut reviewul și verificările coordonatorului; detaliile și limitele sunt în [dovada Task 2](evidence/2026-11-02/task-2-ui.md). Exemplele sunt fictive, iar limba este doar în memorie. Nu s-au implementat produsul complet sau backendul. P-09 rămâne FAIL, p95 exact necunoscut; Gate B1 și Task 3/backend/acceptarea online rămân blocate. Task 4+ nu sunt autorizate în bloc. Implementarea a fost livrată pe `main` prin `40198eda5bc83976ef3aaef8dcb0f8c2897bbf38`; push fără force confirmat, fără deploy. Actualizarea documentară de livrare urmează separat. Textul de pornire al Task 2 de mai jos este istoric.
