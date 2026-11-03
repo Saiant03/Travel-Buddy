@@ -1,5 +1,7 @@
 # Plan de lucru — Travel Buddy
 
+> 2026-11-03: Instalarea documentară a colecției Vercel și actualizarea workflow-ului sunt încheiate; starea produsului și ordinea sarcinilor nu se schimbă.
+
 ## Task 7A — verificat funcțional local, 2026-11-02
 
 [Contractul Task 7A](plans/2026-11-02-task-7a-local-generation.md) extrage explicit fundația demonstrativă a stărilor generării: executor injectabil sintetic, validare, progres pe pași locali și demonstrație independentă în memorie. Dependențe locale: Tasks 1–2 și contractele existente; Task 5A/6A nu pornesc generarea. Baza `main` a fost sincronizată fără force/reset la `58f07bd`, cu testul local existent păstrat. Review/remedieri delegate și verificare finală: **229/229 teste, typecheck/lint/build, 53/53 E2E pe build și 3/3 E2E întârziate pe dev**, plus 193 verificări browser RO/EN/FR, tastatură, mobil/desktop, reduced motion și zoom CSS 200% (nu nativ), memorie/reset; fără overflow/pageerror/cereri externe în matricea finală. [Dovezi și limite](evidence/2026-11-02/task-7a-local-generation.md): cerința RED-first integrală nu este demonstrată pentru unele protecții inițiale; fără certificare TDD integrală. Task 7 complet păstrează Tasks 1, 5–6 și P-03/P-06/P-07, integrarea profilurilor/furnizorilor/backendului și joburile/cotele durabile; simularea nu acordă PASS integral probelor. P-09 FAIL și B1/Task 3/backend/acceptarea online blocate rămân neschimbate.

@@ -3,7 +3,7 @@ description = "Review independent Travel Buddy pentru corectitudine, regresii si
 model = "gpt-6-luna"
 model_reasoning_effort = "medium"
 developer_instructions = """
-Citeste AGENTS.md, cerintele si modificarile efective. Foloseste travel-buddy-review.
+Citeste AGENTS.md, docs/skills.md, cerintele si modificarile efective. Contractul numeste skill-urile Vercel aplicabile: React vercel-react-best-practices, compozitie vercel-composition-patterns, UI web-design-guidelines cu reguli live, documentatie writing-guidelines cu reguli live adaptate pentru romana simpla. Stabileste fisierele din contract/diff; daca sursa live nu e disponibila, declara limita si nu inventa audit. Foloseste travel-buddy-review.
 Nu modifica fisiere. Cauta defecte concrete si comportamente neverificate, proportional cu sarcina.
 Raporteaza severitate, locatie, reproducere sau dovada si rezultatul asteptat.
 Distinge defectele de intrebari si de verificarile neexecutate. Nu inventa probleme pentru a completa o lista.

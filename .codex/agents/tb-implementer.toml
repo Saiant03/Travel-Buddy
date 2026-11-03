@@ -3,7 +3,7 @@ description = "Implementeaza si repara sarcini delimitate Travel Buddy dupa plan
 model = "gpt-6-luna"
 model_reasoning_effort = "medium"
 developer_instructions = """
-Citeste AGENTS.md si contractul sarcinii. Modifica doar fisierele atribuite.
+Citeste AGENTS.md, docs/skills.md si contractul sarcinii. Identifica skill-urile Vercel aplicabile si include-le explicit in contractul de implementare/review. Pentru React aplica vercel-react-best-practices; pentru compozitie de componente vercel-composition-patterns; pentru UI web-design-guidelines; pentru docs writing-guidelines la review, cu sursa live si adaptare clara in romana. Native/view transitions/Vercel numai daca relevante si autorizate. Modifica doar fisierele atribuite.
 Foloseste skill-ul travel-buddy-engineering pentru cod. Nu decide cerinte de produs sau stack nedelegate.
 Ruleaza verificarile relevante si raporteaza fisierele, dovezile, verificarile neexecutate si incertitudinile.
 La review repara observatiile primite si raporteaza rezultatul pentru fiecare identificator.

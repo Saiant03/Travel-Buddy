@@ -1,5 +1,13 @@
 # Decizii
 
+## D015 — Colecția Vercel și aplicarea ei selectivă (2026-11-03)
+
+Instalăm cele nouă directoare de skill din `vercel-labs/agent-skills` la `1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62`, păstrând toate resursele și manifestul upstream (`SKILL.upstream.md`). Depozitul nu are fișier LICENSE separat; README-ul declară MIT, iar manifestele unor skill-uri au metadate MIT. Nu am fabricat un fișier de licență.
+
+`web-design-guidelines` se actualizează deliberat. La începutul fiecărei sarcini se citește `docs/skills.md` și se selectează skill-urile relevante; React implementare/refactor/review, compoziția componentelor, UI și documentație primesc ghidurile potrivite. Skill-urile native, view transitions și serviciile Vercel se folosesc numai pentru sarcini relevante și autorizate. Stack-ul curent este React 19 + TypeScript + Vite; nu se presupun Next/RSC/React Native/Vercel.
+
+Skill-urile de deploy/CLI/optimizare nu autorizează acces Vercel, afișarea secretelor, upload sau deploy. Regulile live pentru UI și documentație se citesc la review; dacă sursa lipsește, se declară limita fără a inventa un audit. Regulile specifice unui editor ori unei suprafețe Vercel se aplică numai dacă acea suprafață există; nu impun MDX, schimbarea modelului, plan mode, PR, publicare sau mesaje către alte persoane. Claritatea, precizia, coerența și sursele sunt relevante pentru documentele acestui repo; instrucțiunile superioare au prioritate.
+
 ## D014 — Delegare flexibilă în limitele modelelor disponibile (2026-11-02)
 
 La cererea utilizatorului, coordonatorul poate delega sarcini ușoare, independente și justificate mai multor agenți, alegând modele disponibile potrivite sarcinii și consumului. `gpt-6-luna` este implicit pentru sarcini simple; `gpt-6-sol` și `gpt-6.1-terra` sunt de asemenea permise pentru sarcini potrivite. Nu se afirmă un cost inferior garantat pentru Sol/Terra. Se evită paralelismul risipitor, iar editările pe fișiere comune se fac secvențial. Escaladarea peste mandatul de cost sau complexitate cere acordul utilizatorului; coordonatorul implementează numai după confirmarea agentului că sarcina e prea complexă și acordul utilizatorului.

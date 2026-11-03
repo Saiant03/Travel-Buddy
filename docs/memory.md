@@ -1,5 +1,13 @@
 # Memorie de proiect
 
+## 2026-11-03 — Skill-uri Vercel și workflow
+
+Am instalat toate cele nouă directoare de skill din `vercel-labs/agent-skills`, la commitul `1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62`, cu toate fișierele suport. Sunt 32 de skill-uri în total: opt nume noi și o actualizare a `web-design-guidelines`. Manifestele originale sunt păstrate ca `SKILL.upstream.md`, iar `skills-lock.json` conține hash SHA-256 pentru fiecare fișier instalat. În sursa upstream nu există fișier LICENSE separat; README-ul declară MIT, iar unele manifeste indică MIT. Nu am adăugat o licență inventată.
+
+La începutul sarcinilor se citește `docs/skills.md` și se aleg skill-urile potrivite; numele aplicabile se trec în contractele de implementare și review. React folosește `vercel-react-best-practices`, compoziția componentelor `vercel-composition-patterns`, UI `web-design-guidelines`, iar reviewul documentației `writing-guidelines` cu regulile live adaptate pentru română clară. Stack-ul actual este React 19/TypeScript/Vite.
+
+Native, view transitions și servicii Vercel se folosesc doar pentru o solicitare relevantă și autorizată. Skill-urile Vercel nu permit divulgarea tokenurilor, upload sau deploy.
+
 ## Task 7A — implementat și verificat funcțional local, 2026-11-02
 
 Separarea locală a Task 7 a fost autorizată explicit. `/generation` este independent de Task 5A/6A, cu pornire explicită, executor sintetic injectabil, GenerationJob/Place/SourceRef/ProviderFailure/ValidationError reutilizate și validare runtime. Stări queued/running/complete/partial/quota_exhausted/failed; search/organize/verify sunt etape simulate executate manual. Succes/partial au 3/3 etape validate, invalidul 2/3, erorile de search 0/3. Complete înseamnă numai simulare încheiată; rezultatele sunt fictive, neconfirmate și nesalvate/neaplicate. Retry manual conform scenariului, încercare nouă explicită, garduri pentru răspunsuri vechi și store abonabil pentru navigare în timpul unui pas. Numai memorie; RO/EN/FR, reset la reload explicat, fără efect în rezumatul Task 5A sau confirmarea Task 6A.

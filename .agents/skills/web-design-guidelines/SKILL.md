@@ -37,3 +37,7 @@ When a user provides a file or pattern argument:
 4. Output findings using the format specified in the guidelines
 
 If no files specified, ask the user which files to review.
+
+## Travel Buddy integration
+
+Use for UI implementation/review when relevant, and always read the live guideline source before a review. Establish review files from the task contract and actual diff; do not ask the user to identify them again. Use available network/browser tools rather than assuming WebFetch exists. If the live source is inaccessible, report that limitation and do not invent an audit. Respect the user's brief, project accessibility requirements and clear Romanian explanations.

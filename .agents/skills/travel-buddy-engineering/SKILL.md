@@ -17,3 +17,6 @@ If stack or product behavior is undecided, surface the decision to the coordinat
 - Run the available type, lint and build checks relevant to the change. Add behavioral tests for meaningful rules or regressions, not assertions that merely duplicate the implementation.
 
 Stay within assigned files. Return changed files, actual checks and results, unresolved questions and any impact on adjacent features. Do not mark integrated acceptance complete.
+
+## Skill-uri Vercel pentru Travel Buddy
+Citește `docs/skills.md` la începutul fiecărei sarcini și selectează ce se aplică. Pentru orice React implementare/refactor folosește `vercel-react-best-practices`; pentru API-uri/compoziție de componente `vercel-composition-patterns`; pentru UI `web-design-guidelines`. Include explicit aceste skill-uri în contractele delegate. stackul React 19 + TypeScript + Vite nu justifică reguli Next/RSC, native sau servicii Vercel.

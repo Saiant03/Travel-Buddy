@@ -1,7 +1,7 @@
 # Travel Buddy — instrucțiuni de proiect
 
 ## La începutul lucrului
-1. Citește `docs/memory.md`, `docs/product.md` și `docs/plan.md`.
+1. Citește `docs/memory.md`, `docs/product.md`, `docs/plan.md` și `docs/skills.md`; identifică și aplică skill-urile Vercel relevante fără să aștepți o nouă cerere explicită pentru ele.
 2. Pentru implementare sau review, citește `docs/process.md` și deciziile relevante din `docs/decisions.md`.
 3. Păstrează documentele la zi cu fapte verificate; memoria nu se încarcă singură și nu înlocuiește codul.
 4. Înaintea unei sarcini administrative, verifică discret accesul disponibil în sesiunea curentă. Variabilele persistente apar în sesiunile care folosesc mediul Travel-Buddy; un chat vechi poate să nu le încarce. Nu reface setup-ul automat, nu afișa și nu copia secrete și nu presupune că profilul CLI `cf` este autentificat (profilul `default` a fost găsit neconectat). Separă rapoartele din alte sesiuni de preflight-ul efectuat direct în sesiunea curentă. Ultimul preflight read-only a confirmat Cloudflare Worker/D1 metadata și Firebase OAuth/Auth cu HTTP 200; D1 a afișat șase tabele fără validarea schemei/conținutului. Nu afișa secrete și nu reface setup-ul dacă preflight-ul actual a reușit.
@@ -40,6 +40,9 @@ Inventarul și sursele sunt în `docs/skills.md`.
 Încarcă doar skill-urile necesare sarcinii. Brief-ul utilizatorului primează asupra preferințelor estetice din skill-uri.
 Anthropic și Taste oferă repere pentru aceeași direcție vizuală; UI/UX Pro Max furnizează opțiuni, nu aprobă automat un stil. Impeccable și Vercel au rol de verificare complementară. Instalarea skill-urilor GSAP nu instalează biblioteca și nu obligă folosirea ei în fiecare interacțiune.
 Notele „Travel Buddy integration” din skill-urile adaptate stabilesc utilizarea lor în acest proiect. Originalele `SKILL.upstream.md` sunt copii de referință, nu puncte de intrare. Documentele și propunerile se salvează local; nu publicăm automat issues sau PR-uri. Folosește instrumentele disponibile în sesiune, nu nume de unelte preluate literal din alt produs.
+
+## Aplicarea skill-urilor Vercel
+Skill-urile din `.agents/skills/` se aleg după relevanță, nu se încarcă toate automat. La React implementare/refactor/review aplică `vercel-react-best-practices`; la proiectarea API-urilor de componente aplică `vercel-composition-patterns`; la UI aplică `web-design-guidelines`, inclusiv regulile live la review; la documentație aplică `writing-guidelines`, inclusiv regulile live la review, adaptate pentru română clară. Skill-urile native, view transitions și serviciile Vercel se folosesc numai pentru sarcini relevante și autorizate. Contractele delegate și de review numesc explicit skill-urile aplicabile. Cerințele utilizatorului și procesul proiectului au prioritate; skill-urile nu presupun Next.js/RSC/React Native/Vercel și nu autorizează upload sau deploy.
 
 ## Predare
 Coordonator → plan și criterii → implementare delegată → review → corectare delegată → reverificare → verificare integrată a coordonatorului → utilizator.

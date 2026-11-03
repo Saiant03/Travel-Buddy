@@ -1,5 +1,7 @@
 # Travel Buddy — handoff pentru Claude Code
 
+La început citește `AGENTS.md` și `docs/skills.md`; identifică și aplică skill-urile Vercel relevante pentru sarcină fără a aștepta o nouă solicitare. Contractele de implementare și review numesc skill-urile aplicabile. React: `vercel-react-best-practices`; compoziție de componente: `vercel-composition-patterns`; UI: `web-design-guidelines`, cu regulile live la review; documentație: `writing-guidelines`, cu regulile live la review adaptate pentru română clară. Native/view transitions/servicii Vercel numai dacă relevante și autorizate.
+
 ## Stare curentă — noiembrie 2026
 
 Integrarea selectivă în `main` este confirmată la `aace865e28cc88d012d6b585aaad9e6044c1b701` (părinți `1fb41d7, b295642`), împinsă fără force și verificată remote. Testele și reviewul final au trecut; produsul complet nu este implementat. Nu s-a executat deploy. Preflight-ul read-only curent a confirmat Cloudflare HTTP 200 la listarea ambelor Worker-e și la listarea/detaliile D1 (șase tabele afișate, fără validarea schemei/conținutului), plus Firebase OAuth/Auth read HTTP 200 și două conturi email-confirmate, enabled. Nu s-au făcut mutații la servicii.

@@ -15,6 +15,14 @@ Punem întrebările pe rând, cu o recomandare și consecințe ușor de înțele
 Caveman poate scurta mesajele tehnice dintre agenți. Mesajele către utilizator, planurile pentru aprobare și instrucțiunile de verificare rămân complete și clare.
 
 ## Alegerea skill-urilor după etapă
+La începutul fiecărei sarcini se citește `docs/skills.md` și se identifică skill-urile Vercel aplicabile; nu se așteaptă o nouă cerere a utilizatorului pentru activarea lor. Contractele delegate de implementare și review enumeră explicit skill-urile relevante. Selectarea este contextuală, nu se încarcă întreaga colecție.
+
+- React implementare, refactor sau review: `vercel-react-best-practices`.
+- Proiectarea API-urilor și compoziției componentelor: `vercel-composition-patterns`.
+- UI: `web-design-guidelines`; la review se consultă regulile live și se stabilesc fișierele din contract/diff.
+- Documentație: `writing-guidelines`; la review se consultă regulile live, adaptând stilul pentru română simplă și clară. Regulile legate de un editor sau de o suprafață Vercel se aplică doar dacă acea suprafață există; nu impun frontmatter MDX, schimbare de model, PR/publicare sau mesaje către alții.
+- React Native, view transitions și serviciile Vercel: numai dacă sarcina este relevantă și explicit autorizată; nu implică automat schimbarea stackului, upload sau deploy.
+
 - Înțelegerea ideii: `grill-me`, apoi `write-a-prd` în `docs/product.md`.
 - Planificarea implementării: `writing-plans`; harta rămâne `docs/plan.md`, cu linkuri la planuri detaliate din `docs/plans/`.
 - Implementare și teste relevante: `travel-buddy-engineering` și `test-driven-development`.
