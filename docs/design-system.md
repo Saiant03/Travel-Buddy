@@ -1,5 +1,11 @@
 # Travel Buddy — sistem vizual propus
 
+## Stare curentă, 2026-11-03
+
+Feedbackul utilizatorului constată că fidelitatea interfeței itinerarului la machetele aprobate nu este validată și că direcția vizuală implementată nu este stabilită sau acceptată. Comparația dintre [macheta itinerarului](mockups/itinerary-day-mobile-list-map-v1.png), [macheta detaliului](mockups/place-detail-mobile-v1.png) și [captura demo](evidence/2026-11-03/task-8a-local-itinerary-viewing/ro-390-detail.png) arată o diferență vizuală majoră. Demo-ul este probă funcțională, nu livrare de design; omisiunile de hartă, fotografii și acțiuni live din scope-ul local nu validează transpunerea vizuală. Aprobările istorice ale machetelor rămân valabile.
+
+Pas următor propus: transpuneți fidel un ecran de referință, comparați-l direct și cereți validarea utilizatorului; apoi aliniați componentele comune. Aceasta este o propunere de lucru, nu un redesign aprobat sau autorizat în bloc.
+
 ## Snapshot implementat — Task 2 local, 2026-11-02
 
 Shell-ul demonstrativ folosește Bricolage Grotesque găzduit local cu OFL și proveniență și tokenuri CSS centralizate pentru culoare, focus și suprafețe. Valorile implementate sunt **propuneri ajustabile**, nu aprobări noi. Reviewul browser și contrastele măsurate sunt în [dovada Task 2](evidence/2026-11-02/task-2-ui.md); nu există aprobare umană finală a percepției designului.
