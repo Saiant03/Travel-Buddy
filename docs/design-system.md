@@ -4,7 +4,7 @@
 
 Feedbackul utilizatorului constată că fidelitatea interfeței itinerarului la machetele aprobate nu este validată și că direcția vizuală implementată nu este stabilită sau acceptată. Comparația dintre [macheta itinerarului](mockups/itinerary-day-mobile-list-map-v1.png), [macheta detaliului](mockups/place-detail-mobile-v1.png) și [captura demo](evidence/2026-11-03/task-8a-local-itinerary-viewing/ro-390-detail.png) arată o diferență vizuală majoră. Demo-ul este probă funcțională, nu livrare de design; omisiunile de hartă, fotografii și acțiuni live din scope-ul local nu validează transpunerea vizuală. Aprobările istorice ale machetelor rămân valabile.
 
-Pas următor propus: transpuneți fidel un ecran de referință, comparați-l direct și cereți validarea utilizatorului; apoi aliniați componentele comune. Aceasta este o propunere de lucru, nu un redesign aprobat sau autorizat în bloc.
+Prioritatea curentă este diagnosticul și remedierea P-09, apoi deblocarea B1 și funcționalitatea conform dependențelor, inclusiv Task 3 și accesul privat. P-09 rămâne FAIL, iar verificările reușite ale conturilor/probelor istorice nu înseamnă că produsul integrat sau accesul din produs sunt complete. Designul și finisarea se amână până când sistemele și fluxurile funcționează și sunt verificate. Acest document păstrează repere și valori propuse; nu aprobă o schimbare vizuală și nu autorizează rerulare live, schimbarea pragurilor sau deploy.
 
 ## Snapshot implementat — Task 2 local, 2026-11-02
 
