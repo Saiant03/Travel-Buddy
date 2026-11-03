@@ -1,5 +1,18 @@
 # Raport de verificare a fundației
 
+<a id="workflow-documentar-verificare"></a>
+## Workflow documentar — snapshot istoric înaintea tranziției la main, 2026-11-03
+
+Notă de stare: secțiunea de mai jos consemnează verificările și blocajele dinaintea tranziției ulterioare la `main`. Aceste rezultate istorice rămân neschimbate; pentru starea Git curentă, consultă `git status` și `git log`.
+
+Reviewul coordonatorului și reviewul independent read-only au trecut fără defecte pentru scope-ul documentar. Workflow-ul a modificat incremental cinci documente care aveau deja schimbări locale; cele cinci fișiere preexistente din afara scope-ului rămân byte-identice. Acest raport este al șaselea document al taskului, iar statusul final cuprinde 11 căi modificate.
+
+Scanarea statică a linkurilor locale a trecut; noile ancore către [procesul de lucru](process.md#flux-permanent) și [planul activ](plan.md#executie-activa) se rezolvă. Verificarea whitespace cu `git -c core.whitespace=cr-at-eol diff --check` a trecut folosind opțiunea temporară care recunoaște CRLF-urile existente. Reviewul a confirmat pornirea, fluxul documentar, regulile main-only și păstrarea istoricului. Nu s-au rulat teste de produs sau build și nu s-au folosit instalări, probe ori servicii.
+
+Verificarea read-only a referințelor Git a găsit branch-ul local `work` la `0eee354c3b015cb4adcbb1f3ab71e7f2567fd089`, fără branch local `main`; referința cached `origin/main` este `775081fd79c53267cdede1183f3ac4d8ff2cb851` (0 commituri exclusive pe `work`, 3 pe referința cached `origin/main`). Aceasta nu este verificare live a remote-ului. Nu s-au făcut mutații Git, branch creation, fetch, commit, push sau deploy. Tranziția și completarea Definition of Done pe `main` rămân blocate; această verificare nu atestă implementare sau acceptare de produs.
+
+Nu a fost creat sau presupus un task nou de produs, iar niciun criteriu de acceptare de produs nu a fost evaluat aici. Starea și limitele curente sunt în [memorie](memory.md#stare-curenta); detaliile workflow-ului și sarcinii sunt în [procesul de lucru](process.md#flux-permanent) și [planul activ](plan.md#executie-activa).
+
 ## Task 2 — verificare locală, 2026-11-02
 
 Coordonatorul a verificat implementarea și remedierile `gpt-6.1-terra` medium: typecheck, lint, build, **116/116 teste** în 14 fișiere și **2/2 E2E shell Chromium** au trecut. Reviewul browser a acoperit trei limbi, lățimi 320–1440 px, tastatură, reduced motion și dialog la zoom 200%. Nu s-a verificat Safari/WebKit sau telefon fizic și nu există aprobare umană finală de design. [Dovada detaliată](evidence/2026-11-02/task-2-ui.md) consemnează inclusiv limitele TDD și capturile reale. Testele locale nu schimbă P-09 FAIL sau Gate B1 blocat.

@@ -19,7 +19,9 @@ Ambii membri au citit vacanța la versiunea 7. În cursa concurentă, exact o pr
 
 Această probă a modificat fixture-ul D1 de la versiunea 7 la 8. Nu reseta fixture-ul și nu relua automat CAS; o nouă rundă cere inspectarea stării existente și un scenariu adaptat, fără reset automat.
 
-## CPU — transmisă, fără verdict P-09
+## CPU — fotografia inițială din 2 noiembrie, fără verdict P-09 la acel moment
+
+**Notă de actualizare:** textul de mai jos păstrează fotografia inițială din 2 noiembrie. Reluarea ulterioară a capturii a stabilit **P-09 FAIL**: 10 din 100 de cereri cold distincte au depășit 7 ms; p95 exact și rezultatul warm complet rămân necunoscute. Vezi [jurnalul reluării CPU](2026-11-02-cpu-rerun.md) și [verificarea curentă](../verification.md).
 
 Raportul indică `status=sent`, payload de 262144 bytes, 100 cereri solicitate cold și 100 warm, cu 200 de înregistrări și identificatori de cerere unici. Clasificarea raportată este 100 `cold/cold` și 100 `warm/warm`; `isolateColdState` este `not_observed`. Hashul workloadului: `e72a2f1d6b21af68ca1860b9dc6528005721f236ead66eaf0cbd9ebdfdab62d9`.
 
@@ -43,7 +45,9 @@ La începutul unei sesiuni noi, verifică discret ce acces este efectiv disponib
 4. Păstrează telefonul offline nedemonstrat până există o dovadă specifică dispozitivului.
 5. Produsul complet nu este implementat; nu a fost autorizată facturarea.
 
-## Încercare de recuperare a metricilor P-09 — 2 noiembrie 2026
+## Încercarea inițială de recuperare a metricilor P-09 — 2 noiembrie 2026
+
+**Notă de actualizare:** acest rezultat documentează încercarea din 2 noiembrie; reluarea ulterioară și verdictul CPU sunt în [jurnalul reluării](2026-11-02-cpu-rerun.md).
 
 Preflight-ul read-only a confirmat accesul Cloudflare la resursele probei. Cererea de introspecție către endpointul GraphQL Cloudflare a răspuns HTTP 200 cu un element în `errors`; codul și mesajul nu au fost păstrate, deci eroarea nu poate fi clasificată drept permisiune sau interogare de schemă. Nu s-au obținut câmpuri de analytics sau metrici CPU. Nu am interogat agregate pe intervale largi, deoarece raportul păstrat nu include ora UTC de început/sfârșit și nu oferă o cheie de corelare pe care analytics agregate să o poată filtra exact. Build hash-ul și workload hash-ul identifică rapoartele locale, dar nu dovedesc corespondența cu evenimentele Cloudflare.
 

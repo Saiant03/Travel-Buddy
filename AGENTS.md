@@ -1,50 +1,62 @@
 # Travel Buddy — instrucțiuni de proiect
 
-## La începutul lucrului
-1. Citește `docs/memory.md`, `docs/product.md`, `docs/plan.md` și `docs/skills.md`; identifică și aplică skill-urile Vercel relevante fără să aștepți o nouă cerere explicită pentru ele.
-2. Pentru implementare sau review, citește `docs/process.md` și deciziile relevante din `docs/decisions.md`.
-3. Păstrează documentele la zi cu fapte verificate; memoria nu se încarcă singură și nu înlocuiește codul.
-4. Înaintea unei sarcini administrative, verifică discret accesul disponibil în sesiunea curentă. Variabilele persistente apar în sesiunile care folosesc mediul Travel-Buddy; un chat vechi poate să nu le încarce. Nu reface setup-ul automat, nu afișa și nu copia secrete și nu presupune că profilul CLI `cf` este autentificat (profilul `default` a fost găsit neconectat). Separă rapoartele din alte sesiuni de preflight-ul efectuat direct în sesiunea curentă. Ultimul preflight read-only a confirmat Cloudflare Worker/D1 metadata și Firebase OAuth/Auth cu HTTP 200; D1 a afișat șase tabele fără validarea schemei/conținutului. Nu afișa secrete și nu reface setup-ul dacă preflight-ul actual a reușit.
+## Pornire obligatorie
 
-## Mandat
-Site local personal pentru utilizator și prietena lui. Comunicăm în română.
-Utilizatorul nu are cunoștințe IT. Explică în termeni simpli acțiunea, motivul și alegerea necesară, cu exemple concrete. Evită jargonul și tonul infantil. Skill-urile de comprimare a mesajelor pot fi folosite între agenți, dar nu reduc claritatea explicațiilor pentru utilizator.
-Fundația de probe este integrată în `main` la `aace865e28cc88d012d6b585aaad9e6044c1b701` (SHA istoric; chatul nou trebuie să folosească `main` sincronizat actual și să nu facă checkout/reset la acel SHA). Reviewul/testele de integrare au trecut, dar produsul complet rămâne neimplementat. Nu deduce deploy Cloudflare din push-ul GitHub; nu am lansat nicio comandă sau acțiune de deploy. Starea reală a probelor, a măsurătorilor și a telefonului este în `docs/memory.md` și `docs/verification.md`. Rezolvarea documentației pentru integrare nu autorizează implementarea produsului, facturarea sau activarea altor furnizori. Machetele existente rămân referințe istorice aprobate; fidelitatea vizuală a demo-ului itinerarului nu este validată, iar direcția implementată nu este stabilită sau acceptată. Prioritatea curentă este diagnosticul și remedierea P-09, apoi deblocarea B1 și funcționalitatea conform dependențelor, inclusiv Task 3 și accesul privat. Verificările reușite ale conturilor/probelor istorice nu înseamnă că produsul integrat sau accesul din produs sunt complete. Nu presupune P-09 rezolvată și nu relua probe live, modifica pragurile ori face deploy fără autorizarea explicită aplicabilă. Amână designul și finisarea până când fluxurile funcționează și sunt verificate; nu trata explorarea anterioară drept acceptare a implementării.
-Utilizatorul a autorizat operațiunile GitHub/Firebase/Cloudflare necesare cererilor explicite, fără confirmări repetitive. După review și verificările cerute, commit/push pe `main` sunt acoperite de această autorizare; nu cere acord repetat. Nu deduce din aceasta deploy/publicare a produsului, PR automat, costuri sau activarea unor furnizori. Cere confirmare dacă accesul a expirat, depinde de acțiunea proprietarului, apar costuri/ștergere importantă ori acțiunea depășește mandatul.
-Task 2 — fundația UI locală — este autorizat conform `docs/plans/2026-11-02-next-chat-handoff.md`; după citirea documentelor și contractul scurt, începe implementarea fără a cere aceeași aprobare. Asta nu autorizează produsul live complet, backend real, costuri, deploy sau publicare. Nu presupune alte sensuri ale cuvântului „local” dincolo de delimitarea handoff-ului.
+Proiect personal pentru două persoane. Produsul urmărit îi ajută să planifice vacanțe împreună, cu itinerarii zilnice potrivite preferințelor amândurora și informații online; demonstrațiile locale nu oferă încă fluxul complet. Utilizatorul comunică în română și nu are experiență IT; explică simplu, fără infantilizare. Stack: React 19, TypeScript, Vite și Zod. SHA-urile din notele istorice sunt doar proveniență; nu face checkout sau reset la ele.
 
-## Ierarhie autorizată de utilizator
-Agentul principal planifică, stabilește contractele, deleagă, face reviewul și verificările, coordonează corectările și integrează rezultatul final; nu implementează.
-Implementarea revine agenților delegați. Coordonatorul poate delega sarcini ușoare și independente mai multor agenți când acest lucru este justificat, alegând între modelele disponibile potrivit sarcinii și consumului. `gpt-6-luna` este opțiunea implicită pentru lucrări simple; `gpt-6-sol` și `gpt-6.1-terra` sunt de asemenea permise pentru sarcini potrivite. Nu presupune că Sol sau Terra au cost inferior garantat. Evită paralelismul risipitor; împarte lucrul pe fișiere distincte și serializează modificările comune. Coordonatorul poate prelua implementarea numai dacă agentul confirmă că sarcina îi depășește capacitatea și utilizatorul confirmă intervenția. Cere acordul utilizatorului înainte de escaladarea la modele, cost sau complexitate peste acest mandat.
-Nu schimba automat modelul principal. Dacă un model cerut nu este disponibil, raportează și folosește o alternativă disponibilă explicit identificată.
+- La fiecare pornire citește integral acest fișier, secțiunea `Stare curentă` din [memorie](docs/memory.md#stare-curenta), secțiunea `Execuție activă` din [plan](docs/plan.md#executie-activa), statusul Git (branch, staged, unstaged și untracked), cererea curentă și starea verificată relevantă. Citește alte documente doar când cererea sau etapa le cere; nu încarcă întregul istoric.
+- Pentru produs și raționamente durabile, consultă [cerințele](docs/product.md) și [deciziile](docs/decisions.md). Pentru sarcină, dovezi, proces ori skill, urmează harta de mai jos.
+- Task 2, 4A, 5A, 6A, 7A și 8A au livrabile locale în memorie; produsul complet și Task 4–8 complete nu sunt finalizate. Nu relua sarcini încheiate și nu transforma handoff-ul istoric Task 2 într-un mandat.
+- Istoricul și handoff-urile nu autorizează reluarea sarcinilor încheiate sau un task nou de produs; planul descrie sarcina curentă, iar cererea curentă îi stabilește limitele și autorizarea.
 
-## Skill-uri
-Inventarul și sursele sunt în `docs/skills.md`.
-- Direcție vizuală: `.agents/skills/design-taste-frontend/SKILL.md`.
-- Audit și finisare UI: `.agents/skills/impeccable/SKILL.md`.
-- Bază frontend Anthropic: `.agents/skills/frontend-design/SKILL.md`.
-- Cercetare de stil, palete și UX: `.agents/skills/ui-ux-pro-max/SKILL.md` (include căutare locală).
-- Audit de cod UI după regulile Vercel: `.agents/skills/web-design-guidelines/SKILL.md` (încarcă regulile actuale la review).
-- Animații GSAP: skill-urile `gsap-*`; alege modulele pentru core, timeline, scroll, pluginuri, utilitare, performanță și frameworkul folosit.
-- Structură și implementare: `.agents/skills/travel-buddy-engineering/SKILL.md`.
-- Verificare înainte de predare: `.agents/skills/travel-buddy-review/SKILL.md`.
-- Clarificarea ideii, o întrebare pe rând: `.agents/skills/grill-me/SKILL.md`.
-- Cerințe de produs în documentul local existent: `.agents/skills/write-a-prd/SKILL.md`.
-- Planuri detaliate pentru agenți: `.agents/skills/writing-plans/SKILL.md`.
-- Îmbunătățirea organizării codului existent: `.agents/skills/improve-codebase-architecture/SKILL.md`.
-- Teste înainte de implementarea comportamentelor: `.agents/skills/test-driven-development/SKILL.md`.
-- Verificare în browser: `.agents/skills/webapp-testing/SKILL.md`.
-- Review tehnic: `.agents/skills/code-review-and-quality/SKILL.md`.
-- Izolare când lucrarea o cere: `.agents/skills/using-git-worktrees/SKILL.md`.
-- Mesaje tehnice scurte între agenți: `.agents/skills/caveman/SKILL.md`; nu activa vocea Caveman pentru utilizator.
-Încarcă doar skill-urile necesare sarcinii. Brief-ul utilizatorului primează asupra preferințelor estetice din skill-uri.
-Anthropic și Taste oferă repere pentru aceeași direcție vizuală; UI/UX Pro Max furnizează opțiuni, nu aprobă automat un stil. Impeccable și Vercel au rol de verificare complementară. Instalarea skill-urilor GSAP nu instalează biblioteca și nu obligă folosirea ei în fiecare interacțiune.
-Notele „Travel Buddy integration” din skill-urile adaptate stabilesc utilizarea lor în acest proiect. Originalele `SKILL.upstream.md` sunt copii de referință, nu puncte de intrare. Documentele și propunerile se salvează local; nu publicăm automat issues sau PR-uri. Folosește instrumentele disponibile în sesiune, nu nume de unelte preluate literal din alt produs.
+## Branch și păstrarea muncii
 
-## Aplicarea skill-urilor Vercel
-Skill-urile din `.agents/skills/` se aleg după relevanță, nu se încarcă toate automat. La React implementare/refactor/review aplică `vercel-react-best-practices`; la proiectarea API-urilor de componente aplică `vercel-composition-patterns`; la UI aplică `web-design-guidelines`, inclusiv regulile live la review; la documentație aplică `writing-guidelines`, inclusiv regulile live la review, adaptate pentru română clară. Skill-urile native, view transitions și serviciile Vercel se folosesc numai pentru sarcini relevante și autorizate. Contractele delegate și de review numesc explicit skill-urile aplicabile. Cerințele utilizatorului și procesul proiectului au prioritate; skill-urile nu presupun Next.js/RSC/React Native/Vercel și nu autorizează upload sau deploy.
+Dezvoltarea are loc numai pe branch-ul local `main`; nu crea și nu folosi branch-uri temporare/de feature ori worktrees. Înaintea oricărei schimbări de branch verifică working tree-ul și păstrează toate modificările staged, unstaged și untracked. Schimbă numai către un `main` deja existent care pointează la același commit; dacă lipsește sau diferă, oprește tranziția și raportează blocajul. Nu crea branch-uri, nu face fetch, merge, rebase, reset sau clean pentru a rezolva diferența.
 
-## Predare
-Coordonator → plan și criterii → implementare delegată → review → corectare delegată → reverificare → verificare integrată a coordonatorului → utilizator.
-Nu declara un rezultat verificat fără dovezi. Raportează separat verificările trecute, cele neexecutate și problemele rămase.
-Actualizarea memoriei și predarea nu presupun aprobare implicită din partea utilizatorului.
+Commit și push cer autorizare explicită pentru acele acțiuni. Nici cererile de dezvoltare, nici istoricul nu autorizează deploy/publicare, costuri, servicii, furnizori, probe reale sau integrări externe; cere autorizarea explicită relevantă înaintea lor. Verificările automate se rulează numai dacă sunt sigure, relevante, autorizate și practice.
+
+## Surse canonice
+
+| Subiect | Sursa canonică |
+|---|---|
+| Starea actuală și limitele scurte | [docs/memory.md](docs/memory.md) |
+| Sarcini, stări, dependențe și predarea activă | [docs/plan.md](docs/plan.md) |
+| Cerințe și acceptare de produs | [docs/product.md](docs/product.md) |
+| Decizii și motive | [docs/decisions.md](docs/decisions.md) |
+| Rezultate de verificare și limite | [docs/verification.md](docs/verification.md) |
+| Surse operaționale și dovezi datate | [docs/operations/](docs/operations/), [docs/evidence/](docs/evidence/) |
+| Flux de lucru | [docs/process.md](docs/process.md) |
+| Inventar, alegere și proveniență skill-uri | [docs/skills.md](docs/skills.md), `skills-lock.json` |
+| Introducere și puncte de pornire | [README.md](README.md), [CLAUDE.md](CLAUDE.md) |
+
+Încărcă documente suplimentare numai când sarcina le cere. `docs/memory.md` este un snapshot, nu înlocuiește implementarea ori sursele de dovezi.
+
+## Produs și siguranța sesiunii
+
+Datele demo pentru Tasks 2/4A/5A/6A/7A/8A sunt sintetice, numai în memorie și se pierd la reload. Rutele și rezultatele locale, inclusiv `/itinerary-demo` pentru Task 8A, sunt în snapshotul memoriei și planului. Aceste demonstrații nu înseamnă produs complet, backend sau acceptare integrală.
+
+Machetele existente rămân aprobări istorice; fidelitatea vizuală a demo-ului itinerarului nu este validată, iar direcția implementată nu este stabilită sau acceptată. Prioritatea este diagnosticul și remedierea P-09, apoi B1 și funcționalitatea conform dependențelor, inclusiv Task 3 și accesul privat. Verificările reușite ale conturilor/probelor istorice nu dovedesc accesul complet în produs. Nu presupune rerulare live, schimbarea pragurilor ori deploy; amână designul și finisarea până când fluxurile funcționează și sunt verificate.
+
+P-09 este **FAIL la pragul CPU cold**: 10/100 cereri distincte depășesc 7 ms; valoarea p95 exactă și CPU-ul complet rămân necunoscute. B1, Task 3, backendul și acceptarea online sunt blocate. iPhone: PASS manual pentru fixture sintetic; nu este acceptare completă și nu se repetă. Android: necunoscut și nu este gate de integrare. Nu relua CPU/CAS/iPhone, nu reseta fixture-ul, nu modifica servicii și nu activa furnizori ori costuri. Fotografiile și acceptarea vizuală deschisă, precum și limitele TDD, sunt în evidențele legate din memorie/plan.
+
+Rapoartele de acces/preflight din alte sesiuni nu dovedesc accesul curent. Înaintea unei acțiuni administrative, verifică numai accesul necesar în sesiunea curentă; nu expune sau copia secrete, nu reface setup-ul automat și nu presupune autentificarea profilului CLI `cf` (profilul `default` a fost găsit neconectat). Dacă preflight-ul actual a reușit, nu repeta setup-ul. Preflight-ul read-only din 2 noiembrie este istoric, nu verificare actuală.
+
+## Mandat și delegare
+
+Utilizatorul decide scopul, preferințele și acceptarea. Coordonatorul planifică, definește contractul, deleagă, revizuiește, verifică integrarea și predă; nu implementează în locul agentului. Agentul implementator lucrează numai în fișierele atribuite, repară observațiile și raportează dovezi, limite și verificări neexecutate. Nu declara integrarea sau acceptarea finală înaintea verificării coordonatorului.
+
+Poolul permis: `gpt-6-luna` implicit pentru lucrări mici; `gpt-6-sol` și `gpt-6.1-terra` sunt opțiuni potrivite fără promisiune de cost mai mic. Nu schimba automat modelul principal. Coordonatorul poate delega lucrări independente justificate, dar cel mult **3 subagenți concurenți**, conform limitei curente a utilizatorului; vechea limită de 7 este istorică. Escaladarea peste mandatul de cost/complexitate cere acordul utilizatorului. Coordonatorul implementează numai după confirmarea agentului că nu poate prelua sarcina și acordul utilizatorului.
+
+Nu deduce deploy, costuri, furnizori, PR sau publicare din push ori din autorizări istorice. Nu crea chat nou automat. Dacă un model explicit nu este disponibil, raportează și identifică alternativa.
+
+## Alegerea skill-urilor
+
+Inventarul canonic, proveniența și regulile complete sunt în [docs/skills.md](docs/skills.md). Încarcă doar skill-urile relevante și numește-le în contractele de implementare/review. Pentru React folosește `vercel-react-best-practices`, pentru API-uri de componentă `vercel-composition-patterns`, pentru UI `web-design-guidelines`, iar la review de documentație `writing-guidelines` cu sursa live și adaptare clară în română. Aplică skill-urile Vercel relevante fără o nouă cerere; brief-ul utilizatorului primează față de preferințele estetice. Native, view transitions și serviciile Vercel se folosesc numai când sunt relevante și explicit autorizate. Skill-urile nu presupun Next.js/RSC/React Native/Vercel și nu autorizează upload/deploy. Originalele `SKILL.upstream.md` sunt surse de referință, nu puncte de intrare; folosește instrumentele disponibile, nu nume preluate literal din alt produs.
+
+## Flux și raportare
+
+Urmează [fluxul operațional](docs/process.md): **UNDERSTAND → PLAN → DELEGATE → IMPLEMENT → VERIFY → DOCUMENT → REPORT**. Coordonatorul verifică fiecare diff real și dovezile aferente; reviewul independent este read-only și proporțional cu schimbarea. Agenții primesc sarcini mici, contracte și context strict relevant. Alocă fișiere fără suprapunere; dacă două sarcini necesită același fișier, serializează-le și atribuie un singur editor. Actualizează numai documentele curente relevante după verificarea faptelor și raportează verificările trecute, neexecutate și incertitudinile. Documentarea sau handoff-ul nu creează aprobare implicită.
+
+## Istoric păstrat
+
+Autorizările Git și Task 2 păstrate în istoric nu sunt active prin simpla lor prezență. Verifică întotdeauna cererea curentă și planul activ. Textul original Git este păstrat integral în [proces, secțiunea de istoric](docs/process.md#autorizare-git-istorica-din-agentsmd).

@@ -1,5 +1,20 @@
 # Memorie de proiect
 
+<!-- CURRENT:START -->
+<a id="stare-curenta"></a>
+## Stare curentă
+
+Travel Buddy este destinat să ajute două persoane să planifice vacanțe împreună, cu itinerarii zilnice potrivite preferințelor amândurora și informații online; demonstrațiile locale nu oferă încă acest flux complet. Stackul este React 19, TypeScript, Vite și Zod. Task 2, 4A, 5A, 6A, 7A și 8A sunt demonstrații locale, cu date sintetice numai în memorie; reload-ul le resetează. Rutele livrate includ `/`, `/explore`, `/preferences`, `/trip-creation`, `/place-resolution`, `/generation` și `/itinerary-demo`. Produsul complet și Task 4–8 complete rămân nefinalizate.
+
+P-09 **FAIL**: 10/100 cereri CPU cold depășesc 7 ms; p95 exact și rezultatele CPU complete nu sunt cunoscute. B1, Task 3, backendul și acceptarea online sunt blocate. iPhone-ul a trecut doar manual cu fixture sintetic; nu repeta iPhone, CPU sau CAS și nu reseta fixture-ul. Android necunoscut, fără să fie gate de integrare. Costuri, activarea furnizorilor, servicii și publicare nu sunt autorizate implicit. Machetele rămân aprobări istorice; fidelitatea vizuală a demo-ului itinerarului nu este validată, iar direcția implementată nu este stabilită sau acceptată. Prioritatea este diagnosticul și remedierea P-09, apoi B1 și funcționalitatea conform dependențelor, inclusiv Task 3 și accesul privat; amână designul și finisarea până când fluxurile funcționează și sunt verificate. Fotografiile Lisabona și acceptarea umană vizuală au puncte deschise. Limitele TDD și dovezile detaliate se consultă în plan și sursele legate mai jos.
+
+Snapshotul de workflow documentar și blocajul `main` din raportul de verificare descriu starea de dinaintea tranziției din 2026-11-03. Starea Git curentă este `main` care urmărește `origin/main`; confirmarea livrării se stabilește din status/log după integrare. Vezi [planul activ](plan.md#executie-activa) și [verificarea workflow-ului](verification.md#workflow-documentar-verificare).
+
+Pentru stări, dependențe și singurul handoff curent vezi [secțiunea activă din plan](plan.md#executie-activa). Acesta este rezumatul obligatoriu; întregul jurnal de mai jos este snapshot istoric, iar dovezile originale rămân în fișierele lor.
+<!-- CURRENT:END -->
+
+<!-- HISTORICAL:START -->
+
 ## Task 8A — verificat funcțional local, 2026-11-03
 
 Feedback utilizator, 2026-11-03: fidelitatea interfeței la machetele aprobate nu este validată. Comparația directă dintre [macheta itinerarului](mockups/itinerary-day-mobile-list-map-v1.png), [macheta detaliului](mockups/place-detail-mobile-v1.png) și [captura demo](evidence/2026-11-03/task-8a-local-itinerary-viewing/ro-390-detail.png) arată o diferență vizuală majoră; demo-ul este o probă funcțională, nu livrare de design. Direcția vizuală implementată nu este stabilită sau acceptată. Aprobările istorice ale machetelor rămân valabile. Prioritatea curentă este diagnosticul și remedierea P-09, apoi deblocarea B1 și funcționalitatea conform dependențelor, inclusiv Task 3 și accesul privat. Verificările reușite ale conturilor/probelor istorice nu înseamnă că produsul integrat sau accesul din produs sunt complete; P-09 rămâne FAIL și B1 blochează Task 3. Designul și finisarea se amână până când sistemele și fluxurile funcționează și sunt verificate. Nu presupune autorizarea unei rerulări live, a schimbării pragurilor sau a deploy-ului.
@@ -12,7 +27,8 @@ Verificări coordonator: **242/242 teste în 26 fișiere**, typecheck/lint, **80
 
 Task 8 complet rămâne nefinalizat, cu Tasks 1, 3, 5–7, P-02/P-03/P-04 și routing live P-10 separat; P-06/P-07 aparțin generării și nu înlocuiesc probele Task 8. Tasks 4/5/6/7 complete rămân nefinalizate. P-09 **FAIL**: 10/100 cold peste 7 ms, p95 exact necunoscut; B1/Task 3/backend online rămân blocate. Nu s-au reluat probe reale și nu s-au modificat servicii/deployment/publicare. Baza de lucru este `main` la `0eee354`, cu Task 7A `b3a7299` păstrat. Livrarea Git se confirmă în raportul final al conversației după push; nu se deduce deploy din push.
 
-## 2026-11-03 — Skill-uri Vercel și workflow
+
+## Snapshot istoric — skill-uri Vercel și workflow, 2026-11-03
 
 Am instalat toate cele nouă directoare de skill din `vercel-labs/agent-skills`, la commitul `1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62`, cu toate fișierele suport. Sunt 32 de skill-uri în total: opt nume noi și o actualizare a `web-design-guidelines`. Manifestele originale sunt păstrate ca `SKILL.upstream.md`, iar `skills-lock.json` conține hash SHA-256 pentru fiecare fișier instalat. În sursa upstream nu există fișier LICENSE separat; README-ul declară MIT, iar unele manifeste indică MIT. Nu am adăugat o licență inventată.
 
@@ -20,7 +36,7 @@ La începutul sarcinilor se citește `docs/skills.md` și se aleg skill-urile po
 
 Native, view transitions și servicii Vercel se folosesc doar pentru o solicitare relevantă și autorizată. Skill-urile Vercel nu permit divulgarea tokenurilor, upload sau deploy.
 
-## Task 7A — implementat și verificat funcțional local, 2026-11-02
+## Snapshot istoric — Task 7A — implementat și verificat funcțional local, 2026-11-02
 
 Separarea locală a Task 7 a fost autorizată explicit. `/generation` este independent de Task 5A/6A, cu pornire explicită, executor sintetic injectabil, GenerationJob/Place/SourceRef/ProviderFailure/ValidationError reutilizate și validare runtime. Stări queued/running/complete/partial/quota_exhausted/failed; search/organize/verify sunt etape simulate executate manual. Succes/partial au 3/3 etape validate, invalidul 2/3, erorile de search 0/3. Complete înseamnă numai simulare încheiată; rezultatele sunt fictive, neconfirmate și nesalvate/neaplicate. Retry manual conform scenariului, încercare nouă explicită, garduri pentru răspunsuri vechi și store abonabil pentru navigare în timpul unui pas. Numai memorie; RO/EN/FR, reset la reload explicat, fără efect în rezumatul Task 5A sau confirmarea Task 6A.
 
@@ -30,7 +46,7 @@ Implementare domeniu Luna medium, continuare UI/remedieri Terra medium după opr
 
 Main a fost sincronizat fără force/reset la `58f07bd`, cu testul local păstrat. Nu există motor real de recomandări, profiluri integrate, furnizori HTTP/auth/endpointuri, joburi/cote durabile, lease/checkpoint/fencing distribuit sau probe live. **Task 7 complet și P-03/P-06/P-07 integrale rămân deschise**, cu dependențele păstrate; Tasks 4/5/6 complete nefinalizate. **P-09 FAIL: 10/100 cold peste 7 ms, p95 exact necunoscut; B1/Task 3/backend/acceptarea online blocate.** Fără CPU/CAS/iPhone repetate, fixture-uri reale sau servicii modificate, costuri/furnizori activați, deploy/publicare/PR. Livrarea Git se confirmă după push în raportul conversației; nu se deduce deploy din push.
 
-## Task 6A — implementat și verificat funcțional local, 2026-11-02
+## Snapshot istoric — Task 6A — implementat și verificat funcțional local, 2026-11-02
 
 Separarea locală a Task 6 a fost autorizată explicit. `/place-resolution` are contracte interne validate reutilizând Place/SourceRef/LicensedImage/ProviderFailure/ValidationError, furnizor injectabil sintetic determinist, intrare nume/link HTTPS `.invalid`, 0/1/multiple și simulări invalid response/indisponibilitate/timeout/cotă. Nicio selecție/confirmare automată; utilizatorul alege și confirmă local. Surse/rezultate/poziții fictive și neconfirmate, fără fotografii sau date turistice inventate, surse inerte, zero cereri reale. App păstrează starea la navigare/limbă; reload șterge datele și revine la RO. Corectarea erorilor, invalidarea alegerii la editare și gardul răspunsurilor vechi sunt implementate. Se oprește la confirmare, fără itinerariu/propuneri și fără schimbarea Task 5A, oprit la rezumat.
 
@@ -38,7 +54,7 @@ Implementare Terra medium, continuare/remedieri Sol medium după limita de utili
 
 Task 6 complet și P-05/P-06 integrale rămân nefinalizate; adaptoare HTTP/endpointuri/auth, protecție completă URL/SSRF/proxy/licențe, cote persistente și probe live își păstrează dependențele. **P-09 FAIL: 10/100 cold peste 7 ms, p95 exact necunoscut; B1/Task 3/backend/acceptarea online blocate.** Tasks 4/5 complete rămân nefinalizate. Nu s-au reluat CPU/CAS/iPhone, atins fixture-uri reale/servicii, activat furnizori/costuri, făcut deploy/publicare/PR. La pornire arbore curat pe `work` la `a2f8272`; main sincronizat fără force/reset la `cf8a3aa`, cu Task 5A `0695cd2` păstrat. Livrarea Git se confirmă în raportul final al conversației după push; nu se deduce deploy din push.
 
-## Task 5A — implementat și verificat local, 2026-11-02
+## Snapshot istoric — Task 5A — implementat și verificat local, 2026-11-02
 
 Utilizatorul a autorizat explicit extragerea UI-ului demonstrativ din Task 5. Ruta `/trip-creation`, accesibilă din pagina principală, are trei momente „Bilet, bagaj, pașaport”: destinație/perioadă ori zile, transport combinabil și cazări/baze multiple cu intervale, apoi rezumat. Orele și cazarea sunt opționale, bugetul nu se cere; lipsurile și zilele fără cazare sunt explicate. Starea și ambele moduri de perioadă sunt păstrate între pași, navigări și limbi; reload resetează draftul/pasul și RO. Date fictive numai în memorie, fără ajustări per vacanță sau generare. Scenele 2/3 au aprobarea vizuală istorică, prima și detaliile exacte rămân propuneri fără acceptare umană finală.
 
@@ -46,7 +62,7 @@ Implementare/remedieri: Terra high, review static independent Sol medium, integr
 
 [Contractul Task 5A](plans/2026-11-02-task-5a-local-trip-creation.md) păstrează Task 5 complet nefinalizat și dependent de Tasks 1–4; Task 4 complet rămâne dependent de Task 3. P-09 FAIL (10/100 cold peste 7 ms, p95 exact necunoscut), B1, Task 3, backendul și acceptarea online rămân blocate. Nu s-au repetat probele reale, atins fixture-uri/servicii sau activat furnizori/costuri, deploy/publicare ori PR. La pornire arborele era curat pe `work` la `a2f8272`; `main` s-a sincronizat fără force/reset la `4306f8d`. Task 5A și dovezile au fost livrate în `0695cd2a973e635d9534813fc75b8880cb2f4ee5`, cu push normal pe `main`, HEAD egal cu `origin/main` și arbore curat confirmate. Confirmarea documentară se salvează separat; fără deploy.
 
-## Task 4A — implementat și verificat local, 2026-11-02
+## Snapshot istoric — Task 4A — implementat și verificat local, 2026-11-02
 
 Utilizatorul a autorizat explicit extragerea interfeței demonstrative a preferințelor din Task 4. Pagina `/preferences` are cinci carnete, căutare fără diacritice, răspunsuri exclusive, revenire la necunoscut, „fără preferințe speciale”, note, progres și exemple adăugate local. RO/EN/FR reutilizează fundația existentă; starea rămâne în memorie între navigări și limbi și se resetează la reload, cu explicație vizibilă. Alergiile/intoleranțele/evitările folosesc numai exemple fictive separate; nu se cer date reale de sănătate și nu se promit recomandări sigure. Inventarul alimentar rămâne demonstrativ/extensibil; prepararea structurată este exemplificată la ceapă/roșii, restul au note. Precizările non-food sunt note pe element, fără toate filtrele structurate ale produsului complet.
 
@@ -56,13 +72,13 @@ Implementarea și remedierile sunt delegate; coordonatorul nu a preluat codul. R
 
 La reluare copia locală era curată pe `work` la `a2f8272`; fetch a confirmat `origin/main` la `55c2c11`, iar `main` local a fost deschis fără force/reset. Reperele Task 2 `40198ed` și `55c2c11` au fost păstrate. După verificări, un nou fetch a confirmat zero divergență față de remote. Task 4A a fost livrat în `c4ffb7d63c23cd8c39d7b798d1bd8f32a16b6d8e` prin push fără force pe `main`; HEAD și `origin/main` identice și arbore curat au fost confirmate. Confirmarea documentară se salvează separat; fără deploy.
 
-## Task 2 — fundație UI locală finalizată, 2026-11-02
+## Snapshot istoric — Task 2 — fundație UI locală finalizată, 2026-11-02
 
 Fundația locală a fost implementată de `gpt-6.1-terra` medium, revizuită și verificată integrat de coordonator. Shell-ul, componentele, rutele `/` și `/explore`, fallbackul și RO/EN/FR sunt demonstrative; limba este în memorie și revine la RO la reload. Fontul aprobat este local, cu OFL/proveniență, iar shell-ul public PWA este păstrat. Rezultatele și limitele sunt în [dovada Task 2](evidence/2026-11-02/task-2-ui.md). Nu există aprobare umană finală a percepției designului.
 
 P-09 rămâne FAIL (10/100 cold observate peste 7 ms, p95 exact necunoscut); B1, Task 3/backend și acceptarea online rămân blocate. Nu s-au reluat CPU/CAS/iPhone și nu s-au modificat Firebase/Cloudflare/D1, activat costuri sau publicat. Task 4+ nu sunt autorizate în bloc. Implementarea a fost livrată pe `main` prin `40198eda5bc83976ef3aaef8dcb0f8c2897bbf38`; push fără force confirmat, fără deploy. Actualizarea documentară de livrare urmează separat. Secțiunile de pornire de mai jos sunt istorice unde diferă de această stare.
 
-## Următorul pas autorizat — fundație UI locală, 2026-11-02
+## Istoric — următorul pas autorizat la acel moment — fundație UI locală, 2026-11-02
 
 Utilizatorul a autorizat actualizarea planului și pregătirea handoff-ului pentru Task 2, precum și pornirea Task 2 într-un chat nou după citirea documentației și stabilirea contractului scurt; nu a cerut crearea automată a chatului. Task 2 este limitat la fundația locală React 19/TypeScript strict/Vite/Zod, tokens și componente comune, navigare, localizare RO/EN/FR cu româna implicită și date demonstrative mock/synthetic. Nu folosește sesiuni/date reale și nu schimbă Worker, Firebase sau D1.
 
@@ -70,11 +86,11 @@ P-09 rămâne FAIL: măsurarea cold observată demonstrează depășirea pragulu
 
 Coordonatorul poate delega sarcini ușoare, independente și justificate mai multor agenți, cu modele disponibile potrivite sarcinii și consumului; `gpt-6-luna` este implicit pentru lucrări simple, iar `gpt-6-sol`/`gpt-6.1-terra` sunt de asemenea permise pentru sarcini potrivite. Nu presupune cost inferior garantat pentru Sol/Terra și evită paralelismul risipitor; modificările comune se serializează. Escaladarea peste mandatul de cost/complexitate cere acordul utilizatorului; coordonatorul preia implementarea numai după confirmarea agentului că sarcina e prea complexă și acordul utilizatorului. „5.6” este un nume provizoriu menționat de utilizator, neconfirmat în lista ID-urilor disponibile; nu îl include în pool-ul executabil și clarifică-l ulterior. Regula curentă este D014; D013 păstrează autorizarea și delimitarea Task 2. Nu crea chatul automat; promptul copy-ready este în [handoff](plans/2026-11-02-next-chat-handoff.md). După review și verificările cerute, commit/push pe `main` sunt acoperite de autorizarea Git persistentă, fără confirmare repetată. Fără deploy/publicare a produsului sau PR automat.
 
-## Rezultatul ultimei runde CPU — 2026-11-02
+## Snapshot istoric — rezultatul ultimei runde CPU — 2026-11-02
 
 Raportul corect confirmă 200 de ID-uri unice și toți indicii 0–99 pentru cold și warm. Captura de zece minute a salvat un primer și 21 de cereri corelate (10 cold, 11 warm), cu 90 de indici cold și 89 warm fără CPU capturat. Toate cele 10 valori cold observate sunt 8–15 ms; fiind 10 cereri distincte din cele 100 cold, p95 cold este demonstrabil >7 ms chiar dacă valorile lipsă ar fi toate ≤7 ms. **P-09 eșuează pragul CPU cold;** p95 exact, p95 warm și terminările CPU pentru întregul set rămân necunoscute. Cauza evenimentelor lipsă nu este stabilită; parserul noii capturi a înregistrat 0 erori. Nu relansa workloadul. Detaliile și limitele sunt în [jurnalul rundei](operations/2026-11-02-cpu-rerun.md). Nu repeta CAS sau proba iPhone.
 
-## Stare curentă — integrare confirmată și probe, 2026-11-02
+## Snapshot istoric — integrare confirmată și probe, 2026-11-02
 
 Integrarea selectivă a fundației în `main` a reușit, verificată la `aace865e28cc88d012d6b585aaad9e6044c1b701` (părinți `1fb41d7, b295642`), prin push fără force. Produsul complet nu este implementat. Utilizatorul a transmis rezultate pentru buildul `032757c940a4cd17c624304bc010d93818cdf15a130bff0eb202fdd20889ce11`: accesul autentificat Alpha/Beta a trecut 10/10, iar CAS/idempotency 14/14. Un câștigător a aplicat propunerea, concurenta a primit conflict, iar ambii membri au reîncărcat versiunea 8 și retry-urile au întors aceeași confirmare. Fixture-ul CAS este modificat; nu-l reseta și nu relua proba automat.
 
@@ -168,13 +184,13 @@ Următorul pas după predarea documentelor: evaluarea planului de către utiliza
 - Istoric, 2026-10-22: utilizatorul a reconfirmat delegarea sarcinilor delimitate către agenți cu model mai mic, cu coordonare și verificare centrală. Preferința de model și limita numerică de atunci au fost înlocuite de D014 și regula curentă din AGENTS.md.
 - Înainte de implementare se pregătesc brief-ul, designul și planul MVP.
 
-## Stare
+## Snapshot istoric — stare la acel moment
 - Extinderea pentru cerințe, planificare, arhitectură, teste, browser, review, worktrees și comunicarea agenților este instalată. Inventarul are 24 de skill-uri; folosirea lor urmează etapa proiectului. Nu s-au pornit un site, browser, proxy sau hooks prin această instalare.
 - Prima extindere a adăugat Anthropic Frontend Design, UI/UX Pro Max cu baza de date, Vercel Web Design Guidelines și toate cele opt module oficiale GSAP. Impeccable existent a fost păstrat. Sursele și rolurile sunt în `skills.md`.
 - Definirea inițială și consolidarea brief-ului sunt încheiate. Evaluarea documentară a fezabilității este în feasibility.md; compromisurile de produs și alegerile tehnice nu sunt aprobate.
 - Site-ul nu se implementează în această etapă. Verificările și limitele setup-ului sunt consemnate în `verification.md`.
 
-## Următorul pas
+## Istoric — următorul pas la acel moment
 - Discută numai compromisurile din feasibility.md: cote care pot opri recomandările, fotografii indisponibile, acoperire variabilă a transportului public și plan offline separat de harta completă. Apoi propune designul și soluția tehnică; nu implementa fără cerere. Nu relua interviul inițial.
 
 ## Predare actualizată — finalul definirii inițiale, 2026-10-22
@@ -193,7 +209,7 @@ Următorul pas după predarea documentelor: evaluarea planului de către utiliza
 - La ultima verificare de setup nu existau aplicație, istoric Git inițializat sau Playwright instalat în Pythonul verificat. Stilul, tehnologiile, stocarea și detaliile funcțiilor rămân de decis.
 
 
-## Ultima predare — brief consolidat și fezabilitate, 2026-10-22
+## Predare istorică — brief consolidat și fezabilitate, 2026-10-22
 - Cererea de consolidare și cercetare este îndeplinită documentar: product.md reorganizat fără reluarea interviului; feasibility.md conține comparația, surse oficiale și limite. Planul a fost actualizat.
 - Coordonatorul a delegat trei cercetări către gpt-6-luna (acces/date, căutare/generare, hărți/offline) și a reverificat concluziile decisive. Niciun agent nu a editat fișiere comune; coordonatorul a integrat documentele.
 - Gratuitatea este plauzibilă în cote, nu demonstrată integral: Cloudflare/Firebase, Tavily, Groq/Workers AI, Geoapify sunt candidați; nu există stack ales sau aprobat. Supabase Free poate intra în pauză după o săptămână de inactivitate.
@@ -205,7 +221,7 @@ Următorul pas după predarea documentelor: evaluarea planului de către utiliza
 - Următorul pas: discutarea compromisurilor concrete din raport, apoi design/soluție/plan. Nu relua scopul, conturile, limbile sau celelalte cerințe confirmate.
 
 
-## Predare curentă — continuare prin GitHub, 2026-10-22
+## Predare istorică — continuare prin GitHub, 2026-10-22
 Această predare completează documentele istorice de mai sus și înlocuiește stările lor depășite. Deciziile au fost recuperate din conversațiile „Travel Buddy — continuare în cloud”, „Propune pagina introductivă” și „Configurează preluarea automată dină”. Nu reprezintă implementare sau probe tehnice.
 
 - Utilizatorul a cerut continuarea prin GitHub, deoarece va fi plecat de la calculatorul principal. Depozitul Saiant03/Travel-Buddy este locul principal pentru documente și modificări. Automatizarea locală de preluare a fost eliminată în conversația locală; nu presupunem sincronizare automată cu calculatorul de acasă.
@@ -349,3 +365,4 @@ Trei vederi sunt propuse:
 Interfața explică regula existentă: participarea fără interes propriu poate permite activitatea comună pentru celălalt; refuzul explicit o exclude din planul comun. Se păstrează activitățile împreună și alternarea priorităților.
 Selecțiile și nota „Prefer expoziții mai mici” sunt doar exemple, nu preferințe reale declarate. Fiecare își editează propriul profil. Gramatica vizuală preia carnetul de gusturi, cu etichete adecvate activităților, distincte de răspunsurile alimentare.
 Macheta culturii a primit feedback vizual pozitiv de la utilizator („super”). Aprecierea privește direcția și aspectul, fără validare funcțională. Nu există formular sau motor de recomandări implementate. Claritatea și comportamentul se verifică în site-ul funcțional; scenariile sunt planificate în `docs/verification.md`, neexecutate.
+<!-- HISTORICAL:END -->

@@ -1,8 +1,12 @@
 # Travel Buddy — handoff pentru Claude Code
 
-La început citește `AGENTS.md` și `docs/skills.md`; identifică și aplică skill-urile Vercel relevante pentru sarcină fără a aștepta o nouă solicitare. Contractele de implementare și review numesc skill-urile aplicabile. React: `vercel-react-best-practices`; compoziție de componente: `vercel-composition-patterns`; UI: `web-design-guidelines`, cu regulile live la review; documentație: `writing-guidelines`, cu regulile live la review adaptate pentru română clară. Native/view transitions/servicii Vercel numai dacă relevante și autorizate.
+La început urmează instrucțiunile de pornire din `AGENTS.md`. Pentru selecția skill-urilor și rutarea după tipul de sarcină, consultă inventarul canonic din [`docs/skills.md`](docs/skills.md); contractele de implementare și review numesc skill-urile aplicabile.
 
-## Stare curentă — noiembrie 2026
+## Stare curentă — 3 noiembrie 2026
+
+Taskurile 2, 4A, 5A, 6A, 7A și 8A sunt implementate și verificate ca demonstrații locale cu date fictive în memorie; `/itinerary-demo` este funcțională local, fără acceptare vizuală; produsul complet și backendul nu sunt implementate. P-09 este **FAIL**: 10 din 100 de cereri cold distincte au avut CPU peste 7 ms. P95-ul exact, rezultatul warm complet și terminările CPU pentru setul întreg sunt necunoscute. Gate B1, Task 3, backendul și acceptarea online rămân blocate. Consultă [memoria](docs/memory.md), [planul](docs/plan.md), [verificările](docs/verification.md) și [jurnalul reluării CPU](docs/operations/2026-11-02-cpu-rerun.md) pentru starea curentă.
+
+## Snapshot istoric al integrării — 2 noiembrie 2026
 
 Integrarea selectivă în `main` este confirmată la `aace865e28cc88d012d6b585aaad9e6044c1b701` (părinți `1fb41d7, b295642`), împinsă fără force și verificată remote. Testele și reviewul final au trecut; produsul complet nu este implementat. Nu s-a executat deploy. Preflight-ul read-only curent a confirmat Cloudflare HTTP 200 la listarea ambelor Worker-e și la listarea/detaliile D1 (șase tabele afișate, fără validarea schemei/conținutului), plus Firebase OAuth/Auth read HTTP 200 și două conturi email-confirmate, enabled. Nu s-au făcut mutații la servicii.
 
@@ -12,7 +16,7 @@ Probele autentificate Alpha/Beta au trecut 10/10 acces și 14/14 CAS/idempotency
 
 Workers Builds API a răspuns HTTP 403 la trigger. Automatizarea de branch este necunoscută și nu am lansat nicio comandă sau acțiune de deploy. Nu trata acest răspuns ca dovadă a unui deploy reușit/eșuat sau ca blocaj demonstrat pentru integrarea locală.
 
-Surse curente: [memoria](docs/memory.md), [planul](docs/plan.md), [verificările](docs/verification.md), [planul de reconciliere](docs/plans/2026-11-02-branch-reconciliation.md), [jurnalul Alpha/Beta](docs/operations/2026-11-02-alpha-beta-verification.md) și [progresul P12-A](docs/evidence/2026-10-23/phone-probe-progress.md).
+Surse pentru acel snapshot: [memoria](docs/memory.md), [planul](docs/plan.md), [verificările](docs/verification.md), [planul de reconciliere](docs/plans/2026-11-02-branch-reconciliation.md), [jurnalul Alpha/Beta](docs/operations/2026-11-02-alpha-beta-verification.md) și [progresul P12-A](docs/evidence/2026-10-23/phone-probe-progress.md). Preflight-ul menționat mai sus este raportul istoric din 2 noiembrie, nu o dovadă de acces disponibil în sesiunea curentă.
 
 **Istoric:** toate secțiunile de mai jos păstrează dovezile și instrucțiunile din octombrie 2026; nu folosi stările lor de autentificare, seed, blocaj sau build drept stare curentă. Regulile generale de protejare a secretelor și de a nu factura rămân valabile.
 

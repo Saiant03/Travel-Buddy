@@ -1,6 +1,18 @@
 # Plan de lucru — Travel Buddy
 
-> 2026-11-03: Task 8A, vizualizarea locală a itinerarului, este verificată funcțional local. Task 8 complet și probele sale rămân deschise.
+<!-- ACTIVE:START -->
+<a id="executie-activa"></a>
+## Execuție activă
+
+- **Scop:** reconcilierea finală a documentației locale cu integrarea curentă pe `main`, păstrând proveniența și schimbările unice.
+- **Stare și handoff:** Baza integrării este `origin/main` la `775081fd79c53267cdede1183f3ac4d8ff2cb851`, după fetch; `main` urmărește `origin/main`. Istoricul `0eee354c` este strămoș, iar cele trei commituri remote păstrate includ Task 8A, raportul vizual neacceptat și prioritatea P-09. Confirmarea commitului final și pushului se bazează pe status/log după integrare, nu pe snapshoturile istorice de blocaj.
+- **Domeniu:** numai cele 11 documente recuperate; conflictele de integrare sunt `AGENTS.md`, `docs/memory.md`, `docs/plan.md`. Codul și configurația produsului nu fac parte din această sarcină.
+- **Păstrare:** rezultatele esențiale și istoricul local unic din copiile de siguranță, alături de schimbările unice din `origin/main`, sunt păstrate; cele cinci fișiere locale aplicate curat rămân nemodificate.
+- **Acceptare/verificare:** eliminarea markerilor de conflict, secțiunile curente concordante cu sursele și păstrarea raportării istorice fără a o prezenta drept rezultate noi.
+- **Predare:** starea livrării se verifică din Git; această predare nu pornește un produs nou și nu autorizează commituri sau pushuri viitoare.
+<!-- ACTIVE:END -->
+
+<!-- SNAPSHOTS:START -->
 
 ## Task 8A — verificat funcțional local
 
@@ -8,7 +20,11 @@ Feedback din 2026-11-03: verificările funcționale au trecut, dar fidelitatea v
 
 [Contractul Task 8A](plans/2026-11-03-task-8a-local-itinerary-viewing.md) acoperă numai demonstrația locală explicită: fixture-uri validate `Place`/`DayPlan`/`Stop`/`Itinerary`, selectarea zilei, lista ordonată și detalii cu revenire. Dependențe locale: Tasks 1–2 și contractele/tipurile existente; fără conexiuni către Tasks 5A/6A/7A. Task 8A a trecut verificările locale descrise în [raportul de dovezi](evidence/2026-11-03/task-8a-local-itinerary-viewing.md), cu limitarea TDD integrală și platformele neexecutate consemnate acolo. Task 8 complet păstrează dependențele Tasks 1, 3, 5–7, P-02/P-03/P-04 și routing live P-10 separat; CAS/propuneri, backendul și probele rămân deschise. P-06/P-07 aparțin fluxului de generare și nu înlocuiesc probele Task 8.
 
-> 2026-11-03: Skill-urile Vercel și workflow-ul au fost actualizate; starea produsului și ordinea celorlalte sarcini nu se schimbă.
+## Sarcină anterioară — recuperare documentară, 2026-11-03
+
+Sarcina precedentă a recuperat și aliniat local documentația după copiile de siguranță și inventarul de integritate. Reviewul independent de integritate a trecut, iar modificările au rămas necomise. Mandatul său era limitat la documentele atribuite; acea limită a fost specifică sarcinii. Cele zece modificări locale existente sunt păstrate în arborele curent.
+
+## Snapshoturi și rezultate istorice
 
 ## Task 7A — verificat funcțional local, 2026-11-02
 
@@ -25,23 +41,25 @@ Utilizatorul a autorizat explicit extragerea interfeței locale de creare din Ta
 Implementare și corectări delegate Terra high, review static Sol medium și verificare finală a coordonatorului: **139/139 teste, typecheck, lint, build, 14/14 E2E Chromium**. Browser local: toate cele trei scene în RO/EN/FR, mobil/desktop, tastatură, reset, opționale, calendar, reduced motion și zoom CSS 200%; fără overflow. R1 și contrastul butoanelor au fost remediate și reverificate. [Dovezi și limite](evidence/2026-11-02/task-5a-local-trip-creation.md): unele teste suplimentare au fost adăugate ulterior, zoomul nativ/Safari/cititorul de ecran/dispozitivul fizic nu sunt verificate; prima scenă și detaliile exacte nu primesc aprobare vizuală implicită. Implementarea și dovezile sunt livrate în `0695cd2a973e635d9534813fc75b8880cb2f4ee5`, push normal pe `main` confirmat, HEAD/remote identice și arbore curat. Confirmarea documentară se salvează separat, fără deploy/PR.
 
 
-## Snapshot curent — Task 4A verificat local, 2026-11-02
+## Snapshot istoric — Task 4A verificat local, 2026-11-02
 
 Task 4A a fost extras explicit din Task 4 și implementat delegat după fundația Task 2 (`40198ed`, confirmare `55c2c11`). [Contractul local](plans/2026-11-02-task-4a-local-preferences.md) și [dovezile](evidence/2026-11-02/task-4a-local-preferences.md) descriu pagina celor cinci carnete, alegerile exclusive, căutarea, precizările, progresul, RO/EN/FR și exemplele fictive în memorie. Resetarea la reload este explicată. Inventarul alimentar nu este aprobat final; precizările non-food sunt note, iar prepararea structurată este demonstrată la ceapă/roșii.
 
 Coordonatorul a confirmat 130/130 teste, typecheck, lint, build și 9/9 E2E Chromium; browserul independent a acoperit tastatură, cele trei limbi, mobil/desktop, reduced motion și zoom CSS 200%. Zoomul nativ, Safari/dispozitivul fizic și cititorul de ecran nu sunt demonstrate; limitele TDD și ale probelor sunt în raport. Task 4 complet rămâne nefinalizat și dependent de Task 3; backendul, izolarea reală și ajustările per vacanță nu sunt implementate. P-09 rămâne FAIL, p95 exact necunoscut; B1, Task 3 și acceptarea online rămân blocate. Fără reluarea probelor reale, schimbări de servicii, deploy/publicare sau PR. Implementarea este livrată pe `main` prin `c4ffb7d63c23cd8c39d7b798d1bd8f32a16b6d8e`, push fără force confirmat, HEAD/remote identice și arbore curat. Confirmarea documentară se salvează separat; fără deploy.
 
-## Snapshot curent — Task 2 finalizat local, 2026-11-02
+## Snapshot istoric — Task 2 finalizat local, 2026-11-02
 
 Fundația UI locală a trecut reviewul și verificările coordonatorului; detaliile și limitele sunt în [dovada Task 2](evidence/2026-11-02/task-2-ui.md). Exemplele sunt fictive, iar limba este doar în memorie. Nu s-au implementat produsul complet sau backendul. P-09 rămâne FAIL, p95 exact necunoscut; Gate B1 și Task 3/backend/acceptarea online rămân blocate. Task 4+ nu sunt autorizate în bloc. Implementarea a fost livrată pe `main` prin `40198eda5bc83976ef3aaef8dcb0f8c2897bbf38`; push fără force confirmat, fără deploy. Actualizarea documentară de livrare urmează separat. Textul de pornire al Task 2 de mai jos este istoric.
 
-## Prioritate curentă — fundație locală și gate server separat, 2026-11-02
+## Istoric — autorizarea Task 2 și gate server, 2026-11-02
 
 Utilizatorul a autorizat începerea Task 2 pentru interfața locală: React 19 + TypeScript strict + Vite + Zod, fundație comună, design tokens/componente de bază, navigare și localizare RO/EN/FR (româna implicită). Această lucrare folosește machetele și contractele deja aprobate/documentate; nu redeschide brief-ul sau explorarea vizuală. Datele/sesiunile folosite în interfață sunt explicite mock/synthetic, fără Firebase/Auth real sau date personale.
 
 Dezvoltarea locală a UI este separată de validarea serverului. Gate B1 rămâne BLOCAT: P-09 CPU cold a eșuat pragul p95 ≤7 ms; raportul corelat are 10/100 cereri cold peste 7 ms, iar rezultatul exact pentru restul cererilor nu este cunoscut. Acest eșec nu se elimină, nu se prezintă ca rezolvat și nu se deduce din performanța locală. Task 3 (auth/API privat/live backend) rămâne blocat de P-09 și probele reale aferente. Tasks ulterioare pot pregăti UI cu fixture-uri locale numai conform planului și nu sunt autorizate în bloc. Nu reporni CPU/CAS, nu schimba Worker/Firebase/D1, nu publica și nu activa servicii/costuri.
 
 Următorul handoff pentru implementare este [Task 2](plans/2026-11-02-next-chat-handoff.md). În această conversație a fost autorizată documentarea și promptul de pornire; crearea chatului rămâne manuală. După review și verificările cerute, commit/push pe `main` sunt acoperite de autorizarea Git existentă; fără deploy/publicare a produsului sau PR automat.
+
+Această autorizare și handoff sunt istorice; nu relua Task 2 pentru sarcina activă din 2026-11-03.
 
 
 Integrarea selectivă este confirmată în `main` la `aace865e28cc88d012d6b585aaad9e6044c1b701` (părinți `1fb41d7, b295642`), cu push fără force. Corectările au trecut 111/111 teste, 8/8 E2E Chromium, typecheck, lint și cele trei builds pornite prin Playwright `webServer`; scanarea țintită a celor 133 de fișiere staged nu a găsit cele două UID-uri vechi, markeri de cheie privată sau conflicte; nu a fost un audit exhaustiv. Avertismentele Rollup Zod `@PURE` și `NO_COLOR` au fost non-blocking. Produsul complet nu este implementat.
@@ -65,7 +83,7 @@ Nu relua explorarea vizuală sau interviul de produs. Nu interpreta notele vechi
 - Nu s-au implementat site-ul, ales definitiv tehnologii, creat conturi sau activat servicii.
 
 ## Istoric — pregătirea implementării, 2026-10-23
-Explorarea vizuală este încheiată. Cererea curentă autorizează documentarea și planificarea, nu implementarea, activarea serviciilor sau publicarea site-ului. Notele istorice de mai jos păstrează parcursul proiectului; această secțiune stabilește următorul pas.
+Explorarea vizuală era încheiată. Cererea din acea etapă autoriza documentarea și planificarea, nu implementarea, activarea serviciilor sau publicarea site-ului. Notele istorice de mai jos păstrează parcursul proiectului; secțiunea stabilea următorul pas de atunci.
 
 **Plan de execuție:** [Etape, contracte pentru agenți și criterii de acceptare](plans/2026-10-23-implementation.md).
 
@@ -93,10 +111,10 @@ Patru agenți gpt-6-luna au finalizat documentele independente (vizual, arhitect
 Documentele de context și cele 24 de skill-uri sunt pregătite; inventarul este în `skills.md` și `skills-lock.json`. Nu se reia instalarea lor. Dovezile și limitele verificărilor sunt în `verification.md`.
 
 
-## Prioritatea curentă — 2026-10-22
+## Istoric — prioritatea din 2026-10-22
 Utilizatorul continuă prin GitHub. Predarea curentă de la finalul `docs/memory.md` înlocuiește pașii istorici depășiți de mai sus. Cele patru compromisuri și direcția vizuală concretă sunt aprobate. Conținutul copiei offline este aprobat: toate zilele și ordinea locurilor, detalii cunoscute cu marcajele de incertitudine, fotografii pentru telefon, cazări, sugestii păstrate și linkuri către surse (detalii în `product.md`). Harta și conversațiile noi cu Buddy necesită internet. Copia offline se salvează în limba aleasă în cont pe fiecare telefon; schimbarea limbii salvate necesită internet și actualizarea copiei. Nu se salvează implicit toate cele trei limbi. Urmează detaliile preferințelor, alergiile/intoleranțele, identificarea locurilor, stările generării și machetele. Tehnologiile nu sunt aprobate; nu implementăm sau publicăm site-ul.
 
-### Pas curent: inventar detaliat de preferințe
+### Pasul de atunci: inventar detaliat de preferințe
 Utilizatorul a cerut categorii mai complexe și selecția exactă a alimentelor și preparatelor consumate. Cerința și cele patru răspunsuri alimentare („Îmi place mult”, „Mănânc”, „Aș încerca”, „Nu mănânc”) sunt aprobate; inventarul alimentar rămâne propunere în `docs/product.md`. Regula alimentelor necompletate este aprobată: preferință necunoscută, prioritate preparatelor acceptate, respectarea refuzurilor și clarificări doar dacă informația este esențială alegerii unui restaurant. Profilul se poate completa treptat. Sunt aprobate precizările opționale pe aliment (opțiuni rapide și text propriu), toleranța la picant și preferințele de preparare. Buddy le respectă când există date și marchează ce trebuie verificat când informațiile lipsesc. Regulile pentru alergii/intoleranțe sunt aprobate în `docs/product.md`: preparate incompatibile cunoscute excluse; localuri cu informații incomplete vizibile separat cu „Necesită confirmare cu localul”, inclusiv pentru contaminare încrucișată; fără garanții de siguranță din meniul online. Structura detaliată „Atracții și cultură” este aprobată. Structura „Activități și natură” și filtrele despre efort, apă, înălțimi, experiență, format și limite sunt aprobate. Structura „Relaxare” este aprobată împreună cu precizările despre atmosferă, cadru, confort, acces și pauze. Structura „Shopping” este aprobată împreună cu precizările opționale. Fluxul de identificare a locurilor prin nume/link și tratarea ambiguităților este aprobat în `docs/product.md`. Sunt aprobate progresul real vizibil al generării, păstrarea separată a rezultatelor incomplete și reîncercarea manuală după întreruperi. Utilizatorul cere feedback vizibil pe parcursul așteptării, pentru a evita confuzia. Direcția de machetă pentru generare este aprobată în `docs/product.md`: Buddy animat discret, etape active/încheiate și mesaje concrete despre progres real. Prima machetă statică pentru telefon a ecranului de generare nu a fost acceptată; au fost create cinci alternative mai jucăușe și urmează alegerea/refinarea lor, celelalte machete și evaluarea tehnologiilor; fără implementare sau activarea serviciilor. Randările și desenul final al mascotei nu sunt aprobate implicit. Inventarul alimentar exact rămâne de rafinat înaintea implementării formularului. Nu tratăm exemplele ca profiluri personale sau alegeri aprobate.
 
 
@@ -213,3 +231,5 @@ Trei vederi sunt propuse:
 Interfața explică regula existentă: participarea fără interes propriu poate permite activitatea comună pentru celălalt; refuzul explicit o exclude din planul comun. Se păstrează activitățile împreună și alternarea priorităților.
 Selecțiile și nota „Prefer expoziții mai mici” sunt doar exemple, nu preferințe reale declarate. Fiecare își editează propriul profil. Gramatica vizuală preia carnetul de gusturi, cu etichete adecvate activităților, distincte de răspunsurile alimentare.
 Macheta culturii a primit feedback vizual pozitiv de la utilizator („super”). Aprecierea privește direcția și aspectul, fără validare funcțională. Nu există formular sau motor de recomandări implementate. Claritatea și comportamentul se verifică în site-ul funcțional; scenariile sunt planificate în `docs/verification.md`, neexecutate.
+
+<!-- SNAPSHOTS:END -->

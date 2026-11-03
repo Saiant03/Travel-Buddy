@@ -371,7 +371,7 @@
         "ref": "623a9a9037d006ea727f8213f084d02a6b6f11b5",
         "path": ".claude/skills/ui-ux-pro-max",
         "local_adaptations": [
-          "Resolve Claude plugin command paths to the absolute Travel Buddy skill script path; preserve original SKILL.upstream.md; include repository LICENSE."
+          "Resolve Claude plugin command paths to the repository-relative Travel Buddy skill script path and document Python executable fallbacks; preserve original SKILL.upstream.md; include repository LICENSE."
         ]
       },
       "files": {
@@ -448,7 +448,7 @@
         "scripts/tests/test_text_layout_resilience.py": "b51d32ee8a15505b87cb81957fb2d1b385e041e8beb4463c311d236bfd29ebd4",
         "scripts/tests/test_web_stack_freshness.py": "74897571398585f27e2c35d09d81b0a531c8c774f4a2967e5e1b1d1b05a483d9",
         "scripts/validate_data.py": "a599aa256049cf30954d1f164721b99e453eb7e4cb8241bcab2d5573e6cf58b8",
-        "SKILL.md": "c6af84c8890ed51088962da8e9463b7263404ff8647090846fbf73d7e5762093",
+        "SKILL.md": "3e0e48c1653d150fe95b6913df7751c759e920b49173622d6722ebfc2438ccfe",
         "SKILL.upstream.md": "ea087c341bfb5b23195c7302027268ede86da802554c18a5c4896a6017b439f9"
       }
     },

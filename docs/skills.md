@@ -15,7 +15,7 @@
 | `improve-codebase-architecture` | Îmbunătățirea organizării și verificabilității codului existent | [Matt Pocock](https://github.com/mattpocock/skills/tree/a77fa6e7a6726f687aa36455b27ed8b7d09afdff/improve-codebase-architecture), `improve-codebase-architecture`, același commit |
 | `writing-plans` | Sarcini mici, cu fișiere, contracte și pași de verificare | [Superpowers](https://github.com/obra/superpowers/tree/2ce8aa15d05bd57213e6f746f953aafb7ded7a8b/skills/writing-plans), `skills/writing-plans`, commit `2ce8aa15d05bd57213e6f746f953aafb7ded7a8b` |
 | `test-driven-development` | Test eșuat → implementare → test trecut → curățarea codului | [Superpowers](https://github.com/obra/superpowers/tree/2ce8aa15d05bd57213e6f746f953aafb7ded7a8b/skills/test-driven-development), `skills/test-driven-development`, același commit |
-| `using-git-worktrees` | O copie separată de lucru când este necesară izolarea | [Superpowers](https://github.com/obra/superpowers/tree/2ce8aa15d05bd57213e6f746f953aafb7ded7a8b/skills/using-git-worktrees), `skills/using-git-worktrees`, același commit |
+| `using-git-worktrees` | Referință instalată; politica proiectului cere dezvoltare numai pe `main` și interzice worktrees | [Superpowers](https://github.com/obra/superpowers/tree/2ce8aa15d05bd57213e6f746f953aafb7ded7a8b/skills/using-git-worktrees), `skills/using-git-worktrees`, același commit |
 | `webapp-testing` | Verificarea comportamentului site-ului cu Playwright | [Anthropic](https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/webapp-testing), `skills/webapp-testing`, commit `dbd4588f9e1033efb41dad4bef2f7947c8993d44` |
 | `code-review-and-quality` | Review al comportamentului, clarității, structurii, securității și performanței | [Addy Osmani](https://github.com/addyosmani/agent-skills/tree/aeac41d4d005999432bb7312f7ff06383a91d59d/skills/code-review-and-quality), `skills/code-review-and-quality`, commit `aeac41d4d005999432bb7312f7ff06383a91d59d` |
 | `vercel-react-best-practices` | Performanță React pentru implementare, refactor și review | [Vercel](https://github.com/vercel-labs/agent-skills/tree/1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62/skills/react-best-practices), `skills/react-best-practices`, commit `1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62` |
@@ -35,6 +35,20 @@ Se încarcă doar skill-ul relevant. Nu combinăm automat toate regulile estetic
 Anthropic și Taste susțin direcția aleasă; UI/UX Pro Max oferă cercetare și opțiuni. Impeccable și Vercel verifică aspecte complementare. Modulele GSAP se încarcă în funcție de animație și framework; instalarea lor nu a adăugat GSAP ca dependență a aplicației.
 Instalarea este locală proiectului. Skill-urile vor fi disponibile pentru descoperire la următoarea tură; dacă nu apar, redeschide sesiunea. Până atunci, fișierele pot fi citite explicit.
 
+## Selecție după tipul sarcinii
+
+| Sarcină | Skill-uri și limite |
+|---|---|
+| Clarificarea unei idei și cerințe | `grill-me`, apoi `write-a-prd` în `docs/product.md`; o întrebare pe rând, cu recomandare și exemplu. Coordonatorul decide detaliile tehnice. |
+| Planificarea implementării | `writing-plans`; `docs/plan.md` rămâne harta, iar contractele detaliate stau în `docs/plans/`. Delegarea urmează `docs/process.md`. |
+| Implementare și teste relevante | `travel-buddy-engineering` și `test-driven-development`; TDD pentru comportamente testabile și regresii. Nu aplicăm retroactiv sau la documentație și instalări. |
+| Arhitectura codului existent | `improve-codebase-architecture`, pornind de la o problemă concretă. |
+| Review și verificare | `code-review-and-quality`, `travel-buddy-review`, `webapp-testing` pentru site rulabil; alege skill-urile vizuale numai când sunt relevante. |
+| Branch și lucru izolat | Se lucrează numai pe `main`; nu se folosesc branch-uri temporare/de feature sau worktrees. Vezi regulile permanente din `AGENTS.md` și `docs/process.md`. |
+| Mesaje între agenți | `caveman` poate comprima mesajele tehnice; nu îl folosi pentru explicațiile către utilizator. |
+
+Instalarea unui skill îl face disponibil, dar nu îl execută și nu pornește automat etapa asociată. Contractele delegate de implementare și review numesc skill-urile aplicabile.
+
 ## Limitele verificării inițiale
 Au fost inspectate manifestele și resursele instalate. Aceasta nu este o certificare de securitate a întregului cod upstream.
 Instalarea nu activează hooks și nu rulează automat utilitarele furnizorilor.
@@ -42,7 +56,7 @@ Launcherul Impeccable poate descărca un executabil la prima utilizare. Taste in
 
 ## Particularități ale extinderii din 2026-10-22
 - Prima extindere a dus inventarul la 15 skill-uri: cele patru inițiale plus trei skill-uri noi și opt module GSAP. Impeccable a fost păstrat fără duplicare sau actualizare.
-- UI/UX Pro Max include datele CSV, referințele și scripturile. Manifestul sursă utiliza `${CLAUDE_PLUGIN_ROOT}`; comenzile din `SKILL.md` au fost adaptate la calea absolută a acestui proiect. Originalul este păstrat în `SKILL.upstream.md`. La mutarea proiectului trebuie actualizate aceste căi.
+- UI/UX Pro Max include datele CSV, referințele și scripturile. Manifestul sursă utiliza `${CLAUDE_PLUGIN_ROOT}`; comenzile din `SKILL.md` folosesc calea scriptului relativă la rădăcina depozitului și indică fallback-uri Python pentru Linux și Windows. Originalul este păstrat în `SKILL.upstream.md`.
 - Căutarea UI/UX Pro Max se execută cu Pythonul funcțional al sesiunii; aliasul Windows `python` nu este presupus funcțional. Testul de căutare locală `keyboard focus --domain ux --json` a returnat trei rezultate.
 - Skill-ul Vercel cere descărcarea regulilor actuale din sursa remote indicată înainte de fiecare review. Skill-ul nu este un scanner automat pornit permanent și numărul regulilor poate varia; commitul fix al manifestului nu fixează și regulile remote.
 - Licența Anthropic este inclusă în `frontend-design/LICENSE.txt`; licențele UI/UX Pro Max și GSAP sunt păstrate în directoarele lor. Depozitul upstream Vercel nu conține fișier LICENSE/NOTICE/COPYING. README-ul declară MIT, iar unele manifeste indică `license: MIT`; nu s-a fabricat un fișier de licență.
@@ -70,4 +84,4 @@ Explicațiile simple în română sunt o preferință durabilă în `AGENTS.md` 
 - [Convenții opționale pentru context și proces](https://developers.openai.com/cookbook/examples/codex/iterating-development-workflows-with-codex)
 
 ### Aplicare în Travel Buddy
-La începutul fiecărei sarcini citește acest inventar și identifică regulile relevante. React implementare/refactor/review folosește `vercel-react-best-practices`; proiectarea componentelor folosește `vercel-composition-patterns`; UI folosește `web-design-guidelines` cu regulile live la review; documentația folosește `writing-guidelines` cu regulile live la review, adaptate pentru română clară. Contractele delegate și de review enumeră explicit skill-urile aplicabile. React Native, view transitions și serviciile Vercel se aplică numai când sarcina e relevantă și autorizată. Stack-ul curent este React 19 + TypeScript + Vite; nu se presupune Next/RSC/React Native/Vercel. Origine/ref, căile adaptate și hashurile fișierelor sunt în `skills-lock.json`. Depozitul upstream nu conține LICENSE/NOTICE/COPYING. README-ul declară MIT, iar unele manifeste au `license: MIT`; nu s-a inventat o licență.
+La selectarea skill-urilor consultă numai categoria relevantă din acest inventar. React implementare/refactor/review folosește `vercel-react-best-practices`; proiectarea componentelor folosește `vercel-composition-patterns`; UI folosește `web-design-guidelines`, cu regulile live la review; documentația folosește `writing-guidelines`, cu regulile live la review și adaptare pentru română clară. Aplică skill-urile Vercel relevante fără o nouă cerere, dar nu încărca tot inventarul pentru o sarcină fără legătură. Contractele de implementare și review enumeră skill-urile aplicabile. Native, view transitions și serviciile Vercel se folosesc numai când sunt relevante și autorizate. Stack-ul este React 19, TypeScript și Vite; nu presupune Next.js, RSC, React Native ori Vercel. Brief-ul utilizatorului primează față de preferințele estetice ale skill-urilor. Documentele și propunerile rămân locale; nu publica automat issue-uri sau PR-uri. Originalele `SKILL.upstream.md` sunt referințe, nu puncte de intrare. Folosește instrumentele disponibile, nu nume de unelte preluate literal din alte produse. Sursele, căile adaptate și hash-urile sunt în `skills-lock.json`. Upstream Vercel nu include LICENSE/NOTICE/COPYING; README-ul și unele manifeste declară MIT. Nu inventa licențe.
