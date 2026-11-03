@@ -1,0 +1,12 @@
+[WebServer] (node:13793) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:13812) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [itinerary-state-harness] › tests/e2e/itinerary-state-harness.spec.ts:2:1 › unknown selections are safe and can return to a day (1.0s)
+  ✓  2 [itinerary-state-harness] › tests/e2e/itinerary-state-harness.spec.ts:13:1 › unknown day offers explicit return to itinerary (869ms)
+  ✓  3 [itinerary-state-harness] › tests/e2e/itinerary-state-harness.spec.ts:21:1 › unknown stop offers explicit return to the day list (922ms)
+
+  3 passed (4.3s)

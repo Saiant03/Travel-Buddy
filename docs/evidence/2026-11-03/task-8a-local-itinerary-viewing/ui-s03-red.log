@@ -1,0 +1,44 @@
+[WebServer] (node:12466) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:12484) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:100:1 › detail identifies the place as fictional and unconfirmed (6.2s)
+
+
+  1) [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:100:1 › detail identifies the place as fictional and unconfirmed 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.itinerary-detail').getByText('Loc fictiv, neconfirmat', { exact: true })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('.itinerary-detail').getByText('Loc fictiv, neconfirmat', { exact: true }) with timeout 5000ms
+      - waiting for locator('.itinerary-detail').getByText('Loc fictiv, neconfirmat', { exact: true })
+
+
+      101 |   await page.goto('/itinerary-demo');
+      102 |   await page.getByRole('button', { name: 'Detalii Fictional Zinnia Workshop' }).click();
+    > 103 |   await expect(page.locator('.itinerary-detail').getByText('Loc fictiv, neconfirmat', { exact: true })).toBeVisible();
+          |                                                                                                         ^
+      104 | });
+      105 |
+        at /workspace/Travel-Buddy/tests/e2e/itinerary-demo.spec.ts:103:105
+
+    Error Context: test-results/itinerary-demo-detail-iden-a8ab5-s-fictional-and-unconfirmed-itinerary-demo/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/itinerary-demo-detail-iden-a8ab5-s-fictional-and-unconfirmed-itinerary-demo/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/itinerary-demo-detail-iden-a8ab5-s-fictional-and-unconfirmed-itinerary-demo/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:100:1 › detail identifies the place as fictional and unconfirmed 

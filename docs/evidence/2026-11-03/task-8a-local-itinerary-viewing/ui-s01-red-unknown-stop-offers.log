@@ -1,0 +1,45 @@
+[WebServer] (node:11944) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:11962) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [itinerary-state-harness] › tests/e2e/itinerary-state-harness.spec.ts:20:1 › unknown stop offers explicit return to the day list (6.0s)
+
+
+  1) [itinerary-state-harness] › tests/e2e/itinerary-state-harness.spec.ts:20:1 › unknown stop offers explicit return to the day list 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Revino la lista zilei' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('button', { name: 'Revino la lista zilei' }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Revino la lista zilei' })
+
+
+      22 |   await page.getByRole('button', { name: 'Ziua 2' }).click();
+      23 |   await page.getByRole('button', { name: 'Inject unknown stop' }).click();
+    > 24 |   await expect(page.getByRole('button', { name: 'Revino la lista zilei' })).toBeVisible();
+         |                                                                             ^
+      25 |   await page.getByRole('button', { name: 'Revino la lista zilei' }).click();
+      26 |   await expect(page.getByText('Fictional Maple Lantern Studio', { exact: true })).toBeVisible();
+      27 | });
+        at /workspace/Travel-Buddy/tests/e2e/itinerary-state-harness.spec.ts:24:77
+
+    Error Context: test-results/itinerary-state-harness-un-04bfa-icit-return-to-the-day-list-itinerary-state-harness/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/itinerary-state-harness-un-04bfa-icit-return-to-the-day-list-itinerary-state-harness/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/itinerary-state-harness-un-04bfa-icit-return-to-the-day-list-itinerary-state-harness/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [itinerary-state-harness] › tests/e2e/itinerary-state-harness.spec.ts:20:1 › unknown stop offers explicit return to the day list 

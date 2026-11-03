@@ -1,0 +1,23 @@
+$ npm test -- tests/unit/itinerary/demo.test.ts
+3 failed: fixture standard absent; isolation test stopped at prerequisite; invalid case reached empty-issues assertion.
+
+$ npm test -- tests/unit/itinerary/navigation.test.ts -t 'selects day two'
+1 failed at selectedDayNumber expected 2, received 1 (behavioral RED).
+
+$ npm test -- tests/unit/itinerary/demo.test.ts -t 'marks every fixture identity'
+1 failed at synthetic stop ID prefix assertion (behavioral RED).
+
+$ npm test -- tests/unit/itinerary/demo.test.ts -t 'marks every fixture identity'
+PASS, 1 focused test.
+
+$ npm test -- tests/unit/itinerary/demo.test.ts -t 'leaves dates'
+PASS, 1 focused test.
+
+$ npm test -- tests/unit/itinerary/navigation.test.ts -t 'selects day two' && npm test -- tests/unit/itinerary/navigation.test.ts
+PASS, 1 focused test; PASS, all 7 navigation tests.
+
+$ npm test -- tests/unit/itinerary/demo.test.ts tests/unit/itinerary/navigation.test.ts
+PASS, 2 files, 12 tests.
+
+$ npm run typecheck
+PASS, tsc --noEmit.

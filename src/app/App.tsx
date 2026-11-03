@@ -26,6 +26,10 @@ import { GenerationPage } from "../features/generation/GenerationPage";
 import { generationMessages } from "../features/generation/messages";
 import { createDemoExecutor, GenerationDemoController, type GenerationScenario } from "../domain/generation/demo";
 
+import { itineraryMessages } from "../features/itinerary/messages";
+import { ItineraryPage } from "../features/itinerary/ItineraryPage";
+import { createInitialItineraryDemoState, itineraryDemoReducer } from "../domain/itinerary/demo";
+
 function Star({ className = "" }: { className?: string }) {
   return (
     <svg
@@ -43,6 +47,7 @@ function Star({ className = "" }: { className?: string }) {
 }
 
 export function App() {
+  const [itinerary, dispatchItinerary] = useReducer(itineraryDemoReducer, undefined, createInitialItineraryDemoState);
   const [resolution, dispatchResolution] = useReducer(
     transition,
     undefined,
@@ -72,7 +77,9 @@ export function App() {
           : route === "preferences"
             ? "preferences"
             : "notFound";
-    const title = route === "tripCreation"
+    const title = route === "itineraryDemo"
+      ? itineraryMessages[locale].title
+      : route === "tripCreation"
       ? tripMessages[locale].title
       : route === "placeResolution"
         ? placeMessages[locale].title
@@ -198,6 +205,7 @@ export function App() {
             </a>
             <a className="button" href="/trip-creation" onClick={(event) => navigate(event, "/trip-creation")}>{tripMessages[locale].open}</a>
             <a className="button" href="/generation" onClick={(event) => navigate(event, "/generation")}>{generationMessages[locale].open}</a>
+            <a className="button" href="/itinerary-demo" onClick={(event) => navigate(event, "/itinerary-demo")}>{itineraryMessages[locale].open}</a>
             <Card className="journey">
               <div>
                 <span className="ticket-label">{text("demoBadge")}</span>
@@ -278,6 +286,7 @@ export function App() {
         )}
         {route === "tripCreation" && <TripWizard locale={locale} draft={tripDraft} setDraft={setTripDraft} step={tripStep} setStep={setTripStep} />}
         {route === "generation" && <GenerationPage locale={locale} controller={generationController} scenario={generationScenario} setScenario={setGenerationScenario} />}
+        {route === "itineraryDemo" && <ItineraryPage locale={locale} state={itinerary} dispatch={dispatchItinerary} />}
         {route === "preferences" && <Preferences locale={locale} profile={profile} setProfile={setProfile} customItems={customItems} setCustomItems={setCustomItems} />}
         {route === "notFound" && (
           <div className="page-heading">

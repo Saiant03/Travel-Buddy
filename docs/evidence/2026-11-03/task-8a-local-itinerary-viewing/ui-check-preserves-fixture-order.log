@@ -1,0 +1,10 @@
+[WebServer] (node:7605) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:7622) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:66:1 › preserves fixture order in the list (1.0s)
+
+  1 passed (2.4s)

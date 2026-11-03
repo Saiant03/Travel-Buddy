@@ -3,6 +3,8 @@ import { defineConfig } from '@playwright/test';
 export default defineConfig({
   testDir: './tests/e2e',
   projects: [
+    ...(process.env.PREFERENCES_ONLY ? [{ name: "itinerary-state-harness", testMatch: "itinerary-state-harness.spec.ts", use: { baseURL: "http://127.0.0.1:4173", headless: true, launchOptions: { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH } } }] : []),
+    { name: "itinerary-demo", testMatch: "itinerary-demo.spec.ts", use: { baseURL: "http://127.0.0.1:4173", headless: true, launchOptions: { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH } } },
     ...(process.env.PREFERENCES_ONLY ? [{ name: 'generation-delayed', testMatch: 'generation-delayed.spec.ts', use: { baseURL: 'http://127.0.0.1:4173', headless: true, launchOptions: { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH } } }] : []),
     { name: 'generation', testMatch: 'generation.spec.ts', use: { baseURL: 'http://127.0.0.1:4173', headless: true, launchOptions: { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH } } },
     {

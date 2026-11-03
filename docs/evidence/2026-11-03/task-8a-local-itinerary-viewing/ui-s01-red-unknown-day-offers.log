@@ -1,0 +1,45 @@
+[WebServer] (node:11708) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:11727) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [itinerary-state-harness] › tests/e2e/itinerary-state-harness.spec.ts:13:1 › unknown day offers explicit return to itinerary (6.0s)
+
+
+  1) [itinerary-state-harness] › tests/e2e/itinerary-state-harness.spec.ts:13:1 › unknown day offers explicit return to itinerary 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Revino la itinerar' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('button', { name: 'Revino la itinerar' }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Revino la itinerar' })
+
+
+      14 |   await page.goto('/tests/fixtures/itinerary-harness.html');
+      15 |   await page.getByRole('button', { name: 'Inject unknown day' }).click();
+    > 16 |   await expect(page.getByRole('button', { name: 'Revino la itinerar' })).toBeVisible();
+         |                                                                          ^
+      17 |   await page.getByRole('button', { name: 'Revino la itinerar' }).click();
+      18 |   await expect(page.getByText('Fictional Zinnia Workshop', { exact: true })).toBeVisible();
+      19 | });
+        at /workspace/Travel-Buddy/tests/e2e/itinerary-state-harness.spec.ts:16:74
+
+    Error Context: test-results/itinerary-state-harness-un-93b28-xplicit-return-to-itinerary-itinerary-state-harness/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/itinerary-state-harness-un-93b28-xplicit-return-to-itinerary-itinerary-state-harness/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/itinerary-state-harness-un-93b28-xplicit-return-to-itinerary-itinerary-state-harness/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [itinerary-state-harness] › tests/e2e/itinerary-state-harness.spec.ts:13:1 › unknown day offers explicit return to itinerary 

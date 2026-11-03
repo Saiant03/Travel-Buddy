@@ -1,0 +1,45 @@
+[WebServer] (node:9260) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:9279) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:104:1 › shows the fixture source as inert text (6.3s)
+
+
+  1) [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:104:1 › shows the fixture source as inert text 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('https://sources.invalid/synthetic-place-maple', { exact: true })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('https://sources.invalid/synthetic-place-maple', { exact: true }) with timeout 5000ms
+      - waiting for getByText('https://sources.invalid/synthetic-place-maple', { exact: true })
+
+
+      106 |   await page.getByRole('button', { name: 'Ziua 2' }).click();
+      107 |   await page.getByRole('button', { name: 'Detalii Fictional Maple Lantern Studio' }).click();
+    > 108 |   await expect(page.getByText('https://sources.invalid/synthetic-place-maple', { exact: true })).toBeVisible();
+          |                                                                                                  ^
+      109 |   await expect(page.locator('a[href*=".invalid"]')).toHaveCount(0);
+      110 | });
+      111 |
+        at /workspace/Travel-Buddy/tests/e2e/itinerary-demo.spec.ts:108:98
+
+    Error Context: test-results/itinerary-demo-shows-the-fixture-source-as-inert-text-itinerary-demo/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/itinerary-demo-shows-the-fixture-source-as-inert-text-itinerary-demo/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/itinerary-demo-shows-the-fixture-source-as-inert-text-itinerary-demo/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:104:1 › shows the fixture source as inert text 

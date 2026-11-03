@@ -1,0 +1,45 @@
+[WebServer] (node:4926) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:4944) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:10:1 › selects days and shows empty day (6.1s)
+
+
+  1) [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:10:1 › selects days and shows empty day ───
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('Fictional Maple Lantern Studio')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('Fictional Maple Lantern Studio') with timeout 5000ms
+      - waiting for getByText('Fictional Maple Lantern Studio')
+
+
+      11 |   await page.goto('/itinerary-demo');
+      12 |   await page.getByRole('button', { name: 'Ziua 2' }).click();
+    > 13 |   await expect(page.getByText('Fictional Maple Lantern Studio')).toBeVisible();
+         |                                                                  ^
+      14 |   await expect(page.getByText('Dată neprecizată')).toBeVisible();
+      15 |   await page.getByRole('button', { name: 'Ziua 3' }).click();
+      16 |   await expect(page.getByText('Nu există opriri în această zi.')).toBeVisible();
+        at /workspace/Travel-Buddy/tests/e2e/itinerary-demo.spec.ts:13:66
+
+    Error Context: test-results/itinerary-demo-selects-days-and-shows-empty-day-itinerary-demo/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/itinerary-demo-selects-days-and-shows-empty-day-itinerary-demo/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/itinerary-demo-selects-days-and-shows-empty-day-itinerary-demo/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:10:1 › selects days and shows empty day ────

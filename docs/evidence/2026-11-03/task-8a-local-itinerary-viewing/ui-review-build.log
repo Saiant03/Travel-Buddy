@@ -1,0 +1,57 @@
+[WebServer] (node:12924) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] node_modules/zod/v4/core/util.js (400:0): A comment
+[WebServer] 
+[WebServer] "// Wrapped in a `@__PURE__` IIFE: esbuild never tree-shakes a top-level initializer that contains a member access on `Number`, so the bare object literal survived into every bundle."
+[WebServer] 
+[WebServer] in "node_modules/zod/v4/core/util.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] node_modules/zod/v4/core/regexes.js (74:0): A comment
+[WebServer] 
+[WebServer] "/** Anchors a pattern source. The interpolation lives here rather than at the call site because
+[WebServer]  * esbuild will not drop a `@__PURE__` call whose own argument interpolates a variable, but it
+[WebServer]  * will drop `anchor(dateSource)`. Keeping it inline pinned `date` into every bundle. */"
+[WebServer] 
+[WebServer] in "node_modules/zod/v4/core/regexes.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] (node:12974) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:13005) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] node_modules/zod/v4/core/util.js (400:0): A comment
+[WebServer] 
+[WebServer] "// Wrapped in a `@__PURE__` IIFE: esbuild never tree-shakes a top-level initializer that contains a member access on `Number`, so the bare object literal survived into every bundle."
+[WebServer] 
+[WebServer] in "node_modules/zod/v4/core/util.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] node_modules/zod/v4/core/regexes.js (74:0): A comment
+[WebServer] 
+[WebServer] "/** Anchors a pattern source. The interpolation lives here rather than at the call site because
+[WebServer]  * esbuild will not drop a `@__PURE__` call whose own argument interpolates a variable, but it
+[WebServer]  * will drop `anchor(dateSource)`. Keeping it inline pinned `date` into every bundle. */"
+[WebServer] 
+[WebServer] in "node_modules/zod/v4/core/regexes.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] (node:13068) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:13100) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:13130) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 14 tests using 1 worker
+
+(node:13148) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:2:1 › shows ordered day and explicit demonstration context (966ms)
+  ✓   2 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:10:1 › selects days and shows empty day (895ms)
+  ✓   3 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:18:1 › opens and closes detail with focus restored (887ms)
+  ✓   4 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:28:1 › invalid scenario reports error and can recover (893ms)
+  ✓   5 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:35:1 › home entry and local navigation retain selection and language (1.2s)
+  ✓   6 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:49:1 › localizes the document title (787ms)
+  ✓   7 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:53:1 › detail shows day and stop position (882ms)
+  ✓   8 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:58:1 › restores stop focus after leaving and returning (1.0s)
+  ✓   9 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:66:1 › preserves fixture order in the list (794ms)
+  ✓  10 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:70:1 › changing day closes detail (932ms)
+  ✓  11 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:77:1 › missing fields and unconfirmed sources are explicit (917ms)
+  ✓  12 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:83:1 › scenario and French locale survive local navigation (960ms)
+  ✓  13 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:93:1 › shows the fixture source as inert text (934ms)
+  ✓  14 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:100:1 › detail identifies the place as fictional and unconfirmed (867ms)
+
+  14 passed (24.9s)

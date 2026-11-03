@@ -1,0 +1,45 @@
+[WebServer] (node:7165) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:7185) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:53:1 › detail shows day and stop position (6.1s)
+
+
+  1) [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:53:1 › detail shows day and stop position ─
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('Ziua 1 / Oprirea 2')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('Ziua 1 / Oprirea 2') with timeout 5000ms
+      - waiting for getByText('Ziua 1 / Oprirea 2')
+
+
+      54 |   await page.goto('/itinerary-demo');
+      55 |   await page.getByRole('button', { name: 'Detalii Fictional Amber Courtyard' }).click();
+    > 56 |   await expect(page.getByText('Ziua 1 / Oprirea 2')).toBeVisible();
+         |                                                      ^
+      57 | });
+      58 | test('restores stop focus after leaving and returning', async ({ page }) => {
+      59 |   await page.goto('/itinerary-demo');
+        at /workspace/Travel-Buddy/tests/e2e/itinerary-demo.spec.ts:56:54
+
+    Error Context: test-results/itinerary-demo-detail-shows-day-and-stop-position-itinerary-demo/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/itinerary-demo-detail-shows-day-and-stop-position-itinerary-demo/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/itinerary-demo-detail-shows-day-and-stop-position-itinerary-demo/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:53:1 › detail shows day and stop position ──

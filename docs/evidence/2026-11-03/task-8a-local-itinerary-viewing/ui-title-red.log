@@ -1,0 +1,44 @@
+[WebServer] (node:6447) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:6466) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:49:1 › localizes the document title (6.0s)
+
+
+  1) [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:49:1 › localizes the document title ───────
+
+    Error: expect(page).toHaveTitle(expected) failed
+
+    Expected: "Itinerar demonstrativ — Travel Buddy"
+    Received: "Pagina nu a fost găsită — Travel Buddy"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveTitle" with timeout 5000ms
+        14 × locator resolved to <html lang="ro">…</html>
+           - unexpected value "Pagina nu a fost găsită — Travel Buddy"
+
+
+      49 | test('localizes the document title', async ({ page }) => {
+      50 |   await page.goto('/itinerary-demo');
+    > 51 |   await expect(page).toHaveTitle('Itinerar demonstrativ — Travel Buddy');
+         |                      ^
+      52 | });
+      53 |
+        at /workspace/Travel-Buddy/tests/e2e/itinerary-demo.spec.ts:51:22
+
+    Error Context: test-results/itinerary-demo-localizes-the-document-title-itinerary-demo/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/itinerary-demo-localizes-the-document-title-itinerary-demo/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/itinerary-demo-localizes-the-document-title-itinerary-demo/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:49:1 › localizes the document title ────────

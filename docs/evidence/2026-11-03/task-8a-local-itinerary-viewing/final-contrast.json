@@ -1,0 +1,107 @@
+[
+  {
+    "selector": ".itinerary h1",
+    "sample": "Itinéraire de démonstration",
+    "foreground": "rgb(25, 63, 50)",
+    "background": "rgb(247, 245, 234)",
+    "ratio": 10.68
+  },
+  {
+    "selector": ".itinerary-notice",
+    "sample": "Exemple fictif et non confirmé, indépendant des autres démon",
+    "foreground": "rgb(25, 63, 50)",
+    "background": "rgb(233, 238, 226)",
+    "ratio": 9.89
+  },
+  {
+    "selector": ".itinerary select",
+    "sample": "Standard\nInvalide",
+    "foreground": "rgb(0, 0, 0)",
+    "background": "rgb(239, 239, 239)",
+    "ratio": 18.26
+  },
+  {
+    "selector": ".itinerary-days button",
+    "sample": "Jour 1",
+    "foreground": "rgb(25, 63, 50)",
+    "background": "rgb(247, 245, 234)",
+    "ratio": 10.68
+  },
+  {
+    "selector": ".itinerary-days button",
+    "sample": "Jour 2",
+    "foreground": "rgb(25, 63, 50)",
+    "background": "rgb(247, 245, 234)",
+    "ratio": 10.68
+  },
+  {
+    "selector": ".itinerary-days button",
+    "sample": "Jour 3",
+    "foreground": "rgb(25, 63, 50)",
+    "background": "rgb(247, 245, 234)",
+    "ratio": 10.68
+  },
+  {
+    "selector": ".itinerary-detail p",
+    "sample": "Jour 1 / Arrêt 1",
+    "foreground": "rgb(25, 63, 50)",
+    "background": "rgb(247, 245, 234)",
+    "ratio": 10.68
+  },
+  {
+    "selector": ".itinerary-detail h2",
+    "sample": "Fictional Zinnia Workshop",
+    "foreground": "rgb(25, 63, 50)",
+    "background": "rgb(247, 245, 234)",
+    "ratio": 10.68
+  },
+  {
+    "selector": ".itinerary-detail p",
+    "sample": "Lieu fictif, non confirmé",
+    "foreground": "rgb(25, 63, 50)",
+    "background": "rgb(247, 245, 234)",
+    "ratio": 10.68
+  },
+  {
+    "selector": ".itinerary-detail p",
+    "sample": "Une salle fictive pour créer des fleurs en papier.",
+    "foreground": "rgb(25, 63, 50)",
+    "background": "rgb(247, 245, 234)",
+    "ratio": 10.68
+  },
+  {
+    "selector": ".itinerary-detail li",
+    "sample": "Prix non précisé",
+    "foreground": "rgb(25, 63, 50)",
+    "background": "rgb(247, 245, 234)",
+    "ratio": 10.68
+  },
+  {
+    "selector": ".itinerary-detail li",
+    "sample": "Horaires non précisés",
+    "foreground": "rgb(25, 63, 50)",
+    "background": "rgb(247, 245, 234)",
+    "ratio": 10.68
+  },
+  {
+    "selector": ".itinerary-detail li",
+    "sample": "Réservation non précisée",
+    "foreground": "rgb(25, 63, 50)",
+    "background": "rgb(247, 245, 234)",
+    "ratio": 10.68
+  },
+  {
+    "selector": ".itinerary-detail li",
+    "sample": "Sources fictives, non confirmées\nhttps://sources.invalid/syn",
+    "foreground": "rgb(25, 63, 50)",
+    "background": "rgb(247, 245, 234)",
+    "ratio": 10.68
+  },
+  {
+    "selector": ".itinerary-detail li",
+    "sample": "https://sources.invalid/synthetic-place-zinnia",
+    "foreground": "rgb(25, 63, 50)",
+    "background": "rgb(247, 245, 234)",
+    "ratio": 10.68
+  }
+]

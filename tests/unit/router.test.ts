@@ -9,6 +9,10 @@ describe("local routes", () => {
     expect(resolveRoute("/trip-creation")).toBe("tripCreation");
     expect(resolveRoute("/trip-creation/")).toBe("tripCreation");
   });
+  it("recognizes the itinerary demonstration", () => {
+    expect(resolveRoute("/itinerary-demo")).toBe("itineraryDemo");
+    expect(resolveRoute("/itinerary-demo/")).toBe("itineraryDemo");
+  });
   it("returns a not-found state for unknown routes", () => {
     expect(resolveRoute("/missing")).toBe("notFound");
     expect(resolveRoute("/explore/extra")).toBe("notFound");

@@ -1,0 +1,11 @@
+[WebServer] (node:7837) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:7856) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:53:1 › detail shows day and stop position (1.2s)
+  ✓  2 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:58:1 › restores stop focus after leaving and returning (1.2s)
+
+  2 passed (3.8s)

@@ -1,0 +1,206 @@
+[WebServer] (node:24330) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:24349) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:111:5 › detail fits ro at mobile (6.3s)
+(node:24519) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:111:5 › detail fits ro at zoom (6.2s)
+(node:24678) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  3 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:111:5 › detail fits en at mobile (6.2s)
+(node:24888) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  4 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:111:5 › detail fits en at zoom (6.2s)
+(node:25055) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  5 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:111:5 › detail fits fr at mobile (6.2s)
+(node:25217) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  6 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:111:5 › detail fits fr at zoom (6.2s)
+
+
+  1) [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:111:5 › detail fits ro at mobile ──────────
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 0
+    Received:    45
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      115 |       if (locale !== 'ro') await page.locator('#locale').selectOption(locale);
+      116 |       await page.getByRole('button', { name: detail }).click();
+    > 117 |       await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
+          |                                                                                                                                 ^
+      118 |       await expect(page.getByText('https://sources.invalid/synthetic-place-zinnia', { exact: true })).toBeVisible();
+      119 |       await page.getByRole('button', { name: back }).click();
+      120 |       await expect(page.getByRole('button', { name: detail })).toBeVisible();
+        at /workspace/Travel-Buddy/tests/e2e/itinerary-demo.spec.ts:117:129
+
+    Error Context: test-results/itinerary-demo-detail-fits-ro-at-mobile-itinerary-demo/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/itinerary-demo-detail-fits-ro-at-mobile-itinerary-demo/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/itinerary-demo-detail-fits-ro-at-mobile-itinerary-demo/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:111:5 › detail fits ro at zoom ────────────
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 0
+    Received:    91
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      115 |       if (locale !== 'ro') await page.locator('#locale').selectOption(locale);
+      116 |       await page.getByRole('button', { name: detail }).click();
+    > 117 |       await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
+          |                                                                                                                                 ^
+      118 |       await expect(page.getByText('https://sources.invalid/synthetic-place-zinnia', { exact: true })).toBeVisible();
+      119 |       await page.getByRole('button', { name: back }).click();
+      120 |       await expect(page.getByRole('button', { name: detail })).toBeVisible();
+        at /workspace/Travel-Buddy/tests/e2e/itinerary-demo.spec.ts:117:129
+
+    Error Context: test-results/itinerary-demo-detail-fits-ro-at-zoom-itinerary-demo/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/itinerary-demo-detail-fits-ro-at-zoom-itinerary-demo/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/itinerary-demo-detail-fits-ro-at-zoom-itinerary-demo/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:111:5 › detail fits en at mobile ──────────
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 0
+    Received:    45
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      115 |       if (locale !== 'ro') await page.locator('#locale').selectOption(locale);
+      116 |       await page.getByRole('button', { name: detail }).click();
+    > 117 |       await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
+          |                                                                                                                                 ^
+      118 |       await expect(page.getByText('https://sources.invalid/synthetic-place-zinnia', { exact: true })).toBeVisible();
+      119 |       await page.getByRole('button', { name: back }).click();
+      120 |       await expect(page.getByRole('button', { name: detail })).toBeVisible();
+        at /workspace/Travel-Buddy/tests/e2e/itinerary-demo.spec.ts:117:129
+
+    Error Context: test-results/itinerary-demo-detail-fits-en-at-mobile-itinerary-demo/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/itinerary-demo-detail-fits-en-at-mobile-itinerary-demo/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/itinerary-demo-detail-fits-en-at-mobile-itinerary-demo/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:111:5 › detail fits en at zoom ────────────
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 0
+    Received:    91
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      115 |       if (locale !== 'ro') await page.locator('#locale').selectOption(locale);
+      116 |       await page.getByRole('button', { name: detail }).click();
+    > 117 |       await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
+          |                                                                                                                                 ^
+      118 |       await expect(page.getByText('https://sources.invalid/synthetic-place-zinnia', { exact: true })).toBeVisible();
+      119 |       await page.getByRole('button', { name: back }).click();
+      120 |       await expect(page.getByRole('button', { name: detail })).toBeVisible();
+        at /workspace/Travel-Buddy/tests/e2e/itinerary-demo.spec.ts:117:129
+
+    Error Context: test-results/itinerary-demo-detail-fits-en-at-zoom-itinerary-demo/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/itinerary-demo-detail-fits-en-at-zoom-itinerary-demo/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/itinerary-demo-detail-fits-en-at-zoom-itinerary-demo/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:111:5 › detail fits fr at mobile ──────────
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 0
+    Received:    45
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      115 |       if (locale !== 'ro') await page.locator('#locale').selectOption(locale);
+      116 |       await page.getByRole('button', { name: detail }).click();
+    > 117 |       await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
+          |                                                                                                                                 ^
+      118 |       await expect(page.getByText('https://sources.invalid/synthetic-place-zinnia', { exact: true })).toBeVisible();
+      119 |       await page.getByRole('button', { name: back }).click();
+      120 |       await expect(page.getByRole('button', { name: detail })).toBeVisible();
+        at /workspace/Travel-Buddy/tests/e2e/itinerary-demo.spec.ts:117:129
+
+    Error Context: test-results/itinerary-demo-detail-fits-fr-at-mobile-itinerary-demo/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/itinerary-demo-detail-fits-fr-at-mobile-itinerary-demo/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/itinerary-demo-detail-fits-fr-at-mobile-itinerary-demo/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:111:5 › detail fits fr at zoom ────────────
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 0
+    Received:    91
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      115 |       if (locale !== 'ro') await page.locator('#locale').selectOption(locale);
+      116 |       await page.getByRole('button', { name: detail }).click();
+    > 117 |       await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
+          |                                                                                                                                 ^
+      118 |       await expect(page.getByText('https://sources.invalid/synthetic-place-zinnia', { exact: true })).toBeVisible();
+      119 |       await page.getByRole('button', { name: back }).click();
+      120 |       await expect(page.getByRole('button', { name: detail })).toBeVisible();
+        at /workspace/Travel-Buddy/tests/e2e/itinerary-demo.spec.ts:117:129
+
+    Error Context: test-results/itinerary-demo-detail-fits-fr-at-zoom-itinerary-demo/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/itinerary-demo-detail-fits-fr-at-zoom-itinerary-demo/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/itinerary-demo-detail-fits-fr-at-zoom-itinerary-demo/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6 failed
+    [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:111:5 › detail fits ro at mobile ───────────
+    [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:111:5 › detail fits ro at zoom ─────────────
+    [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:111:5 › detail fits en at mobile ───────────
+    [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:111:5 › detail fits en at zoom ─────────────
+    [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:111:5 › detail fits fr at mobile ───────────
+    [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:111:5 › detail fits fr at zoom ─────────────

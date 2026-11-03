@@ -260,6 +260,16 @@ type ApiResult<T> = { ok: true; data: T; requestId: string } | { ok: false; erro
 
 **Executant:** `gpt-6-luna`; **Skill-uri:** `travel-buddy-engineering`, `test-driven-development`, `frontend-design`; **Dependențe:** Tasks 1, 5–6; P-03/P-06/P-07. Job-table migration se integrează serializat.
 
+### Task 8A: Vizualizarea locală a itinerarului
+
+**Stare, 2026-11-03:** Task 8A este verificat funcțional local conform [raportului de dovezi](../evidence/2026-11-03/task-8a-local-itinerary-viewing.md) și [contractului Task 8A](2026-11-03-task-8a-local-itinerary-viewing.md). Domeniu: rută demo explicită, fixture-uri sintetice validate cu contractele existente `Place`/`DayPlan`/`Stop`/`Itinerary`, selectare zi, listă ordonată și detalii cu revenire/context/focus. App păstrează starea numai în memorie; interfața RO implicită, EN și FR.
+
+**Dependențe locale:** Tasks 1–2 și contractele/tipurile existente. Fără integrare cu Tasks 5A/6A/7A; finalizarea Task 7A nu înseamnă itinerar confirmat.
+
+**Interfețe înghețate:** `DemoScenario = 'standard' | 'invalid'`; `loadItineraryDemo(scenario): Result<Itinerary>`; `createInitialItineraryDemoState(scenario?): ItineraryDemoState`; `itineraryDemoReducer`; `selectItineraryDemo(state) -> { day: DayPlan | null; stop: Stop | null }`. Starea este `scenario/result/selectedDayNumber/selectedStopId`; acțiunile sunt `load-scenario/scenario`, `select-day/dayNumber`, `open-stop/stopId`, `close-details`. App deține reducerul, limba separat.
+
+**Limite și status:** fixture-ul are trei zile cu 3/2/0 opriri, metadate sintetice fictive și surse text `.invalid`; fără hartă, editare, ștergere, reordonare, Buddy/chat, propuneri/confirmări/CAS, sync, HTTP/AI/auth, persistență/offline ori date personale. Verificările locale au trecut, cu TDD integral nedemonstrat și platformele neexecutate consemnate în raport. Task 8 complet păstrează dependențele originale Tasks 1, 3, 5–7, P-02/P-03/P-04 și routing live P-10 separat; aceste probe rămân deschise. P-06/P-07 sunt legături ale generării și nu înlocuiesc probele Task 8; P-09 FAIL, B1/Task 3/backend online rămân blocate. Fără reluare probe reale, schimbare servicii, deployment sau publicare.
+
 ### Task 8: Itinerar pe zi, listă/hartă, detalii și Buddy CAS
 
 **Fișiere:** Creează `src/domain/itinerary/{rules.ts,service.ts}`, `src/server/routes/itinerary.ts`, `src/features/itinerary/{ItineraryPage.tsx,DayTabs.tsx,StopList.tsx,DayMap.tsx,PlaceDetailSheet.tsx}`, `src/features/buddy-chat/{BuddyChat.tsx,ProposalSummary.tsx}`, `src/server/routes/proposals.ts`, `tests/unit/itinerary/*.test.ts`, `tests/api/proposals.test.ts`, `tests/e2e/itinerary.spec.ts`, `tests/e2e/concurrent-edits.spec.ts`.

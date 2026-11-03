@@ -1,0 +1,30 @@
+
+ RUN  v4.1.12 /workspace/Travel-Buddy
+
+ ❯ tests/unit/router.test.ts (3 tests | 1 failed | 2 skipped) 9ms
+     × recognizes the itinerary demonstration 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/router.test.ts > local routes > recognizes the itinerary demonstration
+AssertionError: expected 'notFound' to be 'itineraryDemo' // Object.is equality
+
+Expected: "itineraryDemo"
+Received: "notFound"
+
+ ❯ tests/unit/router.test.ts:13:45
+     11|   });
+     12|   it("recognizes the itinerary demonstration", () => {
+     13|     expect(resolveRoute("/itinerary-demo")).toBe("itineraryDemo");
+       |                                             ^
+     14|     expect(resolveRoute("/itinerary-demo/")).toBe("itineraryDemo");
+     15|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 skipped (3)
+   Start at  08:41:32
+   Duration  199ms (transform 37ms, setup 25ms, import 26ms, tests 9ms, environment 0ms)
+

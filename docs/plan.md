@@ -1,6 +1,12 @@
 # Plan de lucru — Travel Buddy
 
-> 2026-11-03: Instalarea documentară a colecției Vercel și actualizarea workflow-ului sunt încheiate; starea produsului și ordinea sarcinilor nu se schimbă.
+> 2026-11-03: Task 8A, vizualizarea locală a itinerarului, este verificată funcțional local. Task 8 complet și probele sale rămân deschise.
+
+## Task 8A — verificat funcțional local
+
+[Contractul Task 8A](plans/2026-11-03-task-8a-local-itinerary-viewing.md) acoperă numai demonstrația locală explicită: fixture-uri validate `Place`/`DayPlan`/`Stop`/`Itinerary`, selectarea zilei, lista ordonată și detalii cu revenire. Dependențe locale: Tasks 1–2 și contractele/tipurile existente; fără conexiuni către Tasks 5A/6A/7A. Task 8A a trecut verificările locale descrise în [raportul de dovezi](evidence/2026-11-03/task-8a-local-itinerary-viewing.md), cu limitarea TDD integrală și platformele neexecutate consemnate acolo. Task 8 complet păstrează dependențele Tasks 1, 3, 5–7, P-02/P-03/P-04 și routing live P-10 separat; CAS/propuneri, backendul și probele rămân deschise. P-06/P-07 aparțin fluxului de generare și nu înlocuiesc probele Task 8.
+
+> 2026-11-03: Skill-urile Vercel și workflow-ul au fost actualizate; starea produsului și ordinea celorlalte sarcini nu se schimbă.
 
 ## Task 7A — verificat funcțional local, 2026-11-02
 

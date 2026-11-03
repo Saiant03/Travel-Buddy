@@ -1,0 +1,9 @@
+.itinerary { max-width: 70rem; margin: 2rem auto; }
+.itinerary-notice { max-width: 65ch; padding: 1rem; border-left: 4px solid var(--gold); background: var(--soft); }
+.itinerary-days { display: flex; flex-wrap: wrap; gap: .75rem; margin-block: 1.5rem; }
+.itinerary-days [aria-pressed="true"] { outline: 3px solid currentColor; outline-offset: 2px; }
+.itinerary-stops { padding-left: 2rem; max-width: 45rem; }
+.itinerary-stops li { padding: 1rem; margin-block: 1rem; border: 1px solid var(--line); border-radius: var(--radius); }
+.itinerary-stops strong { display: block; margin-bottom: .75rem; }
+.itinerary-detail { padding: 1.5rem; border: 1px solid var(--line); border-radius: var(--radius); max-width: 45rem; }
+.itinerary-detail { overflow-wrap: anywhere; }

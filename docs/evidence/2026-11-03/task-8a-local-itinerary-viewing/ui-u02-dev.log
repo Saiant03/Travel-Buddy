@@ -1,0 +1,10 @@
+[WebServer] (node:9696) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:9714) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [itinerary-state-harness] › tests/e2e/itinerary-state-harness.spec.ts:2:1 › unknown selections are safe and can return to a day (1.1s)
+
+  1 passed (2.6s)

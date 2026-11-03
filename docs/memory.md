@@ -1,5 +1,15 @@
 # Memorie de proiect
 
+## Task 8A — verificat funcțional local, 2026-11-03
+
+Ruta explicită `/itinerary-demo` afișează fixture-ul determinist cu trei zile (3/2/0 opriri), date opționale necompletate, surse `.invalid` inerte și marcaje fictiv/neconfirmat. Selectarea zilei, ordinea opririlor, detaliul/revenirea, limbile RO/EN/FR și starea numai în memorie sunt implementate independent de Task 5A/6A/7A. Nu adaugă hartă, editare, Buddy/chat, propuneri/CAS, backend, persistență sau funcții live. [Raport, loguri și capturi](evidence/2026-11-03/task-8a-local-itinerary-viewing.md), [contract](plans/2026-11-03-task-8a-local-itinerary-viewing.md).
+
+Verificări coordonator: **242/242 teste în 26 fișiere**, typecheck/lint, **80/80 E2E pe build** (20 itinerary, 53 app existent, 6 console simulată, 1 offline sintetică), trei builduri pornite de Playwright și **6/6 E2E dev** (3 harness 8A, 3 generation-delayed). Review static fără defecte confirmate deschise. Matrice browser: **178 observații**, zero eșecuri/pageerror/cereri externe; 147 snapshots storage fără intrări sau scrieri, tastatură/focus și revenire 3/3 limbi, starea dus-întors 3/3, reset reload, detaliu la 320 px și CSS zoom 200%/640 px, reduced motion și mobil/desktop. Zoom CSS nu este zoom nativ. Reviewul automat Impeccable nu a rulat (launcher `Permission denied`); review vizual manual și reguli Vercel live au fost folosite. Aspectul nu are acceptare umană finală.
+
+**TDD integral nu este demonstrat.** Jurnalul domeniului este narativ pentru patru RED-uri, fără loguri brute independente; UI are RED-uri brute focalizate, dar unele comportamente au primit GREEN după implementare sau fără RED separat. Nu s-au fabricat probe retrospective. Safari/WebKit, cititor de ecran, zoom nativ, dispozitiv fizic și integrări live neexecutate.
+
+Task 8 complet rămâne nefinalizat, cu Tasks 1, 3, 5–7, P-02/P-03/P-04 și routing live P-10 separat; P-06/P-07 aparțin generării și nu înlocuiesc probele Task 8. Tasks 4/5/6/7 complete rămân nefinalizate. P-09 **FAIL**: 10/100 cold peste 7 ms, p95 exact necunoscut; B1/Task 3/backend online rămân blocate. Nu s-au reluat probe reale și nu s-au modificat servicii/deployment/publicare. Baza de lucru este `main` la `0eee354`, cu Task 7A `b3a7299` păstrat. Livrarea Git se confirmă în raportul final al conversației după push; nu se deduce deploy din push.
+
 ## 2026-11-03 — Skill-uri Vercel și workflow
 
 Am instalat toate cele nouă directoare de skill din `vercel-labs/agent-skills`, la commitul `1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62`, cu toate fișierele suport. Sunt 32 de skill-uri în total: opt nume noi și o actualizare a `web-design-guidelines`. Manifestele originale sunt păstrate ca `SKILL.upstream.md`, iar `skills-lock.json` conține hash SHA-256 pentru fiecare fișier instalat. În sursa upstream nu există fișier LICENSE separat; README-ul declară MIT, iar unele manifeste indică MIT. Nu am adăugat o licență inventată.

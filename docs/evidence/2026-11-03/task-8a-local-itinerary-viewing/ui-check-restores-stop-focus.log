@@ -1,0 +1,47 @@
+[WebServer] (node:7383) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:7400) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:58:1 › restores stop focus after leaving and returning (6.3s)
+
+
+  1) [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:58:1 › restores stop focus after leaving and returning 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  getByRole('button', { name: 'Detalii Fictional Zinnia Workshop' })
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" getByRole('button', { name: 'Detalii Fictional Zinnia Workshop' }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Detalii Fictional Zinnia Workshop' })
+        14 × locator resolved to <button class="button button-secondary">Detalii Fictional Zinnia Workshop</button>
+           - unexpected value "inactive"
+
+
+      62 |   await page.getByRole('link', { name: 'Deschide itinerarul demonstrativ' }).click();
+      63 |   await page.getByRole('button', { name: 'Înapoi la opriri' }).click();
+    > 64 |   await expect(page.getByRole('button', { name: 'Detalii Fictional Zinnia Workshop' })).toBeFocused();
+         |                                                                                         ^
+      65 | });
+      66 | test('preserves fixture order in the list', async ({ page }) => {
+      67 |   await page.goto('/itinerary-demo');
+        at /workspace/Travel-Buddy/tests/e2e/itinerary-demo.spec.ts:64:89
+
+    Error Context: test-results/itinerary-demo-restores-st-ad16e-after-leaving-and-returning-itinerary-demo/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/itinerary-demo-restores-st-ad16e-after-leaving-and-returning-itinerary-demo/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/itinerary-demo-restores-st-ad16e-after-leaving-and-returning-itinerary-demo/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:58:1 › restores stop focus after leaving and returning 

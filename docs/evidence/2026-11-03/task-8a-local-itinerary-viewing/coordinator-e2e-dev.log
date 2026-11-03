@@ -1,0 +1,17 @@
+[WebServer] (node:18467) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:18488) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [itinerary-state-harness] › tests/e2e/itinerary-state-harness.spec.ts:2:1 › unknown selections are safe and can return to a day (1.4s)
+  ✓  2 [itinerary-state-harness] › tests/e2e/itinerary-state-harness.spec.ts:13:1 › unknown day offers explicit return to itinerary (966ms)
+  ✓  3 [itinerary-state-harness] › tests/e2e/itinerary-state-harness.spec.ts:21:1 › unknown stop offers explicit return to the day list (1.1s)
+(node:18696) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 [generation-delayed] › tests/e2e/generation-delayed.spec.ts:15:1 › restart allows the new attempt to run while the old step is pending (1.1s)
+  ✓  5 [generation-delayed] › tests/e2e/generation-delayed.spec.ts:22:1 › a pending step updates the page after leaving and returning (1.2s)
+  ✓  6 [generation-delayed] › tests/e2e/generation-delayed.spec.ts:31:1 › old completion does not unlock a newer pending step (1.1s)
+
+  6 passed (10.5s)

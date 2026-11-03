@@ -1,0 +1,45 @@
+[WebServer] (node:5135) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:5153) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:18:1 › opens and closes detail with focus restored (6.1s)
+
+
+  1) [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:18:1 › opens and closes detail with focus restored 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator: getByRole('heading', { name: 'Fictional Zinnia Workshop' })
+    Expected: focused
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeFocused" getByRole('heading', { name: 'Fictional Zinnia Workshop' }) with timeout 5000ms
+      - waiting for getByRole('heading', { name: 'Fictional Zinnia Workshop' })
+
+
+      21 |   await origin.click();
+      22 |   const heading = page.getByRole('heading', { name: 'Fictional Zinnia Workshop' });
+    > 23 |   await expect(heading).toBeFocused();
+         |                         ^
+      24 |   await expect(page.getByText('Preț neprecizat')).toBeVisible();
+      25 |   await page.getByRole('button', { name: 'Înapoi la opriri' }).click();
+      26 |   await expect(origin).toBeFocused();
+        at /workspace/Travel-Buddy/tests/e2e/itinerary-demo.spec.ts:23:25
+
+    Error Context: test-results/itinerary-demo-opens-and-closes-detail-with-focus-restored-itinerary-demo/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/itinerary-demo-opens-and-closes-detail-with-focus-restored-itinerary-demo/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/itinerary-demo-opens-and-closes-detail-with-focus-restored-itinerary-demo/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [itinerary-demo] › tests/e2e/itinerary-demo.spec.ts:18:1 › opens and closes detail with focus restored 
