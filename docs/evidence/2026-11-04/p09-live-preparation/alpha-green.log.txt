@@ -1,0 +1,34 @@
+✔ successful existing-account sign-in passes only the token to the runner (27.803189ms)
+✔ invalid configuration or capture blocks before sign-in (2.301787ms)
+✖ rejects malformed, unverified or wrong-account responses without launching (1.663076ms)
+✔ sign-in errors, redirects and oversized bodies fail closed without retry or secret output (6.095596ms)
+✔ a capture becoming unhealthy during sign-in prevents dispatch (1.164976ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 106.364424
+
+✖ failing tests:
+
+test at tools/probe-recovery/cpu-alpha-session.test.mjs:52:1
+✖ rejects malformed, unverified or wrong-account responses without launching (1.663076ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'PREFLIGHT_FAILED'
+  - 'IDENTITY_INVALID'
+  
+      at TestContext.<anonymous> (file:///workspace/Travel-Buddy/tools/probe-recovery/cpu-alpha-session.test.mjs:65:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'PREFLIGHT_FAILED',
+    expected: 'IDENTITY_INVALID',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

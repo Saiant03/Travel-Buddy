@@ -83,3 +83,29 @@ Offline checks:
 node --test tools/probe-recovery/cpu-capture.test.mjs tools/probe-recovery/cpu-correlate.test.mjs
 npx vitest run tests/probes/cpu-runner.test.ts
 ```
+
+### Existing Alpha session for an authorized capture
+
+The optional local helper signs in an existing Alpha account once, then passes its ID token directly in memory to the trusted `.local/p09/run-cpu.mjs` child. Prepare that bundled runner first. Supply the same endpoint, build hash, manifest, fresh capture summary, and new private report path listed above. The capture must already be healthy and have observed the authorized diagnostic; the helper checks again after sign-in, and the child continues checking during dispatch. This helper never starts the collector or performs the diagnostic.
+
+Place the independently verified Firebase project ID, public Web API key, and expected Alpha UID in a JSON file with mode `600` in a private directory with mode `700`:
+
+```json
+{"firebaseProjectId":"<verified-project-id>","firebaseWebApiKey":"<web-api-key>","expectedAlphaUid":"<verified-alpha-uid>"}
+```
+
+Provide its absolute path as `TRAVEL_BUDDY_FIREBASE_PUBLIC_CONFIG`. Provide `TRAVEL_BUDDY_ALPHA_EMAIL` and `TRAVEL_BUDDY_ALPHA_PASSWORD` through a private environment mechanism, never in chat, shell history, files or command arguments. Then run:
+
+```sh
+node /workspace/Travel-Buddy/tools/probe-recovery/cpu-alpha-session.mjs
+```
+
+The child receives only the probe endpoint, build, manifest, report and capture-summary variables, its ID token, and the explicitly allowed PATH, proxy, CA and runtime network guard variables. Alpha/Beta credentials and administrative secrets are not forwarded.
+
+The helper only calls Google's HTTPS `accounts:signInWithPassword` endpoint, with a bounded timeout and response, no redirects and no retry. Its output contains only a fixed result code or the child exit code; the child writes its normal private metadata report. The helper checks the response and token claims, including the independently supplied UID, but does not cryptographically verify the token; the Worker verifies its signature, Firebase claims, allowlist and membership on each invocation. A successful local check is not a P-09 result. Do not retry a live run without the applicable authorization.
+
+The following test is offline and uses only synthetic credentials and stubbed responses:
+
+```sh
+node --test tools/probe-recovery/cpu-alpha-session.test.mjs
+```

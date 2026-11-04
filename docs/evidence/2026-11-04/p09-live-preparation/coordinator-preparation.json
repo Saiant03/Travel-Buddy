@@ -1,0 +1,13 @@
+{
+  "checkedAtUtc": "2026-11-04T07:58:56.006995+00:00",
+  "baseCommit": "9546e028a14894d56a89781b62589c5645a557f6",
+  "workerAndOriginalRunnerSourcesMatchPriorReview": true,
+  "runnerBundleSha256": "72240cdf3ffe38ccc0cdeed1053a6dfb714abc5218dc53d20424c70f2189f6b2",
+  "runnerBundleBytes": 10778,
+  "runnerBundlePath": "/workspace/Travel-Buddy/.local/p09/run-cpu.mjs",
+  "workerInvocationsUsed": 0,
+  "realSignIns": 0,
+  "deploys": 0,
+  "requiredAlphaBindingsPresent": false,
+  "ownerConfirmedWorkersFreeAndAtLeast203Remaining": true
+}

@@ -1,0 +1,13 @@
+✔ successful existing-account sign-in passes only the token to the runner (31.025763ms)
+✔ invalid configuration or capture blocks before sign-in (3.431601ms)
+✔ rejects malformed, unverified or wrong-account responses without launching (7.484602ms)
+✔ sign-in errors, redirects and oversized bodies fail closed without retry or secret output (4.973226ms)
+✔ a capture becoming unhealthy during sign-in prevents dispatch (0.903801ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 117.690647

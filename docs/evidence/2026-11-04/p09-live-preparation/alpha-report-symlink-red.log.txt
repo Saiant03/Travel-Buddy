@@ -1,0 +1,30 @@
+✖ invalid configuration or capture blocks before sign-in (8.61189ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 77.304501
+
+✖ failing tests:
+
+test at tools/probe-recovery/cpu-alpha-session.test.mjs:39:1
+✖ invalid configuration or capture blocks before sign-in (8.61189ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'SIGN_IN_FAILED'
+  - 'PREFLIGHT_FAILED'
+  
+      at TestContext.<anonymous> (file:///workspace/Travel-Buddy/tools/probe-recovery/cpu-alpha-session.test.mjs:51:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'SIGN_IN_FAILED',
+    expected: 'PREFLIGHT_FAILED',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
