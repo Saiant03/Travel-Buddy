@@ -1,0 +1,29 @@
+✖ a duplicate event received during shutdown makes the capture fail (306.250278ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 381.354487
+
+✖ failing tests:
+
+test at tools/probe-recovery/cpu-capture.test.mjs:329:1
+✖ a duplicate event received during shutdown makes the capture fail (306.250278ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 2
+  
+      at TestContext.<anonymous> (file:///workspace/Travel-Buddy/tools/probe-recovery/cpu-capture.test.mjs:340:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

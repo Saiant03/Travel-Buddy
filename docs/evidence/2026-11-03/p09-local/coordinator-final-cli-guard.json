@@ -1,0 +1,7 @@
+{
+  "check": "runner-cli-refuses-unprepared-run",
+  "expectedExit": 2,
+  "actualExit": 2,
+  "stdoutEmpty": true,
+  "stderr": "CPU probe dispatch failed before producing a report."
+}

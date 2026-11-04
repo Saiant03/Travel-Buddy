@@ -152,6 +152,7 @@ describe('bounded CPU probe dispatcher', () => {
     expect(dispatched.status).toBe('sent');
     expect(dispatched.requested).toEqual({ cold: 100, warm: 100 });
     expect(dispatched.records).toHaveLength(200);
+    expect(dispatched.primer).toMatchObject({ requestId: 'request-0', requestedPath: 'warm', index: -1 });
     expect(new Set(dispatched.records.map((record) => record.requestId)).size).toBe(200);
     expect(dispatched.records.filter((record) => record.requestedPath === 'cold')).toHaveLength(100);
     expect(dispatched.records.filter((record) => record.requestedPath === 'warm')).toHaveLength(100);
@@ -159,6 +160,80 @@ describe('bounded CPU probe dispatcher', () => {
     expect(dispatched.isolateColdState).toBe('not_observed');
     expect(maxColdInFlight).toBeLessThanOrEqual(4);
     expect(dispatched.records[0]).not.toHaveProperty('cpuMs');
+  });
+
+  it('bounds an unresponsive request even when fetch ignores abort', async () => {
+    const result = await runCpuProbe({
+      endpoint: 'https://approved-probe.invalid/probe/benchmark', bearerToken: 'test', buildHash: 'c'.repeat(40),
+      requestTimeoutMs: 10, fetcher: async () => new Promise<Response>(() => {}),
+    });
+    expect(result.status).toBe('blocked');
+    expect(result.records).toHaveLength(0);
+  });
+
+  it('honors caller abort when reading a response body hangs', async () => {
+    const controller = new AbortController();
+    const pending = runCpuProbe({
+      endpoint: 'https://approved-probe.invalid/probe/benchmark', bearerToken: 'test', buildHash: 'c'.repeat(40),
+      signal: controller.signal, requestTimeoutMs: 5000,
+      fetcher: async () => new Response(new ReadableStream({ start() {} }), { status: 200 }),
+    });
+    setTimeout(() => controller.abort(), 10);
+    const result = await pending;
+    expect(result).toMatchObject({ status: 'blocked', reason: 'aborted' });
+    expect(result.records).toHaveLength(0);
+  });
+
+  it('never sends the bearer when the endpoint differs from the approved endpoint', async () => {
+    let calls = 0;
+    const result = await runCpuProbe({
+      endpoint: 'https://other.invalid/probe/benchmark', expectedEndpoint: 'https://approved.invalid/probe/benchmark',
+      bearerToken: 'test', buildHash: 'c'.repeat(40),
+      fetcher: async () => { calls += 1; return new Response(); },
+    });
+    expect(result).toMatchObject({ status: 'blocked', reason: 'invalid_runner_configuration' });
+    expect(calls).toBe(0);
+  });
+
+  it('does not send a primer when capture is already unhealthy', async () => {
+    let calls = 0;
+    const result = await runCpuProbe({
+      endpoint: 'https://approved-probe.invalid/probe/benchmark', bearerToken: 'test', buildHash: 'c'.repeat(40),
+      captureGuard: () => false, fetcher: async () => { calls += 1; return new Response(); },
+    });
+    expect(result).toMatchObject({ status: 'blocked', reason: 'capture_failed' });
+    expect(calls).toBe(0);
+  });
+
+  it('aborts a hanging request when the capture guard reports a failure', async () => {
+    let healthy = true;
+    const resultPromise = runCpuProbe({
+      endpoint: 'https://approved-probe.invalid/probe/benchmark', bearerToken: 'test', buildHash: 'c'.repeat(40),
+      requestTimeoutMs: 5000, captureGuard: () => healthy,
+      fetcher: async () => new Promise<Response>(() => {}),
+    });
+    setTimeout(() => { healthy = false; }, 10);
+    const result = await resultPromise;
+    expect(result).toMatchObject({ status: 'blocked', reason: 'capture_failed' });
+  });
+
+  it('stops when progress persistence fails, without issuing the measured requests', async () => {
+    let calls = 0;
+    const result = await runCpuProbe({
+      endpoint: 'https://approved-probe.invalid/probe/benchmark', bearerToken: 'test', buildHash: 'c'.repeat(40),
+      onProgress: () => { throw new Error('disk'); },
+      fetcher: async () => { calls += 1; return Response.json({ ok: true, requestId: 'primer' }, {
+        headers: { 'X-Probe-Request-ID': 'primer', 'X-Probe-Path': 'warm', 'X-Probe-Key-Cache': 'cold' },
+      }); },
+    });
+    expect(result.status).toBe('blocked');
+    expect(calls).toBe(1);
+  });
+
+  it('rejects an endpoint with credentials or redirects before exposing the bearer', async () => {
+    const fetcher = async () => { throw new Error('should not send'); };
+    const result = await runCpuProbe({ endpoint: 'https://user:pass@approved-probe.invalid/probe/benchmark', bearerToken: 'test', buildHash: 'c'.repeat(40), fetcher });
+    expect(result).toMatchObject({ status: 'blocked', reason: 'invalid_runner_configuration' });
   });
 
   it('stops dispatch after an HTTP failure and rejects duplicate response IDs', async () => {

@@ -1,0 +1,37 @@
+
+ RUN  v4.1.12 /workspace/Travel-Buddy
+
+ ❯ tests/probes/cpu-runner.test.ts (20 tests | 1 failed) 277ms
+     × never sends the bearer when the endpoint differs from the approved endpoint 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/probes/cpu-runner.test.ts > bounded CPU probe dispatcher > never sends the bearer when the endpoint differs from the approved endpoint
+AssertionError: expected { status: 'blocked', …(7) } to match object { status: 'blocked', …(1) }
+(8 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "reason": "invalid_runner_configuration",
++   "reason": "request_failed:Unexpected end of JSON input",
+    "status": "blocked",
+  }
+
+ ❯ tests/probes/cpu-runner.test.ts:194:20
+    192|       fetcher: async () => { calls += 1; return new Response(); },
+    193|     });
+    194|     expect(result).toMatchObject({ status: 'blocked', reason: 'invalid…
+       |                    ^
+    195|     expect(calls).toBe(0);
+    196|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 19 passed (20)
+   Start at  15:55:10
+   Duration  578ms (transform 116ms, setup 22ms, import 139ms, tests 277ms, environment 0ms)
+

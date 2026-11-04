@@ -1,0 +1,13 @@
+
+> travel-buddy@0.0.0 test
+> vitest run tests/probes/auth-worker.test.ts
+
+
+ RUN  v4.1.12 /workspace/Travel-Buddy
+
+
+ Test Files  1 passed (1)
+      Tests  16 passed (16)
+   Start at  15:52:08
+   Duration  3.12s (transform 190ms, setup 73ms, import 244ms, tests 2.46s, environment 0ms)
+

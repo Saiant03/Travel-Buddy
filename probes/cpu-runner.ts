@@ -34,16 +34,22 @@ export interface CpuDispatchResult {
   requested: { cold: number; warm: number };
   isolateColdState: 'not_observed';
   records: CpuDispatchRecord[];
+  primer?: CpuDispatchRecord;
 }
 
 export interface CpuProbeRunnerOptions {
   endpoint: string;
+  expectedEndpoint?: string;
   bearerToken: string;
   buildHash: string;
   fetcher?: typeof fetch;
   signal?: AbortSignal;
   coldConcurrency?: number;
   warmConcurrency?: number;
+  requestTimeoutMs?: number;
+  totalTimeoutMs?: number;
+  onProgress?: (report: CpuDispatchResult) => void;
+  captureGuard?: () => boolean;
 }
 
 const HASH_PATTERN = /^[a-f0-9]{64}$/;
@@ -66,14 +72,20 @@ export async function buildWorkloadPayload(tripId = 'probe-trip-1'): Promise<Pre
 export async function runCpuProbe(options: CpuProbeRunnerOptions): Promise<CpuDispatchResult> {
   const payload = await buildWorkloadPayload();
   const records: CpuDispatchRecord[] = [];
+  let primer: CpuDispatchRecord | undefined;
   const result = (status: CpuDispatchResult['status'], reason?: string): CpuDispatchResult => ({
     status, ...(reason ? { reason } : {}), workloadHash: payload.workloadHash, payloadBytes: payload.payloadBytes,
     buildHash: options.buildHash, requested: { cold: CPU_REQUESTS_PER_PATH, warm: CPU_REQUESTS_PER_PATH },
-    isolateColdState: 'not_observed', records,
+    isolateColdState: 'not_observed', records: [...records], ...(primer ? { primer } : {}),
   });
-  const coldConcurrency = options.coldConcurrency ?? 16;
+  const coldConcurrency = options.coldConcurrency ?? 1;
   const warmConcurrency = options.warmConcurrency ?? 1;
-  if (!options.endpoint || !options.bearerToken || !BUILD_PATTERN.test(options.buildHash) ||
+  const requestTimeoutMs = options.requestTimeoutMs ?? 30_000;
+  const totalTimeoutMs = options.totalTimeoutMs ?? 600_000;
+  let endpointValid = false;
+  try { const url = new URL(options.endpoint); endpointValid = url.protocol === 'https:' && url.pathname === '/probe/benchmark' && !url.username && !url.password && !url.search && !url.hash; } catch { /* invalid URL */ }
+  if (!endpointValid || (options.expectedEndpoint !== undefined && options.endpoint !== options.expectedEndpoint) || !Number.isSafeInteger(requestTimeoutMs) || requestTimeoutMs < 1 || requestTimeoutMs > 600_000 ||
+      !Number.isSafeInteger(totalTimeoutMs) || totalTimeoutMs < 1 || totalTimeoutMs > 600_000 || !options.endpoint || !options.bearerToken || !BUILD_PATTERN.test(options.buildHash) ||
       !Number.isSafeInteger(coldConcurrency) || coldConcurrency < 1 || coldConcurrency > 16 ||
       !Number.isSafeInteger(warmConcurrency) || warmConcurrency < 1 || warmConcurrency > 16) {
     return result('blocked', 'invalid_runner_configuration');
@@ -83,11 +95,34 @@ export async function runCpuProbe(options: CpuProbeRunnerOptions): Promise<CpuDi
   const abortFromCaller = () => controller.abort(options.signal?.reason);
   options.signal?.addEventListener('abort', abortFromCaller, { once: true });
   const fetcher = options.fetcher ?? fetch;
+  const totalTimer = setTimeout(() => controller.abort(new Error('total_timeout')), totalTimeoutMs);
+  let captureFailed = false;
+  const checkCapture = () => {
+    try { if (!options.captureGuard || options.captureGuard()) return; } catch { /* fail closed */ }
+    captureFailed = true; controller.abort(new Error('capture_failed'));
+  };
+  checkCapture();
+  const guardTimer = setInterval(checkCapture, 100);
   const requestIds = new Set<string>();
   let failure: string | undefined;
   const sendOne = async (path: CpuPath, index: number, measured: boolean, expectedState?: KeyCacheState): Promise<void> => {
-    const response = await fetcher(options.endpoint, {
+    checkCapture();
+    if (controller.signal.aborted) throw new Error('aborted');
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const timeout = new Promise<never>((_, reject) => {
+      timer = setTimeout(() => { controller.abort(new Error('request_timeout')); reject(new Error('request_timeout')); }, requestTimeoutMs);
+    });
+    let rejectAbort: (reason: Error) => void = () => {};
+    const onAbort = () => rejectAbort(new Error('aborted'));
+    const aborted = new Promise<never>((_, reject) => {
+      rejectAbort = reject;
+      if (controller.signal.aborted) onAbort();
+      else controller.signal.addEventListener('abort', onAbort, { once: true });
+    });
+    try {
+    const response = await Promise.race([fetcher(options.endpoint, {
       method: 'POST',
+      redirect: 'error',
       headers: {
         Authorization: `Bearer ${options.bearerToken}`,
         'Content-Type': 'application/json',
@@ -96,9 +131,9 @@ export async function runCpuProbe(options: CpuProbeRunnerOptions): Promise<CpuDi
       },
       body: payload.body,
       signal: controller.signal,
-    });
+    }), timeout, aborted]);
     if (!response.ok) throw new Error(`http_${response.status}`);
-    const body = await response.json() as { ok?: unknown; requestId?: unknown };
+    const body = await Promise.race([response.json(), timeout, aborted]) as { ok?: unknown; requestId?: unknown };
     const headerId = response.headers.get('X-Probe-Request-ID');
     const keyCacheState = response.headers.get('X-Probe-Key-Cache');
     if (body?.ok !== true || typeof body.requestId !== 'string' || body.requestId.length === 0 ||
@@ -107,7 +142,10 @@ export async function runCpuProbe(options: CpuProbeRunnerOptions): Promise<CpuDi
         (keyCacheState !== 'cold' && keyCacheState !== 'warm') ||
         (expectedState && keyCacheState !== expectedState)) throw new Error('invalid_or_duplicate_probe_evidence');
     requestIds.add(body.requestId);
-    if (measured) records.push({ requestedPath: path, keyCacheState, index, requestId: body.requestId });
+    const record: CpuDispatchRecord = { requestedPath: path, keyCacheState, index, requestId: body.requestId };
+    if (measured) records.push(record); else primer = record;
+    options.onProgress?.(result('blocked', 'in_progress'));
+    } finally { if (timer) clearTimeout(timer); controller.signal.removeEventListener('abort', onAbort); }
   };
   try {
     // Prime the shared verifier before counting warm samples; the prime itself is not evidence.
@@ -138,10 +176,12 @@ export async function runCpuProbe(options: CpuProbeRunnerOptions): Promise<CpuDi
       if (failure || controller.signal.aborted) break;
     }
   } finally {
+    clearTimeout(totalTimer);
+    clearInterval(guardTimer);
     options.signal?.removeEventListener('abort', abortFromCaller);
   }
   if (failure || records.length !== CPU_REQUESTS_PER_PATH * 2 || requestIds.size !== records.length + 1) {
-    return result('blocked', failure ?? 'incomplete_or_duplicate_request_set');
+    return result('blocked', captureFailed ? 'capture_failed' : failure ?? 'incomplete_or_duplicate_request_set');
   }
   return result('sent');
 }

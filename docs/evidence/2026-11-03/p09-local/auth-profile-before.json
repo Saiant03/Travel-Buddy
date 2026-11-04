@@ -1,0 +1,57 @@
+{
+  "node": "v24.19.0",
+  "platform": "linux",
+  "arch": "x64",
+  "note": "Local Node microbenchmark; warmed process, synthetic RSA-2048, same key, no network; not Cloudflare CPU or P-09.",
+  "results": {
+    "importX509": {
+      "iterations": 1000,
+      "meanWallMs": 0.045659129000000034,
+      "p50WallMs": 0.02186800000001199,
+      "p95WallMs": 0.08476599999997347,
+      "meanCpuMs": 0.060655
+    },
+    "importJWK": {
+      "iterations": 1000,
+      "meanWallMs": 0.01407448299999919,
+      "p50WallMs": 0.010096999999973377,
+      "p95WallMs": 0.020453000000003385,
+      "meanCpuMs": 0.022372
+    },
+    "x509ImportAndVerify": {
+      "iterations": 1000,
+      "meanWallMs": 0.18256933700000078,
+      "p50WallMs": 0.14208899999999858,
+      "p95WallMs": 0.38987800000001016,
+      "meanCpuMs": 0.175984
+    },
+    "jwkImportAndVerify": {
+      "iterations": 1000,
+      "meanWallMs": 0.125336620999999,
+      "p50WallMs": 0.0985960000000432,
+      "p95WallMs": 0.23475700000000188,
+      "meanCpuMs": 0.11328700000000001
+    },
+    "cachedKeyVerify": {
+      "iterations": 1000,
+      "meanWallMs": 0.08860748199999886,
+      "p50WallMs": 0.06417499999997744,
+      "p95WallMs": 0.15847099999996317,
+      "meanCpuMs": 0.070963
+    },
+    "verifierCold": {
+      "iterations": 1000,
+      "meanWallMs": 0.27023489200000006,
+      "p50WallMs": 0.22658899999998994,
+      "p95WallMs": 0.558983000000012,
+      "meanCpuMs": 0.295404
+    },
+    "verifierWarm": {
+      "iterations": 1000,
+      "meanWallMs": 0.16194426999999836,
+      "p50WallMs": 0.11884999999983847,
+      "p95WallMs": 0.34540500000002794,
+      "meanCpuMs": 0.15037299999999998
+    }
+  }
+}

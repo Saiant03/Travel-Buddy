@@ -1,0 +1,37 @@
+
+ RUN  v4.1.12 /workspace/Travel-Buddy
+
+ ❯ tests/probes/cpu-runner.test.ts (13 tests | 1 failed) 116ms
+     × sends 100 requests marked per path and returns unique request IDs without CPU claims 19ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/probes/cpu-runner.test.ts > bounded CPU probe dispatcher > sends 100 requests marked per path and returns unique request IDs without CPU claims
+AssertionError: expected undefined to match object { requestId: 'request-0', …(2) }
+
+- Expected:
+{
+  "index": -1,
+  "requestId": "request-0",
+  "requestedPath": "warm",
+}
+
++ Received:
+undefined
+
+ ❯ tests/probes/cpu-runner.test.ts:155:31
+    153|     expect(dispatched.requested).toEqual({ cold: 100, warm: 100 });
+    154|     expect(dispatched.records).toHaveLength(200);
+    155|     expect(dispatched.primer).toMatchObject({ requestId: 'request-0', …
+       |                               ^
+    156|     expect(new Set(dispatched.records.map((record) => record.requestId…
+    157|     expect(dispatched.records.filter((record) => record.requestedPath …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 12 passed (13)
+   Start at  15:42:55
+   Duration  399ms (transform 104ms, setup 32ms, import 119ms, tests 116ms, environment 0ms)
+

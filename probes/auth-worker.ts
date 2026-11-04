@@ -20,7 +20,7 @@ export interface FirebaseVerifierOptions {
   now?: () => number;
 }
 
-interface CertificateSet { keys: Record<string, string>; expiresAt: number }
+interface CertificateSet { keys: Record<string, string>; expiresAt: number; importedKeys: Map<string, ReturnType<typeof importX509>> }
 export type KeyCacheState = 'cold' | 'warm';
 export type FirebaseVerifier = ((token: string) => Promise<VerifiedIdentity>) & {
   verifyWithKeyCacheState(token: string): Promise<{ identity: VerifiedIdentity; keyCacheState: KeyCacheState }>;
@@ -91,7 +91,7 @@ export function createFirebaseVerifier(options: FirebaseVerifierOptions): Fireba
       if (validEntries.length === 0) throw new AuthFailure('KEYS_UNAVAILABLE');
       const cleanKeys = Object.fromEntries(validEntries);
       const expiresAt = now() + maxAgeMilliseconds(response.headers.get('Cache-Control'));
-      certSet = { keys: cleanKeys, expiresAt };
+      certSet = { keys: cleanKeys, expiresAt, importedKeys: new Map() };
       return certSet;
     })();
     try { return await fetchInFlight; }
@@ -134,7 +134,17 @@ export function createFirebaseVerifier(options: FirebaseVerifierOptions): Fireba
 
     let payload: JWTPayload;
     try {
-      const publicKey = await importX509(cert, 'RS256');
+      let importedKey = certs.importedKeys.get(kid);
+      if (!importedKey) {
+        importedKey = importX509(cert, 'RS256');
+        certs.importedKeys.set(kid, importedKey);
+      }
+      let publicKey: Awaited<ReturnType<typeof importX509>>;
+      try { publicKey = await importedKey; }
+      catch (error) {
+        if (certs.importedKeys.get(kid) === importedKey) certs.importedKeys.delete(kid);
+        throw error;
+      }
       ({ payload } = await jwtVerify(token, publicKey, {
         algorithms: ['RS256'],
         audience: projectId,

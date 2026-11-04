@@ -1,0 +1,67 @@
+✔ JSON stream parser handles pretty chunks and discards status strings (2.395051ms)
+✔ JSON stream parser skips ANSI and CLI noise across split escape and JSON chunks (1.150637ms)
+✔ JSON stream parser discards complete quoted status strings before the next event (1.139293ms)
+✔ synthetic Wrangler replay captures primer, cold, and warm events despite ANSI and status noise (183.646446ms)
+✔ capture stores only allowlisted request, trace, and CPU workload fields (0.527529ms)
+✔ capture reads Wrangler logs whose message field is an array (0.531826ms)
+✔ public config diagnostic records telemetry presence without retaining the event (0.925626ms)
+✔ capture never guesses the primer from tail order (0.439582ms)
+✔ capture preserves extra events and counts errors, truncation, and missing CPU metrics (2.188915ms)
+✔ summary counts the warm primer, measured samples, duplicates, and invalid values (0.373087ms)
+✔ CLI captures 201 Wrangler child events privately and stops gracefully on SIGINT (1056.266143ms)
+✔ a partial trailing JSON event is counted as a parse error and never evaluates a capture (0.319013ms)
+✔ tail failure and partial child output remain incomplete and unevaluated (47.563327ms)
+✔ tail overload signals are counted without retaining their messages (0.347689ms)
+✖ missing truncation and exception metadata remains unknown (1.099555ms)
+✖ reordered events join by explicit primer and IDs, and incomplete or damaged sets never yield percentiles (8.750458ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 14
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1437.227881
+
+✖ failing tests:
+
+test at tools/probe-recovery/cpu-capture.test.mjs:278:1
+✖ missing truncation and exception metadata remains unknown (1.099555ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== null
+  
+      at TestContext.<anonymous> (file:///workspace/Travel-Buddy/tools/probe-recovery/cpu-capture.test.mjs:284:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: null,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/probe-recovery/cpu-correlate.test.mjs:13:1
+✖ reordered events join by explicit primer and IDs, and incomplete or damaged sets never yield percentiles (8.750458ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'review_required'
+  - 'blocked'
+  
+      at TestContext.<anonymous> (file:///workspace/Travel-Buddy/tools/probe-recovery/cpu-correlate.test.mjs:41:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'review_required',
+    expected: 'blocked',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

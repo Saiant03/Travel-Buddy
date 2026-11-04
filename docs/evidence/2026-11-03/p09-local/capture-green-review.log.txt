@@ -1,0 +1,29 @@
+✔ JSON stream parser handles pretty chunks and discards status strings (1.985253ms)
+✔ JSON stream parser skips ANSI and CLI noise across split escape and JSON chunks (1.397319ms)
+✔ JSON stream parser discards complete quoted status strings before the next event (1.033832ms)
+✔ synthetic Wrangler replay captures primer, cold, and warm events despite ANSI and status noise (185.216447ms)
+✔ capture stores only allowlisted request, trace, and CPU workload fields (0.37252ms)
+✔ capture reads Wrangler logs whose message field is an array (0.402955ms)
+✔ public config diagnostic records telemetry presence without retaining the event (0.371833ms)
+✔ capture never guesses the primer from tail order (0.223333ms)
+✔ capture preserves extra events and counts errors, truncation, and missing CPU metrics (1.443041ms)
+✔ summary counts the warm primer, measured samples, duplicates, and invalid values (0.424506ms)
+✔ CLI captures 201 Wrangler child events privately and stops gracefully on SIGINT (1066.195519ms)
+✔ a partial trailing JSON event is counted as a parse error and never evaluates a capture (0.317467ms)
+✔ tail failure and partial child output remain incomplete and unevaluated (44.366819ms)
+✔ tail overload signals are counted without retaining their messages (0.273054ms)
+✔ missing truncation and exception metadata remains unknown (0.308598ms)
+✔ overload signals are counted even when the message is missing (0.233516ms)
+✔ a fatal overload cannot be overwritten by matching IDs while child delays exit (2050.48431ms)
+✔ an overload-stop received during shutdown makes the capture fail (1046.775068ms)
+✔ a duplicate event received during shutdown makes the capture fail (296.365952ms)
+✔ unknown outcome text is redacted and blocks the capture (0.36786ms)
+✔ reordered events join by explicit primer and IDs, and incomplete or damaged sets never yield percentiles (8.824524ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4827.56315

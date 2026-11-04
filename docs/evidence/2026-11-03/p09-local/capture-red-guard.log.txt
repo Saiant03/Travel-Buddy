@@ -1,0 +1,27 @@
+
+ RUN  v4.1.12 /workspace/Travel-Buddy
+
+ ❯ tests/probes/cpu-runner.test.ts (17 tests | 1 failed) 5154ms
+     × aborts a hanging request when the capture guard reports a failure 5006ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/probes/cpu-runner.test.ts > bounded CPU probe dispatcher > aborts a hanging request when the capture guard reports a failure
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/probes/cpu-runner.test.ts:174:3
+    172|   });
+    173|
+    174|   it('aborts a hanging request when the capture guard reports a failur…
+       |   ^
+    175|     let healthy = true;
+    176|     const resultPromise = runCpuProbe({
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 16 passed (17)
+   Start at  15:48:47
+   Duration  5.49s (transform 130ms, setup 23ms, import 162ms, tests 5.15s, environment 0ms)
+

@@ -1,0 +1,32 @@
+✖ unknown outcome text is redacted and blocks the capture (2.958133ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 80.789737
+
+✖ failing tests:
+
+test at tools/probe-recovery/cpu-capture.test.mjs:345:1
+✖ unknown outcome text is redacted and blocks the capture (2.958133ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'Bearer cpu-private-marker'
+  - 'unrecognized'
+  
+      at TestContext.<anonymous> (file:///workspace/Travel-Buddy/tools/probe-recovery/cpu-capture.test.mjs:348:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Bearer cpu-private-marker',
+    expected: 'unrecognized',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

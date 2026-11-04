@@ -4,12 +4,12 @@
 <a id="executie-activa"></a>
 ## Execuție activă
 
-- **Scop:** reconcilierea finală a documentației locale cu integrarea curentă pe `main`, păstrând proveniența și schimbările unice.
-- **Stare și handoff:** Baza integrării este `origin/main` la `775081fd79c53267cdede1183f3ac4d8ff2cb851`, după fetch; `main` urmărește `origin/main`. Istoricul `0eee354c` este strămoș, iar cele trei commituri remote păstrate includ Task 8A, raportul vizual neacceptat și prioritatea P-09. Confirmarea commitului final și pushului se bazează pe status/log după integrare, nu pe snapshoturile istorice de blocaj.
-- **Domeniu:** numai cele 11 documente recuperate; conflictele de integrare sunt `AGENTS.md`, `docs/memory.md`, `docs/plan.md`. Codul și configurația produsului nu fac parte din această sarcină.
-- **Păstrare:** rezultatele esențiale și istoricul local unic din copiile de siguranță, alături de schimbările unice din `origin/main`, sunt păstrate; cele cinci fișiere locale aplicate curat rămân nemodificate.
-- **Acceptare/verificare:** eliminarea markerilor de conflict, secțiunile curente concordante cu sursele și păstrarea raportării istorice fără a o prezenta drept rezultate noi.
-- **Predare:** starea livrării se verifică din Git; această predare nu pornește un produs nou și nu autorizează commituri sau pushuri viitoare.
+- **Scop:** diagnoză și remediere locală a P-09, fără redesign și fără schimbarea criteriilor serverului.
+- **Bază:** fetch-ul din 2026-11-04 a confirmat că `main` rămâne la `5b785c8`. Această sincronizare nu a adus commituri noi, iar arborele era curat la începutul lucrului. Coordonatorul deține integrarea Git și va raporta separat commitul/pushul de orice deploy.
+- **Stare P-09:** verdictul live rămâne **FAIL**: 10/100 cereri cold peste 7 ms. P95-urile exacte și zero terminări CPU pentru setul complet rămân necunoscute. `cold` înseamnă cache de chei gol, nu isolate rece. B1, Task 3, backendul real și acceptarea online rămân blocate.
+- **Patch local:** auth cache reutilizează cheia CryptoKey per set de certificate până la expirarea lui și coordonează importurile simultane; verificările JWT, refresh-ul și respingerea fail-closed rămân. Captura separă primerul, unește strict după ID, păstrează manifestul de versiune separat de hashul buildului și refuză percentilele când lipsesc evenimente. Profilarea Node măsoară `process.cpuUsage`; workerd local raportează timp de perete. Niciuna nu este CPU Cloudflare. Vezi [jurnalul P-09](operations/2026-11-03-p09-local-remediation.md) și [dovezi](evidence/2026-11-03/p09-local/README.md).
+- **Verificări locale la 2026-11-04:** 256/256 teste în 26 fișiere, 21/21 teste de captură/corelare, typecheck, lint, 6/6 E2E Chromium simulate, cele trei builduri pornite prin E2E, compilarea runnerului esbuild și Wrangler dry-run au trecut. Lintul inițial a raportat 186 erori în fișierul generat `.local/p09-deploy/console-worker.js`; după regula `**/.local/**` și un bundle nou, lintul a trecut. Sol a închis CAP01–CAP06 și reviewul auth fără defecte confirmate deschise. Comenzile și logurile exacte sunt în [manifestul final](evidence/2026-11-03/p09-local/coordinator-final-verification.json).
+- **Handoff:** închiderea documentației și reverificarea locală preced orice cerere pentru o nouă măsurare live. Este necesară o singură aprobare separată după patch testat și un plan concret. Până atunci nu face deploy și nu porni workload CPU.
 <!-- ACTIVE:END -->
 
 <!-- SNAPSHOTS:START -->

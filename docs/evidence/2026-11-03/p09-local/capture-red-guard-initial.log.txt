@@ -1,0 +1,33 @@
+
+ RUN  v4.1.12 /workspace/Travel-Buddy
+
+ ❯ tests/probes/cpu-runner.test.ts (18 tests | 1 failed) 257ms
+     × does not send a primer when capture is already unhealthy 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/probes/cpu-runner.test.ts > bounded CPU probe dispatcher > does not send a primer when capture is already unhealthy
+AssertionError: expected 1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ tests/probes/cpu-runner.test.ts:181:19
+    179|     });
+    180|     expect(result).toMatchObject({ status: 'blocked', reason: 'capture…
+    181|     expect(calls).toBe(0);
+       |                   ^
+    182|   });
+    183|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 17 passed (18)
+   Start at  15:50:09
+   Duration  554ms (transform 103ms, setup 19ms, import 139ms, tests 257ms, environment 0ms)
+

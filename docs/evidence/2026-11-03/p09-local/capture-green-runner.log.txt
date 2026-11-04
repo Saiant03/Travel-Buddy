@@ -1,0 +1,9 @@
+
+ RUN  v4.1.12 /workspace/Travel-Buddy
+
+
+ Test Files  1 passed (1)
+      Tests  20 passed (20)
+   Start at  07:13:41
+   Duration  631ms (transform 120ms, setup 25ms, import 137ms, tests 342ms, environment 0ms)
+

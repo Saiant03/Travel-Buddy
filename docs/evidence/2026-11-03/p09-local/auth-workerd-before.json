@@ -1,0 +1,34 @@
+{
+  "node": "v24.19.0",
+  "note": "Local Miniflare/workerd end-to-end wall time, not platform CPU; synthetic token, local SQLite D1, 256 KiB body. Crypto scenarios perform 20 imports and JWT verifies per request. Different ordering, JIT and process noise limit comparisons.",
+  "results": {
+    "crypto20_x509": {
+      "n": 80,
+      "meanWallMs": 3.4287748125000066,
+      "p50WallMs": 2.7422010000000228,
+      "p95WallMs": 5.345695999999862,
+      "first16MeanWallMs": 5.059938812499993
+    },
+    "crypto20_jwk": {
+      "n": 80,
+      "meanWallMs": 2.659683100000012,
+      "p50WallMs": 2.5663110000000415,
+      "p95WallMs": 3.6146159999998417,
+      "first16MeanWallMs": 2.45608393750004
+    },
+    "full_cold": {
+      "n": 80,
+      "meanWallMs": 5.684518237500024,
+      "p50WallMs": 5.084094999999934,
+      "p95WallMs": 8.289766999999983,
+      "first16MeanWallMs": 6.98618218750002
+    },
+    "full_warm": {
+      "n": 80,
+      "meanWallMs": 5.34123733750001,
+      "p50WallMs": 4.9513140000001385,
+      "p95WallMs": 7.8568330000000515,
+      "first16MeanWallMs": 5.726558187500004
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "verifiedAtUtc": "2026-11-04T07:20:56.978586+00:00",
+  "baseCommit": "5b785c8a259db1fbdb3560a8c1a4f33cff7917ba",
+  "checks": [
+    {
+      "command": "npm test",
+      "result": "pass",
+      "tests": 256,
+      "files": 26,
+      "log": "coordinator-final-unit.log.txt"
+    },
+    {
+      "command": "node --test tools/probe-recovery/cpu-capture.test.mjs tools/probe-recovery/cpu-correlate.test.mjs",
+      "result": "pass",
+      "tests": 21,
+      "log": "coordinator-final-capture.log.txt"
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "pass",
+      "log": "coordinator-final-types.log.txt"
+    },
+    {
+      "command": "npm run lint",
+      "result": "pass",
+      "log": "coordinator-final-lint-green.log.txt",
+      "priorFailure": "coordinator-final-lint.log.txt: generated dry-run bundle included; fixed by excluding **/.local/** only"
+    },
+    {
+      "command": "npx --no-install playwright test --project=server-console",
+      "result": "pass",
+      "tests": 6,
+      "scope": "Chromium; Firebase intercepted locally; starts three existing builds",
+      "log": "coordinator-final-console-e2e.log.txt"
+    },
+    {
+      "command": "./node_modules/.bin/esbuild probes/server/run-cpu.ts --bundle --platform=node --format=esm --outfile=/workspace/Travel-Buddy/.local/p09/run-cpu.mjs",
+      "result": "pass",
+      "log": "coordinator-final-runner-bundle.log.txt"
+    },
+    {
+      "command": "WRANGLER_SEND_METRICS=false NODE_USE_ENV_PROXY=1 ./node_modules/.bin/wrangler deploy --config probes/server/wrangler.console.toml --dry-run --outdir /workspace/Travel-Buddy/.local/p09-deploy-final --keep-vars",
+      "result": "pass",
+      "deployExecuted": false,
+      "log": "coordinator-final-dryrun.log.txt"
+    },
+    {
+      "check": "runner CLI refuses missing preparation before dispatch",
+      "result": "pass",
+      "exitCode": 2,
+      "log": "coordinator-final-cli-guard.json"
+    }
+  ],
+  "sourceSha256": {
+    "eslint.config.js": "60a7bb8d76ad84efadafd10f98e9da08c0cb220934a02c3865e9d54dc78d7406",
+    "probes/auth-worker.ts": "40ef0351c27b252f04aa0143e61ae247e13b8c528c3a31f16da4bc4880b76672",
+    "probes/cpu-runner.ts": "2e38a7aea307bd9bf9ee587e9f5c0834f061d82727335e1c03a9f134fb502d8f",
+    "probes/server/run-cpu.ts": "bf9e332c7961003a2c54f94363d08b663d588a9e50f41b652ba3bb4de1175a82",
+    "tests/probes/auth-worker.test.ts": "f80a67b0e434854a497985e95ba35a75674a8e659c07961d47ba9b7971ca6296",
+    "tests/probes/cpu-runner.test.ts": "4c973b35c3af17aa3d39237e05d96eb34f994af08417668b75c8da4b9b3eed6d",
+    "tools/probe-recovery/cpu-capture.mjs": "5ba6004e7f26363f27257bccffa0b8cd0995ac7bc37ed4ab505b88ee8a2b9168",
+    "tools/probe-recovery/cpu-capture.test.mjs": "c7e45f953827e47e5e208e466d4498c728e682b0714bd03b703afdaa30408c17",
+    "tools/probe-recovery/cpu-correlate.mjs": "1a5711a96122e59db49e5abb5cd44b0c25c1e3acd381a65f05272be3d3408c08",
+    "tools/probe-recovery/cpu-correlate.test.mjs": "98ae5a25f184b5d388c7958ae4af57cb316cfa0d939f65d2be521899e2c0be47",
+    "tools/probe-recovery/auth-profile.mjs": "1de0470f4e75aa694fb67f7f51d74e9b2ab71e68d567d43aaa6ea3738e9f5913",
+    "tools/probe-recovery/auth-profile-workerd.mjs": "877831c0a7abc971d564343fff9295b72dfa7690e856e973c2f5e425d8f028f0"
+  },
+  "limits": [
+    "Local and simulated tests only; no new Cloudflare CPU sample or real capture.",
+    "Existing live P-09 FAIL remains; cold CPU cause/effect unresolved.",
+    "No deploy, CAS, iPhone, account mutation, fixture reset, billing, or Task 3."
+  ]
+}
